@@ -1,0 +1,442 @@
+{
+  "status": "post-evaluation diagnostic, not a new holdout",
+  "rows_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+  "case_counts": {
+    "causal": 26196,
+    "jev": 26196,
+    "qwen": 14624
+  },
+  "tasks": {
+    "contractnli": {
+      "causal": {
+        "valid": 2091,
+        "gold_counts": {
+          "Contradiction": 220,
+          "NotMentioned": 903,
+          "Entailment": 968
+        },
+        "prediction_counts": {
+          "Entailment": 1607,
+          "NotMentioned": 233,
+          "Contradiction": 251
+        },
+        "recall": {
+          "Contradiction": 0.20909090909090908,
+          "NotMentioned": 0.15503875968992248,
+          "Entailment": 0.9132231404958677
+        }
+      },
+      "jev": {
+        "valid": 2091,
+        "gold_counts": {
+          "NotMentioned": 903,
+          "Entailment": 968,
+          "Contradiction": 220
+        },
+        "prediction_counts": {
+          "NotMentioned": 719,
+          "Entailment": 946,
+          "Contradiction": 426
+        },
+        "recall": {
+          "NotMentioned": 0.6832779623477298,
+          "Entailment": 0.8099173553719008,
+          "Contradiction": 0.7954545454545454
+        }
+      },
+      "qwen": {
+        "valid": 921,
+        "gold_counts": {
+          "Contradiction": 97,
+          "NotMentioned": 447,
+          "Entailment": 377
+        },
+        "prediction_counts": {
+          "NotMentioned": 543,
+          "Entailment": 309,
+          "Contradiction": 69
+        },
+        "recall": {
+          "Contradiction": 0.41237113402061853,
+          "NotMentioned": 0.8993288590604027,
+          "Entailment": 0.7082228116710876
+        }
+      },
+      "common_valid": {
+        "n": 921,
+        "accuracy": {
+          "causal": 0.43973941368078173,
+          "jev": 0.7372421281216069,
+          "qwen": 0.7698154180238871
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    },
+    "ragtruth": {
+      "causal": {
+        "valid": 2700,
+        "gold_counts": {
+          "false": 1757,
+          "true": 943
+        },
+        "prediction_counts": {
+          "false": 2670,
+          "true": 30
+        },
+        "recall": {
+          "false": 0.9852020489470689,
+          "true": 0.0042417815482502655
+        }
+      },
+      "jev": {
+        "valid": 2700,
+        "gold_counts": {
+          "false": 1757,
+          "true": 943
+        },
+        "prediction_counts": {
+          "false": 1262,
+          "true": 1438
+        },
+        "recall": {
+          "false": 0.6920887877063175,
+          "true": 0.9512195121951219
+        }
+      },
+      "qwen": {
+        "valid": 2657,
+        "gold_counts": {
+          "false": 1729,
+          "true": 928
+        },
+        "prediction_counts": {
+          "false": 1751,
+          "true": 906
+        },
+        "recall": {
+          "false": 0.9091960670908039,
+          "true": 0.8071120689655172
+        }
+      },
+      "common_valid": {
+        "n": 2657,
+        "accuracy": {
+          "causal": 0.6424538953707188,
+          "jev": 0.7820850583364697,
+          "qwen": 0.8735415882574332
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    },
+    "rjudge": {
+      "causal": {
+        "valid": 571,
+        "gold_counts": {
+          "true": 301,
+          "false": 270
+        },
+        "prediction_counts": {
+          "false": 543,
+          "true": 28
+        },
+        "recall": {
+          "true": 0.0033222591362126247,
+          "false": 0.9
+        }
+      },
+      "jev": {
+        "valid": 571,
+        "gold_counts": {
+          "false": 270,
+          "true": 301
+        },
+        "prediction_counts": {
+          "false": 269,
+          "true": 302
+        },
+        "recall": {
+          "false": 0.8629629629629629,
+          "true": 0.8803986710963455
+        }
+      },
+      "qwen": {
+        "valid": 571,
+        "gold_counts": {
+          "true": 301,
+          "false": 270
+        },
+        "prediction_counts": {
+          "true": 256,
+          "false": 315
+        },
+        "recall": {
+          "true": 0.7906976744186046,
+          "false": 0.9333333333333333
+        }
+      },
+      "common_valid": {
+        "n": 571,
+        "accuracy": {
+          "causal": 0.4273204903677758,
+          "jev": 0.87215411558669,
+          "qwen": 0.8581436077057794
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    },
+    "tsbench_agentdojo-traj": {
+      "causal": {
+        "valid": 1096,
+        "gold_counts": {
+          "safe": 816,
+          "unsafe": 280
+        },
+        "prediction_counts": {
+          "safe": 1096
+        },
+        "recall": {
+          "safe": 1.0,
+          "unsafe": 0.0
+        }
+      },
+      "jev": {
+        "valid": 1220,
+        "gold_counts": {
+          "unsafe": 352,
+          "safe": 868
+        },
+        "prediction_counts": {
+          "unsafe": 297,
+          "safe": 921,
+          "controversial": 2
+        },
+        "recall": {
+          "unsafe": 0.8068181818181818,
+          "safe": 0.9850230414746544
+        }
+      },
+      "qwen": {
+        "valid": 814,
+        "gold_counts": {
+          "safe": 657,
+          "unsafe": 157
+        },
+        "prediction_counts": {
+          "safe": 656,
+          "unsafe": 157,
+          "controversial": 1
+        },
+        "recall": {
+          "safe": 0.9923896499238964,
+          "unsafe": 0.9745222929936306
+        }
+      },
+      "common_valid": {
+        "n": 814,
+        "accuracy": {
+          "causal": 0.8071253071253072,
+          "jev": 0.9742014742014742,
+          "qwen": 0.9889434889434889
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    },
+    "tsbench_agentharm-traj": {
+      "causal": {
+        "valid": 731,
+        "gold_counts": {
+          "controversial": 315,
+          "unsafe": 210,
+          "safe": 206
+        },
+        "prediction_counts": {
+          "safe": 716,
+          "controversial": 15
+        },
+        "recall": {
+          "controversial": 0.012698412698412698,
+          "unsafe": 0.0,
+          "safe": 1.0
+        }
+      },
+      "jev": {
+        "valid": 731,
+        "gold_counts": {
+          "safe": 206,
+          "controversial": 315,
+          "unsafe": 210
+        },
+        "prediction_counts": {
+          "safe": 433,
+          "unsafe": 209,
+          "controversial": 89
+        },
+        "recall": {
+          "safe": 0.8446601941747572,
+          "controversial": 0.11746031746031746,
+          "unsafe": 0.5142857142857142
+        }
+      },
+      "qwen": {
+        "valid": 688,
+        "gold_counts": {
+          "controversial": 306,
+          "unsafe": 186,
+          "safe": 196
+        },
+        "prediction_counts": {
+          "controversial": 81,
+          "safe": 477,
+          "unsafe": 130
+        },
+        "recall": {
+          "controversial": 0.10130718954248366,
+          "unsafe": 0.42473118279569894,
+          "safe": 0.9030612244897959
+        }
+      },
+      "common_valid": {
+        "n": 688,
+        "accuracy": {
+          "causal": 0.29069767441860467,
+          "jev": 0.4331395348837209,
+          "qwen": 0.4171511627906977
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    },
+    "tsbench_asb-traj": {
+      "causal": {
+        "valid": 5231,
+        "gold_counts": {
+          "safe": 2696,
+          "unsafe": 1069,
+          "controversial": 1466
+        },
+        "prediction_counts": {
+          "safe": 5198,
+          "unsafe": 18,
+          "controversial": 15
+        },
+        "recall": {
+          "safe": 0.9925816023738873,
+          "unsafe": 0.0037418147801683817,
+          "controversial": 0.0
+        }
+      },
+      "jev": {
+        "valid": 5231,
+        "gold_counts": {
+          "safe": 2696,
+          "unsafe": 1069,
+          "controversial": 1466
+        },
+        "prediction_counts": {
+          "safe": 4571,
+          "controversial": 101,
+          "unsafe": 559
+        },
+        "recall": {
+          "safe": 0.9514094955489614,
+          "unsafe": 0.35827876520112256,
+          "controversial": 0.008867667121418827
+        }
+      },
+      "qwen": {
+        "valid": 5219,
+        "gold_counts": {
+          "safe": 2686,
+          "unsafe": 1069,
+          "controversial": 1464
+        },
+        "prediction_counts": {
+          "safe": 4878,
+          "controversial": 101,
+          "unsafe": 240
+        },
+        "recall": {
+          "safe": 0.9676098287416233,
+          "unsafe": 0.16838166510757718,
+          "controversial": 0.011612021857923498
+        }
+      },
+      "common_valid": {
+        "n": 5219,
+        "accuracy": {
+          "causal": 0.5115922590534585,
+          "jev": 0.565433991186051,
+          "qwen": 0.5357348150986779
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    },
+    "when2call": {
+      "causal": {
+        "valid": 3652,
+        "gold_counts": {
+          "D": 1295,
+          "B": 1295,
+          "C": 1062
+        },
+        "prediction_counts": {
+          "B": 2363,
+          "D": 108,
+          "A": 802,
+          "C": 379
+        },
+        "recall": {
+          "D": 0.05945945945945946,
+          "B": 0.7783783783783784,
+          "C": 0.295668549905838
+        }
+      },
+      "jev": {
+        "valid": 3652,
+        "gold_counts": {
+          "D": 1295,
+          "C": 1062,
+          "B": 1295
+        },
+        "prediction_counts": {
+          "B": 1390,
+          "C": 1135,
+          "D": 987,
+          "A": 140
+        },
+        "recall": {
+          "D": 0.752895752895753,
+          "C": 0.8060263653483992,
+          "B": 0.8934362934362934
+        }
+      },
+      "qwen": {
+        "valid": 3492,
+        "gold_counts": {
+          "D": 1253,
+          "B": 1237,
+          "C": 1002
+        },
+        "prediction_counts": {
+          "D": 920,
+          "A": 144,
+          "C": 1074,
+          "B": 1354
+        },
+        "recall": {
+          "D": 0.7294493216280926,
+          "B": 0.8973322554567502,
+          "C": 0.8183632734530938
+        }
+      },
+      "common_valid": {
+        "n": 3492,
+        "accuracy": {
+          "causal": 0.3900343642611684,
+          "jev": 0.820446735395189,
+          "qwen": 0.8144329896907216
+        },
+        "limit": "Qwen is incomplete and these common cases are length-selected; only R-Judge here has full coverage for all three."
+      }
+    }
+  }
+}

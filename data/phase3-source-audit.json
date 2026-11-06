@@ -1,0 +1,137 @@
+{
+  "status": "preliminary inventory, NOT a training-ready or leakage-free corpus",
+  "excluded_eval_rows_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+  "training_started": false,
+  "limits": [
+    "Historical-holdout cross-release audit pending",
+    "Near-duplicate audit pending",
+    "License/usage audit and canonical decision conversion pending"
+  ],
+  "sources": {
+    "ContractNLI": {
+      "revision": "eced6528dd3c1d14d73f9a87df8f7bdbc03126f9",
+      "splits": {
+        "train": {
+          "documents": 423,
+          "unique_document_hashes": 422,
+          "decisions": 7191,
+          "documents_matching_test_exact": 1
+        },
+        "dev": {
+          "documents": 61,
+          "unique_document_hashes": 61,
+          "decisions": 1037,
+          "documents_matching_test_exact": 0
+        },
+        "test": {
+          "documents": 123,
+          "unique_document_hashes": 122,
+          "decisions": 2091,
+          "documents_matching_test_exact": 123
+        }
+      },
+      "archive_sha256": "e03fc77bbf8b53e2976a250e81d8a294bc3d5e5fb014521e477dee9340d6287b",
+      "split_unit": "whole contract/document"
+    },
+    "RAGTruth": {
+      "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+      "splits": {
+        "test": {
+          "responses": 2700,
+          "context_groups": 450,
+          "responses_matching_test_context_exact": 2700,
+          "responses_outside_test_contexts": 0,
+          "label_counts_outside_test_contexts": {}
+        },
+        "train": {
+          "responses": 15090,
+          "context_groups": 2514,
+          "responses_matching_test_context_exact": 0,
+          "responses_outside_test_contexts": 15090,
+          "label_counts_outside_test_contexts": {
+            "supported": 8369,
+            "unsupported": 6721
+          }
+        }
+      },
+      "response_sha256": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+      "split_unit": "source prompt/context, all generated responses together"
+    },
+    "MurrayTom/TS-Bench/data/train/train.jsonl": {
+      "repo": "MurrayTom/TS-Bench",
+      "revision": "19047a0c4a54f54cc1ddd4a2c597105d8453b819",
+      "file": "data/train/train.jsonl",
+      "sha256": "84b0df5862c4d618dc318e6fe8148b822c7d5649c2535e8ea58f6478d7759cf7",
+      "rows": 2194,
+      "columns": [
+        "ability",
+        "data_source",
+        "extra_info",
+        "id",
+        "prompt",
+        "reward_model",
+        "source_file",
+        "source_row"
+      ],
+      "eligibility": "canonical source-group and historical-overlap audit pending",
+      "target_location": "reward_model.ground_truth; native target parser pending",
+      "target_type": "dict",
+      "target_keys": [
+        "Harmfulness_Rating",
+        "Malicious_User_Request",
+        "Prompt_Injection"
+      ]
+    },
+    "MurrayTom/TS-Bench/data/train/validation.jsonl": {
+      "repo": "MurrayTom/TS-Bench",
+      "revision": "19047a0c4a54f54cc1ddd4a2c597105d8453b819",
+      "file": "data/train/validation.jsonl",
+      "sha256": "0ec0ce293acf86c1fb26a8a708deb6175b0117c6f3734a048a0a556518db1299",
+      "rows": 789,
+      "columns": [
+        "ability",
+        "data_source",
+        "extra_info",
+        "id",
+        "prompt",
+        "reward_model",
+        "source_file",
+        "source_row"
+      ],
+      "eligibility": "canonical source-group and historical-overlap audit pending",
+      "target_location": "reward_model.ground_truth; native target parser pending",
+      "target_type": "dict",
+      "target_keys": [
+        "Harmfulness_Rating",
+        "Malicious_User_Request",
+        "Prompt_Injection"
+      ]
+    },
+    "nvidia/When2Call/train/when2call_train_sft.jsonl": {
+      "repo": "nvidia/When2Call",
+      "revision": "0582f7749df63a96fdc3070932e83e72396ace53",
+      "file": "train/when2call_train_sft.jsonl",
+      "sha256": "3eb20258557513579995ff55c09fcc33fabf2cd2004dea49dc3a0ba9880e631c",
+      "rows": 15000,
+      "columns": [
+        "messages",
+        "tools"
+      ],
+      "eligibility": "canonical source-group and historical-overlap audit pending"
+    },
+    "nvidia/When2Call/train/when2call_train_pref.jsonl": {
+      "repo": "nvidia/When2Call",
+      "revision": "0582f7749df63a96fdc3070932e83e72396ace53",
+      "file": "train/when2call_train_pref.jsonl",
+      "sha256": "d90637f108fabf1b097493c5818c3692e1d73140259d2f8e490536255e765bc4",
+      "rows": 9000,
+      "columns": [
+        "chosen_response",
+        "messages",
+        "rejected_response",
+        "tools"
+      ],
+      "eligibility": "canonical source-group and historical-overlap audit pending"
+    }
+  }
+}
