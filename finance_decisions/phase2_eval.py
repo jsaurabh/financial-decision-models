@@ -30,7 +30,9 @@ def records(rows,logits,temperature):
 
 
 def aggregate(items):
-    return summarize(items)|{'domains':{d:summarize([r for r in items if r['domain']==d]) for d in sorted({r['domain'] for r in items})}}
+    domains={d:summarize([r for r in items if r['domain']==d]) for d in sorted({r['domain'] for r in items})}
+    return summarize(items)|{'domains':domains,
+        'domain_macro_accuracy':float(np.mean([m['accuracy'] for m in domains.values()]))}
 
 
 def main():

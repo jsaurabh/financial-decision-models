@@ -13,9 +13,9 @@ def main():
     selected=c['gemma_selection']['selected'];pair=c['paired']['causal_to_joint'];lo,hi=pair['family_bootstrap_95pct']
     lines=['# Phase 2 decision quality','',f"The development-selected Gemma arm is **{names[selected]}**. Selection used development NLL before final test scoring. CPU inference was outside this experiment.",'',
         f"All five models were compared on the same {manifest['splits']['test']['rows']:,} frozen decision inputs. The corpus has {manifest['splits']['train']['rows']:,} training, {manifest['splits']['development']['rows']:,} development and {manifest['splits']['calibration']['rows']:,} calibration cases.",'',
-        '| Model | Test accuracy | NLL | Brier | ECE |','|---|---:|---:|---:|---:|']
+        '| Model | Test accuracy | Domain macro accuracy | NLL | Brier | ECE |','|---|---:|---:|---:|---:|---:|']
     for n,label in names.items():
-        m=c[n];lines.append(f"| {label} | {m['accuracy']:.2%} | {m['nll']:.4f} | {m['brier']:.4f} | {m['ece_10bin']:.4f} |")
+        m=c[n];lines.append(f"| {label} | {m['accuracy']:.2%} | {m['domain_macro_accuracy']:.2%} | {m['nll']:.4f} | {m['brier']:.4f} | {m['ece_10bin']:.4f} |")
     lines+=['','Local models received a temperature fitted on the separate calibration split; Jev uses its native API probabilities. ECE and NLL therefore include this domain calibration advantage for local models. Accuracy is unaffected by a positive scalar temperature. Candidate-position macro-F1 is an implementation diagnostic; per-domain semantic macro-F1 is in the JSON reports.','',
         '| Domain | Cases | v4 | A | C | Qwen | Jev |','|---|---:|---:|---:|---:|---:|---:|']
     for d in c['joint']['domains']:
