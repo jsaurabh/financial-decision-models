@@ -94,16 +94,29 @@ def render(rows,records,summaries,revision):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--watch',action='store_true');p.add_argument('--push',action='store_true');args=p.parse_args()
-    rows,manifest=data();api=HfApi();start=time.time()
+    rows,manifest=data();api=HfApi();start=time.time();poll_failures=0
+    status_path=Path('/workspace/public-eval-control/report-status.json')
+    status_path.parent.mkdir(parents=True,exist_ok=True)
     while True:
-        info=api.dataset_info(REPO);assert info.private
-        records,summaries=download(api,info.sha)
-        control=Path('/workspace/public-eval-control/status.json')
-        state=json.loads(control.read_text()) if control.exists() else {}
+        try:
+            info=api.dataset_info(REPO);assert info.private
+            records,summaries=download(api,info.sha)
+            control=Path('/workspace/public-eval-control/status.json')
+            state=json.loads(control.read_text()) if control.exists() else {}
+        except AssertionError:
+            raise
+        except Exception as exc:
+            poll_failures+=1
+            status={'status':'retrying','error_type':type(exc).__name__,'consecutive_poll_failures':poll_failures,'time':time.time()}
+            status_path.write_text(json.dumps(status,indent=2));print(json.dumps(status),flush=True)
+            if not args.watch or time.time()-start>9*3600:raise
+            time.sleep(45);continue
+        poll_failures=0
         stopped=all(state.get('workers',{}).get(r,{}).get('stop_returncode')==0 for r in ['gemma','qwen'])
         finished=all(len(records.get(n,[]))==len(rows) for n in NAMES)
         failed=stopped and any(state.get('workers',{}).get(r,{}).get('status') in ['failed','timeout'] for r in ['gemma','qwen'])
-        print(json.dumps({'record_counts':{n:len(records.get(n,[])) for n in NAMES},'gpu_workers_stopped':stopped,'time':time.time()}),flush=True)
+        progress={'status':'waiting','record_counts':{n:len(records.get(n,[])) for n in NAMES},'gpu_workers_stopped':stopped,'time':time.time()}
+        status_path.write_text(json.dumps(progress,indent=2));print(json.dumps(progress),flush=True)
         if not args.watch or (finished and stopped) or failed or time.time()-start>9*3600:break
         time.sleep(90)
     complete=render(rows,records,summaries,info.sha)
@@ -122,6 +135,6 @@ def main():
                 subprocess.run(['git','commit','-m','Publish '+('completed' if complete else 'partial')+' public benchmark evaluation aggregates'],check=True)
                 subprocess.run(['git','push','origin','HEAD:gemma4-finance'],check=True)
         else:print('Report saved; automatic git push skipped because branch/staged changes differ',flush=True)
-    Path('/workspace/public-eval-control/report-status.json').write_text(json.dumps({'status':'complete' if complete else 'partial','time':time.time(),'report':str(root/'REPORT.md')},indent=2))
+    status_path.write_text(json.dumps({'status':'complete' if complete else 'partial','time':time.time(),'report':str(root/'REPORT.md')},indent=2))
 
 if __name__=='__main__':main()
