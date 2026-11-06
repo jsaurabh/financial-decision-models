@@ -8,6 +8,12 @@ from .public_eval import REPO,data,digest,labels,read
 from .public_metrics import correct,score
 
 NAMES=['causal','joint','qwen','jev']
+CACHE=Path('data/private/public-eval-report')
+
+
+def complete_records(rows,records):
+    expected={r['id'] for r in rows}
+    return all(len(records.get(n,[]))==len(rows) and {p['id'] for p in records[n]}==expected for n in NAMES)
 
 
 def paired(rows,a,b):
@@ -29,7 +35,8 @@ def paired(rows,a,b):
 
 
 def download(api,revision):
-    root=Path('results/public-eval');root.mkdir(parents=True,exist_ok=True);allrecords={};summaries={}
+    # Never overwrite a live evaluator's append-only output, especially local Jev.
+    root=CACHE;root.mkdir(parents=True,exist_ok=True);allrecords={};summaries={}
     for name in NAMES:
         out=root/name;out.mkdir(exist_ok=True)
         for filename in ['summary.json','config.json','predictions.jsonl']:
@@ -61,10 +68,15 @@ def render(rows,records,summaries,revision):
     (root/'summary.json').write_text(json.dumps(payload,indent=2)+'\n')
     artifacts={'repo':REPO,'repo_type':'dataset','revision':revision,'private':True,'models':{}}
     for n in NAMES:
+        cached=CACHE/n
         artifacts['models'][n]={'config':summaries.get(n,{}).get('config'),
-            'predictions_sha256':hashlib.sha256((root/n/'predictions.jsonl').read_bytes()).hexdigest() if (root/n/'predictions.jsonl').exists() else None}
+            'predictions_sha256':hashlib.sha256((cached/'predictions.jsonl').read_bytes()).hexdigest() if (cached/'predictions.jsonl').exists() else None}
+        for name in ['config.json','summary.json']:
+            if (cached/name).exists():
+                (root/n).mkdir(parents=True,exist_ok=True)
+                (root/n/name).write_bytes((cached/name).read_bytes())
     (root/'artifacts.json').write_text(json.dumps(artifacts,indent=2)+'\n')
-    complete=all(len(records.get(n,[]))==len(rows) for n in NAMES)
+    complete=complete_records(rows,records)
     lines=['# Public decision evaluation','',f"Status: {'complete' if complete else 'partial; see coverage and worker status'}. Frozen corpus: {len(rows):,} decisions. No training, calibration fitting, input truncation or candidate reduction.",'',
         'Gemma and Qwen use strict math SDPA with frozen checkpoints and temperatures. The Gemma inference envelope is extended to eleven candidates and 8,192 tokens; this exceeds the original release validation envelope. Each model gets its original prompt and actual tokenizer. Unsupported or failed cases remain in the denominator below.','',
         '| Suite | Cases | Causal Gemma | Joint Gemma | Qwen 27B | Jev |','|---|---:|---:|---:|---:|---:|']
@@ -87,6 +99,7 @@ def render(rows,records,summaries,revision):
         '- [Frozen protocol](../../PUBLIC_EVAL_PROTOCOL.md) and [data manifest](../../data/public-eval-manifest.json).','- [Pinned private output artifacts](artifacts.json).','- [Private predictions](https://huggingface.co/datasets/jsaurabh/financial-decision-public-eval).','',
         'RouterBench is a hash-selected initial subset, preserving both shot regimes/objectives and all eleven candidates. Other named source test records are retained. R-Judge contains 571 records at the pinned revision although its paper states 569. ContractNLI has seventeen decisions per contract. TS-Bench and R-Judge here evaluate static judgments, not end-to-end agent behavior.','',
         'The published public sources may have appeared in pretraining or earlier upstream fine-tuning; Qwen has previously been evaluated on Decision Index. This is not a new contamination-free or private production benchmark. Raw source contexts are not republished. Source-family overlap limits the apparent number of independent examples.']
+    lines+=['','A collector bug initially overwrote local Jev output with older remote checkpoints. The collector now uses a separate private cache. After validating saved input hashes, candidate order and targets, 23,239 records were retained and only 2,957 missing records were re-requested. No cases were selected for retry based on prediction correctness.']
     (root/'REPORT.md').write_text('\n'.join(lines)+'\n')
     (root/'README.md').write_text('# Public decision evaluation\n\n'+('Completed' if complete else 'Partial')+' aggregate results are in [REPORT.md](REPORT.md). Per-case predictions remain in the [private output repository](https://huggingface.co/datasets/jsaurabh/financial-decision-public-eval). See the report for coverage, failures, inference extensions and limitations.\n')
     return complete
@@ -113,7 +126,7 @@ def main():
             time.sleep(45);continue
         poll_failures=0
         stopped=all(state.get('workers',{}).get(r,{}).get('stop_returncode')==0 for r in ['gemma','qwen'])
-        finished=all(len(records.get(n,[]))==len(rows) for n in NAMES)
+        finished=complete_records(rows,records)
         failed=stopped and any(state.get('workers',{}).get(r,{}).get('status') in ['failed','timeout'] for r in ['gemma','qwen'])
         progress={'status':'waiting','record_counts':{n:len(records.get(n,[])) for n in NAMES},'gpu_workers_stopped':stopped,'time':time.time()}
         status_path.write_text(json.dumps(progress,indent=2));print(json.dumps(progress),flush=True)

@@ -14,3 +14,5 @@ Workers save progress every 500 decisions. An owned-session controller sends ker
 A changing Colab image caused an initial Gemma torch/torchvision import failure; that worker was stopped and a new G4 was started with matching pinned versions. The first Qwen session was subsequently lost after saving 2,124 records; the replacement G4 resumes those private checkpoints. These interruptions do not change the frozen evaluator, inputs or model revisions.
 
 Local background control files are under `/workspace/public-eval-control/`: `status.json` tracks the GPU lifecycle, `report-status.json` tracks collection, and the detached logs are under `/workspace/public-eval-source/`. The controller only manages the two sessions named `public-eval-gemma` and `public-eval-qwen`.
+
+The report collector initially copied checkpoints into the live local Jev output directory, which could overwrite newer predictions. It now downloads into a separate private cache. Recovery retained 23,239 verified records and re-requests only the 2,957 missing cases, without selecting by accuracy. Completion checks require every expected case ID exactly once.
