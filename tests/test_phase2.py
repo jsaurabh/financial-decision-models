@@ -37,6 +37,11 @@ def test_only_global_edges_change_and_padding_is_excluded():
     assert bc['attention_mask']['full_attention'][0,0,:n,:n].all()
     assert not bc['attention_mask']['full_attention'][0,0,:,n:].any()
     assert not bc['attention_mask']['full_attention'][0,0,n:,:].any()
+    revised=copy.deepcopy(row)
+    revised['question']['criteria']['b']='an unrelated additional alternative with a longer description'
+    # Test the actual native model computation, not just mask construction.
+    torch.testing.assert_close(a(a.prepare([row]),[2])[0,0],a(a.prepare([revised]),[2])[0,0],atol=1e-6,rtol=1e-6)
+    assert not torch.isclose(c(c.prepare([row]),[2])[0,0],c(c.prepare([revised]),[2])[0,0],atol=1e-7,rtol=1e-7)
     for model in [a,c]:
         baseline=model(model.prepare([row]),[2])[0,:2]
         padded=model(model.prepare([row,longer]),[2,2])[0,:2]
