@@ -1,0 +1,126 @@
+{
+  "mode": "independent-causal",
+  "steps": 1000,
+  "max_length": 2048,
+  "hf_repo": "jsaurabh/gemma4-finance-phase2-causal",
+  "out": "runs/phase2-causal",
+  "seed": 20261108,
+  "initial_repo": "jsaurabh/gemma4-e2b-finance-decisions-v4",
+  "initial_revision": "1307ef28b41b4b295c204f5f60f57f92caa09bb1",
+  "initial_path": "run/selected",
+  "effective_batch": 16,
+  "micro_batch": 4,
+  "grad_accum": 4,
+  "selection": "lowest new-development NLL including step 0",
+  "init_limitation": "Continuation from causal v4, not a from-scratch causal-mask study.",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "torch": "2.11.0+cu130",
+  "manifest": {
+    "seed": 20261108,
+    "historical_state_exclusions": 18864,
+    "splits": {
+      "train": {
+        "rows": 6131,
+        "unique_states": 5982,
+        "families": 4424,
+        "domains": {
+          "legal_contract": 1800,
+          "capability_routing": 420,
+          "net_exposure_arithmetic": 480,
+          "deadline_arithmetic": 475,
+          "evidence_precedence": 456,
+          "legal_terms": 280,
+          "banking_intent": 1386,
+          "concentration_arithmetic": 422,
+          "contract_exception": 412
+        },
+        "sha256": "766d612f3b4847842acfe20a7c60b689a24f1d7f2b7cd802d894114e6c2d9660",
+        "max_packed_tokens": 1057,
+        "exclusions_before_training": {
+          "duplicate identical decision input": 215
+        },
+        "requested_rows": 6346
+      },
+      "development": {
+        "rows": 859,
+        "unique_states": 834,
+        "families": 584,
+        "domains": {
+          "capability_routing": 67,
+          "legal_contract": 198,
+          "contract_exception": 69,
+          "banking_intent": 152,
+          "evidence_precedence": 72,
+          "legal_terms": 90,
+          "net_exposure_arithmetic": 72,
+          "deadline_arithmetic": 71,
+          "concentration_arithmetic": 68
+        },
+        "sha256": "d956655b3e9c7dd146ed2465194f04705d9887e74e45ff62e5d1161c026e8152",
+        "max_packed_tokens": 660,
+        "exclusions_before_training": {
+          "duplicate identical decision input": 13
+        },
+        "requested_rows": 872
+      },
+      "calibration": {
+        "rows": 851,
+        "unique_states": 831,
+        "families": 583,
+        "domains": {
+          "banking_intent": 152,
+          "concentration_arithmetic": 69,
+          "legal_terms": 90,
+          "legal_contract": 197,
+          "evidence_precedence": 69,
+          "capability_routing": 63,
+          "contract_exception": 67,
+          "net_exposure_arithmetic": 72,
+          "deadline_arithmetic": 72
+        },
+        "sha256": "ccfa5933b94e7e9172acc972fcf30f5bc059fcbe68ea3be29012230150d49cd4",
+        "max_packed_tokens": 658,
+        "exclusions_before_training": {
+          "duplicate identical decision input": 20
+        },
+        "requested_rows": 871
+      },
+      "test": {
+        "rows": 1011,
+        "unique_states": 988,
+        "families": 737,
+        "domains": {
+          "deadline_arithmetic": 72,
+          "contract_exception": 69,
+          "capability_routing": 66,
+          "banking_intent": 213,
+          "evidence_precedence": 72,
+          "legal_terms": 89,
+          "legal_contract": 291,
+          "concentration_arithmetic": 67,
+          "net_exposure_arithmetic": 72
+        },
+        "sha256": "f685badc09430ca95b9bfc83d4a55de7019bcbc74fcb65285a960d118726fe7c",
+        "max_packed_tokens": 915,
+        "exclusions_before_training": {
+          "duplicate identical decision input": 14
+        },
+        "requested_rows": 1025
+      }
+    },
+    "limitations": [
+      "Rule-generated cases are not human reviewed or statements of law.",
+      "Public test contamination in pretrained models cannot be excluded.",
+      "Banking/LEDGAR are eight-candidate tasks; routing uses declared capabilities, not empirical model utility.",
+      "TOS selection is stratified by presence of annotations; it is not natural prevalence.",
+      "Template registers differ by split, but generators and logical operators are shared."
+    ],
+    "eligibility": {
+      "tokenizer": "google/gemma-4-E2B-it",
+      "revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+      "max_packed_tokens": 2048,
+      "truncation": false,
+      "frozen_before_scoring": true
+    }
+  }
+}
