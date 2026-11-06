@@ -237,6 +237,57 @@
       "gated": "auto",
       "declared_license": "apache-2.0",
       "raw_card_downloaded": false
+    },
+    {
+      "kind": "github_repository",
+      "id": "theopenco/llmgateway",
+      "revision": "733b8212c7c2a05edc563b0b6c1ee8127dc86be0",
+      "scope": "Smart Routing pilot source revision declared in published results",
+      "license_note": "Mixed repository: AGPLv3 outside commercial components; third-party terms retained."
+    },
+    {
+      "kind": "github_repository",
+      "id": "google-research/google-research",
+      "revision": "d36068b845da4c2b24927fee2cea1e6ef98dadda",
+      "scope": "IFEval source used by the pilot"
+    },
+    {
+      "kind": "public_benchmark_snapshot",
+      "id": "llmgateway/smart-routing-2026-09-26",
+      "revision": "733b8212c7c2a05edc563b0b6c1ee8127dc86be0",
+      "url": "https://llmgateway.io/blog/smart-routing-benchmark",
+      "unique_prompts": 80,
+      "arms_per_prompt": 4,
+      "output_caps": [
+        4096,
+        8192
+      ],
+      "published_calls": 640,
+      "role": "Small replay/regression and protocol reference",
+      "model_pool_coverage": "Complete for three fixed baselines; incomplete for the original five-candidate routed pool",
+      "artifacts": [
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-4096-protocol.json",
+          "sha256": "bfd6ca2d9ac2072199dca949828e87b9b2d709c68eba98fbe64e51e6a4c0250a",
+          "bytes": 34826
+        },
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-4096-results.json",
+          "sha256": "dd057122e3e4bcced7febcbe3ed57c700367a302a6c37c36b5b5e2bba63fea38",
+          "bytes": 763534
+        },
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-protocol.json",
+          "sha256": "f5e4dfc1c2196fd7e63145951f599c1982ad9d552e6c435efbc1a506bed8c52f",
+          "bytes": 34826
+        },
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-results.json",
+          "sha256": "07c03c76ffb710aab6e5220e40c74b7ddff6edc8a2f0484fb88f66b31adc9525",
+          "bytes": 768272
+        }
+      ],
+      "train_dev_test_split_published_in_inspected_artifacts": false
     }
   ],
   "current_release_limits": {
@@ -263,6 +314,7 @@
     "The Jev agent-tool, customer-support and semantic-routing releases share Nemotron Agentic v2 lineage.",
     "Both agent-tool releases include When2Call sources; native source_split and identities must be checked before combining with official test.",
     "Jev-RAG-Claim-Verification-130K card reports 349 cross-split query/context identities and 67 cross-split exact requests.",
-    "TS-Bench derives evaluation trajectories from AgentHarm, ASB and AgentDojo; TraceSafe derives mutated baselines from BFCL."
+    "TS-Bench derives evaluation trajectories from AgentHarm, ASB and AgentDojo; TraceSafe derives mutated baselines from BFCL.",
+    "LLM Gateway has 80 unique prompts repeated across two caps; its 40 IFEval prompts overlap that upstream benchmark. Routed selected-model labels are Jev outputs, not routing gold."
   ]
 }

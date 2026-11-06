@@ -24,6 +24,7 @@ Checked November 6, 2026. This is a research shortlist, not a scored benchmark o
 | Dataset / resource | Why it could help | Boundary |
 |---|---|---|
 | [RouteLLM](https://github.com/lm-sys/RouteLLM) and [Arena human preferences](https://huggingface.co/datasets/lmsys/lmsys-arena-human-preference-55k) | Pairwise response preferences and strong/weak-model router training; published MMLU/GSM8K/MT-Bench evaluation code | Preferences are not per-prompt correctness outcomes for every possible candidate model. Split by prompt/conversation, and reserve external routing tests. |
+| [LLM Gateway Smart Routing pilot](https://llmgateway.io/blog/smart-routing-benchmark) | Published fixed-model outcomes plus Jev-powered routing; useful offline routing regression and methodology reference | 80 unique prompts, with two output-cap runs. The original eligible pool has incomplete counterfactual model coverage; no train/dev/test split is specified. |
 | [NVIDIA Nemotron-AIQ Agentic Safety](https://huggingface.co/datasets/nvidia/Nemotron-AIQ-Agentic-Safety-Dataset-1.0) | About 10,796 research-assistant traces, with/without defenses; content-safety and security risks | Evaluation-only under NVIDIA's evaluation license; the card explicitly excludes training. Labels include per-node risk scores and safety judgments, not one universal binary ground truth. |
 | [NVIDIA Aegis / Nemotron Content Safety v2](https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0) | 33,416 annotated interactions; prompt, response and category safety classification | Human prompt labels; response labels can come from humans, an LLM jury or refusal augmentation. Preserve label-source fields. Useful content moderation coverage, distinct from tool execution safety. |
 | [ToxicChat](https://huggingface.co/datasets/lmsys/toxic-chat) | Real user-prompt toxicity/jailbreaking data; 10,165 prompts | Use the human-annotation flag and appropriate labels; not every prompt has direct human annotation. CC BY-NC 4.0 makes it a research candidate with commercial-use constraints. |
@@ -60,6 +61,16 @@ The [public kit](https://github.com/apolinario/decision-index) already provides 
 The Qwen 27B project already has a public Decision Index 0.3 result. Some suite tasks are also familiar from Gemma training, especially BANKING77. Additional public evaluation is valuable, but it is not an entirely new blind holdout for this project.
 
 Our release accepts 2–8 candidates and 2,048 packed tokens. RouterBench has 11 model candidates; full-taxonomy intent tasks, retrieval candidates and long legal/agent contexts also need format/context work. Preserve original candidates and content for official comparisons; report adaptations and coverage separately. No adapter was implemented in this discovery pass.
+
+## LLM Gateway routing pilot: additional discovery
+
+The [primary protocol](https://llmgateway.io/benchmarks/smart-routing-2026-09-26-protocol.json) fixes 80 prompts: 25 easy tasks, 15 exact-answer reasoning tasks and 40 IFEval cases. There are four arms and two output caps, producing 640 calls across the same 80 prompts. I verified complete prompt/arm coverage within each snapshot and identical prompt messages across caps. This is a small general-text pilot, with no tool execution or financial-specialist workload.
+
+The [published results](https://llmgateway.io/benchmarks/smart-routing-2026-09-26-results.json) supply responses, pass/fail checks, errors, normalized cost indices, timings and routing metadata. Fixed baselines are `gpt-6-luna`, `gpt-6-sol` and `gpt-6-astra`. Routed requests use Jev with an eligible five-model pool. Some pool members are observed only when selected, and the mid-priced fixed baseline is outside that pool. Consequently the export supports an offline three-fixed-model routing diagnostic; a fully matched evaluation over the original five candidates requires missing downstream outcomes. `selectedModel` and difficulty are router outputs, not oracle route labels. Multiple models may pass a task.
+
+Useful [reproduction practices](https://github.com/theopenco/llmgateway/tree/733b8212c7c2a05edc563b0b6c1ee8127dc86be0/scripts/benchmarks) include retaining failed/billed calls, accounting for classifier charges, keeping cap runs separate, and reporting paired uncertainty plus strict/sensitivity scoring. The runner uses model-default reasoning/temperature, so it measures the configured service rather than isolating its classifier. Do not present these repeated prompts as 640 independent examples or as a large routing training set.
+
+Recommended role: small regression/replay set and protocol reference. The repository's mixed license covers code outside commercial components under AGPLv3 and retains third-party terms; IFEval is Apache 2.0. A separate training-data permission/split audit has not been performed. Public JSON files were inspected and hashed; no model calls were made.
 
 ## Proposed next evaluation selection
 
