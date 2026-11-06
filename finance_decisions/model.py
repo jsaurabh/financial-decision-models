@@ -87,6 +87,10 @@ class DecisionModel(nn.Module):
             model.attention_mode = cfg.get('attention_mode', 'independent-causal')
             if model.attention_mode not in ('independent-causal', 'joint-bidirectional'):
                 raise ValueError('Unsupported saved attention mode')
+            model.max_choices = cfg.get('max_choices', MAX_CHOICES)
+            model.max_chars = cfg.get('max_chars', 12000)
+            if type(model.max_choices) is not int or not 2 <= model.max_choices <= 255 or type(model.max_chars) is not int or model.max_chars <= 0:
+                raise ValueError('Invalid saved candidate/context envelope')
         model.readout.load_state_dict(load_file(str(path / 'readout.safetensors')))
         model.temperature = cfg['temperature']
         return model.to(device).eval()

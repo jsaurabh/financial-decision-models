@@ -91,7 +91,8 @@ class CandidateDecisionModel(DecisionModel):
         super().save(path,merge)
         config = Path(path)/'decision_config.json'; data=json.loads(config.read_text())
         data.update(architecture='packed-independent-candidate-readout',candidate_attention='prefix + own causal block',
-                    candidate_position_reset=True,readout='shared scalar',attention_mode=self.attention_mode)
+                    candidate_position_reset=True,readout='shared scalar',attention_mode=self.attention_mode,
+                    max_choices=self.max_choices,max_chars=self.max_chars)
         if self.attention_mode == 'joint-bidirectional':
             data['candidate_attention'] = 'joint bidirectional global layers; independent causal sliding layers'
         config.write_text(json.dumps(data,indent=2))

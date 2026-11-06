@@ -1,6 +1,6 @@
 import os,re,subprocess,sys,time
-env=dict(os.environ);env["GOOGLE_APPLICATION_CREDENTIALS"]="/workspace/.credentials/public-eval-colab-adc.json"
 role=sys.argv[1];args=sys.argv[2:]
+env=dict(os.environ);env["GOOGLE_APPLICATION_CREDENTIALS"]=("/workspace/.credentials/phase3-colab-adc.json" if role=='phase3' else "/workspace/.credentials/public-eval-colab-adc.json")
 cmd=["/workspace/.venv/bin/colab","--auth","adc","--config",f"/workspace/.credentials/public-{role}-sessions.json"]+args
 for attempt in range(4):
  r=subprocess.run(cmd,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)

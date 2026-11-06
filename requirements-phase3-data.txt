@@ -1,0 +1,2 @@
+# Additional local-only dependency for source-family duplicate checks.
+datasketch==1.6.5

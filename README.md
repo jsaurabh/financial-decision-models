@@ -1,5 +1,7 @@
 # Financial-services decision models
 
+**Training next:** the authorized [phase-3 supervised pilot](PHASE3_TRAINING_PROTOCOL.md) uses 10,000 audited source-labeled training decisions, 700 development and 700 calibration decisions. It starts from the pinned official Gemma instruction base with fresh LoRA/scalar readout. The [sealed manifest](data/phase3-manifest.json) and [data preflight](data/phase3-preflight.json) record roles, exclusions and source groups. No new final-benchmark evaluation is part of this training job; outcome-based model routing remains pending its source-overlap audit.
+
 Gemma 4 E2B adapted into a text-only, schema-driven classifier: one forward pass returns a probability distribution over supplied choices. It never generates an answer string. This independently follows the decision-model pattern; it does not reproduce TypeSafe Jev's undisclosed architecture or weights.
 
 **Current priority: quality first, with CPU and model-size constraints out of scope.** Training and evaluation prefer **Colab G4**. CPU quantization, distillation, and latency optimization are deferred. Preferences are saved in [AGENTS.md](AGENTS.md).

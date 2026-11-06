@@ -1,0 +1,448 @@
+{
+  "status": "sealed_before_training",
+  "seed": 20261112,
+  "splits": {
+    "train": {
+      "rows": 10000,
+      "families": 5685,
+      "domains": {
+        "tool_action_safety": 797,
+        "banking_intent": 1385,
+        "tool_response_preference": 2074,
+        "contract_entailment": 2075,
+        "prompt_injection": 797,
+        "evidence_grounding": 2075,
+        "malicious_request": 797
+      },
+      "class_counts": {
+        "banking_intent": {
+          "extra_charge_on_statement": 18,
+          "transfer_timing": 18,
+          "why_verify_identity": 18,
+          "card_about_to_expire": 18,
+          "declined_cash_withdrawal": 18,
+          "declined_transfer": 18,
+          "card_delivery_estimate": 18,
+          "fiat_currency_support": 18,
+          "card_linking": 18,
+          "terminate_account": 18,
+          "get_physical_card": 18,
+          "pending_transfer": 18,
+          "top_up_limits": 18,
+          "card_acceptance": 18,
+          "top_up_reverted": 18,
+          "exchange_rate": 18,
+          "top_up_by_card_charge": 18,
+          "card_swallowed": 18,
+          "exchange_via_app": 18,
+          "country_support": 18,
+          "direct_debit_payment_not_recognised": 18,
+          "pending_card_payment": 18,
+          "card_payment_fee_charged": 18,
+          "wrong_exchange_rate_for_cash_withdrawal": 18,
+          "balance_not_updated_after_cheque_or_cash_deposit": 18,
+          "reverted_card_payment?": 18,
+          "visa_or_mastercard": 18,
+          "compromised_card": 18,
+          "verify_source_of_funds": 18,
+          "apple_pay_or_google_pay": 18,
+          "receiving_money": 18,
+          "card_payment_not_recognised": 18,
+          "verify_top_up": 18,
+          "transfer_into_account": 18,
+          "wrong_amount_of_cash_received": 18,
+          "cash_withdrawal_not_recognised": 18,
+          "transfer_fee_charged": 18,
+          "cancel_transfer": 18,
+          "passcode_forgotten": 18,
+          "balance_not_updated_after_bank_transfer": 18,
+          "virtual_card_not_working": 18,
+          "getting_spare_card": 18,
+          "order_physical_card": 18,
+          "topping_up_by_card": 18,
+          "get_disposable_virtual_card": 18,
+          "top_up_by_bank_transfer_charge": 18,
+          "supported_cards_and_currencies": 18,
+          "age_limit": 18,
+          "card_arrival": 18,
+          "verify_my_identity": 18,
+          "top_up_failed": 18,
+          "declined_card_payment": 18,
+          "atm_support": 18,
+          "transaction_charged_twice": 17,
+          "Refund_not_showing_up": 18,
+          "cash_withdrawal_charge": 18,
+          "automatic_top_up": 18,
+          "beneficiary_not_allowed": 18,
+          "activate_my_card": 18,
+          "getting_virtual_card": 18,
+          "failed_transfer": 18,
+          "top_up_by_cash_or_cheque": 18,
+          "card_payment_wrong_exchange_rate": 18,
+          "unable_to_verify_identity": 18,
+          "transfer_not_received_by_recipient": 18,
+          "disposable_card_limits": 18,
+          "lost_or_stolen_phone": 18,
+          "contactless_not_working": 18,
+          "card_not_working": 18,
+          "exchange_charge": 18,
+          "change_pin": 18,
+          "edit_personal_details": 18,
+          "pending_top_up": 18,
+          "request_refund": 18,
+          "lost_or_stolen_card": 18,
+          "pin_blocked": 18,
+          "pending_cash_withdrawal": 18
+        },
+        "contract_entailment": {
+          "Contradiction": 669,
+          "Entailment": 703,
+          "NotMentioned": 703
+        },
+        "evidence_grounding": {
+          "true": 1037,
+          "false": 1038
+        },
+        "malicious_request": {
+          "true": 454,
+          "false": 343
+        },
+        "prompt_injection": {
+          "true": 264,
+          "false": 533
+        },
+        "tool_action_safety": {
+          "unsafe": 293,
+          "safe": 196,
+          "controversial": 308
+        },
+        "tool_response_preference": {
+          "A": 1037,
+          "B": 1037
+        }
+      },
+      "max_packed_tokens": 6568,
+      "sha256": "2760c78226c4a18e43c773a9a390184bbc59d027de69835cee06a585da947b55"
+    },
+    "development": {
+      "rows": 700,
+      "families": 525,
+      "domains": {
+        "contract_entailment": 100,
+        "evidence_grounding": 100,
+        "prompt_injection": 100,
+        "banking_intent": 100,
+        "malicious_request": 100,
+        "tool_action_safety": 100,
+        "tool_response_preference": 100
+      },
+      "class_counts": {
+        "banking_intent": {
+          "card_arrival": 2,
+          "country_support": 1,
+          "exchange_via_app": 1,
+          "reverted_card_payment?": 1,
+          "declined_transfer": 1,
+          "declined_cash_withdrawal": 1,
+          "beneficiary_not_allowed": 2,
+          "cash_withdrawal_charge": 2,
+          "automatic_top_up": 2,
+          "balance_not_updated_after_bank_transfer": 2,
+          "cash_withdrawal_not_recognised": 2,
+          "card_about_to_expire": 2,
+          "Refund_not_showing_up": 2,
+          "top_up_limits": 1,
+          "transfer_fee_charged": 1,
+          "topping_up_by_card": 1,
+          "top_up_by_bank_transfer_charge": 1,
+          "card_not_working": 2,
+          "disposable_card_limits": 1,
+          "atm_support": 2,
+          "card_swallowed": 2,
+          "pending_card_payment": 1,
+          "verify_my_identity": 1,
+          "balance_not_updated_after_cheque_or_cash_deposit": 2,
+          "exchange_rate": 1,
+          "wrong_amount_of_cash_received": 1,
+          "card_payment_not_recognised": 2,
+          "card_acceptance": 2,
+          "pin_blocked": 1,
+          "card_payment_wrong_exchange_rate": 2,
+          "get_disposable_virtual_card": 1,
+          "card_payment_fee_charged": 2,
+          "verify_top_up": 1,
+          "transfer_not_received_by_recipient": 1,
+          "card_delivery_estimate": 2,
+          "apple_pay_or_google_pay": 2,
+          "card_linking": 2,
+          "declined_card_payment": 1,
+          "fiat_currency_support": 1,
+          "change_pin": 2,
+          "direct_debit_payment_not_recognised": 1,
+          "receiving_money": 1,
+          "unable_to_verify_identity": 1,
+          "supported_cards_and_currencies": 1,
+          "compromised_card": 2,
+          "edit_personal_details": 1,
+          "lost_or_stolen_phone": 1,
+          "activate_my_card": 2,
+          "transfer_timing": 1,
+          "virtual_card_not_working": 1,
+          "transfer_into_account": 1,
+          "transaction_charged_twice": 1,
+          "extra_charge_on_statement": 1,
+          "exchange_charge": 1,
+          "cancel_transfer": 2,
+          "top_up_by_cash_or_cheque": 1,
+          "getting_spare_card": 1,
+          "order_physical_card": 1,
+          "visa_or_mastercard": 1,
+          "failed_transfer": 1,
+          "wrong_exchange_rate_for_cash_withdrawal": 1,
+          "verify_source_of_funds": 1,
+          "age_limit": 2,
+          "lost_or_stolen_card": 1,
+          "top_up_failed": 1,
+          "terminate_account": 1,
+          "getting_virtual_card": 1,
+          "request_refund": 1,
+          "top_up_reverted": 1,
+          "get_physical_card": 1,
+          "pending_transfer": 1,
+          "top_up_by_card_charge": 1,
+          "why_verify_identity": 1,
+          "pending_top_up": 1,
+          "pending_cash_withdrawal": 1,
+          "passcode_forgotten": 1
+        },
+        "contract_entailment": {
+          "NotMentioned": 33,
+          "Contradiction": 34,
+          "Entailment": 33
+        },
+        "evidence_grounding": {
+          "false": 50,
+          "true": 50
+        },
+        "malicious_request": {
+          "false": 50,
+          "true": 50
+        },
+        "prompt_injection": {
+          "true": 50,
+          "false": 50
+        },
+        "tool_action_safety": {
+          "safe": 33,
+          "controversial": 34,
+          "unsafe": 33
+        },
+        "tool_response_preference": {
+          "A": 50,
+          "B": 50
+        }
+      },
+      "max_packed_tokens": 6321,
+      "sha256": "412ea8e061a3506b6c14945093123a79264bf970e7d338235ea0fd46bce315fd"
+    },
+    "calibration": {
+      "rows": 700,
+      "families": 534,
+      "domains": {
+        "malicious_request": 100,
+        "banking_intent": 100,
+        "evidence_grounding": 100,
+        "prompt_injection": 100,
+        "tool_action_safety": 100,
+        "contract_entailment": 100,
+        "tool_response_preference": 100
+      },
+      "class_counts": {
+        "banking_intent": {
+          "virtual_card_not_working": 1,
+          "top_up_by_bank_transfer_charge": 1,
+          "balance_not_updated_after_cheque_or_cash_deposit": 2,
+          "age_limit": 2,
+          "Refund_not_showing_up": 2,
+          "apple_pay_or_google_pay": 2,
+          "declined_card_payment": 1,
+          "verify_my_identity": 1,
+          "pending_top_up": 1,
+          "card_linking": 2,
+          "cash_withdrawal_not_recognised": 2,
+          "wrong_amount_of_cash_received": 1,
+          "beneficiary_not_allowed": 2,
+          "country_support": 1,
+          "topping_up_by_card": 1,
+          "cancel_transfer": 2,
+          "unable_to_verify_identity": 1,
+          "balance_not_updated_after_bank_transfer": 2,
+          "pin_blocked": 1,
+          "transfer_into_account": 1,
+          "card_about_to_expire": 2,
+          "atm_support": 2,
+          "transfer_not_received_by_recipient": 1,
+          "disposable_card_limits": 1,
+          "card_payment_not_recognised": 2,
+          "wrong_exchange_rate_for_cash_withdrawal": 1,
+          "compromised_card": 2,
+          "automatic_top_up": 2,
+          "failed_transfer": 1,
+          "verify_source_of_funds": 1,
+          "passcode_forgotten": 1,
+          "card_not_working": 2,
+          "getting_spare_card": 1,
+          "card_acceptance": 2,
+          "card_delivery_estimate": 2,
+          "get_disposable_virtual_card": 1,
+          "reverted_card_payment?": 1,
+          "card_arrival": 2,
+          "order_physical_card": 1,
+          "pending_card_payment": 1,
+          "exchange_via_app": 1,
+          "declined_transfer": 1,
+          "transfer_timing": 1,
+          "exchange_rate": 1,
+          "receiving_money": 1,
+          "activate_my_card": 2,
+          "declined_cash_withdrawal": 1,
+          "top_up_limits": 1,
+          "why_verify_identity": 1,
+          "fiat_currency_support": 1,
+          "change_pin": 2,
+          "card_payment_fee_charged": 2,
+          "transaction_charged_twice": 1,
+          "top_up_by_cash_or_cheque": 1,
+          "visa_or_mastercard": 1,
+          "edit_personal_details": 1,
+          "lost_or_stolen_phone": 1,
+          "extra_charge_on_statement": 1,
+          "exchange_charge": 1,
+          "transfer_fee_charged": 1,
+          "card_swallowed": 2,
+          "pending_cash_withdrawal": 1,
+          "verify_top_up": 1,
+          "card_payment_wrong_exchange_rate": 2,
+          "supported_cards_and_currencies": 1,
+          "lost_or_stolen_card": 1,
+          "direct_debit_payment_not_recognised": 1,
+          "cash_withdrawal_charge": 2,
+          "top_up_failed": 1,
+          "terminate_account": 1,
+          "getting_virtual_card": 1,
+          "request_refund": 1,
+          "top_up_by_card_charge": 1,
+          "top_up_reverted": 1,
+          "get_physical_card": 1,
+          "pending_transfer": 1
+        },
+        "contract_entailment": {
+          "Entailment": 33,
+          "Contradiction": 34,
+          "NotMentioned": 33
+        },
+        "evidence_grounding": {
+          "false": 50,
+          "true": 50
+        },
+        "malicious_request": {
+          "false": 50,
+          "true": 50
+        },
+        "prompt_injection": {
+          "true": 50,
+          "false": 50
+        },
+        "tool_action_safety": {
+          "unsafe": 33,
+          "controversial": 34,
+          "safe": 33
+        },
+        "tool_response_preference": {
+          "A": 50,
+          "B": 50
+        }
+      },
+      "max_packed_tokens": 6896,
+      "sha256": "6cf4689db6a5b5f2b5feebb4a1469f5e91e7efd8db30cd789f027603b6d5dd27"
+    }
+  },
+  "sources": {
+    "data/private/public-eval/rows.jsonl": {
+      "role": "exclusion_only",
+      "sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea"
+    },
+    "data/private/test.jsonl": {
+      "role": "exclusion_only",
+      "sha256": "eaaab5c6f8b7e0f95f4625ccf6eae0b6df93ae465f16a95b38bf16d2185d17eb"
+    },
+    "data/private/public-fresh.jsonl": {
+      "role": "exclusion_only",
+      "sha256": "8561a2abb763331ef4a22bc0f3dd8acb34080f9fb716eb7848c27a332a66fccf"
+    },
+    "data/private/legacy-banking-128.jsonl": {
+      "role": "exclusion_only",
+      "sha256": "4760fd2e4ed95b151158ebea9da373702413db291edeebb65e43afdf06a90822"
+    },
+    "data/private/phase2/test.jsonl": {
+      "role": "exclusion_only",
+      "sha256": "f685badc09430ca95b9bfc83d4a55de7019bcbc74fcb65285a960d118726fe7c"
+    },
+    "ContractNLI": {
+      "revision": "eced6528dd3c1d14d73f9a87df8f7bdbc03126f9",
+      "sha256": "e03fc77bbf8b53e2976a250e81d8a294bc3d5e5fb014521e477dee9340d6287b",
+      "license": "CC-BY-4.0"
+    },
+    "RAGTruth": {
+      "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+      "sha256": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+      "usage": "private research working copies; source terms retained; raw corpus not republished"
+    },
+    "MurrayTom/TS-Bench/data/train/train.jsonl": {
+      "revision": "19047a0c4a54f54cc1ddd4a2c597105d8453b819",
+      "sha256": "84b0df5862c4d618dc318e6fe8148b822c7d5649c2535e8ea58f6478d7759cf7",
+      "license": "Apache-2.0"
+    },
+    "MurrayTom/TS-Bench/data/train/validation.jsonl": {
+      "revision": "19047a0c4a54f54cc1ddd4a2c597105d8453b819",
+      "sha256": "0ec0ce293acf86c1fb26a8a708deb6175b0117c6f3734a048a0a556518db1299",
+      "license": "Apache-2.0"
+    },
+    "When2Call-preferences": {
+      "revision": "0582f7749df63a96fdc3070932e83e72396ace53",
+      "sha256": "d90637f108fabf1b097493c5818c3692e1d73140259d2f8e490536255e765bc4",
+      "license": "CC-BY-4.0",
+      "label_source": "released chosen/rejected synthetic preferences, not inferred action classes"
+    },
+    "banking-retention:train": {
+      "sha256": "766d612f3b4847842acfe20a7c60b689a24f1d7f2b7cd802d894114e6c2d9660",
+      "role": "existing source split retained"
+    },
+    "banking-retention:development": {
+      "sha256": "d956655b3e9c7dd146ed2465194f04705d9887e74e45ff62e5d1161c026e8152",
+      "role": "existing source split retained"
+    },
+    "banking-retention:calibration": {
+      "sha256": "ccfa5933b94e7e9172acc972fcf30f5bc059fcbe68ea3be29012230150d49cd4",
+      "role": "existing source split retained"
+    }
+  },
+  "exclusions": {
+    "contract_entailment:over_8192_no_truncation": 34,
+    "contract_entailment:heldout_source_group": 85,
+    "evidence_grounding:duplicate_decision": 61,
+    "tool_action_safety:heldout_source_group": 1091,
+    "prompt_injection:heldout_source_group": 1091,
+    "malicious_request:heldout_source_group": 1091,
+    "tool_response_preference:heldout_source_group": 2
+  },
+  "near_duplicate_audit": {
+    "method": "64-permutation MinHash LSH candidate retrieval; exact 3-word-shingle Jaccard >= .85 edges; transitive connected grouping",
+    "near_edges": 214,
+    "limitation": "Approximate retrieval, not a proof against semantic or unobserved upstream overlap."
+  },
+  "scope": "Source-supervised internal research pilot; no final-benchmark cases or Jev teacher labels used for training.",
+  "routing": "Outcome-based routing deferred until RouterArena/upstream overlap audit; not claimed as trained in this pilot.",
+  "format": "11 candidate capacity, up to 8192 packed tokens; no truncation; group and class balanced selection, not deployment prevalence.",
+  "raw_distribution": "Direct private transfer to owned Colab only; no raw contexts uploaded to HF or git."
+}
