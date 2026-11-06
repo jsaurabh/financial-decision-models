@@ -18,6 +18,8 @@ try:
  req=Path('/content/public-requirements.txt')
  subprocess.run([sys.executable,'-m','pip','uninstall','-y','torchao'],check=True)
  subprocess.run([sys.executable,'-m','pip','install','-r',str(req)],check=True)
+ required='Gemma4ForConditionalGeneration' if role=='gemma' else 'Qwen3_5ForConditionalGeneration'
+ subprocess.run([sys.executable,'-c','from transformers import '+required+'; import torch, torchvision; print({"torch":torch.__version__,"torchvision":torchvision.__version__})'],check=True)
  mark('prefetching_weights')
  if role=='qwen':
   snapshot_download('Qwen/Qwen3.8-27B',revision='1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0')

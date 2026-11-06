@@ -43,3 +43,13 @@ def test_jsonl_retains_unicode_line_separators_inside_state(tmp_path):
     path=tmp_path/'rows.jsonl';row={'state':'First\u2028second\u2029third','question':{}}
     path.write_text(json.dumps(row,ensure_ascii=False)+'\n'+json.dumps(row,ensure_ascii=False)+'\n')
     assert read(path)==[row,row]
+
+
+def test_public_pairing_rejects_candidate_order_changes():
+    from finance_decisions.public_report import paired
+    from finance_decisions.evaluate_jev import digest
+    row={'id':'one','suite':'s','family':'f','state':'state','question':{'type':'choice','instructions':'Choose','criteria':{'a':'first','b':'second'}},'target':'a','metadata':{}}
+    rec={'id':'one','status':'ok','prediction':'a','input_sha256':digest(row),'labels':['a','b']}
+    changed=dict(rec,labels=['b','a'])
+    with pytest.raises(ValueError,match='mismatch'):paired([row],{'one':rec},{'one':changed})
+    assert paired([row],{'one':rec},{'one':rec})['joint_minus_causal_accuracy']==0
