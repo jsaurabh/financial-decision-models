@@ -1,0 +1,60 @@
+{
+  "training_protocol_commit": "f0234c55231140c14eaccc26aa26e0b366ab5457",
+  "publication_code_commit": "dd3a6b321065491812c6a6c58744a94a62aed3c2",
+  "causal": {
+    "repo": "jsaurabh/gemma4-finance-phase2-causal",
+    "revision": "6b4188a4790bba0beaef19bb48e4b9b18232138d",
+    "private": true,
+    "decision_config": {
+      "architecture": "packed-independent-candidate-readout",
+      "base_model": "google/gemma-4-E2B-it",
+      "base_revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+      "max_length": 2048,
+      "max_choices": 8,
+      "encoder": false,
+      "temperature": 2.2241357193519393,
+      "merged": false,
+      "confidence_note": "temperature-scaled conditional probabilities; review threshold requires in-domain validation",
+      "candidate_attention": "prefix + own causal block",
+      "candidate_position_reset": true,
+      "readout": "shared scalar",
+      "attention_mode": "independent-causal"
+    },
+    "test_predictions_sha256": "e012cb154c462a20469181cf61b6b5f640f9c1b9c89bdcba261be1648647c049"
+  },
+  "joint": {
+    "repo": "jsaurabh/gemma4-finance-phase2-joint",
+    "revision": "99b0773bf266fbc4b19189fe451f5f4088021f48",
+    "private": true,
+    "decision_config": {
+      "architecture": "packed-independent-candidate-readout",
+      "base_model": "google/gemma-4-E2B-it",
+      "base_revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+      "max_length": 2048,
+      "max_choices": 8,
+      "encoder": false,
+      "temperature": 2.1483036767454076,
+      "merged": false,
+      "confidence_note": "temperature-scaled conditional probabilities; review threshold requires in-domain validation",
+      "candidate_attention": "joint bidirectional global layers; independent causal sliding layers",
+      "candidate_position_reset": true,
+      "readout": "shared scalar",
+      "attention_mode": "joint-bidirectional"
+    },
+    "test_predictions_sha256": "82bbe1fd3643ffd9533037bb368f877049797c7566c48cd7b4b05101d7274b87"
+  },
+  "corpus": {
+    "repo": "jsaurabh/financial-decision-phase2",
+    "revision": "4afaa74f9d6c9b387d32a9f7e59738acb692eb83",
+    "private": true,
+    "manifest_sha256": "9d74f4c88160dfb5917a094bfb6ae937c03520cceea83437b504af165dfdae27"
+  },
+  "qwen": {
+    "repo": "jsaurabh/qwen-decision-27b-noncausal-lora",
+    "revision": "b2eefb929a883136b3bd56ce70999fdac656ee8a",
+    "role": "frozen larger reference; different earlier training"
+  },
+  "jev": {
+    "jev-1.14.0": 1011
+  }
+}
