@@ -1,0 +1,9 @@
+{
+  "upstream_revision": "daa6e77",
+  "files": {
+    "eval_autojev27b_vs_jev.py": "8c3e0fe7356681f718e284ccef047132425df5c901b5b8999d38d18298f2c44e",
+    "autojev/types.py": "250ba2eea1cd9bc5501bc76ba76b2f4a1d6c692a7fb1bba4b01affff38cb81ca",
+    "autojev/model.py": "824721da4d8f8ba1e534f3ee35081869243c4457f6b3bd0a9a91b611b2ec1076",
+    "autojev/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

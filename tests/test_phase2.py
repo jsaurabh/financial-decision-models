@@ -65,3 +65,37 @@ def test_synthetic_oracles_and_group_separation():
             elif domain=='evidence_precedence':expected='review' if o['verified'] is None else 'enhanced' if o['verified']>=o['limit'] else 'standard'
             else:expected={'retrieval':'lookup','analysis':'analysis','source code':'code','binding approval':'human'}[o['requested_deliverable']]
             assert r['target']==expected
+
+
+def test_paired_statistics_require_complete_coverage_and_keep_families():
+    from finance_decisions.phase2_compare import paired
+    rows=[{'id':str(i),'family':'shared' if i<2 else 'separate','domain':'d','labels':['a','b'],
+           'input_sha256':str(i),'target':'a','correct':False} for i in range(3)]
+    with pytest.raises(ValueError,match='coverage'):paired(rows,rows[:2])
+    other=[dict(r,correct=True) for r in rows]
+    result=paired(rows,other)
+    assert result['families']==2 and result['b_minus_a_accuracy']==1.
+    assert result['family_bootstrap_95pct']==[1.,1.]
+
+
+def test_saved_candidate_mode_roundtrip(tmp_path,monkeypatch):
+    from peft import LoraConfig,get_peft_model
+    from tokenizers import Tokenizer
+    from tokenizers.models import WordLevel
+    from transformers import PreTrainedTokenizerFast
+    from finance_decisions.model import DecisionModel
+    import json
+    model=tiny('joint-bidirectional')
+    original_config=model.backbone.config
+    model.backbone=get_peft_model(model.backbone,LoraConfig(r=2,lora_alpha=4,target_modules=['q_proj','v_proj']))
+    tokenizer=Tokenizer(WordLevel({'[PAD]':0,'[UNK]':1,'[BOS]':2,'evidence':3},unk_token='[UNK]'))
+    model.tokenizer=PreTrainedTokenizerFast(tokenizer_object=tokenizer,pad_token='[PAD]',unk_token='[UNK]',bos_token='[BOS]')
+    model.save(tmp_path)
+    monkeypatch.setattr(DecisionModel,'pretrained_gemma',classmethod(lambda cls:SimpleNamespace(backbone=Gemma4TextModel(original_config))))
+    loaded=DecisionModel.load(tmp_path,dtype=torch.float32)
+    assert loaded.attention_mode=='joint-bidirectional'
+    torch.testing.assert_close(loaded.readout.weight,model.readout.weight)
+    # Previously published v4 configs have no attention_mode and remain causal.
+    cfg=json.loads((tmp_path/'decision_config.json').read_text());del cfg['attention_mode']
+    (tmp_path/'decision_config.json').write_text(json.dumps(cfg))
+    assert DecisionModel.load(tmp_path,dtype=torch.float32).attention_mode=='independent-causal'
