@@ -12,7 +12,8 @@ import json,subprocess,sys,time
 from pathlib import Path
 root=Path('/content/financial-decision-models');status=root/'qwen-prepare-status.json'
 commands=[
- [sys.executable,'-m','venv','--system-site-packages','/content/qwen-env'],
+ [sys.executable,'-m','pip','install','uv'],
+ [sys.executable,'-m','uv','venv','--clear','--seed','--system-site-packages','--python',sys.executable,'/content/qwen-env'],
  ['/content/qwen-env/bin/python','-m','pip','install','-r','references/qwen27b/requirements.txt'],
  ['/content/qwen-env/bin/python','-c',"from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen3.8-27B',revision='1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0'); snapshot_download('jsaurabh/qwen-decision-27b-noncausal-lora',revision='b2eefb929a883136b3bd56ce70999fdac656ee8a')"],
 ]
