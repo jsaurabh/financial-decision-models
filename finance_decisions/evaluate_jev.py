@@ -92,6 +92,8 @@ def main():
     suites = {name:[json.loads(x) for x in Path(path).read_text().splitlines()] for name,path in [
         ('test','data/private/test.jsonl'), ('legacy-banking-128','data/private/legacy-banking-128.jsonl'),
         ('fresh-robustness','data/private/fresh-robustness.jsonl')]}
+    if Path('data/private/public-fresh.jsonl').exists():
+        suites['public-fresh']=[json.loads(x) for x in Path('data/private/public-fresh.jsonl').read_text().splitlines()]
     all_rows = [r for rows in suites.values() for r in rows]
     cache_path = out / 'cache.jsonl'
     cached = {}

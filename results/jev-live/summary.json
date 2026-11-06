@@ -1,7 +1,7 @@
 {
   "requested_alias": "jev-latest",
   "resolved_models": {
-    "jev-1.14.0": 2800
+    "jev-1.14.0": 4219
   },
   "api_failures": 0,
   "suites": {
@@ -766,11 +766,145 @@
           "semantic_macro_f1": 1.0
         }
       }
+    },
+    "public-fresh": {
+      "n": 1419,
+      "accuracy": 0.9393939393939394,
+      "position_macro_f1": 0.9304735988186607,
+      "nll": 0.33113279403323415,
+      "brier": 0.09584312896385538,
+      "ece_10bin": 0.013002114160632948,
+      "selective": {
+        "0.5": {
+          "coverage": 0.9943622269203665,
+          "accuracy": 0.9425939050318922
+        },
+        "0.7": {
+          "coverage": 0.9520789288231148,
+          "accuracy": 0.9585492227979274
+        },
+        "0.8": {
+          "coverage": 0.9097956307258633,
+          "accuracy": 0.9674670797831139
+        },
+        "0.9": {
+          "coverage": 0.8294573643410853,
+          "accuracy": 0.9753610875106202
+        },
+        "0.95": {
+          "coverage": 0.7378435517970402,
+          "accuracy": 0.9789875835721108
+        }
+      },
+      "semantic_macro_f1": 0.9259618393166025,
+      "requested": 1419,
+      "valid": 1419,
+      "domains": {
+        "banking_intent": {
+          "n": 426,
+          "accuracy": 0.9366197183098591,
+          "position_macro_f1": 0.9371777930197932,
+          "nll": 0.3786897465324176,
+          "brier": 0.09137183098565424,
+          "ece_10bin": 0.03011737088593686,
+          "selective": {
+            "0.5": {
+              "coverage": 0.9882629107981221,
+              "accuracy": 0.9429928741092637
+            },
+            "0.7": {
+              "coverage": 0.9647887323943662,
+              "accuracy": 0.9586374695863747
+            },
+            "0.8": {
+              "coverage": 0.9248826291079812,
+              "accuracy": 0.9670050761421319
+            },
+            "0.9": {
+              "coverage": 0.8896713615023474,
+              "accuracy": 0.9815303430079155
+            },
+            "0.95": {
+              "coverage": 0.8544600938967136,
+              "accuracy": 0.9862637362637363
+            }
+          },
+          "semantic_macro_f1": 0.9228720353720353
+        },
+        "legal_contract": {
+          "n": 593,
+          "accuracy": 0.9325463743676222,
+          "position_macro_f1": 0.9315532060889284,
+          "nll": 0.3952975525582238,
+          "brier": 0.10311871838081293,
+          "ece_10bin": 0.03170320404083943,
+          "selective": {
+            "0.5": {
+              "coverage": 0.9949409780775716,
+              "accuracy": 0.9355932203389831
+            },
+            "0.7": {
+              "coverage": 0.9595278246205734,
+              "accuracy": 0.9507908611599297
+            },
+            "0.8": {
+              "coverage": 0.924114671163575,
+              "accuracy": 0.9635036496350365
+            },
+            "0.9": {
+              "coverage": 0.8887015177065767,
+              "accuracy": 0.9715370018975332
+            },
+            "0.95": {
+              "coverage": 0.8381112984822934,
+              "accuracy": 0.9738430583501007
+            }
+          },
+          "semantic_macro_f1": 0.9301824841824842
+        },
+        "legal_terms": {
+          "n": 400,
+          "accuracy": 0.9525,
+          "position_macro_f1": 0.8261625380269448,
+          "nll": 0.18536038510830655,
+          "brier": 0.089819,
+          "ece_10bin": 0.056800000000000024,
+          "selective": {
+            "0.5": {
+              "coverage": 1.0,
+              "accuracy": 0.9525
+            },
+            "0.7": {
+              "coverage": 0.9275,
+              "accuracy": 0.9703504043126685
+            },
+            "0.8": {
+              "coverage": 0.8725,
+              "accuracy": 0.9742120343839542
+            },
+            "0.9": {
+              "coverage": 0.6775,
+              "accuracy": 0.974169741697417
+            },
+            "0.95": {
+              "coverage": 0.465,
+              "accuracy": 0.978494623655914
+            }
+          },
+          "semantic_macro_f1": 0.8261625380269448,
+          "positive_class": {
+            "precision": 0.5128205128205128,
+            "recall": 1.0,
+            "f1": 0.6779661016949152,
+            "average_precision": 0.9290237987818633
+          }
+        }
+      }
     }
   },
   "note": "Jev uses native returned choice for top-1; NLL uses API-returned probabilities clipped at 1e-12. No latency claim against local GPU/CPU inference.",
   "usage": {
-    "input_tokens": 1156968,
-    "output_tokens": 138376
+    "input_tokens": 1797315,
+    "output_tokens": 244365
   }
 }

@@ -7,15 +7,32 @@
     "finance-source.tar.gz": "468da680be18e09a292fc2da44837354cfcccba6008037dbe2e70ecf68b1e2e7",
     "finance-quality.tar.gz": "67e07589324ffd527e01da8d7cfefc798f714a2b2764ea98d52c2e3dc2ed721d",
     "finance-harden.tar.gz": "d30dca25696075b8bf4acb01783a9b1ba5d18829f4a82b38fff49cd061733cc2",
-    "finance-robustness.tar.gz": "cc85163f6da10f1bb648f93de6ce67e19457ea3f81fee43dd44cb2a167cd306a"
+    "finance-robustness.tar.gz": "cc85163f6da10f1bb648f93de6ce67e19457ea3f81fee43dd44cb2a167cd306a",
+    "finance-candidates.tar.gz": "e6b3d7fc520776ed62e6ab925c0f21420c5b2f407aab2a32ac70609454e47886"
   },
   "notes": [
     "Private raw data and weights are excluded from GitHub.",
     "V1 pilot uses development NLL for selection. V2 is a planned contrastive-training continuation selected on development NLL.",
     "The development and pilot test mixture contains synthetic hypothetical policies.",
-    "The V3 routing paraphrase update was uploaded before V3 training began. The live Jev benchmark used state/question only and resolved all requests to jev-1.14.0."
+    "The V3 routing paraphrase update was uploaded before V3 training began. The live Jev benchmark used state/question only and resolved all requests to jev-1.14.0.",
+    "V4 uses packed independent candidate blocks and a shared scalar readout; public-fresh holdout sealed before this run and excluded from training and selection."
   ],
   "runtime_patch_sha256": {
     "finance_decisions/robustness.py": "10abe6c8acf49286a66956de0d5b93ed3bf9cd5c73e56a59aaa6524cb34596b7"
-  }
+  },
+  "final_model": "jsaurabh/gemma4-e2b-finance-decisions-v4",
+  "final_model_artifact": {
+    "repo": "jsaurabh/gemma4-e2b-finance-decisions-v4",
+    "revision": "4ab4f493211d0e7e41ca6d6dbf0f5db208f15e03",
+    "private": true,
+    "weight_files": [
+      {
+        "name": "backbone/model.safetensors",
+        "bytes": 9257198294,
+        "sha256": "b1cba2f1e9be678ab3bc6d4ee1ede22df28993794e8e3bbfa72d0657af0fbbc1"
+      }
+    ]
+  },
+  "live_jev_calls": 4219,
+  "colab_runtime": "terminated after successful training, quality evaluation, durable upload, and API smoke check"
 }

@@ -2,9 +2,12 @@
 import hashlib
 import json
 import subprocess
+import argparse
 from pathlib import Path
 
-source = Path('/workspace/qwen-rlcd-jev-repro')
+parser=argparse.ArgumentParser()
+parser.add_argument('--source',type=Path,default=Path('/workspace/qwen-rlcd-jev-repro'))
+source=parser.parse_args().source
 old = json.loads((source / 'results/colab/autojev-27b-v4/three-way-comparison.json').read_text())
 archive = {r['id']: r for r in [json.loads(x) for x in (source / 'data/jev_gap_curriculum_v1/eval.jsonl').read_text().splitlines()]}
 rows = []
@@ -15,6 +18,7 @@ for comparison in old['comparisons']:
     digest = hashlib.sha256(json.dumps({'state': state, 'question': question}, sort_keys=True,
         separators=(',', ':'), ensure_ascii=False).encode()).hexdigest()
     assert digest == comparison['jev']['input_sha256']
+    assert list(question['criteria']) == comparison['jev']['labels']
     rows.append({'id': raw['id'], 'family': raw['family'], 'domain': raw['family'].split('-')[1],
                  'state': state, 'question': question, 'target': raw['reference']['target'],
                  'historical': {k: comparison[k] for k in ['jev', 'our_banking_finetune', 'public_autojev']}})

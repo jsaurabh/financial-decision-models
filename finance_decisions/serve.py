@@ -13,8 +13,9 @@ from .schema import answer, options
 
 app = FastAPI(title='Financial Decision Classifier')
 artifact = os.environ.get('DECISION_ARTIFACT')
+model_id = os.environ.get('DECISION_MODEL_ID', 'jsaurabh/gemma4-e2b-finance-decisions-v4')
 if artifact is None:
-    artifact = snapshot_download('jsaurabh/gemma4-e2b-finance-decisions-v1',
+    artifact = snapshot_download(model_id, revision=os.environ.get('DECISION_REVISION'),
         allow_patterns=['decision_config.json', 'readout.safetensors', 'backbone/*', 'tokenizer/*'])
 device = os.environ.get('DECISION_DEVICE', 'cuda' if torch.cuda.is_available() else 'cpu')
 model = DecisionModel.load(artifact, device=device)
@@ -29,7 +30,7 @@ class Request(BaseModel):
 
 @app.get('/health')
 def health():
-    return {'status': 'ready', 'runtime': 'pytorch', 'device': device, 'max_length': model.max_length,
+    return {'status': 'ready', 'model': model_id, 'runtime': 'pytorch', 'device': device, 'max_length': model.max_length,
             'max_choices': 8, 'modalities': ['text'],
             'probabilities': 'conditional on supplied choices; threshold requires in-domain validation'}
 
@@ -48,7 +49,7 @@ def decisions(request: Request):
                 logits = model(model.prepare([row]), [len(labels)])[0, :len(labels)]
                 probabilities = (logits / model.temperature).softmax(-1).cpu().tolist()
                 answers[key] = answer(question, probabilities, request.review_threshold)
-        return {'answers': answers, 'model': 'gemma4-e2b-finance-decisions-v1', 'shared_prefill': False}
+        return {'answers': answers, 'model': model_id, 'shared_prefill': False}
     except (ValueError, TypeError) as exc:
         raise HTTPException(422, str(exc)) from exc
     finally:

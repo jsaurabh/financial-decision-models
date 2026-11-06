@@ -98,3 +98,32 @@ def test_paired_comparison_rejects_different_candidate_order_and_deduplicates():
     assert len(pair_records([first,repeated],[first,repeated])[0]) == 1
     with pytest.raises(ValueError, match='candidate-order mismatch'):
         pair_records([first],[{**first,'labels':['b','a']}])
+
+
+def test_packed_candidates_are_order_invariant_and_receive_gradients():
+    from finance_decisions.candidate_model import CandidateDecisionModel
+    import hashlib
+    config = Gemma4TextConfig(vocab_size=128,vocab_size_per_layer_input=128,hidden_size=32,
+        intermediate_size=64,num_hidden_layers=2,num_attention_heads=4,num_key_value_heads=1,
+        head_dim=8,global_head_dim=8,hidden_size_per_layer_input=8,num_kv_shared_layers=0,
+        layer_types=['sliding_attention','full_attention'],sliding_window=16,max_position_embeddings=512,
+        use_double_wide_mlp=False,rope_parameters={'sliding_attention':{'rope_type':'default','rope_theta':10000.},
+        'full_attention':{'rope_type':'proportional','rope_theta':10000.,'partial_rotary_factor':.5}})
+    class Tokenizer:
+        padding_side='right';pad_token_id=0
+        def __call__(self,text,add_special_tokens=True):
+            ids=[4+int(hashlib.sha256(word.encode()).hexdigest()[:4],16)%120 for word in text.split()]
+            return {'input_ids':([2] if add_special_tokens else [])+ids}
+    model=CandidateDecisionModel(Gemma4TextModel(config),Tokenizer(),256).eval()
+    row={'state':'There is complete evidence.','question':{'type':'choice','instructions':'Choose.',
+         'criteria':{'yes':'Complete evidence','no':'Missing evidence','later':'Wait for missing evidence'}}}
+    other=copy.deepcopy(row);other['question']['criteria']=dict(reversed(list(row['question']['criteria'].items())))
+    a=model(model.prepare([row]),[3])[0,:3]
+    b=model(model.prepare([other]),[3])[0,:3].flip(0)
+    torch.testing.assert_close(a,b,atol=1e-5,rtol=1e-5)
+    longer=copy.deepcopy(row);longer['state']+=' Another recorded fact.'*4
+    padded=model(model.prepare([row,longer]),[3,3])[0,:3]
+    torch.testing.assert_close(a,padded,atol=1e-5,rtol=1e-5)
+    torch.nn.functional.cross_entropy(model(model.prepare([row]),[3]),torch.tensor([0])).backward()
+    assert model.readout.weight.grad.abs().sum()>0
+    assert all(torch.isfinite(p.grad).all() for p in model.parameters() if p.grad is not None)

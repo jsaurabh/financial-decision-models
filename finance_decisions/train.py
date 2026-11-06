@@ -38,7 +38,7 @@ def filter_rows(model, rows):
     accepted, dropped = [], Counter()
     for row in rows:
         # Leave a small margin for a shuffled rendering's token-boundary changes.
-        n = len(model.tokenizer(render(row['state'], row['question'])[0])['input_ids'])
+        n = model.token_length(row)
         if n <= model.max_length - 8:
             accepted.append(row)
         else:

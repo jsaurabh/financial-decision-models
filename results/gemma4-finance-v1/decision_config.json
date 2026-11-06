@@ -1,0 +1,11 @@
+{
+  "architecture": "single-pass-last-token-readout",
+  "base_model": "google/gemma-4-E2B-it",
+  "base_revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+  "max_length": 384,
+  "max_choices": 8,
+  "encoder": false,
+  "temperature": 1.12859355095547,
+  "merged": true,
+  "confidence_note": "temperature-scaled conditional probabilities; review threshold requires in-domain validation"
+}

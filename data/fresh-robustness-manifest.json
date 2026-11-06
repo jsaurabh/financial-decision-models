@@ -1,7 +1,7 @@
 {
   "rows": 960,
   "sha256": "1dccaad0e5cbc1452dbff26d7703a83ddca4e4cdc67f4fd888cdece97111d785",
-  "use": "final evaluation only, not training/calibration/checkpoint selection",
+  "use": "V3 final evaluation; subsequently inspected during V4 architecture design, so development probe for V4. Labels excluded from training, calibration, and checkpoint selection.",
   "created_after": "pilot exposed sensitivity to policy paraphrases",
   "limits": "Synthetic, not human-reviewed; novel input templates, numerical limits and domain names. Not a production distribution estimate.",
   "unique_semantic_inputs": 183,

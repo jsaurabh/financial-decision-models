@@ -65,12 +65,15 @@ def main():
     parser.add_argument('--out', default='results/gemma4-finance-v1')
     parser.add_argument('--hf-repo', default='jsaurabh/gemma4-e2b-finance-decisions-v1')
     parser.add_argument('--fresh-probe', action='store_true')
+    parser.add_argument('--public-holdout', action='store_true')
     args = parser.parse_args()
     model = DecisionModel.load(args.artifact, device='cuda')
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     print(json.dumps({'test': evaluate(model, read('data/private/test.jsonl'), out, 'test')}, indent=2), flush=True)
     if args.fresh_probe:
         print(json.dumps({'fresh_robustness': evaluate(model, read('data/private/fresh-robustness.jsonl'), out, 'fresh-robustness')}, indent=2), flush=True)
+    if args.public_holdout:
+        print(json.dumps({'public_fresh': evaluate(model, read('data/private/public-fresh.jsonl'), out, 'public-fresh')},indent=2),flush=True)
     # The historical evaluation is longer than the training cap. We preserve it in full
     # and state this explicitly instead of silently truncating or dropping hard cases.
     legacy = evaluate(model, read('data/private/legacy-banking-128.jsonl'), out, 'legacy-banking-128', max_length=1024)

@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "health": {
+    "status": "ready",
+    "model": "jsaurabh/gemma4-e2b-finance-decisions-v4",
+    "runtime": "pytorch",
+    "device": "cuda",
+    "max_length": 1536,
+    "max_choices": 8,
+    "modalities": [
+      "text"
+    ],
+    "probabilities": "conditional on supplied choices; threshold requires in-domain validation"
+  },
+  "typed_multi_question_response": {
+    "answers": {
+      "complete": {
+        "value": true,
+        "probabilities": {
+          "false": 0.48353949189186096,
+          "true": 0.5164605379104614
+        },
+        "max_probability": 0.5164605379104614,
+        "needs_review": true
+      },
+      "score": {
+        "value": 1.9961673514917493,
+        "probabilities": {
+          "0": 0.000541664136108011,
+          "1": 0.002749134786427021,
+          "2": 0.9967091083526611
+        },
+        "max_probability": 0.9967091083526611,
+        "needs_review": false,
+        "most_likely_level": 2
+      },
+      "route": {
+        "value": "process",
+        "probabilities": {
+          "process": 0.9885314702987671,
+          "review": 0.011468522250652313
+        },
+        "max_probability": 0.9885314702987671,
+        "needs_review": false
+      }
+    },
+    "model": "jsaurabh/gemma4-e2b-finance-decisions-v4",
+    "shared_prefill": false
+  },
+  "invalid_schema_status": 422,
+  "artifact": "/content/financial-decision-models/runs/gemma4-finance-v4/release"
+}

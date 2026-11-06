@@ -1,0 +1,15 @@
+{
+  "seed": 20261107,
+  "rows": 1419,
+  "domains": {
+    "legal_contract": 593,
+    "banking_intent": 426,
+    "legal_terms": 400
+  },
+  "sha256": "8561a2abb763331ef4a22bc0f3dd8acb34080f9fb716eb7848c27a332a66fccf",
+  "banking_intents_represented": 71,
+  "contract_topics_represented": 100,
+  "split": "official test rows; prior train, calibration, and inspected test rows/states excluded",
+  "use": "final-only; no training/calibration/checkpoint selection",
+  "limits": "Eight sampled candidates including the reference for banking/LEDGAR; not full-taxonomy classification."
+}

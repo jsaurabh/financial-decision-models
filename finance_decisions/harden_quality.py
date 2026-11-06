@@ -26,11 +26,16 @@ def main():
     parser.add_argument('--hf-repo', default='jsaurabh/gemma4-e2b-finance-decisions-v2')
     parser.add_argument('--steps', type=int, default=700)
     parser.add_argument('--augment', action='store_true')
+    parser.add_argument('--candidate-head', action='store_true')
     args = parser.parse_args()
     torch.manual_seed(20261106); rng = random.Random(20261106); torch.set_num_threads(8)
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     model = DecisionModel.load(args.starting_artifact, device='cuda')
-    model.max_length = 768
+    if args.candidate_head:
+        from .candidate_model import CandidateDecisionModel
+        model = CandidateDecisionModel(model.backbone,model.tokenizer,max_length=1536).to('cuda')
+    else:
+        model.max_length = 768
     for name, parameter in model.backbone.named_parameters():
         parameter.requires_grad_('lora_' in name)
     original, dropped = filter_rows(model, read('data/private/train.jsonl'))
@@ -50,6 +55,7 @@ def main():
               'original_train_rows': len(original_train), 'contrastive_train_rows': len(gap_train),
               'dev_rows': len(dev), 'dropped_original': dropped, 'dropped_gap': gap_dropped,
               'starting_artifact': args.starting_artifact, 'selection': 'combined development NLL', 'paraphrase_augmentation': args.augment,
+              'candidate_head':args.candidate_head,
               'gpu': torch.cuda.get_device_name(), 'seed': 20261106}
     (out / 'run_config.json').write_text(json.dumps(config, indent=2)); print(json.dumps(config), flush=True)
     optimizer = torch.optim.AdamW([

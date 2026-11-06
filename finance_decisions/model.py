@@ -40,6 +40,9 @@ class DecisionModel(nn.Module):
             raise ValueError(f'Input exceeds {self.max_length} tokens; no silent truncation is permitted')
         return {k: v.to(device or next(self.parameters()).device) for k, v in batch.items()}
 
+    def token_length(self, row):
+        return len(self.tokenizer(render(row['state'], row['question'])[0])['input_ids'])
+
     def forward(self, batch, counts):
         kwargs = {} if self.encoder else {'use_cache': False}
         hidden = self.backbone(**batch, **kwargs).last_hidden_state
@@ -75,7 +78,11 @@ class DecisionModel(nn.Module):
         else:
             from peft import PeftModel
             backbone = PeftModel.from_pretrained(cls.pretrained_gemma().backbone, path / 'backbone')
-        model = cls(backbone, AutoTokenizer.from_pretrained(path / 'tokenizer'), cfg['max_length'], cfg['encoder'])
+        constructor = cls
+        if cfg['architecture'] == 'packed-independent-candidate-readout':
+            from .candidate_model import CandidateDecisionModel
+            constructor = CandidateDecisionModel
+        model = constructor(backbone, AutoTokenizer.from_pretrained(path / 'tokenizer'), cfg['max_length'], cfg['encoder'])
         model.readout.load_state_dict(load_file(str(path / 'readout.safetensors')))
         model.temperature = cfg['temperature']
         return model.to(device).eval()
