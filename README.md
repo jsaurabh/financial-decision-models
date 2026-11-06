@@ -136,7 +136,11 @@ uvicorn finance_decisions.serve:app --host 127.0.0.1 --port 8000 --workers 1
 }
 ```
 
-POST to `/v1/decisions` (`/v1/systemone` is an alias). The response includes the selected value, all candidate probabilities, and a configurable `needs_review` flag. Its default threshold is an experimental setting; select production thresholds on reviewed in-domain examples. Multi-question calls currently run each question separately. Long requests are rejected explicitly instead of silently truncated.
+POST the example above to `/v1/systemone` for Jev-format typed answers (`choice`, `noul`, `score`, probability maps and confidence). `model` may be supplied to select the configured local artifact; it defaults to the server's model ID.
+
+`/v1/decisions` accepts OpenAI-format `model`, `input` and an ordered `questions` array and returns typed answers with probability arrays. Use the configured Gemma model ID, not `gpt-6-luna` or `jev-latest`. Both endpoints use the same model probabilities and saved temperature. See [API examples and compatibility scope](docs/decision-api.md).
+
+**Migration:** these routes are now distinct contracts. The previous custom `state`/`questions` interface, including `value`, `max_probability`, `needs_review` and `review_threshold`, is available at `/v1/classify`. Move existing custom clients there. Confidence in both compatible formats follows TypeSafe's published distribution formulas; it does not reproduce OpenAI's hosted confidence. Multi-question calls run each question separately. Text/JSON only, at most eight questions/options, with explicit length rejection and no truncation.
 
 ## Interpretation
 
