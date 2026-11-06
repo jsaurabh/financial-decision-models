@@ -15,5 +15,10 @@
     "unique_normalized_states": 13498
   },
   "contrastive_vs_legacy_family_overlap": 0,
+  "public_fresh": {
+    "rows": 1419,
+    "unique_states": 1419,
+    "prior_state_overlap": 0
+  },
   "status": "passed"
 }

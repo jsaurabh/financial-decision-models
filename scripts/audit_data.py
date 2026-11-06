@@ -27,5 +27,15 @@ gap = [json.loads(x) for x in Path('data/private/contrastive-banking-train.jsonl
 legacy = [json.loads(x) for x in Path('data/private/legacy-banking-128.jsonl').read_text().splitlines()]
 assert not {r['family'] for r in gap} & {r['family'] for r in legacy}
 result['contrastive_vs_legacy_family_overlap'] = 0
+fresh_path=Path('data/private/public-fresh.jsonl')
+if fresh_path.exists():
+    fresh=[json.loads(x) for x in fresh_path.read_text().splitlines()]
+    hashes={hashlib.sha256(' '.join(r['state'].lower().split()).encode()).hexdigest() for r in fresh}
+    assert len(hashes)==len(fresh)
+    assert not hashes & seen_states
+    for r in fresh:
+        assert r['target'] in options(r['question'])[0]
+        render(r['state'],r['question'])
+    result['public_fresh']={'rows':len(fresh),'unique_states':len(hashes),'prior_state_overlap':0}
 result['status'] = 'passed'
 Path('data/audit.json').write_text(json.dumps(result, indent=2)); print(json.dumps(result, indent=2))
