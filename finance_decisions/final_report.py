@@ -15,11 +15,22 @@ OUT=Path('results/final-eval')
 def collect(role):
     folder=CACHE/role;folder.mkdir(parents=True,exist_ok=True)
     result={}
-    for name in ['config.json','progress.json','predictions.jsonl']:
+    # Pin the commit BEFORE HEAD/GET. A changing main branch can otherwise
+    # return a different-sized prediction file between metadata and download.
+    for attempt in range(4):
         try:
-            path=hf_hub_download(REPO,f'runs/{role}/{name}',repo_type='dataset')
-            (folder/name).write_bytes(Path(path).read_bytes())
-        except EntryNotFoundError:continue
+            revision=HfApi().dataset_info(REPO).sha
+            for name in ['config.json','progress.json','predictions.jsonl']:
+                try:
+                    path=hf_hub_download(REPO,f'runs/{role}/{name}',repo_type='dataset',revision=revision,force_download=attempt>0)
+                    temp=(folder/name).with_suffix('.download.tmp');temp.write_bytes(Path(path).read_bytes());temp.replace(folder/name)
+                except EntryNotFoundError:continue
+            break
+        except Exception as exc:
+            if attempt==3:
+                result['collection_error']=type(exc).__name__
+                break
+            time.sleep(5*(attempt+1))
     if (folder/'progress.json').exists():result=json.loads((folder/'progress.json').read_text())
     return result
 
