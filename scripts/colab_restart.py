@@ -3,6 +3,8 @@ import os
 import subprocess
 from pathlib import Path
 root = Path('/content/financial-decision-models')
+if (root / 'runs/gemma4-finance-v1/run_config.json').exists():
+    raise RuntimeError('This helper is only for preflight failures before training starts; preserve existing checkpoints')
 # Colab's preinstalled torchao may be too old for current PEFT. It is unused here.
 subprocess.run([os.sys.executable, '-m', 'pip', 'uninstall', '-y', 'torchao'], check=True)
 # _driver is a child of the kernel; the secret is inherited from the original bootstrap.

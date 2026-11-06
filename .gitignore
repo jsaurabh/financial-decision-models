@@ -12,3 +12,4 @@ artifacts/
 *.pt
 *.log
 .colab/
+results/jev-live/cache.jsonl

@@ -1,0 +1,17 @@
+{
+  "steps": 700,
+  "effective_batch": 16,
+  "max_length": 768,
+  "mixture": "8 original + 8 contrastive banking examples per update",
+  "original_train_rows": 12765,
+  "contrastive_train_rows": 1716,
+  "dev_rows": 938,
+  "dropped_original": {
+    "legal_contract": 14
+  },
+  "dropped_gap": {},
+  "starting_artifact": "v1 selected at step 700",
+  "selection": "combined development NLL",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "seed": 20261106
+}

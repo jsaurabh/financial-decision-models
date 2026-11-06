@@ -1,0 +1,101 @@
+{
+  "steps": 700,
+  "effective_batch": 16,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "torch": "2.11.0+cu130",
+  "train_rows": 12535,
+  "dev_rows": 721,
+  "dropped_overlength": {
+    "train": {
+      "legal_contract": 256,
+      "legal_terms": 1
+    },
+    "calibration": {
+      "legal_contract": 16
+    },
+    "test": {
+      "legal_contract": 19
+    }
+  },
+  "trainable_parameters": 23728128,
+  "data_manifest": {
+    "seed": 20261105,
+    "sources": {
+      "banking77": {
+        "repo": "PolyAI/banking77",
+        "revision": "1846984189f2bc0ac51c6fc3a600fa9e1714e0c6",
+        "license": "CC-BY-4.0"
+      },
+      "lex_glue": {
+        "repo": "coastalcph/lex_glue",
+        "revision": "c23fdff1a6bf74e0e1a71cb86f1e781d37da888c",
+        "license": "CC-BY-4.0; underlying sources retain their terms"
+      }
+    },
+    "splits": {
+      "test": {
+        "rows": 1712,
+        "domains": {
+          "legal_workflow": 72,
+          "financial_reporting": 72,
+          "banking_intent": 240,
+          "payments": 72,
+          "legal_contract": 240,
+          "legal_terms": 240,
+          "model_routing": 320,
+          "aml_controls": 72,
+          "data_privacy": 72,
+          "insurance": 72,
+          "document_completeness": 96,
+          "credit_operations": 72,
+          "investment_operations": 72
+        },
+        "sha256": "eaaab5c6f8b7e0f95f4625ccf6eae0b6df93ae465f16a95b38bf16d2185d17eb"
+      },
+      "calibration": {
+        "rows": 1472,
+        "domains": {
+          "insurance": 72,
+          "legal_contract": 160,
+          "model_routing": 320,
+          "data_privacy": 72,
+          "investment_operations": 72,
+          "legal_terms": 160,
+          "financial_reporting": 72,
+          "aml_controls": 72,
+          "legal_workflow": 72,
+          "banking_intent": 160,
+          "payments": 72,
+          "document_completeness": 96,
+          "credit_operations": 72
+        },
+        "sha256": "b33f171d743b2819ddc8574d982ed872e3fd8bcceebae80e06bd3b8ae172d6a5"
+      },
+      "train": {
+        "rows": 13513,
+        "domains": {
+          "financial_reporting": 576,
+          "banking_intent": 3500,
+          "insurance": 576,
+          "legal_terms": 1497,
+          "legal_workflow": 576,
+          "aml_controls": 576,
+          "legal_contract": 2500,
+          "data_privacy": 576,
+          "investment_operations": 576,
+          "credit_operations": 576,
+          "model_routing": 640,
+          "document_completeness": 768,
+          "payments": 576
+        },
+        "sha256": "d56288c3ed43a78211dc677e8b236ce08c43b01ad4dc800cc73bf55aab6ec934"
+      }
+    },
+    "limitations": [
+      "Banking/LEDGAR use 8 sampled candidates including the gold label, not full 77/100-way classification.",
+      "Synthetic policy cases are not human reviewed and do not assert current legal requirements.",
+      "Routing is capability-based; no empirical model-utility oracle is available.",
+      "No private production evaluation data supplied. Public pretraining contamination cannot be excluded."
+    ]
+  }
+}

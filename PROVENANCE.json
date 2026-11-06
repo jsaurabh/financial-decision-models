@@ -6,11 +6,16 @@
   "code_archives": {
     "finance-source.tar.gz": "468da680be18e09a292fc2da44837354cfcccba6008037dbe2e70ecf68b1e2e7",
     "finance-quality.tar.gz": "67e07589324ffd527e01da8d7cfefc798f714a2b2764ea98d52c2e3dc2ed721d",
-    "finance-harden.tar.gz": "d30dca25696075b8bf4acb01783a9b1ba5d18829f4a82b38fff49cd061733cc2"
+    "finance-harden.tar.gz": "d30dca25696075b8bf4acb01783a9b1ba5d18829f4a82b38fff49cd061733cc2",
+    "finance-robustness.tar.gz": "cc85163f6da10f1bb648f93de6ce67e19457ea3f81fee43dd44cb2a167cd306a"
   },
   "notes": [
     "Private raw data and weights are excluded from GitHub.",
     "V1 pilot uses development NLL for selection. V2 is a planned contrastive-training continuation selected on development NLL.",
-    "The development and pilot test mixture contains synthetic hypothetical policies."
-  ]
+    "The development and pilot test mixture contains synthetic hypothetical policies.",
+    "The V3 routing paraphrase update was uploaded before V3 training began. The live Jev benchmark used state/question only and resolved all requests to jev-1.14.0."
+  ],
+  "runtime_patch_sha256": {
+    "finance_decisions/robustness.py": "10abe6c8acf49286a66956de0d5b93ed3bf9cd5c73e56a59aaa6524cb34596b7"
+  }
 }

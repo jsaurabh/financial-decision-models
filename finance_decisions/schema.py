@@ -15,7 +15,12 @@ def options(question):
             raise ValueError('criteria must map string labels to descriptions')
         return list(values), list(values.values())
     if kind == 'noul':
-        return ['false', 'true'], ['The predicate is false.', 'The predicate is true.']
+        criteria = question.get('criteria')
+        if criteria is None:
+            return ['false', 'true'], ['The predicate is false.', 'The predicate is true.']
+        if not isinstance(criteria, dict) or set(criteria) != {'false', 'true'} or not all(isinstance(v,str) for v in criteria.values()):
+            raise ValueError('noul criteria must contain string descriptions for false and true')
+        return ['false', 'true'], [criteria['false'], criteria['true']]
     if kind == 'score':
         values = question.get('criteria')
         if not isinstance(values, list) or not 2 <= len(values) <= MAX_CHOICES:
@@ -32,7 +37,7 @@ def render(state, question):
     if not isinstance(instructions, str) or not instructions.strip():
         raise ValueError('instructions are required')
     state = state if isinstance(state, str) else json.dumps(state, ensure_ascii=False, sort_keys=True)
-    if len(state) + len(instructions) + sum(map(len, descriptions)) > MAX_CHARS:
+    if len(state) + len(instructions) + sum(map(len, descriptions)) + sum(map(len, labels)) > MAX_CHARS:
         raise ValueError('request exceeds character budget')
     choices = '\n'.join(f'{i}: {label}: {desc}' for i, (label, desc) in enumerate(zip(labels, descriptions)))
     return f'State:\n{state}\nQuestion: {instructions}\nOptions:\n{choices}\nDecision:', labels

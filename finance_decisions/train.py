@@ -154,14 +154,10 @@ def main():
     evaluation['wall_s'] = time.monotonic() - start_time
     evaluation['peak_cuda_gib'] = torch.cuda.max_memory_allocated() / 2**30
     (out / 'evaluation.json').write_text(json.dumps(evaluation, indent=2))
-    # Only training rows become distillation targets; test/calibration are never teacher training data.
-    teacher_logits = infer(model, train)
-    distillation = out / 'distillation.jsonl'
-    distillation.write_text(''.join(json.dumps({**r, 'teacher_logits': l}) + '\n' for r, l in zip(train, teacher_logits)))
     model.save(out / 'release', merge=True)
     (out / 'release' / 'README.md').write_text('---\nlicense: apache-2.0\nbase_model: google/gemma-4-E2B-it\npipeline_tag: text-classification\n---\n# Financial decisions: Gemma 4 E2B pilot\nPrivate experimental classifier. Load with finance_decisions.model.DecisionModel. Text-only, at most 8 candidates and 384 tokens. No production financial validation.\n')
     upload(out / 'release', args.hf_repo)
-    # Aggregate results, configs, and distillation corpus stay private on HF; only reports go to git.
+    # Aggregate results and configs stay private on HF; only reports go to git.
     upload(out, args.hf_repo, 'run',)
     print(json.dumps({'status': 'complete', 'repo': args.hf_repo, 'evaluation': evaluation}), flush=True)
 

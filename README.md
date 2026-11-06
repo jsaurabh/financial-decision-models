@@ -22,6 +22,10 @@ Public BANKING77 and LEDGAR tasks use **eight sampled candidates including the r
 
 The quality continuation adds only the **training** families from the project's earlier contrastive banking curriculum. A separate frozen 128-case banking set verifies exact input hashes against archived Jev and 27B-model predictions. Those provider results are historical comparisons, not fresh API calls. The frozen benchmark supplies no training or calibration labels.
 
+Live Jev 1.14.0 predictions are also collected on the same inputs through the user's API key. [results/jev-live/summary.json](results/jev-live/summary.json) records all 2,800 successful API calls. [results/gemma-vs-jev.json](results/gemma-vs-jev.json) checks exact input hashes, candidate order, and reference labels before comparison. It deduplicates repeated semantic inputs; the raw benchmark reports are retained separately.
+
+The original pilot test has informed the development plan, so later improvements on it are development results. A fresh synthetic robustness probe is excluded from training, calibration, and checkpoint selection. Its manifest reports both the raw row count and distinct semantic inputs; it is not production validation.
+
 Run the corpus audit after preparing private files:
 
 ```bash
@@ -52,6 +56,27 @@ python -m finance_decisions.evaluate_quality \
   --out results/gemma4-finance-v2 \
   --hf-repo jsaurabh/gemma4-e2b-finance-decisions-v2
 ```
+
+For paraphrase hardening, continue the selected adapter and fit calibration again after merging the release weights:
+
+```bash
+python -m finance_decisions.harden_quality \
+  --starting-artifact runs/gemma4-finance-v2/selected \
+  --out runs/gemma4-finance-v3 \
+  --hf-repo jsaurabh/gemma4-e2b-finance-decisions-v3 \
+  --augment --steps 700
+```
+
+The complete live comparison can be reproduced without sending reference labels to the API:
+
+```bash
+python -m finance_decisions.robustness
+# TYPESAFE_API_KEY must be set in the environment.
+python -m finance_decisions.evaluate_jev
+python -m finance_decisions.compare_quality
+```
+
+Jev's native returned choice determines top-1 accuracy. Probability metrics use its returned probabilities, clipped at `1e-12` for log loss. Its provider-specific confidence value is recorded separately. API wall times include the network and are not compared with local CPU or GPU latency.
 
 ## Call the classifier
 

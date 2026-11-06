@@ -9,6 +9,7 @@ from transformers import Gemma4TextConfig, Gemma4TextModel
 from finance_decisions.model import DecisionModel, targets
 from finance_decisions.schema import answer, options, render
 from finance_decisions.train import shuffled_options
+from finance_decisions.robustness import augment
 
 
 def test_choice_shuffle_preserves_semantic_target():
@@ -25,10 +26,13 @@ def test_typed_answers_and_bounds():
     assert response['value'] == pytest.approx(1.6)
     assert response['needs_review']
     assert answer({'type': 'noul'}, [.1, .9])['value'] is True
+    assert options({'type':'noul','criteria':{'false':'not verified','true':'verified'}})[1] == ['not verified','verified']
     with pytest.raises(ValueError):
         options({'type': 'choice', 'criteria': {str(i): 'label' for i in range(9)}})
     with pytest.raises(ValueError):
         render('a' * 13000, {'type': 'noul', 'instructions': 'Predicate'})
+    with pytest.raises(ValueError):
+        render('short', {'type':'choice','instructions':'Choose','criteria':{'a'*13000:'one','b':'two'}})
 
 
 def test_native_gemma_padding_mask_and_lora_gradients():
@@ -54,3 +58,43 @@ def test_native_gemma_padding_mask_and_lora_gradients():
     torch.nn.functional.cross_entropy(logits, torch.tensor([1])).backward()
     assert model.readout.weight.grad.abs().sum() > 0
     assert any(p.grad is not None and p.grad.abs().sum() > 0 for n,p in model.named_parameters() if 'lora_B' in n)
+
+
+def test_missing_evidence_augmentation_keeps_reference_and_policy():
+    row = {'domain': 'payments', 'state': 'Case 3: observed days since posting: unknown. Evidence is current. No override applies.',
+           'question': {'type': 'choice', 'instructions': 'Apply policy.', 'criteria': {'review':'Unknown evidence','normal':'Known evidence'}},
+           'target': 'review'}
+    for seed in range(12):
+        changed = augment(row, random.Random(seed))
+        assert changed['target'] == 'review'
+        assert changed['question'] == row['question']
+        assert changed['state'] != row['state']
+
+
+def test_live_jev_payload_excludes_reference_and_preserves_native_tie_break(monkeypatch):
+    from finance_decisions.evaluate_jev import call
+    monkeypatch.setenv('TYPESAFE_API_KEY', 'unit-test-placeholder')
+    row = {'id':'case','domain':'banking','state':'The reference is kept outside this input.',
+           'question':{'type':'choice','instructions':'Choose','criteria':{'a':'first','b':'second'}}, 'target':'a'}
+    class Response:
+        status_code = 200
+        def json(self):
+            return {'model':'jev-unit-test','answers':{'decision':{'choice':'b','probabilities':{'a':.5,'b':.5}}},'usage':{'input_tokens':10}}
+    def post(url, headers, json, timeout):
+        assert set(json) == {'model','state','questions'}
+        assert 'target' not in json and 'reference' not in json
+        assert json['questions']['decision'] == row['question']
+        return Response()
+    monkeypatch.setattr('requests.post', post)
+    result = call(row, 'jev-latest')
+    assert result['prediction'] == 'b'
+    assert 'target' not in result
+
+
+def test_paired_comparison_rejects_different_candidate_order_and_deduplicates():
+    from finance_decisions.compare_quality import pair_records
+    first = {'id':'one','input_sha256':'same','labels':['a','b'],'target':'a'}
+    repeated = {**first,'id':'two'}
+    assert len(pair_records([first,repeated],[first,repeated])[0]) == 1
+    with pytest.raises(ValueError, match='candidate-order mismatch'):
+        pair_records([first],[{**first,'labels':['b','a']}])
