@@ -1,0 +1,19 @@
+{
+  "seed": 20261112,
+  "initialization": "fresh official instruction base + fresh scalar head, rank16 LoRA",
+  "base_model": "google/gemma-4-E2B-it",
+  "base_revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+  "attention": "independent-causal, strict math SDPA, TF32 disabled",
+  "max_length": 8192,
+  "max_choices": 11,
+  "micro_batch": 1,
+  "effective_batch": 8,
+  "epochs": 1,
+  "training_stream_sha256": "d7f36a4c6734125f8acab1840f439147f8cf809f35c799d027de09f572dde6f9",
+  "manifest_sha256": "bee599781521cff4e50a0088fedff730b1b3b92cd88a45dfb74e9cc1b5cd7e91",
+  "torch": "2.11.0+cu130",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "training_code_sha256": "9982d4f3a33ed54c1028751ef7a09b7438d9f9216e33a1a9fdae6e43dc609071",
+  "steps": 1250,
+  "final_benchmark_evaluation": false
+}

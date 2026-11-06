@@ -1,0 +1,71 @@
+{
+  "status": "training_complete",
+  "selected_step": 1200,
+  "development_selection_score": 0.3920899156207098,
+  "calibration_temperature": 1.7219688898693004,
+  "calibration": {
+    "domains": {
+      "malicious_request": {
+        "n": 100,
+        "accuracy": 0.95,
+        "macro_f1": 0.9499949994999499,
+        "nll": 0.11266827507468707,
+        "normalized_nll": 0.16254596171576463,
+        "positive_recall": 0.96,
+        "false_positive_rate": 0.06
+      },
+      "banking_intent": {
+        "n": 100,
+        "accuracy": 0.91,
+        "macro_f1": 0.8692640692640692,
+        "nll": 0.2548727051389312,
+        "normalized_nll": 0.12256786258729704
+      },
+      "evidence_grounding": {
+        "n": 100,
+        "accuracy": 0.72,
+        "macro_f1": 0.7126436781609196,
+        "nll": 0.515750262352599,
+        "normalized_nll": 0.7440703458332765,
+        "positive_recall": 0.88,
+        "false_positive_rate": 0.44
+      },
+      "prompt_injection": {
+        "n": 100,
+        "accuracy": 0.93,
+        "macro_f1": 0.9299369432489241,
+        "nll": 0.14209207448574634,
+        "normalized_nll": 0.20499553121021152,
+        "positive_recall": 0.9,
+        "false_positive_rate": 0.04
+      },
+      "tool_action_safety": {
+        "n": 100,
+        "accuracy": 0.61,
+        "macro_f1": 0.6171007033796535,
+        "nll": 0.8581785193249172,
+        "normalized_nll": 0.781147751738077
+      },
+      "contract_entailment": {
+        "n": 100,
+        "accuracy": 0.85,
+        "macro_f1": 0.8496064322151279,
+        "nll": 0.3459667069459665,
+        "normalized_nll": 0.3149124677691301
+      },
+      "tool_response_preference": {
+        "n": 100,
+        "accuracy": 0.98,
+        "macro_f1": 0.9799919967987194,
+        "nll": 0.0576229606988612,
+        "normalized_nll": 0.0831323596415867
+      }
+    },
+    "selection_score": 0.34476746864219193,
+    "selection": "Equal-domain mean NLL/log(candidate count); development only, research mixture not deployment weights."
+  },
+  "tokens": 8989250,
+  "peak_cuda_gib": 21.589956760406494,
+  "final_benchmark_evaluation": false,
+  "scope": "Internal source-supervised research pilot; no final evaluation or production deployment."
+}
