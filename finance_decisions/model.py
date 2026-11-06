@@ -25,10 +25,10 @@ class DecisionModel(nn.Module):
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
     @classmethod
-    def pretrained_gemma(cls):
+    def pretrained_gemma(cls, dtype=torch.bfloat16):
         # Load the official architecture so checkpoint prefixes are handled exactly.
         full = Gemma4ForConditionalGeneration.from_pretrained(
-            BASE, revision=REVISION, dtype=torch.bfloat16, attn_implementation='sdpa')
+            BASE, revision=REVISION, dtype=dtype, attn_implementation='sdpa')
         model = cls(full.model.language_model, AutoTokenizer.from_pretrained(BASE, revision=REVISION))
         del full
         return model
@@ -77,7 +77,7 @@ class DecisionModel(nn.Module):
             backbone = Gemma4TextModel.from_pretrained(path / 'backbone', dtype=dtype, attn_implementation='sdpa')
         else:
             from peft import PeftModel
-            backbone = PeftModel.from_pretrained(cls.pretrained_gemma().backbone, path / 'backbone')
+            backbone = PeftModel.from_pretrained(cls.pretrained_gemma(dtype=dtype).backbone, path / 'backbone')
         constructor = cls
         if cfg['architecture'] == 'packed-independent-candidate-readout':
             from .candidate_model import CandidateDecisionModel

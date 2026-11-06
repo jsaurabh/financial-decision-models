@@ -96,9 +96,12 @@ def test_saved_candidate_mode_roundtrip(tmp_path,monkeypatch):
     tokenizer=Tokenizer(WordLevel({'[PAD]':0,'[UNK]':1,'[BOS]':2,'evidence':3},unk_token='[UNK]'))
     model.tokenizer=PreTrainedTokenizerFast(tokenizer_object=tokenizer,pad_token='[PAD]',unk_token='[UNK]',bos_token='[BOS]')
     model.save(tmp_path)
-    monkeypatch.setattr(DecisionModel,'pretrained_gemma',classmethod(lambda cls:SimpleNamespace(backbone=Gemma4TextModel(original_config))))
+    def base(cls,dtype):
+        return SimpleNamespace(backbone=Gemma4TextModel(original_config).to(dtype=dtype))
+    monkeypatch.setattr(DecisionModel,'pretrained_gemma',classmethod(base))
     loaded=DecisionModel.load(tmp_path,dtype=torch.float32)
     assert loaded.attention_mode=='joint-bidirectional'
+    assert next(loaded.backbone.parameters()).dtype==torch.float32
     torch.testing.assert_close(loaded.readout.weight,model.readout.weight)
     # Previously published v4 configs have no attention_mode and remain causal.
     cfg=json.loads((tmp_path/'decision_config.json').read_text());del cfg['attention_mode']
