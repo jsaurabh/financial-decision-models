@@ -83,6 +83,10 @@ class DecisionModel(nn.Module):
             from .candidate_model import CandidateDecisionModel
             constructor = CandidateDecisionModel
         model = constructor(backbone, AutoTokenizer.from_pretrained(path / 'tokenizer'), cfg['max_length'], cfg['encoder'])
+        if hasattr(model, 'attention_mode'):
+            model.attention_mode = cfg.get('attention_mode', 'independent-causal')
+            if model.attention_mode not in ('independent-causal', 'joint-bidirectional'):
+                raise ValueError('Unsupported saved attention mode')
         model.readout.load_state_dict(load_file(str(path / 'readout.safetensors')))
         model.temperature = cfg['temperature']
         return model.to(device).eval()

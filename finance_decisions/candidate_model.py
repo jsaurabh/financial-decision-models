@@ -15,8 +15,11 @@ from .schema import MAX_CHOICES, options, render
 
 
 class CandidateDecisionModel(DecisionModel):
-    def __init__(self, backbone, tokenizer, max_length=1536, encoder=False):
+    def __init__(self, backbone, tokenizer, max_length=1536, encoder=False, attention_mode='independent-causal'):
         super().__init__(backbone, tokenizer, max_length, False)
+        if attention_mode not in ('independent-causal', 'joint-bidirectional'):
+            raise ValueError(f'Unknown candidate attention mode: {attention_mode}')
+        self.attention_mode = attention_mode
         self.readout = nn.Linear(backbone.config.hidden_size, 1, bias=False).float()
         nn.init.normal_(self.readout.weight, std=.01)
 
@@ -64,6 +67,10 @@ class CandidateDecisionModel(DecisionModel):
                 local[i,0,offset:offset+m,:n] = prefix_delta < window
                 local[i,0,offset:offset+m,offset:offset+m] = (delta >= 0) & (delta < window)
                 outputs[i,j] = offset+m-1; offset += m
+            if self.attention_mode == 'joint-bidirectional':
+                # Qwen-style ablation: open global layers only. Native sliding
+                # layers, tokens, reset positions and scalar head stay identical.
+                full[i,0,:offset,:offset] = True
         return {'input_ids':ids.to(target_device),'position_ids':positions.to(target_device),
                 'attention_mask':{'full_attention':full.to(target_device),'sliding_attention':local.to(target_device)},
                 'candidate_positions':outputs.to(target_device)}
@@ -79,5 +86,7 @@ class CandidateDecisionModel(DecisionModel):
         super().save(path,merge)
         config = Path(path)/'decision_config.json'; data=json.loads(config.read_text())
         data.update(architecture='packed-independent-candidate-readout',candidate_attention='prefix + own causal block',
-                    candidate_position_reset=True,readout='shared scalar')
+                    candidate_position_reset=True,readout='shared scalar',attention_mode=self.attention_mode)
+        if self.attention_mode == 'joint-bidirectional':
+            data['candidate_attention'] = 'joint bidirectional global layers; independent causal sliding layers'
         config.write_text(json.dumps(data,indent=2))
