@@ -71,8 +71,15 @@ while True:
         state['stop_returncode']=rc;save(state)
         if rc==0:
             try:
-                from huggingface_hub import HfApi,hf_hub_download
+                from huggingface_hub import HfApi,hf_hub_download,snapshot_download
                 repo='jsaurabh/gemma4-finance-phase3-pilot';api=HfApi();info=api.model_info(repo);assert info.private
+                if state['status']=='complete':
+                    # Expose the selected release at the standard model root,
+                    # retaining run/release and optimizer checkpoints for audit.
+                    cached=Path(snapshot_download(repo,revision=info.sha,allow_patterns=['run/release/**']))/'run/release'
+                    assert (cached/'decision_config.json').exists() and (cached/'readout.safetensors').exists()
+                    api.upload_folder(repo_id=repo,folder_path=str(cached),commit_message='Publish selected private phase-3 pilot release')
+                    info=api.model_info(repo);assert info.private
                 output=PROJECT/'results/phase3-pilot';output.mkdir(exist_ok=True)
                 for filename in ['summary.json','initial-development.json','run_config.json','training.jsonl']:
                     try:
@@ -80,7 +87,7 @@ while True:
                         (output/filename).write_bytes(Path(p).read_bytes())
                     except Exception:pass
                 (output/'runtime.json').write_text(json.dumps(state,indent=2))
-                (output/'artifacts.json').write_text(json.dumps({'repo':repo,'revision':info.sha,'private':True},indent=2))
+                (output/'artifacts.json').write_text(json.dumps({'repo':repo,'revision':info.sha,'private':True,'artifact_path':'run/release'},indent=2))
                 (output/'README.md').write_text('# Phase-3 training pilot\n\nTraining-only pilot; no final benchmark evaluation was launched. See summary/runtime and the pinned private model artifact.\n')
                 paths=[str(p.relative_to(PROJECT)) for p in output.iterdir() if p.is_file()]
                 staged=set(subprocess.check_output(['git','diff','--cached','--name-only'],cwd=PROJECT,text=True).splitlines())
