@@ -40,6 +40,8 @@ The matched arms start at v4 revision `1307ef28b41b4b295c204f5f60f57f92caa09bb1`
 
 Test accuracy on 1,011 newly frozen inputs: {m['accuracy']:.2%}; equal-domain accuracy: {m['domain_macro_accuracy']:.2%}. These numbers combine public sampled-candidate banking/contract tasks and unreviewed generated hypothetical-policy cases. They are not production validation. Routing is capability based, public pretraining exposure is unknown, and the two arms share a causal-trained initialization. A single paired seed cannot establish a general architecture advantage.
 
+Native-backend candidate-order agreement is {final_summary['test_order_control']['semantic_prediction_agreement']:.2%}. A few reorder changes are large. A separate post-test 30-input audit observed zero flips with strict math SDPA; this is a numerical diagnostic, not a new quality estimate. See the report before selecting inference settings.
+
 [Code and results](https://github.com/jsaurabh/financial-decision-models/tree/gemma4-finance/results/phase2), [frozen protocol](https://github.com/jsaurabh/financial-decision-models/blob/gemma4-finance/PHASE2_PROTOCOL.md), [private corpus](https://huggingface.co/datasets/jsaurabh/financial-decision-phase2).
 
 ## Load

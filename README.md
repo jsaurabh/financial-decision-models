@@ -2,9 +2,13 @@
 
 Gemma 4 E2B adapted into a text-only, schema-driven classifier: one forward pass returns a probability distribution over supplied choices. It never generates an answer string. This independently follows the decision-model pattern; it does not reproduce TypeSafe Jev's undisclosed architecture or weights.
 
-**Current priority: quality first.** Training and evaluation prefer **Colab G4**. CPU quantization, distillation, and latency optimization are deferred until the quality baseline is reviewed. Preferences are saved in [AGENTS.md](AGENTS.md).
+**Current priority: quality first, with CPU and model-size constraints out of scope.** Training and evaluation prefer **Colab G4**. CPU quantization, distillation, and latency optimization are deferred. Preferences are saved in [AGENTS.md](AGENTS.md).
 
-**Current release: [Gemma 4 E2B financial decisions v4](https://huggingface.co/jsaurabh/gemma4-e2b-finance-decisions-v4)** (private weights). On a fresh 1,419-example public banking/legal holdout it scored **94.15%**, compared with **93.94% for live Jev 1.14.0**. The difference is three examples; this is roughly tied on this benchmark. Jev remains stronger on the separate policy/arithmetic and routing probes. Read the [quality report](results/QUALITY.md) for per-domain results and limitations.
+**Latest quality round:** on 1,011 newly frozen decisions, causal Gemma continuation scored **91.30%**, joint bidirectional Gemma **91.10%**, the Qwen 27B reference **90.90%**, and live Jev 1.14.0 **90.80%**. Previous Gemma v4 scored 73.29% on those same inputs. Domain continuation helped substantially; the attention comparison is inconclusive. Development NLL selected the [joint arm](https://huggingface.co/jsaurabh/gemma4-finance-phase2-joint); the [causal arm](https://huggingface.co/jsaurabh/gemma4-finance-phase2-causal) remains a closely matched alternative. Both have private weights. Read the [phase-2 report](results/phase2/REPORT.md), [frozen protocol](PHASE2_PROTOCOL.md), and [artifact revisions](results/phase2/artifacts.json).
+
+A post-test numerical audit found that strict math attention removed reorder flips on 30 audited inputs; native-backend behavior still needs robustness work. This diagnostic does not replace the frozen results or establish a new quality score. Exact exposure arithmetic and working-day counting remain weak for all compared models.
+
+**Earlier release:** [Gemma v4](https://huggingface.co/jsaurabh/gemma4-e2b-finance-decisions-v4) remains available. Its separate earlier 1,419-case public holdout scored 94.15% versus Jev's 93.94%; those percentages describe a different benchmark. The [earlier quality report](results/QUALITY.md) preserves those results.
 
 The [Airbnb lessons](docs/airbnb-lessons.md) translate its production benchmark into the next quality work: task-specific data, precision–recall operating points, calibration-only threshold selection, and representative evaluation weights. [New threshold diagnostics](results/operating-points/README.md) reuse existing predictions; no served threshold or model weights changed.
 
@@ -18,7 +22,7 @@ The [Airbnb lessons](docs/airbnb-lessons.md) translate its production benchmark 
 
 The v4 candidate head replaces the earlier position-specific eight-way matrix with a **shared scalar scorer**. Candidates share the state/question prefix, have separate causal attention blocks, and reset their rotary positions at the prefix boundary. One candidate cannot attend to another. This preserves a single forward pass while making each candidate's computation independent of its list position. Native Gemma tests verify permutation invariance, padding invariance, and gradients. Earlier positional-readout runs are retained as baselines.
 
-This scorer judges each description against the supplied state and instructions. Questions that require one candidate to inspect another candidate's text need a different attention layout.
+This scorer judges each description against the supplied state and instructions. Phase 2 adds a joint bidirectional global-attention mode while retaining independent causal sliding layers, the same serialization, scalar head and reset positions. Its packed cap is 2,048 tokens. The saved config restores the selected mode. Backend-specific numerical robustness is measured separately from the intended mask symmetry.
 
 The initial mixture covers banking support intents, legal clauses and terms, and hypothetical policies for AML controls, payments, credit operations, insurance, investment operations, privacy, financial reporting, and legal workflow. Model routing uses supplied capability descriptions rather than a measured leaderboard of commercial models.
 

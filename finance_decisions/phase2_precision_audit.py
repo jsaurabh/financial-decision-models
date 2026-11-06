@@ -12,6 +12,7 @@ from .train import read,infer,shuffled_options,upload
 
 def main():
     torch.set_num_threads(8);torch.backends.cuda.matmul.allow_tf32=False
+    native_cudnn=torch.backends.cuda.cudnn_sdp_enabled()
     dev=read('data/private/phase2/development.jsonl');rng=random.Random(812)
     # Fixed development sample plus already inspected failures, explicitly post hoc.
     selected=[]
@@ -28,6 +29,7 @@ def main():
             for backend in ['native','math']:
                 torch.backends.cuda.enable_flash_sdp(backend=='native')
                 torch.backends.cuda.enable_mem_efficient_sdp(backend=='native')
+                torch.backends.cuda.enable_cudnn_sdp(native_cudnn if backend=='native' else False)
                 torch.backends.cuda.enable_math_sdp(True)
                 a=infer(model,selected,batch_size=1);b=infer(model,changed,batch_size=1)
                 diffs=[];flips=[];correct=[]

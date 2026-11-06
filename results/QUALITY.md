@@ -1,5 +1,7 @@
 # Gemma 4 E2B vs live Jev: quality report
 
+The later [phase-2 report](phase2/REPORT.md) compares matched attention continuations and a larger Qwen reference on newly sealed cases. The results below preserve the earlier v4 benchmark.
+
 V4 uses rank-16 LoRA, a shared scalar candidate scorer, independent causal candidate blocks, and temperature calibration after merging the saved weights. Training used Colab G4 (RTX PRO 6000 Blackwell Server Edition). CPU optimization is deferred.
 
 ## Fresh public holdout

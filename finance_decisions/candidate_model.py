@@ -1,8 +1,11 @@
-"""Pack independent candidate evaluations into one Gemma forward pass.
+"""Pack candidate evaluations into one Gemma forward pass.
 
 Candidate blocks share the state/question prefix, use the same scalar readout,
 cannot attend to one another, and reset RoPE positions to the prefix boundary.
-Reordering candidates therefore preserves each candidate's computation.
+The default mask preserves independent candidate computation. The optional
+joint-bidirectional mode opens global layers across all valid tokens while
+retaining independent causal sliding layers. Full-size numerical stability
+under reordering is measured separately from this intended mask symmetry.
 """
 import json
 from pathlib import Path

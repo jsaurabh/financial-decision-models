@@ -1,0 +1,21 @@
+{
+  "host_ram": {
+    "total": 189928583168,
+    "available": 187015368704,
+    "percent": 1.5,
+    "used": 1193803776,
+    "free": 185275908096,
+    "active": 935395328,
+    "inactive": 2402959360,
+    "buffers": 470855680,
+    "cached": 2988015616,
+    "shared": 2400256,
+    "slab": 914403328
+  },
+  "disk": [
+    253055008768,
+    98074624,
+    252940156928
+  ],
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB\n"
+}
