@@ -1,12 +1,15 @@
 """Publish private model cards and an immutable artifact index after evaluation."""
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 from huggingface_hub import HfApi,hf_hub_download
 
 
 def main():
-    root=Path('results/phase2');comparison=json.loads((root/'comparison.json').read_text());api=HfApi();index={}
+    root=Path('results/phase2');comparison=json.loads((root/'comparison.json').read_text());api=HfApi()
+    index={'training_protocol_commit':subprocess.check_output(['git','rev-parse','f0234c5'],text=True).strip(),
+           'publication_code_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()}
     for arm in ['causal','joint']:
         repo=f'jsaurabh/gemma4-finance-phase2-{arm}'
         assert api.model_info(repo).private

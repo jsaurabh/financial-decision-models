@@ -21,6 +21,7 @@ def main():
     for d in c['joint']['domains']:
         ds=[c[n]['domains'][d] for n in names];lines.append('| '+d.replace('_',' ')+' | '+str(ds[0]['n'])+' | '+' | '.join(f"{x['accuracy']:.2%}" for x in ds)+' |')
     lines+=['',f"C minus A accuracy: **{pair['b_minus_a_accuracy']*100:+.2f} percentage points**, family-cluster bootstrap 95% interval [{lo*100:+.2f}, {hi*100:+.2f}]. A alone was correct on {pair['a_only_correct']} cases; C alone on {pair['b_only_correct']}. This is one paired seed and a continuation from a causal checkpoint; it does not establish a general causal-mask advantage.",'',
+        'The numerical-rule curriculum was useful, but exact net-exposure arithmetic and working-day counting remain the main weaknesses. A mask change alone does not resolve them. Generated routing and simple exception-rule success should not be read as broad financial expertise.', '',
         '## Training and release evidence','',f"Both arms consumed the same **{selection['causal']['training_tokens']:,} packed tokens** in 1,000 updates. Training-stream SHA-256: `{selection['causal']['training_input_stream_sha256']}`.",'',
         '| Arm | Selected step | Initial development NLL | Selected development NLL | Temperature |','|---|---:|---:|---:|---:|']
     for n in ['causal','joint']:
