@@ -1,0 +1,411 @@
+{
+  "config": {
+    "model": "causal",
+    "repo": "jsaurabh/gemma4-finance-phase2-causal",
+    "revision": "6b4188a4790bba0beaef19bb48e4b9b18232138d",
+    "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+    "max_tokens": 8192,
+    "max_choices": 11,
+    "weights": "bfloat16 with published float32 adapters/readout",
+    "attention_backend": "strict math SDPA; native Qwen recurrence unchanged",
+    "temperature": "published checkpoint; not refitted",
+    "context_note": "Inference-only extension beyond Gemma release 2048-token / 8-candidate validation envelope.",
+    "inference_code_sha256": "5747aafd4b981b14fb28e3d979968bba969a9819c4a80c7d005d1d68f9a95281",
+    "torch": "2.11.0+cu130",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "temperature_value": 2.2241357193519393
+  },
+  "suites": {
+    "contractnli": {
+      "requested": 2091,
+      "valid": 2091,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.5117168818747011,
+      "errors": {},
+      "accuracy_valid_only": 0.5117168818747011,
+      "set_aware_nll_valid_only": 1.2298511836967443,
+      "macro_f1_valid_only": 0.3761366340119472,
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.5714968914395027,
+          "accuracy": 0.5866108786610879
+        },
+        "0.8": {
+          "coverage_of_valid": 0.4806312769010043,
+          "accuracy": 0.608955223880597
+        },
+        "0.9": {
+          "coverage_of_valid": 0.274988043998087,
+          "accuracy": 0.6191304347826087
+        },
+        "0.95": {
+          "coverage_of_valid": 0.09325681492109039,
+          "accuracy": 0.558974358974359
+        }
+      },
+      "document_exact_match_missing_as_wrong": 0.0
+    },
+    "ragtruth": {
+      "requested": 2700,
+      "valid": 2700,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.6425925925925926,
+      "errors": {},
+      "accuracy_valid_only": 0.6425925925925926,
+      "set_aware_nll_valid_only": 2.36667039108597,
+      "macro_f1_valid_only": 0.39512071004076404,
+      "positive_valid_only": {
+        "precision": 0.13333333333333333,
+        "recall": 0.0042417815482502655,
+        "f1": 0.008221993833504625,
+        "average_precision": 0.29249309210268015
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.9822222222222222,
+          "accuracy": 0.6432880844645551
+        },
+        "0.8": {
+          "coverage_of_valid": 0.9748148148148148,
+          "accuracy": 0.6443768996960486
+        },
+        "0.9": {
+          "coverage_of_valid": 0.967037037037037,
+          "accuracy": 0.6449636154729989
+        },
+        "0.95": {
+          "coverage_of_valid": 0.9488888888888889,
+          "accuracy": 0.6436377829820453
+        }
+      }
+    },
+    "rjudge": {
+      "requested": 571,
+      "valid": 571,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.4273204903677758,
+      "errors": {},
+      "accuracy_valid_only": 0.4273204903677758,
+      "set_aware_nll_valid_only": 2.305679762845551,
+      "macro_f1_valid_only": 0.3019325026077008,
+      "positive_valid_only": {
+        "precision": 0.03571428571428571,
+        "recall": 0.0033222591362126247,
+        "f1": 0.0060790273556231,
+        "average_precision": 0.4852730689190787
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.9316987740805605,
+          "accuracy": 0.42105263157894735
+        },
+        "0.8": {
+          "coverage_of_valid": 0.9089316987740805,
+          "accuracy": 0.41811175337186895
+        },
+        "0.9": {
+          "coverage_of_valid": 0.8633975481611208,
+          "accuracy": 0.40973630831643004
+        },
+        "0.95": {
+          "coverage_of_valid": 0.8126094570928196,
+          "accuracy": 0.40948275862068967
+        }
+      }
+    },
+    "routerbench_0shot_cost_aware": {
+      "requested": 2500,
+      "valid": 2500,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.1684,
+      "errors": {},
+      "accuracy_valid_only": 0.1684,
+      "set_aware_nll_valid_only": 2.385194537053419,
+      "routing_valid_only": {
+        "chosen_quality": 0.6129399999999999,
+        "chosen_cost_usd": 0.00043946268,
+        "utility": 0.6085453732,
+        "oracle_regret": 0.29958676,
+        "note": "Historical released outcomes; missing decisions excluded from utility/cost and counted wrong in oracle-optimal accuracy."
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.8": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.9": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.95": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        }
+      }
+    },
+    "routerbench_0shot_quality": {
+      "requested": 2500,
+      "valid": 2500,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.6844,
+      "errors": {},
+      "accuracy_valid_only": 0.6844,
+      "set_aware_nll_valid_only": 0.6698675570205732,
+      "routing_valid_only": {
+        "chosen_quality": 0.65154,
+        "chosen_cost_usd": 0.00136173428,
+        "utility": 0.65154,
+        "oracle_regret": 0.2588,
+        "note": "Historical released outcomes; missing decisions excluded from utility/cost and counted wrong in oracle-optimal accuracy."
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.8": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.9": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.95": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        }
+      }
+    },
+    "routerbench_5shot_cost_aware": {
+      "requested": 2500,
+      "valid": 2500,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.1016,
+      "errors": {},
+      "accuracy_valid_only": 0.1016,
+      "set_aware_nll_valid_only": 2.5961936977426165,
+      "routing_valid_only": {
+        "chosen_quality": 0.65052,
+        "chosen_cost_usd": 0.00083357572,
+        "utility": 0.6421842428,
+        "oracle_regret": 0.268135189504,
+        "note": "Historical released outcomes; missing decisions excluded from utility/cost and counted wrong in oracle-optimal accuracy."
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.8": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.9": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.95": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        }
+      }
+    },
+    "routerbench_5shot_quality": {
+      "requested": 2500,
+      "valid": 2500,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.772,
+      "errors": {},
+      "accuracy_valid_only": 0.772,
+      "set_aware_nll_valid_only": 0.5401140477993395,
+      "routing_valid_only": {
+        "chosen_quality": 0.7318,
+        "chosen_cost_usd": 0.00300237208,
+        "utility": 0.7318,
+        "oracle_regret": 0.1836,
+        "note": "Historical released outcomes; missing decisions excluded from utility/cost and counted wrong in oracle-optimal accuracy."
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.8": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.9": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.95": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        }
+      }
+    },
+    "tsbench_agentdojo-traj": {
+      "requested": 1220,
+      "valid": 1096,
+      "coverage": 0.898360655737705,
+      "accuracy_missing_as_wrong": 0.6688524590163935,
+      "errors": {
+        "over_context_limit": 124
+      },
+      "accuracy_valid_only": 0.7445255474452555,
+      "set_aware_nll_valid_only": 1.1123026689112354,
+      "macro_f1_valid_only": 0.42677824267782427,
+      "strict_binary_valid_only": {
+        "unsafe_precision": 0.0,
+        "unsafe_recall": 0.0,
+        "unsafe_f1": 0.0,
+        "unsafe_miss_rate": 1.0,
+        "safe_false_block_rate": 0.0
+      },
+      "loose_binary_valid_only": {
+        "unsafe_precision": 0.0,
+        "unsafe_recall": 0.0,
+        "unsafe_f1": 0.0,
+        "unsafe_miss_rate": 1.0,
+        "safe_false_block_rate": 0.0
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.9972627737226277,
+          "accuracy": 0.7456541628545288
+        },
+        "0.8": {
+          "coverage_of_valid": 0.9917883211678832,
+          "accuracy": 0.7479300827966882
+        },
+        "0.9": {
+          "coverage_of_valid": 0.9662408759124088,
+          "accuracy": 0.7535410764872521
+        },
+        "0.95": {
+          "coverage_of_valid": 0.875,
+          "accuracy": 0.7653806047966631
+        }
+      }
+    },
+    "tsbench_agentharm-traj": {
+      "requested": 731,
+      "valid": 731,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.2872777017783858,
+      "errors": {},
+      "accuracy_valid_only": 0.2872777017783858,
+      "set_aware_nll_valid_only": 2.5146038278015554,
+      "macro_f1_valid_only": 0.1570323626722759,
+      "strict_binary_valid_only": {
+        "unsafe_precision": 1.0,
+        "unsafe_recall": 0.02857142857142857,
+        "unsafe_f1": 0.05555555555555555,
+        "unsafe_miss_rate": 0.9714285714285714,
+        "safe_false_block_rate": 0.0
+      },
+      "loose_binary_valid_only": {
+        "unsafe_precision": 0.0,
+        "unsafe_recall": 0.0,
+        "unsafe_f1": 0.0,
+        "unsafe_miss_rate": 1.0,
+        "safe_false_block_rate": 0.0
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.948016415868673,
+          "accuracy": 0.2972582972582973
+        },
+        "0.8": {
+          "coverage_of_valid": 0.9179206566347469,
+          "accuracy": 0.3025335320417288
+        },
+        "0.9": {
+          "coverage_of_valid": 0.8057455540355677,
+          "accuracy": 0.3395585738539898
+        },
+        "0.95": {
+          "coverage_of_valid": 0.5253077975376197,
+          "accuracy": 0.4427083333333333
+        }
+      }
+    },
+    "tsbench_asb-traj": {
+      "requested": 5231,
+      "valid": 5231,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.5123303383674249,
+      "errors": {},
+      "accuracy_valid_only": 0.5123303383674249,
+      "set_aware_nll_valid_only": 2.6670332534092163,
+      "macro_f1_valid_only": 0.22844766135036554,
+      "strict_binary_valid_only": {
+        "unsafe_precision": 0.3939393939393939,
+        "unsafe_recall": 0.005128205128205128,
+        "unsafe_f1": 0.010124610591900311,
+        "unsafe_miss_rate": 0.9948717948717949,
+        "safe_false_block_rate": 0.00741839762611276
+      },
+      "loose_binary_valid_only": {
+        "unsafe_precision": 0.2222222222222222,
+        "unsafe_recall": 0.0037418147801683817,
+        "unsafe_f1": 0.007359705611775529,
+        "unsafe_miss_rate": 0.9962581852198317,
+        "safe_false_block_rate": 0.003363767419509851
+      },
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.971707130567769,
+          "accuracy": 0.5089514066496164
+        },
+        "0.8": {
+          "coverage_of_valid": 0.9634869049894857,
+          "accuracy": 0.5073412698412698
+        },
+        "0.9": {
+          "coverage_of_valid": 0.9504874784935958,
+          "accuracy": 0.5050281576830249
+        },
+        "0.95": {
+          "coverage_of_valid": 0.9135920474096731,
+          "accuracy": 0.5032433563507009
+        }
+      }
+    },
+    "when2call": {
+      "requested": 3652,
+      "valid": 3652,
+      "coverage": 1.0,
+      "accuracy_missing_as_wrong": 0.3830777656078861,
+      "errors": {},
+      "accuracy_valid_only": 0.3830777656078861,
+      "set_aware_nll_valid_only": 1.7318971603254474,
+      "macro_f1_valid_only": 0.2741735217835796,
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.31599123767798465,
+          "accuracy": 0.41854419410745236
+        },
+        "0.8": {
+          "coverage_of_valid": 0.17278203723986857,
+          "accuracy": 0.40887480190174325
+        },
+        "0.9": {
+          "coverage_of_valid": 0.06078860898138007,
+          "accuracy": 0.44144144144144143
+        },
+        "0.95": {
+          "coverage_of_valid": 0.02053669222343921,
+          "accuracy": 0.4533333333333333
+        }
+      }
+    }
+  },
+  "completed_records": 26196,
+  "resolved_providers": {}
+}
