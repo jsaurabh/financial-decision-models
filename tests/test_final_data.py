@@ -1,4 +1,5 @@
-from finance_decisions.final_data import audit, build
+import pytest
+from finance_decisions.final_data import RAW, audit, build
 
 def test_overlap_removes_whole_native_document_and_keeps_unseen_family():
     known=[{'state':'Prior context with a sufficiently long original clause about auditing bank books and financial records included in this contract.', 'question':{'instructions':'x'}}]
@@ -9,6 +10,7 @@ def test_overlap_removes_whole_native_document_and_keeps_unseen_family():
     assert [r['id'] for r in kept]==['c']
     assert info['overlap_exclusions_by_suite']=={'t':2}
 
+@pytest.mark.skipif(not (RAW/'download-paths.json').exists(),reason='Requires authorized private source working copies')
 def test_actual_adapters_keep_annotations_out_of_model_state():
     rows,counts,excluded=build()
     assert counts['router_common_requests']==809
