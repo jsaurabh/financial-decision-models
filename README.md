@@ -12,6 +12,8 @@ A post-test numerical audit found that strict math attention removed reorder fli
 
 The [Airbnb lessons](docs/airbnb-lessons.md) translate its production benchmark into the next quality work: task-specific data, precision–recall operating points, calibration-only threshold selection, and representative evaluation weights. [New threshold diagnostics](results/operating-points/README.md) reuse existing predictions; no served threshold or model weights changed.
 
+The [public dataset shortlist](docs/dataset-landscape-2026-11-06.md) covers model routing, tool-call safety, groundedness and legal classification, with source revisions in [the discovery metadata](data/dataset-discovery-2026-11-06.json). It records dataset overlap and evaluation-only restrictions; no new training or evaluation was started during discovery.
+
 ## Architecture and scope
 
 - Official `google/gemma-4-E2B-it` backbone at a pinned revision; text tower only at inference.
