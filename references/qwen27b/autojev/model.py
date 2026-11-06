@@ -238,6 +238,9 @@ class DecisionModel(torch.nn.Module):
                 dtype=dtype,
                 attn_implementation="sdpa",
                 cache_dir=str(cache_dir) if cache_dir else None,
+                # Placement-only adaptation for Colab: avoid first staging the
+                # entire 27B model in host RAM before moving it to the GPU.
+                device_map={"": self.device_name} if self.device_name.startswith("cuda") else None,
             )
             config = cast(Qwen3_5TextConfig, original.config.text_config)
             self.readout = torch.nn.Linear(config.hidden_size, MAX_OPTIONS, bias=False, dtype=dtype)

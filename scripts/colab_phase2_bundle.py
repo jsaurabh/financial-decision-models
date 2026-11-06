@@ -11,6 +11,8 @@ meta=root/'results/phase2/runtime';meta.mkdir(parents=True,exist_ok=True)
 for name,python in [('gemma','/usr/bin/python3'),('qwen','/content/qwen-env/bin/python')]:
  p=subprocess.run([python,'-m','pip','freeze'],capture_output=True,text=True)
  (meta/f'{name}-packages.txt').write_text(p.stdout)
+ p=subprocess.run([python,'-c',"import json,torch; print(json.dumps({'torch':torch.__version__,'cuda':torch.version.cuda,'matmul_allow_tf32':torch.backends.cuda.matmul.allow_tf32}))"],capture_output=True,text=True)
+ (meta/f'{name}-inference-defaults.json').write_text(p.stdout)
 for name in ['phase2-causal','phase2-joint']:
  for file in ['run_config.json','selection.json','training.jsonl']:
   src=root/'runs'/name/file

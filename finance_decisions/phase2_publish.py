@@ -13,6 +13,11 @@ def main():
         config=json.loads(Path(hf_hub_download(repo,'decision_config.json')).read_text())
         expected='independent-causal' if arm=='causal' else 'joint-bidirectional'
         assert config['attention_mode']==expected
+        final_summary=json.loads((root/arm/'summary.json').read_text())
+        # Refit on calibration in the final inference runtime, never test labels.
+        config['temperature']=final_summary['temperature']
+        api.upload_file(repo_id=repo,path_or_fileobj=(json.dumps(config,indent=2)+'\n').encode(),
+            path_in_repo='decision_config.json',commit_message='Preserve final calibration-only temperature')
         s=json.loads((root/arm/'selection.json').read_text());m=comparison[arm]
         card=f'''---
 license: apache-2.0
@@ -28,7 +33,7 @@ tags:
 
 Private research decision classifier, with a shared scalar candidate scorer and `{expected}` attention. Supports text-only choice/noul/score schemas with 2–8 options, up to 2,048 packed tokens. Model-size and CPU constraints were outside this quality experiment. The evaluation is choice/noul only.
 
-The matched arms start at v4 revision `1307ef28b41b4b295c204f5f60f57f92caa09bb1`, `run/selected`. Training: 1,000 updates, same seed, examples and token budget; selected step {s['selected_step']} by new development NLL. Temperature {s['temperature']:.6f} was fitted only on the separate calibration split. The joint arm opens global attention across all candidate branches while retaining independent causal sliding layers. Serialization, reset positions, LoRA and scalar head match the causal arm.
+The matched arms start at v4 revision `1307ef28b41b4b295c204f5f60f57f92caa09bb1`, `run/selected`. Training: 1,000 updates, same seed, examples and token budget; selected step {s['selected_step']} by new development NLL. Temperature {config['temperature']:.6f} was fitted only on the separate calibration split. The joint arm opens global attention across all candidate branches while retaining independent causal sliding layers. Serialization, reset positions, LoRA and scalar head match the causal arm.
 
 Test accuracy on 1,011 newly frozen inputs: {m['accuracy']:.2%}; equal-domain accuracy: {m['domain_macro_accuracy']:.2%}. These numbers combine public sampled-candidate banking/contract tasks and unreviewed generated hypothetical-policy cases. They are not production validation. Routing is capability based, public pretraining exposure is unknown, and the two arms share a causal-trained initialization. A single paired seed cannot establish a general architecture advantage.
 

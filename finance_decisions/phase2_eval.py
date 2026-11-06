@@ -50,6 +50,8 @@ def main():
             output=[]
             for start in range(0,len(rows),2):
                 output.extend(model(model.prepare(rows[start:start+2],max_length=8192)).float().cpu().tolist())
+                if (start+2)%100==0:
+                    print(json.dumps({'qwen_scored':start+2,'rows_in_pass':len(rows)}),flush=True)
             return output
         provenance={'model':'Qwen 27B noncausal decision reference','artifact_revision':'b2eefb929a883136b3bd56ce70999fdac656ee8a',
                     'base_model':cfg['base_model'],'base_revision':cfg['revision'],'training_data':'different from Gemma; not an attention ablation','native_temperature':model.temperature}

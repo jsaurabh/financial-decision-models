@@ -36,7 +36,9 @@ def main():
     results={name:aggregate(rows) for name,rows in predictions.items()}
     results['paired']={f'{a}_to_{b}':paired(predictions[a],predictions[b]) for a,b in [('causal','joint'),('v4','causal'),('v4','joint'),('joint','qwen'),('joint','jev'),('qwen','jev')]}
     # Fixed selection rule: uncalibrated development NLL, never test accuracy.
-    dev={n:json.loads((root/n/'summary.json').read_text())['uncalibrated_development']['nll'] for n in ['causal','joint']}
+    # Preserve the choice frozen by training; inference kernels can produce
+    # small BF16/TF32 differences and must not reselect after test access.
+    dev={n:json.loads((root/n/'selection.json').read_text())['selected_dev_nll'] for n in ['causal','joint']}
     results['gemma_selection']={'criterion':'uncalibrated development NLL','development_nll':dev,'selected':min(dev,key=dev.get)}
     (root/'comparison.json').write_text(json.dumps(results,indent=2)+'\n')
     print(json.dumps({'accuracy':{n:results[n]['accuracy'] for n in names},'selection':results['gemma_selection'],'causal_joint':results['paired']['causal_to_joint']},indent=2))
