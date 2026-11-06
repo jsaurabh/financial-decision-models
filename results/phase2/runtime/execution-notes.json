@@ -1,0 +1,8 @@
+{
+  "gpu_preference": "Colab G4",
+  "gemma_training": "Both matched 1000-step runs completed; reports and private artifacts saved.",
+  "first_qwen_attempt": "Colab runtime disappeared during reference evaluation; server listed no active assignment. Cause not established.",
+  "qwen_retry": "Fresh Colab G4, same frozen weights and evaluator; base weights load directly to CUDA to reduce host staging.",
+  "gemma_numerics": "Training enabled TF32 matmul. Final inference used PyTorch defaults. Retain training selection.json for checkpoint/arm choices. Refit release temperature on calibration in final inference runtime.",
+  "test_reuse": "This test is inspected after phase 2 and must not be described as untouched in subsequent development."
+}
