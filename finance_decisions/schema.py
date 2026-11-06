@@ -5,12 +5,12 @@ MAX_CHOICES = 8
 MAX_CHARS = 12000
 
 
-def options(question):
+def options(question, max_choices=MAX_CHOICES):
     kind = question.get('type')
     if kind == 'choice':
         values = question.get('criteria')
-        if not isinstance(values, dict) or not 2 <= len(values) <= MAX_CHOICES:
-            raise ValueError('choice requires 2–8 named criteria')
+        if not isinstance(values, dict) or not 2 <= len(values) <= max_choices:
+            raise ValueError(f'choice requires 2–{max_choices} named criteria')
         if not all(isinstance(k, str) and isinstance(v, str) for k, v in values.items()):
             raise ValueError('criteria must map string labels to descriptions')
         return list(values), list(values.values())
@@ -23,21 +23,21 @@ def options(question):
         return ['false', 'true'], [criteria['false'], criteria['true']]
     if kind == 'score':
         values = question.get('criteria')
-        if not isinstance(values, list) or not 2 <= len(values) <= MAX_CHOICES:
-            raise ValueError('score requires 2–8 ordered string descriptions')
+        if not isinstance(values, list) or not 2 <= len(values) <= max_choices:
+            raise ValueError(f'score requires 2–{max_choices} ordered string descriptions')
         if not all(isinstance(v, str) for v in values):
             raise ValueError('score descriptions must be strings')
         return [str(i) for i in range(len(values))], values
     raise ValueError('supported types: choice, noul, score')
 
 
-def render(state, question):
-    labels, descriptions = options(question)
+def render(state, question, max_choices=MAX_CHOICES, max_chars=MAX_CHARS):
+    labels, descriptions = options(question, max_choices=max_choices)
     instructions = question.get('instructions')
     if not isinstance(instructions, str) or not instructions.strip():
         raise ValueError('instructions are required')
     state = state if isinstance(state, str) else json.dumps(state, ensure_ascii=False, sort_keys=True)
-    if len(state) + len(instructions) + sum(map(len, descriptions)) + sum(map(len, labels)) > MAX_CHARS:
+    if len(state) + len(instructions) + sum(map(len, descriptions)) + sum(map(len, labels)) > max_chars:
         raise ValueError('request exceeds character budget')
     choices = '\n'.join(f'{i}: {label}: {desc}' for i, (label, desc) in enumerate(zip(labels, descriptions)))
     return f'State:\n{state}\nQuestion: {instructions}\nOptions:\n{choices}\nDecision:', labels

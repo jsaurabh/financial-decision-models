@@ -1,0 +1,70 @@
+{
+  "seed": 20261109,
+  "status": "sealed_before_scoring",
+  "training": false,
+  "rows": 26196,
+  "suites": {
+    "when2call": 3652,
+    "tsbench_agentharm-traj": 731,
+    "tsbench_asb-traj": 5231,
+    "tsbench_agentdojo-traj": 1220,
+    "rjudge": 571,
+    "contractnli": 2091,
+    "ragtruth": 2700,
+    "routerbench_0shot_cost_aware": 2500,
+    "routerbench_0shot_quality": 2500,
+    "routerbench_5shot_cost_aware": 2500,
+    "routerbench_5shot_quality": 2500
+  },
+  "source_hashes": {
+    "nvidia/When2Call/test/when2call_test_mcq.jsonl": {
+      "sha256": "8c3694e583eeeb8dbc297e6cd90da70efc68efa4b6adb7227523e828c6b7b14c",
+      "bytes": 20424385
+    },
+    "MurrayTom/TS-Bench/data/eval/AgentHarm-Traj.jsonl": {
+      "sha256": "b3e9832b92026bb594350aff3a431c3b4f66140c3908994704305fbee84e7a5c",
+      "bytes": 2465646
+    },
+    "MurrayTom/TS-Bench/data/eval/ASB-Traj.jsonl": {
+      "sha256": "36261a98f6c38969c4c8d84ead1c3ab333e80ae1f6f4cbc3c9d379bf7d0c1f2a",
+      "bytes": 10864361
+    },
+    "MurrayTom/TS-Bench/data/eval/AgentDojo-Traj.jsonl": {
+      "sha256": "740251908ffbac1f397c71f554678ccf6f73aa6d00be4a63925ea491f6c0ed9b",
+      "bytes": 10636148
+    },
+    "contract-nli.zip": {
+      "sha256": "e03fc77bbf8b53e2976a250e81d8a294bc3d5e5fb014521e477dee9340d6287b",
+      "bytes": 65362913
+    },
+    "rag-sources.jsonl": {
+      "sha256": "0dffc26ea9f3c1c3d7c7e8336b56ef1646e3cec876edffcca3c9c624d12d578b",
+      "bytes": 15117971
+    },
+    "rag-responses.jsonl": {
+      "sha256": "e4c2e4ac24fff676d8984cc61c35d791612fadc58015335d97dd632375e18073",
+      "bytes": 21458735
+    },
+    "withmartian/routerbench/routerbench_0shot.pkl": {
+      "sha256": "ba4f77f19517610a707c374e99322d7750c30fc4ae7ff5527888595a1e65d36d",
+      "bytes": 99567659
+    },
+    "withmartian/routerbench/routerbench_5shot.pkl": {
+      "sha256": "fbd7d3d16fba2759a18fa0ad44409d3e0e92ba80d03d90827eed1a6d084c9ffe",
+      "bytes": 171091324
+    },
+    "rjudge.tar.gz": {
+      "sha256": "864f24ef050821d836f1a68efa503d2170c934587dd58b50c808cc329902272f"
+    }
+  },
+  "rows_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+  "sample_policy": "All named source test records except RouterBench: 2500 hash-selected source requests per shot, both native objectives, 11 candidates retained.",
+  "router_adaptation": "Decision Index 25c6ec7; connected hash20% calibration profiles only; no evaluated-row outcomes in inputs.",
+  "schema": "TS/RJudge are documented classification adaptations; no official whole Decision Index score is claimed.",
+  "limits": [
+    "Model context/candidate extensions are inference-only; no weights or temperature fitting.",
+    "No source rows or gold labels are trimmed to model context limits. Report coverage and common-input comparisons.",
+    "Some public sources were previously seen in Qwen/Decision Index evaluation; pretraining and upstream training overlap are not ruled out.",
+    "Pinned R-Judge repository contains 571 unique records; published paper/card count is 569. All repository records retained."
+  ]
+}

@@ -23,13 +23,15 @@ class CandidateDecisionModel(DecisionModel):
         if attention_mode not in ('independent-causal', 'joint-bidirectional'):
             raise ValueError(f'Unknown candidate attention mode: {attention_mode}')
         self.attention_mode = attention_mode
+        self.max_choices = MAX_CHOICES
+        self.max_chars = 12000
         self.readout = nn.Linear(backbone.config.hidden_size, 1, bias=False).float()
         nn.init.normal_(self.readout.weight, std=.01)
 
     def encode(self, row):
         # Validate the same public schema before creating independent blocks.
-        render(row['state'], row['question'])
-        labels, descriptions = options(row['question'])
+        render(row['state'], row['question'], max_choices=self.max_choices, max_chars=self.max_chars)
+        labels, descriptions = options(row['question'], max_choices=self.max_choices)
         state = row['state'] if isinstance(row['state'],str) else json.dumps(row['state'],sort_keys=True,ensure_ascii=False)
         prefix = self.tokenizer('State:\n' + state + '\nQuestion: ' + row['question']['instructions'] + '\n', add_special_tokens=True)['input_ids']
         blocks = [self.tokenizer(f'Candidate conclusion: {label}: {description}\nCompatibility:', add_special_tokens=False)['input_ids']
@@ -49,7 +51,7 @@ class CandidateDecisionModel(DecisionModel):
         device = torch.device('cpu')
         ids = torch.full((len(rows),length),self.tokenizer.pad_token_id,dtype=torch.long,device=device)
         positions = torch.zeros_like(ids)
-        outputs = torch.zeros((len(rows),MAX_CHOICES),dtype=torch.long,device=device)
+        outputs = torch.zeros((len(rows),self.max_choices),dtype=torch.long,device=device)
         full = torch.zeros((len(rows),1,length,length),dtype=torch.bool,device=device)
         local = torch.zeros_like(full)
         window = self.backbone.config.sliding_window
@@ -83,7 +85,7 @@ class CandidateDecisionModel(DecisionModel):
         hidden = self.backbone(**inputs,use_cache=False).last_hidden_state
         pooled = hidden[torch.arange(hidden.shape[0],device=hidden.device)[:,None],batch['candidate_positions']]
         logits = self.readout(pooled.float()).squeeze(-1)
-        return logits.masked_fill(torch.arange(MAX_CHOICES,device=logits.device)[None,:] >= torch.as_tensor(counts,device=logits.device)[:,None],-1e4)
+        return logits.masked_fill(torch.arange(self.max_choices,device=logits.device)[None,:] >= torch.as_tensor(counts,device=logits.device)[:,None],-1e4)
 
     def save(self, path, merge=False):
         super().save(path,merge)

@@ -15,3 +15,6 @@ artifacts/
 results/jev-live/cache.jsonl
 
 results/phase2/jev/cache.jsonl
+
+# Public benchmark raw text stays in private working copies; predictions on private HF.
+results/public-eval/*/predictions.jsonl

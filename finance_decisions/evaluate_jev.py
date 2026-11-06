@@ -28,13 +28,13 @@ def digest(row):
         sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()).hexdigest()
 
 
-def call(row, alias):
+def call(row, alias, max_choices=8, timeout=60):
     headers = {'Authorization': 'Bearer ' + os.environ['TYPESAFE_API_KEY'], 'Content-Type': 'application/json'}
     payload = {'model': alias, 'state': row['state'], 'questions': {'decision': row['question']}}
     start = time.perf_counter()
     for attempt in range(5):
         try:
-            response = requests.post(URL, headers=headers, json=payload, timeout=60)
+            response = requests.post(URL, headers=headers, json=payload, timeout=timeout)
             if response.status_code in (401,403):
                 raise RuntimeError('Jev rejected the configured API credential')
             if response.status_code in (429,500,502,503,504):
@@ -44,7 +44,7 @@ def call(row, alias):
             if response.status_code != 200:
                 raise RuntimeError(f'Jev HTTP {response.status_code}')
             raw = response.json(); value = raw['answers']['decision']
-            labels, _ = options(row['question'])
+            labels, _ = options(row['question'], max_choices=max_choices)
             if row['question']['type'] == 'noul':
                 p = [1 - float(value['noul']), float(value['noul'])]
             else:
@@ -66,7 +66,7 @@ def call(row, alias):
 
 
 def summarize(records):
-    logits = np.full((len(records), 8), -1e4)
+    logits = np.full((len(records), max(8,max(len(r['labels']) for r in records))), -1e4)
     targets = []
     for i,r in enumerate(records):
         logits[i,:len(r['labels'])] = np.log(np.maximum(r['probabilities'], 1e-12))
