@@ -6,6 +6,8 @@ Gemma 4 E2B adapted into a text-only, schema-driven classifier: one forward pass
 
 **Current release: [Gemma 4 E2B financial decisions v4](https://huggingface.co/jsaurabh/gemma4-e2b-finance-decisions-v4)** (private weights). On a fresh 1,419-example public banking/legal holdout it scored **94.15%**, compared with **93.94% for live Jev 1.14.0**. The difference is three examples; this is roughly tied on this benchmark. Jev remains stronger on the separate policy/arithmetic and routing probes. Read the [quality report](results/QUALITY.md) for per-domain results and limitations.
 
+The [Airbnb lessons](docs/airbnb-lessons.md) translate its production benchmark into the next quality work: task-specific data, precision–recall operating points, calibration-only threshold selection, and representative evaluation weights. [New threshold diagnostics](results/operating-points/README.md) reuse existing predictions; no served threshold or model weights changed.
+
 ## Architecture and scope
 
 - Official `google/gemma-4-E2B-it` backbone at a pinned revision; text tower only at inference.

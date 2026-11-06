@@ -28,10 +28,14 @@ def evaluate(model, rows, out, filename, max_length=None):
         labels, _ = options(row['question']); p = softmax(np.array(logit[:len(labels)]) / model.temperature)
         predicted = labels[int(p.argmax())]
         records.append({'id': row['id'], 'domain': row['domain'], 'target': row['target'],
+                        'split': 'calibration' if filename == 'calibration' else 'evaluation',
+                        'task_key': row['domain'] + ':' + hashlib.sha256(json.dumps(row['question'],sort_keys=True,ensure_ascii=False).encode()).hexdigest(),
                         'prediction': predicted, 'correct': predicted == row['target'], 'labels': labels,
                         'probabilities': p.tolist(), 'max_probability': float(p.max()),
                         'input_sha256': hashlib.sha256(json.dumps({'state': row['state'], 'question': row['question']},
                              sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()).hexdigest()})
+        if 'weight' in row:
+            records[-1]['weight'] = row['weight']
     for domain, score in result['domains'].items():
         domain_records = [r for r in records if r['domain'] == domain]
         score['semantic_macro_f1'] = float(f1_score([r['target'] for r in domain_records],
@@ -66,9 +70,12 @@ def main():
     parser.add_argument('--hf-repo', default='jsaurabh/gemma4-e2b-finance-decisions-v1')
     parser.add_argument('--fresh-probe', action='store_true')
     parser.add_argument('--public-holdout', action='store_true')
+    parser.add_argument('--export-calibration', action='store_true', help='Save separate calibration predictions for per-task threshold selection')
     args = parser.parse_args()
     model = DecisionModel.load(args.artifact, device='cuda')
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
+    if args.export_calibration:
+        evaluate(model, read('data/private/calibration.jsonl'), out, 'calibration')
     print(json.dumps({'test': evaluate(model, read('data/private/test.jsonl'), out, 'test')}, indent=2), flush=True)
     if args.fresh_probe:
         print(json.dumps({'fresh_robustness': evaluate(model, read('data/private/fresh-robustness.jsonl'), out, 'fresh-robustness')}, indent=2), flush=True)

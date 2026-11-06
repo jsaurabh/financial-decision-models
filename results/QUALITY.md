@@ -30,6 +30,8 @@ The 400 legal-term predicates contain 20 positives (5%). Both models use their d
 
 Gemma makes fewer false-positive decisions at this operating point. Jev has higher average precision, so the hard-decision F1 result should not be interpreted as superiority across all thresholds.
 
+The subsequent [precision–recall analysis](operating-points/README.md) reports held-out diagnostic maximum F1 of 87.2% for Gemma and 85.7% for Jev. This much narrower gap reinforces the need for task-specific operating points. These test-set sweeps do not select deployed thresholds or change the frozen V4 result.
+
 ## Remaining gaps
 
 | Probe | Unique matched inputs | Gemma | Jev |
