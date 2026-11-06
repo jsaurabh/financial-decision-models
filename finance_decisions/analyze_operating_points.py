@@ -6,6 +6,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+matplotlib.rcParams['svg.hashsalt'] = 'finance-operating-points'
 
 from .compare_quality import pair_records
 from .operating_points import binary_curve, threshold_metrics
@@ -54,7 +55,9 @@ def main():
     figure.text(.5, .01, 'Dots: native 0.5 operating points. Curves are held-out diagnostics, not deployed thresholds.',
                 ha='center', fontsize=8)
     figure.tight_layout(rect=(0,.035,1,1))
-    figure.savefig(out / 'precision-recall.svg')
+    svg_path = out / 'precision-recall.svg'
+    figure.savefig(svg_path, metadata={'Date': None})
+    svg_path.write_text('\n'.join(line.rstrip() for line in svg_path.read_text().splitlines()) + '\n')
     figure.savefig(out / 'precision-recall.png', dpi=180)
     plt.close(figure)
     (out / 'diagnostics.json').write_text(json.dumps(result, indent=2))
