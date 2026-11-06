@@ -9,6 +9,9 @@ START=ROOT/'watcher-start.json'
 if not START.exists():START.write_text(json.dumps({'time':time.time()}))
 started=json.loads(START.read_text())['time'];done={};misses={r:0 for r in ['gemma','qwen']};last_heartbeat={r:0 for r in misses}
 RETRIES=ROOT/'retries.json';retries=json.loads(RETRIES.read_text()) if RETRIES.exists() else {'gemma':0,'qwen':0}
+# One additional Qwen recovery after a confirmed checkpoint DNS failure and a
+# heartbeat error that was incorrectly treated as proof of VM loss.
+MAX_RECOVERIES={'gemma':2,'qwen':3}
 
 def cli(role,*args,timeout=120):
     try:
@@ -54,17 +57,17 @@ for _ in range(1500):
         if time.time()-last_heartbeat[role]>120:
             hb,_=cli(role,'exec','-s',f'public-eval-{role}','-f',str(PROJECT/'scripts/colab_public_heartbeat.py'),'--timeout','45',timeout=80)
             last_heartbeat[role]=time.time()
-            if hb:misses[role]=max(2,misses[role])
+            if hb:state['heartbeat_error']=True
         expired=time.time()-started>8*3600
-        recoverable=state.get('status')=='failed' or misses[role]>=2
-        if recoverable and not expired and retries[role]<2:
+        recoverable=state.get('status')=='failed' or misses[role]>=3
+        if recoverable and not expired and retries[role]<MAX_RECOVERIES[role]:
             states[role]={'status':'recovering','attempt':retries[role]+1,'time':time.time()};save(states|done)
             ok,detail=recover(role);misses[role]=0;last_heartbeat[role]=time.time()
             state={'status':'restarted' if ok else 'failed','detail':detail[-200:],'role':role,'time':time.time()}
             if ok:states[role]=state;continue
         terminal=state.get('status') in ['complete','failed']
         if expired and not terminal:state.update(status='timeout',error='Eight-hour GPU evaluation deadline');terminal=True
-        if misses[role]>=2 and retries[role]>=2:state.update(status='failed',error='Runtime unavailable after bounded recovery');terminal=True
+        if misses[role]>=3 and retries[role]>=MAX_RECOVERIES[role]:state.update(status='failed',error='Runtime unavailable after bounded recovery');terminal=True
         if terminal:
             cli(role,'download','-s',f'public-eval-{role}','/content/public-worker.log',str(ROOT/f'{role}-worker.log'))
             rc,msg=cli(role,'stop','-s',f'public-eval-{role}')

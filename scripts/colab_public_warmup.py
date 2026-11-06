@@ -43,8 +43,14 @@ try:
  assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==manifest['archive_sha256']
  with tarfile.open(path) as archive:archive.extractall(root,filter='data')
  mark('evaluating',job_revision=revision,manifest_sha256=manifest['data_manifest_sha256'])
- result=subprocess.run([sys.executable,'-m','finance_decisions.public_eval','--role',role],cwd=root)
- if result.returncode:raise RuntimeError(f'Evaluator exited {result.returncode}')
+ # A transient checkpoint/upload failure must not discard a usable GPU. Keep
+ # the exact evaluator and resume its local append-only predictions in place.
+ for attempt in range(4):
+  result=subprocess.run([sys.executable,'-m','finance_decisions.public_eval','--role',role],cwd=root)
+  if result.returncode==0:break
+  if attempt==3:raise RuntimeError(f'Evaluator exited {result.returncode} after bounded local resume')
+  mark('retry_wait',attempt=attempt+1,returncode=result.returncode)
+  time.sleep(30*(attempt+1))
  mark('complete',job_revision=revision)
 except Exception as exc:
  traceback.print_exc();mark('failed',error_type=type(exc).__name__,error=str(exc))
