@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+data/private/
+runs/
+artifacts/
+*.safetensors
+*.onnx
+*.gguf
+*.pt
+*.log
+.colab/

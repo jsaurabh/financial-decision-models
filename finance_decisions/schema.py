@@ -1,0 +1,54 @@
+"""A deliberately bounded text-only choice/noul/score decision interface."""
+import json
+
+MAX_CHOICES = 8
+MAX_CHARS = 12000
+
+
+def options(question):
+    kind = question.get('type')
+    if kind == 'choice':
+        values = question.get('criteria')
+        if not isinstance(values, dict) or not 2 <= len(values) <= MAX_CHOICES:
+            raise ValueError('choice requires 2–8 named criteria')
+        if not all(isinstance(k, str) and isinstance(v, str) for k, v in values.items()):
+            raise ValueError('criteria must map string labels to descriptions')
+        return list(values), list(values.values())
+    if kind == 'noul':
+        return ['false', 'true'], ['The predicate is false.', 'The predicate is true.']
+    if kind == 'score':
+        values = question.get('criteria')
+        if not isinstance(values, list) or not 2 <= len(values) <= MAX_CHOICES:
+            raise ValueError('score requires 2–8 ordered string descriptions')
+        if not all(isinstance(v, str) for v in values):
+            raise ValueError('score descriptions must be strings')
+        return [str(i) for i in range(len(values))], values
+    raise ValueError('supported types: choice, noul, score')
+
+
+def render(state, question):
+    labels, descriptions = options(question)
+    instructions = question.get('instructions')
+    if not isinstance(instructions, str) or not instructions.strip():
+        raise ValueError('instructions are required')
+    state = state if isinstance(state, str) else json.dumps(state, ensure_ascii=False, sort_keys=True)
+    if len(state) + len(instructions) + sum(map(len, descriptions)) > MAX_CHARS:
+        raise ValueError('request exceeds character budget')
+    choices = '\n'.join(f'{i}: {label}: {desc}' for i, (label, desc) in enumerate(zip(labels, descriptions)))
+    return f'State:\n{state}\nQuestion: {instructions}\nOptions:\n{choices}\nDecision:', labels
+
+
+def answer(question, probabilities, abstain_threshold=0.8):
+    labels, _ = options(question)
+    if len(probabilities) != len(labels):
+        raise ValueError('probability dimension mismatch')
+    index = max(range(len(labels)), key=lambda i: probabilities[i])
+    result = {'value': labels[index], 'probabilities': dict(zip(labels, probabilities)),
+              'max_probability': probabilities[index],
+              'needs_review': probabilities[index] < abstain_threshold}
+    if question['type'] == 'noul':
+        result['value'] = bool(index)
+    elif question['type'] == 'score':
+        result['value'] = sum(i * p for i, p in enumerate(probabilities))
+        result['most_likely_level'] = index
+    return result

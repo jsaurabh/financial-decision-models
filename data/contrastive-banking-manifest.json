@@ -1,0 +1,10 @@
+{
+  "source_repo": "https://github.com/jsaurabh/qwen-rlcd-jev-repro",
+  "source_revision": "daa6e776df3b5f398ecf956e68951a1f638fa795",
+  "source_file": "data/jev_gap_curriculum_v1/train.jsonl",
+  "source_sha256": "819898ee096d50445c70263778a50dc6cb1bea03d6df6a725b2ff05ad90c7006",
+  "rows": 1920,
+  "split": "upstream train only; no upstream eval families",
+  "license": "MIT",
+  "labels": "deterministic rules; not human reviewed"
+}

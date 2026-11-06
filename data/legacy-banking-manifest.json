@@ -1,0 +1,38 @@
+{
+  "source_repo": "https://github.com/jsaurabh/qwen-rlcd-jev-repro",
+  "source_revision": "daa6e776df3b5f398ecf956e68951a1f638fa795",
+  "rows": 128,
+  "historical_input_hashes_match": true,
+  "sha256": "4760fd2e4ed95b151158ebea9da373702413db291edeebb65e43afdf06a90822",
+  "use": "evaluation only; not used for this Gemma training or calibration",
+  "historical_results": {
+    "jev": {
+      "count": 128,
+      "valid": 128,
+      "accuracy": 0.984375,
+      "brier": 0.0394621350818794,
+      "nll": 0.0900991273683932,
+      "ece": 0.062357954545454584,
+      "mean_latency_s": 0.2217411468123487
+    },
+    "our_banking_finetune": {
+      "count": 128,
+      "valid": 128,
+      "accuracy": 0.9140625,
+      "brier": 0.10715734075815296,
+      "nll": 0.15266051387256172,
+      "ece": 0.020503394083580005,
+      "mean_latency_s": 0.10397870672653653
+    },
+    "public_autojev": {
+      "count": 128,
+      "valid": 128,
+      "accuracy": 0.890625,
+      "brier": 0.142093477009862,
+      "nll": 0.235130064625065,
+      "ece": 0.082350555503835,
+      "mean_latency_s": 0.08143371135949451
+    }
+  },
+  "limits": "Narrow synthetic rules; historical provider scores are not fresh live calls. No latency comparison is made."
+}

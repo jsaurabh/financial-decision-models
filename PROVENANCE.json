@@ -1,0 +1,16 @@
+{
+  "base_model": "google/gemma-4-E2B-it",
+  "base_revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+  "compute": "Colab G4 / NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "phase": "quality first; CPU optimization deferred",
+  "code_archives": {
+    "finance-source.tar.gz": "468da680be18e09a292fc2da44837354cfcccba6008037dbe2e70ecf68b1e2e7",
+    "finance-quality.tar.gz": "67e07589324ffd527e01da8d7cfefc798f714a2b2764ea98d52c2e3dc2ed721d",
+    "finance-harden.tar.gz": "d30dca25696075b8bf4acb01783a9b1ba5d18829f4a82b38fff49cd061733cc2"
+  },
+  "notes": [
+    "Private raw data and weights are excluded from GitHub.",
+    "V1 pilot uses development NLL for selection. V2 is a planned contrastive-training continuation selected on development NLL.",
+    "The development and pilot test mixture contains synthetic hypothetical policies."
+  ]
+}
