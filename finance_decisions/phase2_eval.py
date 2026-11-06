@@ -73,7 +73,7 @@ def main():
     (out/'order-predictions.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in other))
     summary['environment']={'torch':torch.__version__,'gpu':torch.cuda.get_device_name()}
     (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
-    if args.hf_repo:upload(out,args.hf_repo,'phase2-quality')
+    if args.hf_repo:upload(out,args.hf_repo,'phase2-quality/'+out.name)
     print(json.dumps({'status':'evaluation_complete','out':str(out),'test_accuracy':summary['test']['accuracy'],'dev_nll':summary['uncalibrated_development']['nll']}),flush=True)
 
 if __name__=='__main__':main()
