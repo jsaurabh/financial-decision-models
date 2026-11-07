@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "rows": 2340,
+  "rows_sha256": "c5585eb4bc4dce345f049a701d3287676c3c63e4693a3cc0b86eebbda79d792d",
+  "protocol_sha256": "2d05837aeaa2b85e155fd2ba46ee66fe54565d2d412e37ce582c93e2ec5168e1",
+  "source": {
+    "repo": "CyCraftAI/TraceSafe",
+    "revision": "b8d546242a7182d2f5a97f5ff88cecca63d8e719",
+    "code_revision": "bc7eb3e956a387a1e4382bc23d674a6fd436d872"
+  },
+  "source_counts": {
+    "golden_0_benign.jsonl": 90,
+    "golden_10_MissingTypeHint.jsonl": 90,
+    "golden_11_VersionConflict.jsonl": 90,
+    "golden_12_DescriptionMismatch.jsonl": 90,
+    "golden_1_PromptInjectionIn.jsonl": 90,
+    "golden_2_PromptInjectionOut.jsonl": 90,
+    "golden_3_UserInfoLeak.jsonl": 90,
+    "golden_4_ApiKeyLeak.jsonl": 90,
+    "golden_5_DataLeak.jsonl": 90,
+    "golden_6_AmbiguousArg.jsonl": 90,
+    "golden_7_HallucinatedTool.jsonl": 90,
+    "golden_8_HallucinatedArgValue.jsonl": 90,
+    "golden_9_RedundantArg.jsonl": 90
+  },
+  "source_sha256": {
+    "README.md": "24207c0a7cd374643107c83c3b75384b165e87929f99b5c16af1948193768a8b",
+    "golden_0_benign.jsonl": "c8c7d440898ba458faf43cbc9c8d13b062420aed952114de949f9342400f1ba9",
+    "golden_1_PromptInjectionIn.jsonl": "b829d0000d00e0e38a816c2e9140cca3ba7ed6435d10565712c658d58b5cf250",
+    "golden_10_MissingTypeHint.jsonl": "f89f70b12299dcbda93324825609dec27bfa62b4e23ebbf55f387ec71cff0f42",
+    "golden_11_VersionConflict.jsonl": "2361583cc92981fe3a240a2ce2d3c3c2c84f902144b508be05e1904de3bc0793",
+    "golden_12_DescriptionMismatch.jsonl": "2555c71acb69a552fa1485b7c3c7762aad1d40399dffbd4adda0241d08d002ad",
+    "golden_2_PromptInjectionOut.jsonl": "f5d7299f54e826d4ceaf506d0d09422b8410d7c0c4c4dac40a48f314b9359fa6",
+    "golden_3_UserInfoLeak.jsonl": "03036491e3f201e1a0a8b991d58580ed7ef79cae4aa36d0e861b8326fc02d491",
+    "golden_4_ApiKeyLeak.jsonl": "de6c4bdd173f5419c85641a860874a6fed755441f09663d4cf4f40056397bde1",
+    "golden_5_DataLeak.jsonl": "304690544d9eab6a2146329ba62505821d73a319bd621bfbc835b4ebfe9d85c5",
+    "golden_6_AmbiguousArg.jsonl": "74b7e981add2ad8ac3257709d3103452ab887ef5da4391cb559b82bd8e8bbd33",
+    "golden_7_HallucinatedTool.jsonl": "a16bddc53e28dfc90b881e9f80ebeb03660780a505e0523a3c24c9b311c4cf73",
+    "golden_8_HallucinatedArgValue.jsonl": "b06b7e63027eb55a8c00041b6c12afe09256597ffa9951d56996d742008b9a3f",
+    "golden_9_RedundantArg.jsonl": "bc2d42a219c1b02743dc61f6465f68c89eb45c109e4f07e221a6d8ed187aaf6a"
+  },
+  "adapter_exclusions": {},
+  "overlap_excluded_decisions": 0,
+  "overlap_audit": {
+    "known_rows": 106122,
+    "unique_known_cores": 48634,
+    "near_edges": 1022,
+    "long_containment_hits": 0,
+    "overlap_exclusions_by_suite": {},
+    "pre_overlap_rows": {
+      "golden_0_benign.jsonl": 230,
+      "golden_10_MissingTypeHint.jsonl": 172,
+      "golden_11_VersionConflict.jsonl": 182,
+      "golden_12_DescriptionMismatch.jsonl": 157,
+      "golden_1_PromptInjectionIn.jsonl": 179,
+      "golden_2_PromptInjectionOut.jsonl": 208,
+      "golden_3_UserInfoLeak.jsonl": 333,
+      "golden_4_ApiKeyLeak.jsonl": 284,
+      "golden_5_DataLeak.jsonl": 278,
+      "golden_6_AmbiguousArg.jsonl": 201,
+      "golden_7_HallucinatedTool.jsonl": 273,
+      "golden_8_HallucinatedArgValue.jsonl": 208,
+      "golden_9_RedundantArg.jsonl": 252
+    },
+    "method": "exact normalized + 64-permutation MinHash retrieval at .75 / exact three-word Jaccard >= .85; bidirectional exact word-boundary containment >=8 words and40 chars; source-family propagation",
+    "limit": "Approximate retrieval is not exhaustive semantic deduplication; public pretraining exposure unknown."
+  },
+  "known_input_hashes": {
+    "data/private/calibration.jsonl": "b33f171d743b2819ddc8574d982ed872e3fd8bcceebae80e06bd3b8ae172d6a5",
+    "data/private/contrastive-banking-train.jsonl": "20053f76efeb9433e6d9bf17bfd37eb148c94f7dc25326ded13dee1e1f479760",
+    "data/private/final-eval/rows.jsonl": "e35a2e6aacc9d29eef07e9d250b2c4eda6a77eb91dfd53a6e3095e3612e311e0",
+    "data/private/legacy-banking-128.jsonl": "4760fd2e4ed95b151158ebea9da373702413db291edeebb65e43afdf06a90822",
+    "data/private/phase2/calibration.jsonl": "ccfa5933b94e7e9172acc972fcf30f5bc059fcbe68ea3be29012230150d49cd4",
+    "data/private/phase2/development.jsonl": "d956655b3e9c7dd146ed2465194f04705d9887e74e45ff62e5d1161c026e8152",
+    "data/private/phase2/test.jsonl": "f685badc09430ca95b9bfc83d4a55de7019bcbc74fcb65285a960d118726fe7c",
+    "data/private/phase2/train.jsonl": "766d612f3b4847842acfe20a7c60b689a24f1d7f2b7cd802d894114e6c2d9660",
+    "data/private/phase3/calibration.jsonl": "6cf4689db6a5b5f2b5feebb4a1469f5e91e7efd8db30cd789f027603b6d5dd27",
+    "data/private/phase3/development.jsonl": "412ea8e061a3506b6c14945093123a79264bf970e7d338235ea0fd46bce315fd",
+    "data/private/phase3/train.jsonl": "2760c78226c4a18e43c773a9a390184bbc59d027de69835cee06a585da947b55",
+    "data/private/public-eval/rows.jsonl": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+    "data/private/public-fresh.jsonl": "8561a2abb763331ef4a22bc0f3dd8acb34080f9fb716eb7848c27a332a66fccf",
+    "data/private/test.jsonl": "eaaab5c6f8b7e0f95f4625ccf6eae0b6df93ae465f16a95b38bf16d2185d17eb",
+    "data/private/train.jsonl": "d56288c3ed43a78211dc677e8b236ce08c43b01ad4dc800cc73bf55aab6ec934"
+  },
+  "counts_by_suite": {
+    "tracesafe/binary/benign": 90,
+    "tracesafe/coarse/benign": 90,
+    "tracesafe/binary/MissingTypeHint": 90,
+    "tracesafe/coarse/MissingTypeHint": 90,
+    "tracesafe/binary/VersionConflict": 90,
+    "tracesafe/coarse/VersionConflict": 90,
+    "tracesafe/binary/DescriptionMismatch": 90,
+    "tracesafe/coarse/DescriptionMismatch": 90,
+    "tracesafe/binary/PromptInjectionIn": 90,
+    "tracesafe/coarse/PromptInjectionIn": 90,
+    "tracesafe/binary/PromptInjectionOut": 90,
+    "tracesafe/coarse/PromptInjectionOut": 90,
+    "tracesafe/binary/UserInfoLeak": 90,
+    "tracesafe/coarse/UserInfoLeak": 90,
+    "tracesafe/binary/ApiKeyLeak": 90,
+    "tracesafe/coarse/ApiKeyLeak": 90,
+    "tracesafe/binary/DataLeak": 90,
+    "tracesafe/coarse/DataLeak": 90,
+    "tracesafe/binary/AmbiguousArg": 90,
+    "tracesafe/coarse/AmbiguousArg": 90,
+    "tracesafe/binary/HallucinatedTool": 90,
+    "tracesafe/coarse/HallucinatedTool": 90,
+    "tracesafe/binary/HallucinatedArgValue": 90,
+    "tracesafe/coarse/HallucinatedArgValue": 90,
+    "tracesafe/binary/RedundantArg": 90,
+    "tracesafe/coarse/RedundantArg": 90
+  },
+  "native_request_families": 157,
+  "uncertainty_families": 150,
+  "gemma_context_support_by_suite": {
+    "tracesafe/binary/AmbiguousArg": {
+      "requested": 90,
+      "within_8192": 80,
+      "min_tokens": 3148,
+      "max_tokens": 19322
+    },
+    "tracesafe/binary/ApiKeyLeak": {
+      "requested": 90,
+      "within_8192": 75,
+      "min_tokens": 3379,
+      "max_tokens": 24369
+    },
+    "tracesafe/binary/DataLeak": {
+      "requested": 90,
+      "within_8192": 65,
+      "min_tokens": 4030,
+      "max_tokens": 17854
+    },
+    "tracesafe/binary/DescriptionMismatch": {
+      "requested": 90,
+      "within_8192": 73,
+      "min_tokens": 3061,
+      "max_tokens": 70656
+    },
+    "tracesafe/binary/HallucinatedArgValue": {
+      "requested": 90,
+      "within_8192": 90,
+      "min_tokens": 3130,
+      "max_tokens": 7761
+    },
+    "tracesafe/binary/HallucinatedTool": {
+      "requested": 90,
+      "within_8192": 88,
+      "min_tokens": 3265,
+      "max_tokens": 19311
+    },
+    "tracesafe/binary/MissingTypeHint": {
+      "requested": 90,
+      "within_8192": 73,
+      "min_tokens": 3093,
+      "max_tokens": 77820
+    },
+    "tracesafe/binary/PromptInjectionIn": {
+      "requested": 90,
+      "within_8192": 79,
+      "min_tokens": 3320,
+      "max_tokens": 28028
+    },
+    "tracesafe/binary/PromptInjectionOut": {
+      "requested": 90,
+      "within_8192": 77,
+      "min_tokens": 3042,
+      "max_tokens": 135329
+    },
+    "tracesafe/binary/RedundantArg": {
+      "requested": 90,
+      "within_8192": 89,
+      "min_tokens": 3016,
+      "max_tokens": 12424
+    },
+    "tracesafe/binary/UserInfoLeak": {
+      "requested": 90,
+      "within_8192": 70,
+      "min_tokens": 2996,
+      "max_tokens": 352941
+    },
+    "tracesafe/binary/VersionConflict": {
+      "requested": 90,
+      "within_8192": 88,
+      "min_tokens": 3354,
+      "max_tokens": 12109
+    },
+    "tracesafe/binary/benign": {
+      "requested": 90,
+      "within_8192": 76,
+      "min_tokens": 3178,
+      "max_tokens": 53391
+    },
+    "tracesafe/coarse/AmbiguousArg": {
+      "requested": 90,
+      "within_8192": 79,
+      "min_tokens": 3261,
+      "max_tokens": 19435
+    },
+    "tracesafe/coarse/ApiKeyLeak": {
+      "requested": 90,
+      "within_8192": 75,
+      "min_tokens": 3492,
+      "max_tokens": 24482
+    },
+    "tracesafe/coarse/DataLeak": {
+      "requested": 90,
+      "within_8192": 64,
+      "min_tokens": 4143,
+      "max_tokens": 17967
+    },
+    "tracesafe/coarse/DescriptionMismatch": {
+      "requested": 90,
+      "within_8192": 72,
+      "min_tokens": 3174,
+      "max_tokens": 70769
+    },
+    "tracesafe/coarse/HallucinatedArgValue": {
+      "requested": 90,
+      "within_8192": 90,
+      "min_tokens": 3243,
+      "max_tokens": 7874
+    },
+    "tracesafe/coarse/HallucinatedTool": {
+      "requested": 90,
+      "within_8192": 88,
+      "min_tokens": 3378,
+      "max_tokens": 19424
+    },
+    "tracesafe/coarse/MissingTypeHint": {
+      "requested": 90,
+      "within_8192": 73,
+      "min_tokens": 3206,
+      "max_tokens": 77933
+    },
+    "tracesafe/coarse/PromptInjectionIn": {
+      "requested": 90,
+      "within_8192": 78,
+      "min_tokens": 3433,
+      "max_tokens": 28141
+    },
+    "tracesafe/coarse/PromptInjectionOut": {
+      "requested": 90,
+      "within_8192": 76,
+      "min_tokens": 3155,
+      "max_tokens": 135442
+    },
+    "tracesafe/coarse/RedundantArg": {
+      "requested": 90,
+      "within_8192": 89,
+      "min_tokens": 3129,
+      "max_tokens": 12537
+    },
+    "tracesafe/coarse/UserInfoLeak": {
+      "requested": 90,
+      "within_8192": 67,
+      "min_tokens": 3109,
+      "max_tokens": 353054
+    },
+    "tracesafe/coarse/VersionConflict": {
+      "requested": 90,
+      "within_8192": 88,
+      "min_tokens": 3467,
+      "max_tokens": 12222
+    },
+    "tracesafe/coarse/benign": {
+      "requested": 90,
+      "within_8192": 76,
+      "min_tokens": 3291,
+      "max_tokens": 53504
+    }
+  },
+  "gemma": {
+    "repo": "jsaurabh/gemma4-finance-phase3-pilot",
+    "revision": "1eec2a39d4d6a3106d5175b73539293ae3259cf0",
+    "path": "run/release",
+    "temperature": 1.7219688898693004
+  },
+  "jev": {
+    "alias": "jev-latest",
+    "required_provider": "jev-1.14.0"
+  },
+  "blocked": {},
+  "seed": 20261114,
+  "limits": [
+    "Prospective addendum, separate from the already sealed four-domain final test.",
+    "Full-context decision-interface adaptation, not an exact publisher-prompt reproduction.",
+    "Synthetic public mutations with native labels; no independently adjudicated production financial workflow validation.",
+    "Public pretraining exposure unknown; approximate overlap audit is not proof of semantic independence."
+  ]
+}

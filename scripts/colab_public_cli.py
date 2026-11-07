@@ -1,7 +1,7 @@
 import os,re,subprocess,sys,time
 role=sys.argv[1];args=sys.argv[2:]
 env=dict(os.environ)
-credential_prefix={'phase3':'phase3','final':'final'}.get(role,'public-eval')
+credential_prefix={'phase3':'phase3','final':'final','tracesafe':'tracesafe'}.get(role,'public-eval')
 env["GOOGLE_APPLICATION_CREDENTIALS"]=f"/workspace/.credentials/{credential_prefix}-colab-adc.json"
 cmd=["/workspace/.venv/bin/colab","--auth","adc","--config",f"/workspace/.credentials/public-{role}-sessions.json"]+args
 for attempt in range(4):
