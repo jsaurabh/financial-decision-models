@@ -1,0 +1,1444 @@
+{
+  "suites": {
+    "clinc_oos": {
+      "cohort": "fresh",
+      "domain": "oos",
+      "families": 5490,
+      "gemma": {
+        "requested": 5497,
+        "valid": 5497,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.6781881026014189,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              3508,
+              990
+            ],
+            [
+              779,
+              220
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.4989095934698765,
+        "accuracy_valid_only": 0.6781881026014189,
+        "nll_valid_only": 0.6457257657050481,
+        "binary_valid_only": {
+          "positive": 999,
+          "negative": 4498,
+          "recall": 0.22022022022022023,
+          "false_positive_rate": 0.22009782125389063,
+          "average_precision": 0.17529927506152404
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.03674731671820993,
+            "accuracy": 0.6435643564356436
+          },
+          "0.8": {
+            "coverage_of_valid": 0.0034564307804256867,
+            "accuracy": 0.631578947368421
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 5497,
+        "valid": 5497,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.9066763689285064,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              4028,
+              470
+            ],
+            [
+              43,
+              956
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.864293322970718,
+        "accuracy_valid_only": 0.9066763689285064,
+        "nll_valid_only": 0.23058819664236588,
+        "binary_valid_only": {
+          "positive": 999,
+          "negative": 4498,
+          "recall": 0.9569569569569569,
+          "false_positive_rate": 0.10449088483770565,
+          "average_precision": 0.9423889622729826
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.8721120611242495,
+            "accuracy": 0.9612015018773467
+          },
+          "0.8": {
+            "coverage_of_valid": 0.7838821175186466,
+            "accuracy": 0.9830587143188675
+          },
+          "0.9": {
+            "coverage_of_valid": 0.5735855921411679,
+            "accuracy": 0.994291151284491
+          },
+          "0.95": {
+            "coverage_of_valid": 0.3048935783154448,
+            "accuracy": 0.9982100238663485
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.2284882663270875,
+        "ci95": [
+          -0.24326783114992723,
+          -0.21375295615790432
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 5490,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "cuad_anti-assignment": {
+      "cohort": "fresh",
+      "domain": "legal",
+      "families": 383,
+      "gemma": {
+        "requested": 1142,
+        "valid": 1142,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.5577933450087565,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              574,
+              1
+            ],
+            [
+              504,
+              63
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.4470889503117321,
+        "accuracy_valid_only": 0.5577933450087565,
+        "nll_valid_only": 1.0538790300805996,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.8336252189141856,
+            "accuracy": 0.6081932773109243
+          },
+          "0.8": {
+            "coverage_of_valid": 0.7504378283712785,
+            "accuracy": 0.6546091015169195
+          },
+          "0.9": {
+            "coverage_of_valid": 0.6147110332749562,
+            "accuracy": 0.717948717948718
+          },
+          "0.95": {
+            "coverage_of_valid": 0.4868651488616462,
+            "accuracy": 0.7535971223021583
+          }
+        }
+      },
+      "jev": {
+        "requested": 1142,
+        "valid": 1142,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.8686514886164624,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              568,
+              7
+            ],
+            [
+              143,
+              424
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.8665293261484088,
+        "accuracy_valid_only": 0.8686514886164624,
+        "nll_valid_only": 0.7098303492996649,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9754816112084063,
+            "accuracy": 0.8734290843806104
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9500875656742557,
+            "accuracy": 0.8857142857142857
+          },
+          "0.9": {
+            "coverage_of_valid": 0.9019264448336253,
+            "accuracy": 0.9087378640776699
+          },
+          "0.95": {
+            "coverage_of_valid": 0.8476357267950964,
+            "accuracy": 0.9225206611570248
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.3108581436077058,
+        "ci95": [
+          -0.33667883211678834,
+          -0.28616708620385095
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 383,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "cuad_audit_rights": {
+      "cohort": "fresh",
+      "domain": "legal",
+      "families": 330,
+      "gemma": {
+        "requested": 1192,
+        "valid": 1192,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.4949664429530201,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              590,
+              0
+            ],
+            [
+              602,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.33108866442199775,
+        "accuracy_valid_only": 0.4949664429530201,
+        "nll_valid_only": 2.164334182700881,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9949664429530202,
+            "accuracy": 0.4974704890387858
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9874161073825504,
+            "accuracy": 0.5012744265080714
+          },
+          "0.9": {
+            "coverage_of_valid": 0.9656040268456376,
+            "accuracy": 0.5125977410947002
+          },
+          "0.95": {
+            "coverage_of_valid": 0.9186241610738255,
+            "accuracy": 0.5351598173515981
+          }
+        }
+      },
+      "jev": {
+        "requested": 1192,
+        "valid": 1192,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.8691275167785235,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              590,
+              0
+            ],
+            [
+              156,
+              446
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.8671892855510354,
+        "accuracy_valid_only": 0.8691275167785235,
+        "nll_valid_only": 0.9199093843789574,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9093959731543624,
+            "accuracy": 0.8929889298892989
+          },
+          "0.8": {
+            "coverage_of_valid": 0.8565436241610739,
+            "accuracy": 0.9118511263467189
+          },
+          "0.9": {
+            "coverage_of_valid": 0.7953020134228188,
+            "accuracy": 0.9240506329113924
+          },
+          "0.95": {
+            "coverage_of_valid": 0.7340604026845637,
+            "accuracy": 0.936
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.37416107382550334,
+        "ci95": [
+          -0.4038634263954506,
+          -0.3437789351851852
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 330,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "cuad_cap_on_liability": {
+      "cohort": "fresh",
+      "domain": "legal",
+      "families": 360,
+      "gemma": {
+        "requested": 1223,
+        "valid": 1223,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.49795584627964024,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              609,
+              0
+            ],
+            [
+              614,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.3324235807860262,
+        "accuracy_valid_only": 0.49795584627964024,
+        "nll_valid_only": 2.3247004557473745,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9983646770237122,
+            "accuracy": 0.4987714987714988
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9877350776778414,
+            "accuracy": 0.5041390728476821
+          },
+          "0.9": {
+            "coverage_of_valid": 0.9656582174979559,
+            "accuracy": 0.514817950889077
+          },
+          "0.95": {
+            "coverage_of_valid": 0.9403107113654947,
+            "accuracy": 0.5260869565217391
+          }
+        }
+      },
+      "jev": {
+        "requested": 1223,
+        "valid": 1223,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.6835650040883074,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              599,
+              10
+            ],
+            [
+              377,
+              237
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.6531793051143671,
+        "accuracy_valid_only": 0.6835650040883074,
+        "nll_valid_only": 2.0101932119710475,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9509403107113655,
+            "accuracy": 0.6947549441100602
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9321340964840557,
+            "accuracy": 0.7008771929824561
+          },
+          "0.9": {
+            "coverage_of_valid": 0.9010629599345871,
+            "accuracy": 0.7105263157894737
+          },
+          "0.95": {
+            "coverage_of_valid": 0.8577269010629599,
+            "accuracy": 0.7206863679694948
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.1856091578086672,
+        "ci95": [
+          -0.21278683632220083,
+          -0.15944370011616527
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 360,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "cuad_termination_for_convenience": {
+      "cohort": "fresh",
+      "domain": "legal",
+      "families": 256,
+      "gemma": {
+        "requested": 421,
+        "valid": 421,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.503562945368171,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              209,
+              0
+            ],
+            [
+              209,
+              3
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.34728682170542635,
+        "accuracy_valid_only": 0.503562945368171,
+        "nll_valid_only": 1.2582780150804989,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9572446555819477,
+            "accuracy": 0.5161290322580645
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9002375296912114,
+            "accuracy": 0.5408970976253298
+          },
+          "0.9": {
+            "coverage_of_valid": 0.7505938242280285,
+            "accuracy": 0.6265822784810127
+          },
+          "0.95": {
+            "coverage_of_valid": 0.5629453681710214,
+            "accuracy": 0.7510548523206751
+          }
+        }
+      },
+      "jev": {
+        "requested": 421,
+        "valid": 421,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.9192399049881235,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "No",
+            "Yes"
+          ],
+          "matrix": [
+            [
+              207,
+              2
+            ],
+            [
+              32,
+              180
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.918906363306744,
+        "accuracy_valid_only": 0.9192399049881235,
+        "nll_valid_only": 0.3262474715434191,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9501187648456056,
+            "accuracy": 0.93
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9192399049881235,
+            "accuracy": 0.9405684754521964
+          },
+          "0.9": {
+            "coverage_of_valid": 0.8717339667458432,
+            "accuracy": 0.9645776566757494
+          },
+          "0.95": {
+            "coverage_of_valid": 0.838479809976247,
+            "accuracy": 0.9745042492917847
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.4156769596199525,
+        "ci95": [
+          -0.4613526570048309,
+          -0.3694090844971082
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 256,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "deepset_injection": {
+      "cohort": "fresh",
+      "domain": "injection_detection",
+      "families": 113,
+      "gemma": {
+        "requested": 116,
+        "valid": 116,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.41379310344827586,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              36,
+              20
+            ],
+            [
+              48,
+              12
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.3875776397515528,
+        "accuracy_valid_only": 0.41379310344827586,
+        "nll_valid_only": 1.0790385145237105,
+        "binary_valid_only": {
+          "positive": 60,
+          "negative": 56,
+          "recall": 0.2,
+          "false_positive_rate": 0.35714285714285715,
+          "average_precision": 0.4672586246611195
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.5344827586206896,
+            "accuracy": 0.4032258064516129
+          },
+          "0.8": {
+            "coverage_of_valid": 0.25,
+            "accuracy": 0.27586206896551724
+          },
+          "0.9": {
+            "coverage_of_valid": 0.11206896551724138,
+            "accuracy": 0.07692307692307693
+          },
+          "0.95": {
+            "coverage_of_valid": 0.06896551724137931,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "jev": {
+        "requested": 116,
+        "valid": 116,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.7586206896551724,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              56,
+              0
+            ],
+            [
+              28,
+              32
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.7478260869565218,
+        "accuracy_valid_only": 0.7586206896551724,
+        "nll_valid_only": 0.545882640039724,
+        "binary_valid_only": {
+          "positive": 60,
+          "negative": 56,
+          "recall": 0.5333333333333333,
+          "false_positive_rate": 0.0,
+          "average_precision": 0.9801330485057601
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9224137931034483,
+            "accuracy": 0.7850467289719626
+          },
+          "0.8": {
+            "coverage_of_valid": 0.8706896551724138,
+            "accuracy": 0.801980198019802
+          },
+          "0.9": {
+            "coverage_of_valid": 0.7068965517241379,
+            "accuracy": 0.8658536585365854
+          },
+          "0.95": {
+            "coverage_of_valid": 0.6206896551724138,
+            "accuracy": 0.9305555555555556
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.3448275862068966,
+        "ci95": [
+          -0.4482758620689655,
+          -0.24347826086956523
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 113,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "finqa_verification": {
+      "cohort": "fresh",
+      "domain": "financial_verification",
+      "families": 269,
+      "gemma": {
+        "requested": 1910,
+        "valid": 1910,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.5015706806282723,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              808,
+              147
+            ],
+            [
+              805,
+              150
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.43445005125755176,
+        "accuracy_valid_only": 0.5015706806282723,
+        "nll_valid_only": 0.8743044408438918,
+        "binary_valid_only": {
+          "positive": 955,
+          "negative": 955,
+          "recall": 0.15706806282722513,
+          "false_positive_rate": 0.15392670157068064,
+          "average_precision": 0.5063400401541784
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.5073298429319372,
+            "accuracy": 0.5036119711042312
+          },
+          "0.8": {
+            "coverage_of_valid": 0.306282722513089,
+            "accuracy": 0.5076923076923077
+          },
+          "0.9": {
+            "coverage_of_valid": 0.1094240837696335,
+            "accuracy": 0.5215311004784688
+          },
+          "0.95": {
+            "coverage_of_valid": 0.014136125654450262,
+            "accuracy": 0.6296296296296297
+          }
+        }
+      },
+      "jev": {
+        "requested": 1910,
+        "valid": 1910,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.8947643979057591,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              867,
+              88
+            ],
+            [
+              113,
+              842
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.894746365636502,
+        "accuracy_valid_only": 0.8947643979057591,
+        "nll_valid_only": 0.2888742439853289,
+        "binary_valid_only": {
+          "positive": 955,
+          "negative": 955,
+          "recall": 0.881675392670157,
+          "false_positive_rate": 0.09214659685863874,
+          "average_precision": 0.9596752435138004
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.8251308900523561,
+            "accuracy": 0.9378172588832487
+          },
+          "0.8": {
+            "coverage_of_valid": 0.7157068062827225,
+            "accuracy": 0.9517190929041697
+          },
+          "0.9": {
+            "coverage_of_valid": 0.5607329842931937,
+            "accuracy": 0.9701213818860878
+          },
+          "0.95": {
+            "coverage_of_valid": 0.42408376963350786,
+            "accuracy": 0.9728395061728395
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.3931937172774869,
+        "ci95": [
+          -0.41049730662983425,
+          -0.37536031504563744
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 269,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "injecagent_recall": {
+      "cohort": "secondary",
+      "domain": "attack_recall",
+      "families": 1,
+      "gemma": {
+        "requested": 62,
+        "valid": 62,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              62,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 5.107145654424073,
+        "binary_valid_only": {
+          "positive": 62,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "jev": {
+        "requested": 62,
+        "valid": 62,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.8064516129032258,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              12,
+              50
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.44642857142857145,
+        "accuracy_valid_only": 0.8064516129032258,
+        "nll_valid_only": 0.5197690251765742,
+        "binary_valid_only": {
+          "positive": 62,
+          "negative": 0,
+          "recall": 0.8064516129032258,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999998
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.6129032258064516,
+            "accuracy": 0.868421052631579
+          },
+          "0.8": {
+            "coverage_of_valid": 0.3870967741935484,
+            "accuracy": 0.8333333333333334
+          },
+          "0.9": {
+            "coverage_of_valid": 0.08064516129032258,
+            "accuracy": 0.6
+          },
+          "0.95": {
+            "coverage_of_valid": 0.016129032258064516,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.8064516129032258,
+        "ci95": null,
+        "p_two_sided": 1.0,
+        "families": 1,
+        "reason": "insufficient_independent_families"
+      }
+    },
+    "insurance_policy_interpretation": {
+      "cohort": "fresh",
+      "domain": "legal",
+      "families": 42,
+      "gemma": {
+        "requested": 133,
+        "valid": 133,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.38345864661654133,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "A",
+            "B",
+            "C"
+          ],
+          "matrix": [
+            [
+              23,
+              15,
+              9
+            ],
+            [
+              6,
+              13,
+              8
+            ],
+            [
+              17,
+              27,
+              15
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.3804557187720052,
+        "accuracy_valid_only": 0.38345864661654133,
+        "nll_valid_only": 1.3650406430112096,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.3684210526315789,
+            "accuracy": 0.4489795918367347
+          },
+          "0.8": {
+            "coverage_of_valid": 0.15789473684210525,
+            "accuracy": 0.47619047619047616
+          },
+          "0.9": {
+            "coverage_of_valid": 0.007518796992481203,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 133,
+        "valid": 133,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.518796992481203,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "A",
+            "B",
+            "C"
+          ],
+          "matrix": [
+            [
+              44,
+              2,
+              1
+            ],
+            [
+              2,
+              25,
+              0
+            ],
+            [
+              27,
+              32,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.4382428940568475,
+        "accuracy_valid_only": 0.518796992481203,
+        "nll_valid_only": 1.6886562726027818,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.7669172932330827,
+            "accuracy": 0.5980392156862745
+          },
+          "0.8": {
+            "coverage_of_valid": 0.6390977443609023,
+            "accuracy": 0.6352941176470588
+          },
+          "0.9": {
+            "coverage_of_valid": 0.5037593984962406,
+            "accuracy": 0.7164179104477612
+          },
+          "0.95": {
+            "coverage_of_valid": 0.3533834586466165,
+            "accuracy": 0.7872340425531915
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": -0.13533834586466165,
+        "ci95": [
+          -0.2424298128342246,
+          -0.022900763358778626
+        ],
+        "p_two_sided": 0.023397660233976603,
+        "families": 42,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    },
+    "routerarena_costaware": {
+      "cohort": "secondary",
+      "domain": "routing",
+      "families": 808,
+      "gemma": {
+        "requested": 809,
+        "valid": 807,
+        "coverage": 0.9975278121137207,
+        "accuracy_missing_as_wrong": 0.7985166872682324,
+        "errors": {
+          "over_context_limit": 2
+        },
+        "accuracy_valid_only": 0.8004956629491945,
+        "nll_valid_only": 0.7500247729765106,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.013630731102850062,
+            "accuracy": 0.7272727272727273
+          },
+          "0.8": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 809,
+        "valid": 809,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.7948084054388134,
+        "errors": {},
+        "accuracy_valid_only": 0.7948084054388134,
+        "nll_valid_only": 0.7052907647117717,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.09888751545117429,
+            "accuracy": 0.9125
+          },
+          "0.8": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": 0.003708281829419036,
+        "ci95": [
+          -0.02599009900990099,
+          0.033334363411619265
+        ],
+        "p_two_sided": 0.8675132486751325,
+        "families": 808,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "routing": {
+        "requested": 809,
+        "common_valid": 807,
+        "coverage": 0.9975278121137207,
+        "common_valid_means": {
+          "gemma": {
+            "quality": 0.6830870814799967,
+            "cost_usd": 5.691939281288724e-05,
+            "utility": 0.6825178875518679,
+            "oracle_regret": 0.09051657485193736
+          },
+          "jev": {
+            "quality": 0.6784723460571055,
+            "cost_usd": 5.049826517967782e-05,
+            "utility": 0.6779673634053086,
+            "oracle_regret": 0.09506709899849651
+          }
+        },
+        "paired_differences": {
+          "quality": {
+            "difference": 0.004614735422891255,
+            "ci95": [
+              -0.01102565031472105,
+              0.01984738292607029
+            ],
+            "p_two_sided": 0.5306469353064693,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "cost_usd": {
+            "difference": 6.421127633209416e-06,
+            "ci95": [
+              2.9707379193686755e-06,
+              1.037410997215342e-05
+            ],
+            "p_two_sided": 0.0006999300069993001,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "utility": {
+            "difference": 0.004550524146559159,
+            "ci95": [
+              -0.01111598285965144,
+              0.01978697253525143
+            ],
+            "p_two_sided": 0.5333466653334666,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "oracle_regret": {
+            "difference": -0.004550524146559158,
+            "ci95": [
+              -0.01978697253525144,
+              0.01111598285965144
+            ],
+            "p_two_sided": 0.5333466653334666,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          }
+        },
+        "note": "Restricted three-model historical cached replay. Missing routing decisions are excluded from cost/utility, never counted as zero-cost successes."
+      }
+    },
+    "routerarena_quality": {
+      "cohort": "secondary",
+      "domain": "routing",
+      "families": 808,
+      "gemma": {
+        "requested": 809,
+        "valid": 807,
+        "coverage": 0.9975278121137207,
+        "accuracy_missing_as_wrong": 0.8491965389369592,
+        "errors": {
+          "over_context_limit": 2
+        },
+        "accuracy_valid_only": 0.8513011152416357,
+        "nll_valid_only": 0.27625139586661346,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.04460966542750929,
+            "accuracy": 0.9444444444444444
+          },
+          "0.8": {
+            "coverage_of_valid": 0.0012391573729863693,
+            "accuracy": 1.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 809,
+        "valid": 809,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.8046971569839307,
+        "errors": {},
+        "accuracy_valid_only": 0.8046971569839307,
+        "nll_valid_only": 0.33456631767883105,
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.009888751545117428,
+            "accuracy": 0.875
+          },
+          "0.8": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "paired_accuracy": {
+        "difference": 0.04449938195302843,
+        "ci95": [
+          0.018541409147095178,
+          0.07045735475896168
+        ],
+        "p_two_sided": 0.0007999200079992001,
+        "families": 808,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "routing": {
+        "requested": 809,
+        "common_valid": 807,
+        "coverage": 0.9975278121137207,
+        "common_valid_means": {
+          "gemma": {
+            "quality": 0.659749917708085,
+            "cost_usd": 6.719535315985131e-05,
+            "utility": 0.659749917708085,
+            "oracle_regret": 0.11382936068085021
+          },
+          "jev": {
+            "quality": 0.6119646263797802,
+            "cost_usd": 8.755687732342008e-05,
+            "utility": 0.6119646263797802,
+            "oracle_regret": 0.16161465200915515
+          }
+        },
+        "paired_differences": {
+          "quality": {
+            "difference": 0.04778529132830491,
+            "ci95": [
+              0.02494051463225412,
+              0.07063673286374861
+            ],
+            "p_two_sided": 0.00019998000199980003,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "cost_usd": {
+            "difference": -2.036152416356877e-05,
+            "ci95": [
+              -2.3086081373762372e-05,
+              -1.778795216432313e-05
+            ],
+            "p_two_sided": 9.999000099990002e-05,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "utility": {
+            "difference": 0.04778529132830491,
+            "ci95": [
+              0.02494051463225412,
+              0.07063673286374861
+            ],
+            "p_two_sided": 0.00019998000199980003,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "oracle_regret": {
+            "difference": -0.04778529132830491,
+            "ci95": [
+              -0.07063673286374861,
+              -0.02494051463225412
+            ],
+            "p_two_sided": 0.00019998000199980003,
+            "families": 806,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          }
+        },
+        "note": "Restricted three-model historical cached replay. Missing routing decisions are excluded from cost/utility, never counted as zero-cost successes."
+      }
+    }
+  },
+  "confirmatory_domains": {
+    "legal": {
+      "difference": -0.28432873614529813,
+      "ci95": [
+        -0.30980449779376734,
+        -0.2581048912770169
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "families": 474,
+      "bootstrap_replicates": 10000,
+      "requested_replicates": 10000,
+      "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization",
+      "requested": 4111,
+      "gemma_valid": 4111,
+      "jev_valid": 4111,
+      "holm_p": 0.00039996000399960006,
+      "supports_superiority": false
+    },
+    "oos": {
+      "difference": -0.2284882663270875,
+      "ci95": [
+        -0.24326783114992723,
+        -0.21375295615790432
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "families": 5490,
+      "bootstrap_replicates": 10000,
+      "requested_replicates": 10000,
+      "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization",
+      "requested": 5497,
+      "gemma_valid": 5497,
+      "jev_valid": 5497,
+      "holm_p": 0.00039996000399960006,
+      "supports_superiority": false
+    },
+    "financial_verification": {
+      "difference": -0.3931937172774869,
+      "ci95": [
+        -0.41049730662983425,
+        -0.37536031504563744
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "families": 269,
+      "bootstrap_replicates": 10000,
+      "requested_replicates": 10000,
+      "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization",
+      "requested": 1910,
+      "gemma_valid": 1910,
+      "jev_valid": 1910,
+      "holm_p": 0.00039996000399960006,
+      "supports_superiority": false
+    },
+    "injection_detection": {
+      "difference": -0.3448275862068966,
+      "ci95": [
+        -0.4482758620689655,
+        -0.24347826086956523
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "families": 113,
+      "bootstrap_replicates": 10000,
+      "requested_replicates": 10000,
+      "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization",
+      "requested": 116,
+      "gemma_valid": 116,
+      "jev_valid": 116,
+      "holm_p": 0.00039996000399960006,
+      "supports_superiority": false
+    }
+  },
+  "equal_domain_research_mixture": {
+    "difference": -0.3127095764891923,
+    "ci95": [
+      -0.33976073864991574,
+      -0.2861586343031888
+    ],
+    "p_two_sided": 9.999000099990002e-05,
+    "families": 6346,
+    "bootstrap_replicates": 10000,
+    "requested_replicates": 10000,
+    "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+  },
+  "broad_classification_superiority_supported": false,
+  "claim_scope": "Four represented public classification domains only. Routing, attack-only recall and inspected regressions are separate. No action-safety or production-financial-services superiority claim.",
+  "status": "complete_for_independent_classification_and_secondary_cohorts",
+  "regression_status": "Excluded from this snapshot; full replay is still running.",
+  "rows_sha256": "e35a2e6aacc9d29eef07e9d250b2c4eda6a77eb91dfd53a6e3095e3612e311e0",
+  "manifest_sha256": "c5763e6ff64b1410b128a9a1e2516a49fca69dbc644b73f2c6e942c35d81ac47",
+  "source_cohorts": [
+    "fresh",
+    "secondary"
+  ],
+  "trace_safe_included": false,
+  "headline_scores": {
+    "legal": {
+      "gemma": 0.48754744524522586,
+      "jev": 0.7718761813905239,
+      "cases": 4111
+    },
+    "oos": {
+      "gemma": 0.6781881026014189,
+      "jev": 0.9066763689285064,
+      "cases": 5497
+    },
+    "financial_verification": {
+      "gemma": 0.5015706806282723,
+      "jev": 0.8947643979057591,
+      "cases": 1910
+    },
+    "injection_detection": {
+      "gemma": 0.41379310344827586,
+      "jev": 0.7586206896551724,
+      "cases": 116
+    },
+    "equal_domain_average": {
+      "gemma": 0.5202748329807982,
+      "jev": 0.8329844094699905
+    }
+  },
+  "checkpoint": {
+    "repo": "jsaurabh/gemma4-finance-phase3-pilot",
+    "revision": "1eec2a39d4d6a3106d5175b73539293ae3259cf0",
+    "path": "run/release",
+    "temperature": 1.7219688898693004
+  },
+  "jev": {
+    "alias": "jev-latest",
+    "required_provider": "jev-1.14.0"
+  },
+  "snapshot_time_unix": 1794011300.4127204,
+  "inference_source_commit": "9c758ea5f6cf9e574568ec67ddde7af8b0ee0b8d",
+  "analysis_code_sha256": "036cc7311d73a2867229020afef67e54245020ee3cb0f369f4f7c276f99f859b",
+  "limitations": [
+    "Independent of known fine-tuning/development inputs after approximate audit; pretraining exposure unknown.",
+    "FinQA and RouterArena are declared adaptations.",
+    "InjecAgent has no benign controls and supports recall only.",
+    "No private expert-adjudicated financial-production holdout."
+  ],
+  "classification_coverage": {
+    "gemma": 1.0,
+    "jev": 1.0
+  }
+}
