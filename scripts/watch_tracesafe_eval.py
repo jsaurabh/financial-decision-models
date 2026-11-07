@@ -1,6 +1,7 @@
 """Independent three-hour lifecycle; releases GPU even after runner failure."""
 import json,subprocess,time
 from pathlib import Path
+from colab_runtime_health import confirmed_runtime_loss
 
 PROJECT=Path('/workspace/financial-decision-models')
 ROOT=Path('/workspace/tracesafe-eval-control');ROOT.mkdir(exist_ok=True)
@@ -26,9 +27,10 @@ def main():
         if time.time()-heartbeat>120 and state.get('status') not in ['complete','failed']:
             cli('exec','-s',SESSION,'-f',str(PROJECT/'scripts/colab_public_heartbeat.py'),'--timeout','45',timeout=80);heartbeat=time.time()
         expired=time.time()-started>3*3600
-        terminal=state.get('status') in ['complete','failed'] or expired or misses>=5
+        lost=misses>=5 and confirmed_runtime_loss(rc,detail)
+        terminal=state.get('status') in ['complete','failed'] or expired or lost
         if expired:state.update(status='timeout',error='Three-hour GPU deadline')
-        if misses>=5:state.update(status='failed',error='Runtime unreachable after five checks')
+        if lost:state.update(status='failed',error='Confirmed runtime loss after five checks')
         if terminal:
             cli('download','-s',SESSION,'/content/final-worker.log',str(ROOT/'worker.log'))
             stop_rc,stop_detail=cli('stop','-s',SESSION);state.update(stop_returncode=stop_rc,stop_detail=stop_detail)

@@ -1,6 +1,7 @@
 """Bounded lifecycle for the isolated final-test GPU; never mutates a live cache."""
 import json, os, subprocess, time
 from pathlib import Path
+from colab_runtime_health import confirmed_runtime_loss
 
 PROJECT=Path('/workspace/financial-decision-models')
 ROOT=Path('/workspace/final-eval-control'); ROOT.mkdir(exist_ok=True)
@@ -48,12 +49,13 @@ def main():
         if time.time()-heartbeat>120 and state.get('status') not in ['complete','failed']:
             cli('exec','-s',SESSION,'-f',str(PROJECT/'scripts/colab_public_heartbeat.py'),'--timeout','45',timeout=80)
             heartbeat=time.time()
-        if misses>=3 and not expired and recoveries<2:
+        lost=misses>=3 and confirmed_runtime_loss(rc,detail)
+        if lost and not expired and recoveries<2:
             recoveries+=1;retry.write_text(json.dumps({'count':recoveries}))
             save({'status':'recovering','recoveries':recoveries,'time':time.time(),'elapsed_s':elapsed})
             if recover():misses=0;continue
             state={'status':'failed','error':'VM recovery failed'}
-        terminal=state.get('status') in ['complete','failed'] or expired or misses>=3
+        terminal=state.get('status') in ['complete','failed'] or expired or lost
         if expired:state.update(status='timeout',error='Six-hour GPU deadline')
         if terminal:
             cli('download','-s',SESSION,'/content/final-worker.log',str(ROOT/'worker.log'))
