@@ -1552,7 +1552,7 @@
             "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
           }
         },
-        "note": "Restricted three-model historical cached replay. Missing routing decisions are excluded from cost/utility, never counted as zero-cost successes."
+        "note": "Released eleven-model RouterBench historical outcomes. Missing routing decisions are excluded from paired cost/utility, never counted as zero-cost successes. This is separate from the three-model RouterArena transfer track."
       },
       "routing_costaware": {
         "requested": 440,
@@ -1622,7 +1622,7 @@
             "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
           }
         },
-        "note": "Restricted three-model historical cached replay. Missing routing decisions are excluded from cost/utility, never counted as zero-cost successes."
+        "note": "Released eleven-model RouterBench historical outcomes. Missing routing decisions are excluded from paired cost/utility, never counted as zero-cost successes. This is separate from the three-model RouterArena transfer track."
       },
       "holm_p": {
         "financial": 0.0004999500049995,

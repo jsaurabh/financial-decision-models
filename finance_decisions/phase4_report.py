@@ -64,7 +64,9 @@ def publish(rows,manifest,controllers,candidates=('gemma',)):
         for task,field in [('routing_quality','quality'),('routing_costaware','utility')]:
             part=[r for r in core if r['task']==task]
             # The shared helper's two system labels name the candidate and Jev.
-            m=routing(part,systems[role],systems['jev'],seed=SEED);result[task]=m
+            m=routing(part,systems[role],systems['jev'],seed=SEED)
+            m['note']='Released eleven-model RouterBench historical outcomes. Missing routing decisions are excluded from paired cost/utility, never counted as zero-cost successes. This is separate from the three-model RouterArena transfer track.'
+            result[task]=m
             pvalues[task]=m.get('paired_differences',{}).get(field,{}).get('p_two_sided',1.)
         adjusted=holm(pvalues);gates={}
         for name,m in result.items():
