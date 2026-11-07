@@ -1,0 +1,150 @@
+{
+  "v4": {
+    "max_probability_difference": 0.7724883799437471,
+    "flipped_cases": [
+      {
+        "id": "phase2-test-task5-6-0",
+        "original_max_probability": 0.42319987114455543,
+        "reordered_max_probability": 0.42070678905947173
+      },
+      {
+        "id": "phase2-test-task4-13-2",
+        "original_max_probability": 0.48678967557240715,
+        "reordered_max_probability": 0.4764078458709346
+      },
+      {
+        "id": "phase2-test-task2-3-2",
+        "original_max_probability": 0.4065541712918817,
+        "reordered_max_probability": 0.4066970965312993
+      },
+      {
+        "id": "phase2-test-task4-12-2",
+        "original_max_probability": 0.4394926475645074,
+        "reordered_max_probability": 0.5073479589330497
+      },
+      {
+        "id": "phase2-test-task2-8-2",
+        "original_max_probability": 0.4337469464482711,
+        "reordered_max_probability": 0.46253884656126704
+      },
+      {
+        "id": "phase2-test-task4-19-2",
+        "original_max_probability": 0.4734390181299547,
+        "reordered_max_probability": 0.5203988086596174
+      },
+      {
+        "id": "phase2-test-task0-19-0",
+        "original_max_probability": 0.36836713484690714,
+        "reordered_max_probability": 0.3761804312122748
+      },
+      {
+        "id": "phase2-test-task3-22-2",
+        "original_max_probability": 0.45638849154654704,
+        "reordered_max_probability": 0.4502137674575708
+      },
+      {
+        "id": "phase2-test-task4-21-2",
+        "original_max_probability": 0.4454775751288968,
+        "reordered_max_probability": 0.4479719539051697
+      },
+      {
+        "id": "phase2-test-task2-22-0",
+        "original_max_probability": 0.790874335693385,
+        "reordered_max_probability": 0.8790782308739429
+      },
+      {
+        "id": "phase2-test-task2-9-1",
+        "original_max_probability": 0.8320944486028362,
+        "reordered_max_probability": 0.8130423028341864
+      },
+      {
+        "id": "phase2-test-task4-7-2",
+        "original_max_probability": 0.472917800430608,
+        "reordered_max_probability": 0.43696996717098385
+      },
+      {
+        "id": "phase2-banking77-None-test-1099",
+        "original_max_probability": 0.4123366640284455,
+        "reordered_max_probability": 0.422919657795797
+      }
+    ],
+    "prediction_agreement": 0.9871414441147379
+  },
+  "causal": {
+    "max_probability_difference": 0.5157010845830832,
+    "flipped_cases": [
+      {
+        "id": "phase2-test-task1-3-0",
+        "original_max_probability": 0.4981224358946615,
+        "reordered_max_probability": 0.49836187835313434
+      },
+      {
+        "id": "phase2-test-task0-20-0",
+        "original_max_probability": 0.500390490846496,
+        "reordered_max_probability": 0.4989319612871988
+      },
+      {
+        "id": "phase2-test-task0-16-1",
+        "original_max_probability": 0.49910907467789395,
+        "reordered_max_probability": 0.4989074157428553
+      },
+      {
+        "id": "phase2-lex_glue-ledgar-test-241",
+        "original_max_probability": 0.7309055019766643,
+        "reordered_max_probability": 0.7062104247487883
+      }
+    ],
+    "prediction_agreement": 0.9960435212660732
+  },
+  "joint": {
+    "max_probability_difference": 0.7445445225446247,
+    "flipped_cases": [
+      {
+        "id": "phase2-test-task1-15-0",
+        "original_max_probability": 0.4940638747501092,
+        "reordered_max_probability": 0.4933667380264317
+      },
+      {
+        "id": "phase2-test-task1-21-1",
+        "original_max_probability": 0.5006784989823544,
+        "reordered_max_probability": 0.4940912153256778
+      },
+      {
+        "id": "phase2-test-task1-2-0",
+        "original_max_probability": 0.497605264379779,
+        "reordered_max_probability": 0.4971999876881059
+      },
+      {
+        "id": "phase2-test-task1-23-0",
+        "original_max_probability": 0.49489965161244637,
+        "reordered_max_probability": 0.4966210527771444
+      },
+      {
+        "id": "phase2-test-task5-17-1",
+        "original_max_probability": 0.9979078014589716,
+        "reordered_max_probability": 0.6909071921014185
+      },
+      {
+        "id": "phase2-banking77-None-test-2172",
+        "original_max_probability": 0.3279626713836232,
+        "reordered_max_probability": 0.27723686215900406
+      },
+      {
+        "id": "phase2-test-task2-22-0",
+        "original_max_probability": 0.5036846732144243,
+        "reordered_max_probability": 0.9946834705597983
+      },
+      {
+        "id": "phase2-test-task2-9-1",
+        "original_max_probability": 0.4860629839159814,
+        "reordered_max_probability": 0.595862708532575
+      },
+      {
+        "id": "phase2-lex_glue-ledgar-test-241",
+        "original_max_probability": 0.9034827997959973,
+        "reordered_max_probability": 0.6147293908388234
+      }
+    ],
+    "prediction_agreement": 0.9910979228486647
+  }
+}

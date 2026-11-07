@@ -1,0 +1,262 @@
+{
+  "status": "research_and_mechanical_audit_complete; pretrained-model memorization and controlled recipe comparisons pending",
+  "reviewed_project_commit": "fbd470d3f3afc16a7b1fc7822bef1b499908486e",
+  "artifact": {
+    "repo": "jsaurabh/financial-decision-phase4-gemma",
+    "revision": "e79d95e65c921a6def7eedbf6882883d92afe9ff",
+    "path": "run/release",
+    "manifest_sha256": "50b2c6cabb626b6f862ba61da231ac8e51cc3725beee51eaae43df25fe931fe1",
+    "training_summary_sha256": "f19b7c8319cceb5d6863abb807e681f17f7c264a7557739e19ff87d2e61a27f3"
+  },
+  "sources": [
+    {
+      "url": "https://airbnb.tech/ai-ml/frontier-quality-at-1-of-the-cost-a-production-benchmark-of-llm-classifiers/",
+      "local_sha256": "7af6717c2b59f242cb4c96b0cf1f88907d4360bb64e5e59310ef2136e96ba494",
+      "findings": [
+        "GLOWC is described as internal; the post links no public training code or detailed training hyperparameters.",
+        "Gemma4-E2B trained on hundreds of thousands of examples for one pricing/payment-transparency policy task.",
+        "Quality reported as maximum F1 with threshold sweeps where scores are available, not our nine-task accuracy or composite score.",
+        "The post does not disclose full fine-tuning versus LoRA, rank, learning rate, epochs, batch size or head/loss implementation."
+      ]
+    },
+    {
+      "url": "https://github.com/undrgrnd-labs/hunch/blob/main/hunch/src/hunch/proxy.py",
+      "github_blob_sha": "2cfeaadbdf64c9b2bd6041373491ce57816cc56a",
+      "local_sha256": "6781c5fc94bb39f603fe4038dee1b0f8ca4fdfb5531d1b9177334c21cec03be8",
+      "code_references": [
+        "fit_student",
+        "_lr",
+        "find_blind_spots"
+      ],
+      "findings": [
+        "Frozen EmbeddingGemma2 features and one weighted logistic-regression classifier per question; not end-to-end Gemma4 fine-tuning.",
+        "Ground-truth labels receive greater weight than sampled teacher answers.",
+        "Graduation uses minority-answer checks and confidence bounds; uncertainty/novelty route to a teacher.",
+        "Online fit_student uses ordinary KFold and standardizes before cross-validation; do not copy this directly for document/request-related financial datasets."
+      ]
+    },
+    {
+      "url": "https://github.com/undrgrnd-labs/hunch/blob/main/examples/preflight/preflight.py",
+      "github_blob_sha": "e4f9cb6555edc3c524ebd85aa73685dbb9d0b554",
+      "findings": [
+        "Compares embedding layers; uses GroupKFold when enough groups exist, with row KFold fallback.",
+        "Borrow per-capability learnability checks and baseline comparisons; preserve strict family separation and train-fold-only preprocessing in our implementation."
+      ]
+    },
+    {
+      "url": "https://github.com/undrgrnd-labs/hunch/blob/main/docs/question-design.md",
+      "findings": [
+        "Matched contrasts and hard negatives distinguish observable properties from topical cues.",
+        "Teacher blind spots, new formats, rare classes, causal reasoning and long units limit learnability.",
+        "Teacher agreement and teacher-student system performance are distinct from a standalone model beating native gold."
+      ]
+    },
+    {
+      "url": "https://huggingface.co/docs/trl/sft_trainer",
+      "findings": [
+        "Provides completion-only/assistant-only SFT and PEFT reference implementations.",
+        "Documentation suggests approximately1e-4 as a typical adapter learning rate; this is a comparison point, not proof that2e-5 is wrong."
+      ]
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/tasks/sequence_classification",
+      "findings": [
+        "Reference for a conventional classification training loop. Its illustrated architecture is not a Gemma4-specific classifier recipe."
+      ]
+    },
+    {
+      "url": "https://ai.google.dev/gemma/docs/core/lora_tuning",
+      "findings": [
+        "Older, deprecated Keras Gemma tutorial, not a disclosed Airbnb/Gemma4 recipe.",
+        "Demonstrates rank4 and5e-5 learning rate and recommends task-based rank/learning-rate/epoch experiments."
+      ]
+    }
+  ],
+  "confirmed_checks": {
+    "adapter_B_matrices": 205,
+    "nonzero_adapter_B_matrices": 205,
+    "selected_training_exposure": {
+      "selected_training_rows": 20000,
+      "missing_semantic_classes_by_task": {},
+      "financial_decisions": 2945,
+      "financial_label_counts": {
+        "true": 1450,
+        "false": 1495
+      },
+      "financial_complete_pairs": 869,
+      "financial_single_variant_pairs": 1207
+    },
+    "native_conditional_and_checkpoint_tests": {
+      "file": "tests/test_native_code_training.py",
+      "passed": 2,
+      "scope": "Tiny random Gemma4ForConditionalGeneration configuration; native-logit parity, state-dependent learning with PEFT/checkpointing, frozen base, save/load parity and resumed gradient path. This is not a pretrained E2B memorization result."
+    },
+    "relevant_tests": {
+      "passed": 11,
+      "files": [
+        "tests/test_phase4.py",
+        "tests/test_native_code_training.py",
+        "tests/test_phase4_report.py",
+        "tests/test_phase4_failure_audit.py"
+      ]
+    },
+    "frozen_phase4_recipe_changed": false
+  },
+  "recipe_choices_needing_controls": [
+    {
+      "choice": "Shared128-code LM-initialized readout, candidate-conditional CE instead of conventional full-vocabulary SFT",
+      "needed_control": "Same Gemma E2B, same data and prompt, native completion-only SFT versus current head."
+    },
+    {
+      "choice": "LoRA rank16, backbone LR2e-5, one planned shuffled pass, selected20k examples",
+      "needed_control": "Small-data E2B memorization gate; matched2e-5/1e-4 LR runs before changing model size. Add longer learning curves only after fit is demonstrated."
+    },
+    {
+      "choice": "Divide per-example set CE by log(number of candidates), then apply domain/task weights",
+      "needed_control": "Plain CE versus normalized CE on the same batches; inspect per-task gradient norms and train/development curves. Scaling alone does not establish causality."
+    },
+    {
+      "choice": "One shared model and a single mean validation selection objective",
+      "needed_control": "Per-capability development acceptance criteria and specialist diagnostics to detect negative transfer. Higher mean score must not hide failed financial pair discrimination or unsafe safety tradeoffs."
+    },
+    {
+      "choice": "Routing winner/tie classification discards regret magnitude",
+      "needed_control": "Dense outcome/utility supervision or expected-regret objective, compared with the training-selected fixed-model baseline."
+    },
+    {
+      "choice": "Native correct/counterfactual pairs grouped across splits but shuffled as separate training examples",
+      "needed_control": "Paired batches and a pair-consistency/contrastive objective, with executable financial derivations as auxiliary supervision."
+    }
+  ],
+  "loss_scaling_by_task": {
+    "banking_intent": {
+      "training_rows": 6000,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        77,
+        77
+      ],
+      "domain_task_weight": 0.697375,
+      "multiplier_after_log_candidate_normalization": [
+        0.1605447142018624,
+        0.1605447142018624
+      ]
+    },
+    "financial_verification": {
+      "training_rows": 5000,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        2,
+        2
+      ],
+      "domain_task_weight": 0.83685,
+      "multiplier_after_log_candidate_normalization": [
+        1.2073193449679291,
+        1.2073193449679291
+      ]
+    },
+    "legal_maud": {
+      "training_rows": 4000,
+      "instruction_strings": 61,
+      "candidate_counts": [
+        2,
+        4
+      ],
+      "domain_task_weight": 1.0460625,
+      "multiplier_after_log_candidate_normalization": [
+        0.7545745906049556,
+        1.5091491812099112
+      ]
+    },
+    "legal_topic": {
+      "training_rows": 5000,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        100,
+        100
+      ],
+      "domain_task_weight": 0.83685,
+      "multiplier_after_log_candidate_normalization": [
+        0.18171966859036812,
+        0.18171966859036812
+      ]
+    },
+    "malicious_request": {
+      "training_rows": 1600,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        2,
+        2
+      ],
+      "domain_task_weight": 1.7434375,
+      "multiplier_after_log_candidate_normalization": [
+        2.515248635349852,
+        2.515248635349852
+      ]
+    },
+    "prompt_injection": {
+      "training_rows": 1600,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        2,
+        2
+      ],
+      "domain_task_weight": 1.7434375,
+      "multiplier_after_log_candidate_normalization": [
+        2.515248635349852,
+        2.515248635349852
+      ]
+    },
+    "routing_costaware": {
+      "training_rows": 4337,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        11,
+        11
+      ],
+      "domain_task_weight": 0.9647798017062486,
+      "multiplier_after_log_candidate_normalization": [
+        0.402344427903367,
+        0.402344427903367
+      ]
+    },
+    "routing_quality": {
+      "training_rows": 4337,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        11,
+        11
+      ],
+      "domain_task_weight": 0.9647798017062486,
+      "multiplier_after_log_candidate_normalization": [
+        0.402344427903367,
+        0.402344427903367
+      ]
+    },
+    "tool_action_safety": {
+      "training_rows": 1600,
+      "instruction_strings": 1,
+      "candidate_counts": [
+        3,
+        3
+      ],
+      "domain_task_weight": 1.7434375,
+      "multiplier_after_log_candidate_normalization": [
+        1.5869452016722267,
+        1.5869452016722267
+      ]
+    }
+  },
+  "recommended_next_experiment": {
+    "family": "Gemma only",
+    "backbone": "Existing pinned Gemma4 E2B",
+    "sequence": [
+      "Run32-64 real training-example memorization checks per weak capability, including opposite-label numerical pairs and candidate/predicate binding controls.",
+      "Compare current classifier with native completion-only SFT on the same development data.",
+      "Compare plain CE and current normalization with a bounded learning-rate comparison; keep data and model size fixed.",
+      "Use development-only acceptance criteria to select the subsequent larger data/objective experiment."
+    ],
+    "test_policy": "Completed phase4 cases are posthoc diagnostics/regressions. No final-test-driven threshold tuning or new superiority claim without a separately sealed family-disjoint holdout."
+  },
+  "conclusion": "No dead-adapter or native-head/save-load failure found by these checks. The current recipe remains under-validated; the evidence does not isolate a single cause or establish that E2B capacity is the limiting factor."
+}

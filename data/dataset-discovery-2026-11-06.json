@@ -1,0 +1,320 @@
+{
+  "checked_on": "2026-11-06",
+  "status": "discovery_only",
+  "new_training_or_model_evaluation_started": false,
+  "scope": "Primary-source cards, documentation and metadata; not a complete data integrity, row-level overlap or licensing audit.",
+  "notes": [
+    "No dataset examples or benchmark rows are republished here.",
+    "Some raw card accesses were gated; failures are not evidence of dataset unavailability.",
+    "Counts and audit claims in the prose are attributed to source documentation."
+  ],
+  "sources": [
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/AgentToolDecisions-180K",
+      "revision": "22b91136648789a2881183dfc2f77d756659444c",
+      "gated": null,
+      "declared_license": "other",
+      "card_sha256": "9045ca56e984f746aaaa2d91a9005cc16020ad23302b5b3e99d657d3c5b30013"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-Agent-Tool-Decisions-180K",
+      "revision": "b7ef4af9cbfd7d976ea9e284de75f89f80e4d234",
+      "gated": null,
+      "declared_license": "other",
+      "card_sha256": "13bbfc14fd4810f9ba656d7145b7c0a5d8a15947bb4713cf6d4759cd7761210b"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-Customer-Support-Decisions-130K",
+      "revision": "8b8005bf92238a6d30444c4efa5d4bdfe51b7018",
+      "gated": null,
+      "declared_license": "other",
+      "card_sha256": "2577842df8f83de7648f64c09102b506ab94783ef831e70334eab5b0f1b28c90"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-RAG-Claim-Verification-130K",
+      "revision": "204349a675d43c8d5696b66e74ff9aa7aff9260a",
+      "gated": null,
+      "declared_license": "other",
+      "card_sha256": "4da2eb83d82d81d33fc2c1c7ad87019843ebca3d0ce33c6c8c4b4b3a2a388d8f"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-Safety-Refusal-Decisions-150K",
+      "revision": "a767886337ff376074ca5a1f61a7c1935c502ab1",
+      "gated": null,
+      "declared_license": "other",
+      "card_sha256": "9c81bd9c7099bbb633a0f9b1c9ccc57a27356c0ef52e6b326ba5349f9aada692"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MurrayTom/TS-Bench",
+      "revision": "19047a0c4a54f54cc1ddd4a2c597105d8453b819",
+      "gated": false,
+      "declared_license": "apache-2.0",
+      "card_sha256": "1177166d2c101a6ce0b0d329b7ee14d0a73ba93e1b06ff37a3d896c47ca6222a"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "RouteWorks/RouterArena",
+      "revision": "a4a062ce3313b56bb09c042e1bc37b61d34e3bd8",
+      "gated": false,
+      "declared_license": null,
+      "card_sha256": "4323b14615b6e5d7f46ba4a52062ca0851a66c30d5c84349844de195d5ff6ef1"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "ai-safety-institute/AgentHarm",
+      "revision": "e23b3fe60a0da9037314b88e5ee3a0c054970dad",
+      "gated": false,
+      "declared_license": "other",
+      "card_sha256": "a161c8273e7c4212463be38aad8a03667940f7383ddabc712f9cf4ab69c99f0e"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "lmsys/toxic-chat",
+      "revision": "29df8e4dba60e1f4af4b4075c0705c5b313548a8",
+      "gated": null,
+      "declared_license": "cc-by-nc-4.0",
+      "card_sha256": "70c63cac8fff2a4934c85b3d3b52d2e169b8af9fe893dd9de1ea5e4abdb51441"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "mangopy/ToolRet-Queries",
+      "revision": "b8c76ad3349ff17497b6bdb28bb5b8f61a0f6445",
+      "gated": null,
+      "declared_license": null,
+      "card_sha256": "3198e4923caf97e1cfde81c7931e47cd85e3ad0c1bc56b7d0e144100a37e38c6"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "nvidia/Aegis-AI-Content-Safety-Dataset-2.0",
+      "revision": "d86bb8bedff51d25ac834ab7838f1cc61acb7a2c",
+      "gated": false,
+      "declared_license": "cc-by-4.0",
+      "card_sha256": "da2598e587850bacc77c0658f56d0ea430f55d1cf70b197eb06070871802d3ba"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "nvidia/Nemotron-AIQ-Agentic-Safety-Dataset-1.0",
+      "revision": "668cdd63f594eaf5e24ca2e41aeba6d4c92376b4",
+      "gated": false,
+      "declared_license": "other",
+      "card_sha256": "f3c45b215309295d891a799a4be03d39c98d66fb375012551bd881cda73c7080"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "nvidia/When2Call",
+      "revision": "0582f7749df63a96fdc3070932e83e72396ace53",
+      "gated": null,
+      "declared_license": "cc-by-4.0",
+      "card_sha256": "14217217ba73b9421b5c8ac9b35b0c210836212ea007b65ec866513fdb67aa75"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "withmartian/routerbench",
+      "revision": "784021482c3f320c6619ed4b3bb3b41a21424fcb",
+      "gated": null,
+      "declared_license": null,
+      "card_sha256": "93b0ba00aaaa24834e21a56b76656cf5bd506543af321898aecf695ec943eb31"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-Policy-Verification-180K",
+      "revision": "ed67fbb102d2f6c4485119b510adf06724c729c6",
+      "gated": false,
+      "declared_license": "other",
+      "card_sha256": "e27a1fc5a7d0ddd1916199bc39c7b0dfc6ad03f752e46e0555e72fdfb5aa5a19"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-Intent-Domain-Routing-130K",
+      "revision": "f2c12b9336d16f5585d16f482800e4bf1a9b1ebe",
+      "gated": false,
+      "declared_license": "other",
+      "card_sha256": "47563bd575e4531c118b88978b3538f637799fb9386f7961ea06994e7665771d"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "MaziyarPanahi/Jev-Agent-Trace-Audit-100K",
+      "revision": "cf2d00145ed628f0efed4f46bc52a4828a899675",
+      "gated": false,
+      "declared_license": "other",
+      "card_sha256": "15d4ceb8d6476a01db4afdd46c1ebee2b80b23f8dd018722aee9ce9af9e49758"
+    },
+    {
+      "kind": "github_repository",
+      "id": "MurrayTom/ToolSafe",
+      "revision": "237fddba18c962fd68b7bc3a49b25726b7dfb73f",
+      "readme_sha256": "454225db6a817dde75580744c13f4f45c21baa509db7cb6f75b26e807274feff"
+    },
+    {
+      "kind": "github_repository",
+      "id": "MurrayTom/ToolHazard",
+      "revision": "544b73b12a25431cb0be3eb43df41b4aacce5335",
+      "readme_sha256": "8d1476496e59a7d473bc99ad96f9e7e54e48095e54eb681b649275ad5f17f867"
+    },
+    {
+      "kind": "github_repository",
+      "id": "Lordog/R-Judge",
+      "revision": "83ce301da3ad50dd8b397e772863f5411c3d3dc2",
+      "readme_sha256": "9e2987dc445117db52c3c67181790278f8f16dbcd494e61c5f6554d87e6ad56c"
+    },
+    {
+      "kind": "github_repository",
+      "id": "ethz-spylab/agentdojo",
+      "revision": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+      "readme_sha256": "d8c6460ecce9bbf59ed300fbc74b4440188f74cd147a7611836270be49e7660e"
+    },
+    {
+      "kind": "github_repository",
+      "id": "uiuc-kang-lab/InjecAgent",
+      "revision": "f19c9f2c79a41046eb13c03c51a24c567a8ffa07",
+      "readme_sha256": "09e81a9e68d5c2a1b491456c83da4ef0126426deb7eafa8588349c2dcce278ea"
+    },
+    {
+      "kind": "github_repository",
+      "id": "RouteWorks/RouterArena",
+      "revision": "44cc1ffe642602a47d8685730f75963f0a130bde",
+      "readme_sha256": "4323b14615b6e5d7f46ba4a52062ca0851a66c30d5c84349844de195d5ff6ef1"
+    },
+    {
+      "kind": "github_repository",
+      "id": "stanfordnlp/contract-nli",
+      "revision": "eced6528dd3c1d14d73f9a87df8f7bdbc03126f9",
+      "readme_sha256": "375a1024337b82d2331bc9ab63cda3044dc10e5019033eb66332a0fc4e626b52"
+    },
+    {
+      "kind": "github_repository",
+      "id": "ParticleMedia/RAGTruth",
+      "revision": "c103204b9ce28d6bbad859304bf30de72b8ed8fe",
+      "readme_sha256": "3686178d505a38cb20a94827917369bcb9d0aa44cf5154d7ddbac740ee06628d"
+    },
+    {
+      "kind": "github_repository",
+      "id": "thu-coai/Agent-SafetyBench",
+      "revision": "74feea8de601b3a1449a93fcf70017fe61556f73",
+      "readme_sha256": "349ca07f1ecda2eba2b1e5cbb96a01d316c5c047937a2b7929ee13da38d67f9a"
+    },
+    {
+      "kind": "github_repository",
+      "id": "ryoungj/ToolEmu",
+      "revision": "ac4a7ab7ed8c7985d96231e214bd6b54304b7ddb",
+      "readme_sha256": "280dd91e8cb4582293352bf7163158176679e125dc72944eece7ea3459506d41"
+    },
+    {
+      "kind": "github_repository",
+      "id": "cycraft-corp/TraceSafe",
+      "revision": "bc7eb3e956a387a1e4382bc23d674a6fd436d872",
+      "readme_sha256": "0b68a929f43939eba482043a72cc060e18471b436e2ab374ccaea2e6c3f58ad9"
+    },
+    {
+      "kind": "github_repository",
+      "id": "lm-sys/RouteLLM",
+      "revision": "0b64fdafe049e596a3f5657c219329f24af24198",
+      "readme_sha256": "380ebee5361b8a191d92091639bc2be08e258dd2b4404f804a680f343fa16f0c"
+    },
+    {
+      "kind": "github_repository",
+      "id": "apolinario/decision-index",
+      "revision": "25c6ec7b6b5f44a216c63c3a700de3a9c6d6699d"
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "allenai/wildguardmix",
+      "revision": "d29c47f41c8b51348b5c8e8c81c039b3132b66d1",
+      "gated": "auto",
+      "declared_license": "odc-by",
+      "raw_card_downloaded": false
+    },
+    {
+      "kind": "huggingface_dataset",
+      "id": "CyCraftAI/TraceSafe",
+      "revision": "b8d546242a7182d2f5a97f5ff88cecca63d8e719",
+      "gated": "auto",
+      "declared_license": "apache-2.0",
+      "raw_card_downloaded": false
+    },
+    {
+      "kind": "github_repository",
+      "id": "theopenco/llmgateway",
+      "revision": "733b8212c7c2a05edc563b0b6c1ee8127dc86be0",
+      "scope": "Smart Routing pilot source revision declared in published results",
+      "license_note": "Mixed repository: AGPLv3 outside commercial components; third-party terms retained."
+    },
+    {
+      "kind": "github_repository",
+      "id": "google-research/google-research",
+      "revision": "d36068b845da4c2b24927fee2cea1e6ef98dadda",
+      "scope": "IFEval source used by the pilot"
+    },
+    {
+      "kind": "public_benchmark_snapshot",
+      "id": "llmgateway/smart-routing-2026-09-26",
+      "revision": "733b8212c7c2a05edc563b0b6c1ee8127dc86be0",
+      "url": "https://llmgateway.io/blog/smart-routing-benchmark",
+      "unique_prompts": 80,
+      "arms_per_prompt": 4,
+      "output_caps": [
+        4096,
+        8192
+      ],
+      "published_calls": 640,
+      "role": "Small replay/regression and protocol reference",
+      "model_pool_coverage": "Complete for three fixed baselines; incomplete for the original five-candidate routed pool",
+      "artifacts": [
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-4096-protocol.json",
+          "sha256": "bfd6ca2d9ac2072199dca949828e87b9b2d709c68eba98fbe64e51e6a4c0250a",
+          "bytes": 34826
+        },
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-4096-results.json",
+          "sha256": "dd057122e3e4bcced7febcbe3ed57c700367a302a6c37c36b5b5e2bba63fea38",
+          "bytes": 763534
+        },
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-protocol.json",
+          "sha256": "f5e4dfc1c2196fd7e63145951f599c1982ad9d552e6c435efbc1a506bed8c52f",
+          "bytes": 34826
+        },
+        {
+          "url": "https://llmgateway.io/benchmarks/smart-routing-2026-09-26-results.json",
+          "sha256": "07c03c76ffb710aab6e5220e40c74b7ddff6edc8a2f0484fb88f66b31adc9525",
+          "bytes": 768272
+        }
+      ],
+      "train_dev_test_split_published_in_inspected_artifacts": false
+    }
+  ],
+  "current_release_limits": {
+    "max_candidates": 8,
+    "max_packed_tokens": 2048
+  },
+  "training_restrictions": [
+    {
+      "source": "RouteWorks/RouterArena",
+      "rule": "Evaluation-only: no training, fitting or calibration on dataset, labels, templates or configs."
+    },
+    {
+      "source": "nvidia/Nemotron-AIQ-Agentic-Safety-Dataset-1.0",
+      "rule": "Card/license specifies evaluation use; no model training."
+    },
+    {
+      "source": "ai-safety-institute/AgentHarm",
+      "rule": "Authors request evaluation-only; safety/security-purpose license clause."
+    }
+  ],
+  "overlap_notes": [
+    "BANKING77 is already present in this project and in Jev-Intent-Domain-Routing-130K.",
+    "AgentToolDecisions-180K and Jev-Agent-Tool-Decisions-180K report matching underlying source counts; do not treat as independent corpora.",
+    "The Jev agent-tool, customer-support and semantic-routing releases share Nemotron Agentic v2 lineage.",
+    "Both agent-tool releases include When2Call sources; native source_split and identities must be checked before combining with official test.",
+    "Jev-RAG-Claim-Verification-130K card reports 349 cross-split query/context identities and 67 cross-split exact requests.",
+    "TS-Bench derives evaluation trajectories from AgentHarm, ASB and AgentDojo; TraceSafe derives mutated baselines from BFCL.",
+    "LLM Gateway has 80 unique prompts repeated across two caps; its 40 IFEval prompts overlap that upstream benchmark. Routed selected-model labels are Jev outputs, not routing gold."
+  ]
+}

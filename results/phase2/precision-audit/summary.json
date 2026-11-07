@@ -1,0 +1,224 @@
+{
+  "scope": "Post-test diagnostic, not an independent quality estimate or a release selection.",
+  "inputs": [
+    {
+      "id": "phase2-banking77-None-train-9854",
+      "split": "development"
+    },
+    {
+      "id": "phase2-banking77-None-train-8744",
+      "split": "development"
+    },
+    {
+      "id": "phase2-banking77-None-train-2360",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task5-9-0",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task5-20-1",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task5-14-1",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task2-4-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task2-10-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task2-21-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task3-13-1",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task3-16-1",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task3-18-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task1-14-0",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task1-4-0",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task1-2-1",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task4-0-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task4-14-0",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task4-13-1",
+      "split": "development"
+    },
+    {
+      "id": "phase2-lex_glue-ledgar-validation-5874",
+      "split": "development"
+    },
+    {
+      "id": "phase2-lex_glue-ledgar-validation-1431",
+      "split": "development"
+    },
+    {
+      "id": "phase2-lex_glue-ledgar-validation-3424",
+      "split": "development"
+    },
+    {
+      "id": "phase2-lex_glue-unfair_tos-validation-2053",
+      "split": "development"
+    },
+    {
+      "id": "phase2-lex_glue-unfair_tos-validation-1208",
+      "split": "development"
+    },
+    {
+      "id": "phase2-lex_glue-unfair_tos-validation-2263",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task0-19-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task0-21-0",
+      "split": "development"
+    },
+    {
+      "id": "phase2-development-task0-10-2",
+      "split": "development"
+    },
+    {
+      "id": "phase2-test-task5-17-1",
+      "split": "test"
+    },
+    {
+      "id": "phase2-test-task2-22-0",
+      "split": "test"
+    },
+    {
+      "id": "phase2-lex_glue-ledgar-test-241",
+      "split": "test"
+    }
+  ],
+  "torch": "2.11.0+cu130",
+  "tf32": false,
+  "results": {
+    "causal": {
+      "bf16_native": {
+        "n": 30,
+        "flips": [
+          {
+            "id": "phase2-lex_glue-ledgar-test-241",
+            "prediction": "Authority",
+            "reordered_prediction": "Authorizations",
+            "max_probability_change": 0.5166334757632686
+          }
+        ],
+        "prediction_agreement": 0.9666666666666667,
+        "max_probability_change": 0.5166334757632686,
+        "sample_accuracy_diagnostic_only": 0.9
+      },
+      "bf16_math": {
+        "n": 30,
+        "flips": [],
+        "prediction_agreement": 1.0,
+        "max_probability_change": 0.009967573481198255,
+        "sample_accuracy_diagnostic_only": 0.9333333333333333
+      },
+      "fp32_native": {
+        "n": 30,
+        "flips": [
+          {
+            "id": "phase2-lex_glue-ledgar-test-241",
+            "prediction": "Authority",
+            "reordered_prediction": "Authorizations",
+            "max_probability_change": 0.5144373827987151
+          }
+        ],
+        "prediction_agreement": 0.9666666666666667,
+        "max_probability_change": 0.5144373827987151,
+        "sample_accuracy_diagnostic_only": 0.9
+      },
+      "fp32_math": {
+        "n": 30,
+        "flips": [],
+        "prediction_agreement": 1.0,
+        "max_probability_change": 5.767109003684823e-07,
+        "sample_accuracy_diagnostic_only": 0.9333333333333333
+      }
+    },
+    "joint": {
+      "bf16_native": {
+        "n": 30,
+        "flips": [
+          {
+            "id": "phase2-test-task2-22-0",
+            "prediction": "review",
+            "reordered_prediction": "standard",
+            "max_probability_change": 0.5033529241169215
+          },
+          {
+            "id": "phase2-lex_glue-ledgar-test-241",
+            "prediction": "Authority",
+            "reordered_prediction": "Authorizations",
+            "max_probability_change": 0.5638461223652734
+          }
+        ],
+        "prediction_agreement": 0.9333333333333333,
+        "max_probability_change": 0.5638461223652734,
+        "sample_accuracy_diagnostic_only": 0.8333333333333334
+      },
+      "bf16_math": {
+        "n": 30,
+        "flips": [],
+        "prediction_agreement": 1.0,
+        "max_probability_change": 0.009428520994284706,
+        "sample_accuracy_diagnostic_only": 0.9
+      },
+      "fp32_native": {
+        "n": 30,
+        "flips": [
+          {
+            "id": "phase2-lex_glue-ledgar-test-241",
+            "prediction": "Authority",
+            "reordered_prediction": "Authorizations",
+            "max_probability_change": 0.5691443302750676
+          }
+        ],
+        "prediction_agreement": 0.9666666666666667,
+        "max_probability_change": 0.5691443302750676,
+        "sample_accuracy_diagnostic_only": 0.8666666666666667
+      },
+      "fp32_math": {
+        "n": 30,
+        "flips": [],
+        "prediction_agreement": 1.0,
+        "max_probability_change": 1.1594435921358226e-06,
+        "sample_accuracy_diagnostic_only": 0.9
+      }
+    }
+  },
+  "note": "BF16 base weights are upcast for FP32 computation; adapter/readout FP32 values are retained. No retraining or release modification."
+}

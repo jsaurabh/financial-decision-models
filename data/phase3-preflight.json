@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "manifest_sha256": "bee599781521cff4e50a0088fedff730b1b3b92cd88a45dfb74e9cc1b5cd7e91",
+  "folds": {
+    "train": {
+      "rows": 10000,
+      "families": 5685,
+      "choice_counts": {
+        "3": 2872,
+        "8": 1385,
+        "2": 5743
+      },
+      "preference_targets": {
+        "A": 1037,
+        "B": 1037
+      }
+    },
+    "development": {
+      "rows": 700,
+      "families": 525,
+      "choice_counts": {
+        "3": 200,
+        "2": 400,
+        "8": 100
+      },
+      "preference_targets": {
+        "A": 50,
+        "B": 50
+      }
+    },
+    "calibration": {
+      "rows": 700,
+      "families": 534,
+      "choice_counts": {
+        "2": 400,
+        "8": 100,
+        "3": 200
+      },
+      "preference_targets": {
+        "A": 50,
+        "B": 50
+      }
+    }
+  },
+  "checks": [
+    "exact dataset hashes",
+    "source-family disjointness",
+    "decision-input disjointness",
+    "allowlisted tool-safety inputs",
+    "preference gold tracks native chosen content",
+    "11-choice model capacity; actual pilot choices 2/3/8"
+  ],
+  "scope": "No final benchmark evaluation or quality claim; approximate upstream/source overlap limits remain."
+}

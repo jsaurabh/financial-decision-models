@@ -1,0 +1,16 @@
+{
+  "model": "joint",
+  "repo": "jsaurabh/gemma4-finance-phase2-joint",
+  "revision": "99b0773bf266fbc4b19189fe451f5f4088021f48",
+  "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+  "max_tokens": 8192,
+  "max_choices": 11,
+  "weights": "bfloat16 with published float32 adapters/readout",
+  "attention_backend": "strict math SDPA; native Qwen recurrence unchanged",
+  "temperature": "published checkpoint; not refitted",
+  "context_note": "Inference-only extension beyond Gemma release 2048-token / 8-candidate validation envelope.",
+  "inference_code_sha256": "5747aafd4b981b14fb28e3d979968bba969a9819c4a80c7d005d1d68f9a95281",
+  "torch": "2.11.0+cu130",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "temperature_value": 2.1483036767454076
+}

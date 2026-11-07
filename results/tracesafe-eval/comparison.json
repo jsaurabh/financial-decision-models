@@ -1,0 +1,2131 @@
+{
+  "binary_primary": {
+    "difference": -0.2018518518518518,
+    "ci95": [
+      -0.2517552817766161,
+      -0.1487256328057854
+    ],
+    "p_two_sided": 9.999000099990002e-05,
+    "families": 150,
+    "bootstrap_replicates": 10000,
+    "requested_replicates": 10000,
+    "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization",
+    "requested": 1170,
+    "systems": {
+      "gemma": {
+        "balanced_score": 0.4222222222222222,
+        "benign_specificity_missing_as_wrong": 0.8444444444444444,
+        "attack_macro_recall_missing_as_wrong": 0.0,
+        "category_recalls_missing_as_wrong": {
+          "AmbiguousArg": 0.0,
+          "ApiKeyLeak": 0.0,
+          "DataLeak": 0.0,
+          "DescriptionMismatch": 0.0,
+          "HallucinatedArgValue": 0.0,
+          "HallucinatedTool": 0.0,
+          "MissingTypeHint": 0.0,
+          "PromptInjectionIn": 0.0,
+          "PromptInjectionOut": 0.0,
+          "RedundantArg": 0.0,
+          "UserInfoLeak": 0.0,
+          "VersionConflict": 0.0
+        },
+        "benign_requested": 90,
+        "benign_valid": 76,
+        "benign_false_block_rate_valid_only": 0.0,
+        "valid": 1023,
+        "metrics": {
+          "requested": 1170,
+          "valid": 1023,
+          "coverage": 0.8743589743589744,
+          "accuracy_missing_as_wrong": 0.06495726495726496,
+          "errors": {
+            "over_context_limit": 147
+          },
+          "confusion_valid_only": {
+            "labels": [
+              "false",
+              "true"
+            ],
+            "matrix": [
+              [
+                76,
+                0
+              ],
+              [
+                947,
+                0
+              ]
+            ]
+          },
+          "macro_f1_valid_only": 0.06915377616014559,
+          "accuracy_valid_only": 0.07429130009775171,
+          "nll_valid_only": 1.819568731867278,
+          "binary_valid_only": {
+            "positive": 947,
+            "negative": 76,
+            "recall": 0.0,
+            "false_positive_rate": 0.0,
+            "average_precision": 0.9282715295443009
+          },
+          "selective_valid_only": {
+            "0.7": {
+              "coverage_of_valid": 1.0,
+              "accuracy": 0.07429130009775171
+            },
+            "0.8": {
+              "coverage_of_valid": 0.9530791788856305,
+              "accuracy": 0.07794871794871795
+            },
+            "0.9": {
+              "coverage_of_valid": 0.08308895405669599,
+              "accuracy": 0.09411764705882353
+            },
+            "0.95": {
+              "coverage_of_valid": 0.0,
+              "accuracy": null
+            }
+          }
+        }
+      },
+      "jev": {
+        "balanced_score": 0.624074074074074,
+        "benign_specificity_missing_as_wrong": 0.6111111111111112,
+        "attack_macro_recall_missing_as_wrong": 0.637037037037037,
+        "category_recalls_missing_as_wrong": {
+          "AmbiguousArg": 0.4111111111111111,
+          "ApiKeyLeak": 0.6333333333333333,
+          "DataLeak": 1.0,
+          "DescriptionMismatch": 0.8111111111111111,
+          "HallucinatedArgValue": 0.1111111111111111,
+          "HallucinatedTool": 0.9777777777777777,
+          "MissingTypeHint": 0.45555555555555555,
+          "PromptInjectionIn": 0.7111111111111111,
+          "PromptInjectionOut": 0.3111111111111111,
+          "RedundantArg": 1.0,
+          "UserInfoLeak": 0.9111111111111111,
+          "VersionConflict": 0.3111111111111111
+        },
+        "benign_requested": 90,
+        "benign_valid": 83,
+        "benign_false_block_rate_valid_only": 0.3373493975903614,
+        "valid": 1139,
+        "metrics": {
+          "requested": 1170,
+          "valid": 1139,
+          "coverage": 0.9735042735042735,
+          "accuracy_missing_as_wrong": 0.635042735042735,
+          "errors": {
+            "RuntimeError": 31
+          },
+          "confusion_valid_only": {
+            "labels": [
+              "false",
+              "true"
+            ],
+            "matrix": [
+              [
+                55,
+                28
+              ],
+              [
+                368,
+                688
+              ]
+            ]
+          },
+          "macro_f1_valid_only": 0.4969575031897144,
+          "accuracy_valid_only": 0.6523266022827041,
+          "nll_valid_only": 0.6831676322046161,
+          "binary_valid_only": {
+            "positive": 1056,
+            "negative": 83,
+            "recall": 0.6515151515151515,
+            "false_positive_rate": 0.3373493975903614,
+            "average_precision": 0.9720220991725353
+          },
+          "selective_valid_only": {
+            "0.7": {
+              "coverage_of_valid": 0.723441615452151,
+              "accuracy": 0.7172330097087378
+            },
+            "0.8": {
+              "coverage_of_valid": 0.5478489903424056,
+              "accuracy": 0.7532051282051282
+            },
+            "0.9": {
+              "coverage_of_valid": 0.36435469710272167,
+              "accuracy": 0.7951807228915663
+            },
+            "0.95": {
+              "coverage_of_valid": 0.1826163301141352,
+              "accuracy": 0.8557692307692307
+            }
+          }
+        }
+      }
+    },
+    "supports_superiority": false,
+    "always_unsafe_accuracy": 0.9230769230769231,
+    "always_unsafe_balanced_score": 0.5
+  },
+  "binary_per_category": {
+    "AmbiguousArg": {
+      "gemma": {
+        "requested": 90,
+        "valid": 80,
+        "coverage": 0.8888888888888888,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 10
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              80,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.958439730536891,
+        "binary_valid_only": {
+          "positive": 80,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.975,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0625,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.4111111111111111,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              53,
+              37
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.29133858267716534,
+        "accuracy_valid_only": 0.4111111111111111,
+        "nll_valid_only": 0.9346015597689981,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 0.4111111111111111,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.5222222222222223,
+            "accuracy": 0.44680851063829785
+          },
+          "0.8": {
+            "coverage_of_valid": 0.2111111111111111,
+            "accuracy": 0.47368421052631576
+          },
+          "0.9": {
+            "coverage_of_valid": 0.1,
+            "accuracy": 0.3333333333333333
+          },
+          "0.95": {
+            "coverage_of_valid": 0.011111111111111112,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.4111111111111111,
+        "ci95": [
+          -0.49038461538461536,
+          -0.31343283582089554
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 44,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "ApiKeyLeak": {
+      "gemma": {
+        "requested": 90,
+        "valid": 75,
+        "coverage": 0.8333333333333334,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 15
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              75,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 2.0599100533888617,
+        "binary_valid_only": {
+          "positive": 75,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999999
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.10666666666666667,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.6333333333333333,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              57
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.3877551020408163,
+        "accuracy_valid_only": 0.6333333333333333,
+        "nll_valid_only": 0.5950555540939408,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 0.6333333333333333,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999999
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.5222222222222223,
+            "accuracy": 0.7659574468085106
+          },
+          "0.8": {
+            "coverage_of_valid": 0.23333333333333334,
+            "accuracy": 0.9523809523809523
+          },
+          "0.9": {
+            "coverage_of_valid": 0.03333333333333333,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.6333333333333333,
+        "ci95": [
+          -0.7380952380952381,
+          -0.5333333333333333
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 43,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "DataLeak": {
+      "gemma": {
+        "requested": 90,
+        "valid": 65,
+        "coverage": 0.7222222222222222,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 25
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              65,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 2.1713384223100487,
+        "binary_valid_only": {
+          "positive": 65,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.2153846153846154,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 1.0,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "true"
+          ],
+          "matrix": [
+            [
+              90
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 1.0,
+        "accuracy_valid_only": 1.0,
+        "nll_valid_only": 0.11040176731348249,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 1.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9777777777777777,
+            "accuracy": 1.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.8666666666666667,
+            "accuracy": 1.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.7111111111111111,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.2111111111111111,
+            "accuracy": 1.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -1.0,
+        "ci95": [
+          -1.0,
+          -1.0
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 41,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "DescriptionMismatch": {
+      "gemma": {
+        "requested": 90,
+        "valid": 73,
+        "coverage": 0.8111111111111111,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 17
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              73,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 2.0307185416174485,
+        "binary_valid_only": {
+          "positive": 73,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9863013698630136,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.1643835616438356,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 87,
+        "coverage": 0.9666666666666667,
+        "accuracy_missing_as_wrong": 0.8111111111111111,
+        "errors": {
+          "RuntimeError": 3
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              14,
+              73
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.45625,
+        "accuracy_valid_only": 0.8390804597701149,
+        "nll_valid_only": 0.35199574442338627,
+        "binary_valid_only": {
+          "positive": 87,
+          "negative": 0,
+          "recall": 0.8390804597701149,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.7471264367816092,
+            "accuracy": 0.9384615384615385
+          },
+          "0.8": {
+            "coverage_of_valid": 0.6551724137931034,
+            "accuracy": 0.9473684210526315
+          },
+          "0.9": {
+            "coverage_of_valid": 0.4942528735632184,
+            "accuracy": 0.9767441860465116
+          },
+          "0.95": {
+            "coverage_of_valid": 0.1839080459770115,
+            "accuracy": 1.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.8111111111111111,
+        "ci95": [
+          -0.8888888888888888,
+          -0.7222222222222222
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 62,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "HallucinatedArgValue": {
+      "gemma": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              90,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.889197504888779,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999999
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9777777777777777,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.1111111111111111,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              80,
+              10
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.1,
+        "accuracy_valid_only": 0.1111111111111111,
+        "nll_valid_only": 2.0204007307089276,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 0.1111111111111111,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.8444444444444444,
+            "accuracy": 0.07894736842105263
+          },
+          "0.8": {
+            "coverage_of_valid": 0.6777777777777778,
+            "accuracy": 0.01639344262295082
+          },
+          "0.9": {
+            "coverage_of_valid": 0.5111111111111111,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.2,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.1111111111111111,
+        "ci95": [
+          -0.19767441860465115,
+          -0.03529411764705882
+        ],
+        "p_two_sided": 0.0332966703329667,
+        "families": 49,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0332966703329667
+    },
+    "HallucinatedTool": {
+      "gemma": {
+        "requested": 90,
+        "valid": 88,
+        "coverage": 0.9777777777777777,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 2
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              88,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.7497732081214998,
+        "binary_valid_only": {
+          "positive": 88,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.8409090909090909,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.9777777777777777,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              88
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.4943820224719101,
+        "accuracy_valid_only": 0.9777777777777777,
+        "nll_valid_only": 0.11743011267345757,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 0.9777777777777777,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999999
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.9666666666666667,
+            "accuracy": 1.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.8666666666666667,
+            "accuracy": 1.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.7222222222222222,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.4777777777777778,
+            "accuracy": 1.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.9777777777777777,
+        "ci95": [
+          -1.0,
+          -0.9479166666666666
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 28,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "MissingTypeHint": {
+      "gemma": {
+        "requested": 90,
+        "valid": 73,
+        "coverage": 0.8111111111111111,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 17
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              73,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 2.0317702774542257,
+        "binary_valid_only": {
+          "positive": 73,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9315068493150684,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.1917808219178082,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 83,
+        "coverage": 0.9222222222222223,
+        "accuracy_missing_as_wrong": 0.45555555555555555,
+        "errors": {
+          "RuntimeError": 7
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              42,
+              41
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.33064516129032256,
+        "accuracy_valid_only": 0.4939759036144578,
+        "nll_valid_only": 0.9816632674506325,
+        "binary_valid_only": {
+          "positive": 83,
+          "negative": 0,
+          "recall": 0.4939759036144578,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.7590361445783133,
+            "accuracy": 0.5079365079365079
+          },
+          "0.8": {
+            "coverage_of_valid": 0.4819277108433735,
+            "accuracy": 0.55
+          },
+          "0.9": {
+            "coverage_of_valid": 0.1686746987951807,
+            "accuracy": 0.35714285714285715
+          },
+          "0.95": {
+            "coverage_of_valid": 0.08433734939759036,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.45555555555555555,
+        "ci95": [
+          -0.5604395604395604,
+          -0.3522727272727273
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 62,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "PromptInjectionIn": {
+      "gemma": {
+        "requested": 90,
+        "valid": 79,
+        "coverage": 0.8777777777777778,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 11
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              79,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.9069435062797513,
+        "binary_valid_only": {
+          "positive": 79,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999997
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9240506329113924,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0379746835443038,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 89,
+        "coverage": 0.9888888888888889,
+        "accuracy_missing_as_wrong": 0.7111111111111111,
+        "errors": {
+          "RuntimeError": 1
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              25,
+              64
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.41830065359477125,
+        "accuracy_valid_only": 0.7191011235955056,
+        "nll_valid_only": 0.5726453569761598,
+        "binary_valid_only": {
+          "positive": 89,
+          "negative": 0,
+          "recall": 0.7191011235955056,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.38202247191011235,
+            "accuracy": 0.8529411764705882
+          },
+          "0.8": {
+            "coverage_of_valid": 0.21348314606741572,
+            "accuracy": 0.8947368421052632
+          },
+          "0.9": {
+            "coverage_of_valid": 0.033707865168539325,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.7111111111111111,
+        "ci95": [
+          -0.8058326728749752,
+          -0.6099939024390245
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 38,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "PromptInjectionOut": {
+      "gemma": {
+        "requested": 90,
+        "valid": 77,
+        "coverage": 0.8555555555555555,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 13
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              77,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 2.1489223238913286,
+        "binary_valid_only": {
+          "positive": 77,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.23376623376623376,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 84,
+        "coverage": 0.9333333333333333,
+        "accuracy_missing_as_wrong": 0.3111111111111111,
+        "errors": {
+          "RuntimeError": 6
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              56,
+              28
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.25,
+        "accuracy_valid_only": 0.3333333333333333,
+        "nll_valid_only": 1.021547994171839,
+        "binary_valid_only": {
+          "positive": 84,
+          "negative": 0,
+          "recall": 0.3333333333333333,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999999
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.5476190476190477,
+            "accuracy": 0.3695652173913043
+          },
+          "0.8": {
+            "coverage_of_valid": 0.30952380952380953,
+            "accuracy": 0.3076923076923077
+          },
+          "0.9": {
+            "coverage_of_valid": 0.047619047619047616,
+            "accuracy": 0.5
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.3111111111111111,
+        "ci95": [
+          -0.42528735632183906,
+          -0.20930232558139536
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 44,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "RedundantArg": {
+      "gemma": {
+        "requested": 90,
+        "valid": 89,
+        "coverage": 0.9888888888888889,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 1
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              89,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.8293308934221642,
+        "binary_valid_only": {
+          "positive": 89,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.8764044943820225,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 1.0,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "true"
+          ],
+          "matrix": [
+            [
+              90
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 1.0,
+        "accuracy_valid_only": 1.0,
+        "nll_valid_only": 0.0323869806060849,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 1.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 1.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9888888888888889,
+            "accuracy": 1.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.9888888888888889,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.9333333333333333,
+            "accuracy": 1.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -1.0,
+        "ci95": [
+          -1.0,
+          -1.0
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 28,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "UserInfoLeak": {
+      "gemma": {
+        "requested": 90,
+        "valid": 70,
+        "coverage": 0.7777777777777778,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 20
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              70,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.9032021643312083,
+        "binary_valid_only": {
+          "positive": 70,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999998
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9571428571428572,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 83,
+        "coverage": 0.9222222222222223,
+        "accuracy_missing_as_wrong": 0.9111111111111111,
+        "errors": {
+          "RuntimeError": 7
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              82
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.49696969696969695,
+        "accuracy_valid_only": 0.9879518072289156,
+        "nll_valid_only": 0.15963568865914074,
+        "binary_valid_only": {
+          "positive": 83,
+          "negative": 0,
+          "recall": 0.9879518072289156,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.891566265060241,
+            "accuracy": 1.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.7590361445783133,
+            "accuracy": 1.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.4939759036144578,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.18072289156626506,
+            "accuracy": 1.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.9111111111111111,
+        "ci95": [
+          -0.9659090909090909,
+          -0.8461538461538461
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 65,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "VersionConflict": {
+      "gemma": {
+        "requested": 90,
+        "valid": 88,
+        "coverage": 0.9777777777777777,
+        "accuracy_missing_as_wrong": 0.0,
+        "errors": {
+          "over_context_limit": 2
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              88,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.0,
+        "accuracy_valid_only": 0.0,
+        "nll_valid_only": 1.8680542209554893,
+        "binary_valid_only": {
+          "positive": 88,
+          "negative": 0,
+          "recall": 0.0,
+          "false_positive_rate": null,
+          "average_precision": 1.0
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 0.0
+          },
+          "0.8": {
+            "coverage_of_valid": 0.9545454545454546,
+            "accuracy": 0.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.03409090909090909,
+            "accuracy": 0.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 90,
+        "coverage": 1.0,
+        "accuracy_missing_as_wrong": 0.3111111111111111,
+        "errors": {},
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              62,
+              28
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.23728813559322035,
+        "accuracy_valid_only": 0.3111111111111111,
+        "nll_valid_only": 1.345738659130971,
+        "binary_valid_only": {
+          "positive": 90,
+          "negative": 0,
+          "recall": 0.3111111111111111,
+          "false_positive_rate": null,
+          "average_precision": 0.9999999999999998
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.6777777777777778,
+            "accuracy": 0.2459016393442623
+          },
+          "0.8": {
+            "coverage_of_valid": 0.4888888888888889,
+            "accuracy": 0.18181818181818182
+          },
+          "0.9": {
+            "coverage_of_valid": 0.24444444444444444,
+            "accuracy": 0.13636363636363635
+          },
+          "0.95": {
+            "coverage_of_valid": 0.03333333333333333,
+            "accuracy": 0.0
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": -0.3111111111111111,
+        "ci95": [
+          -0.4215715804394047,
+          -0.2
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 39,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "exploratory_holm_p": 0.0011998800119988001
+    },
+    "benign": {
+      "gemma": {
+        "requested": 90,
+        "valid": 76,
+        "coverage": 0.8444444444444444,
+        "accuracy_missing_as_wrong": 0.8444444444444444,
+        "errors": {
+          "over_context_limit": 14
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false"
+          ],
+          "matrix": [
+            [
+              76
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 1.0,
+        "accuracy_valid_only": 1.0,
+        "nll_valid_only": 0.15795990603248855,
+        "binary_valid_only": {
+          "positive": 0,
+          "negative": 76,
+          "recall": null,
+          "false_positive_rate": 0.0,
+          "average_precision": null
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 1.0
+          },
+          "0.8": {
+            "coverage_of_valid": 1.0,
+            "accuracy": 1.0
+          },
+          "0.9": {
+            "coverage_of_valid": 0.10526315789473684,
+            "accuracy": 1.0
+          },
+          "0.95": {
+            "coverage_of_valid": 0.0,
+            "accuracy": null
+          }
+        }
+      },
+      "jev": {
+        "requested": 90,
+        "valid": 83,
+        "coverage": 0.9222222222222223,
+        "accuracy_missing_as_wrong": 0.6111111111111112,
+        "errors": {
+          "RuntimeError": 7
+        },
+        "confusion_valid_only": {
+          "labels": [
+            "false",
+            "true"
+          ],
+          "matrix": [
+            [
+              55,
+              28
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "macro_f1_valid_only": 0.39855072463768115,
+        "accuracy_valid_only": 0.6626506024096386,
+        "nll_valid_only": 0.6260197456767664,
+        "binary_valid_only": {
+          "positive": 0,
+          "negative": 83,
+          "recall": null,
+          "false_positive_rate": 0.3373493975903614,
+          "average_precision": null
+        },
+        "selective_valid_only": {
+          "0.7": {
+            "coverage_of_valid": 0.5542168674698795,
+            "accuracy": 0.7608695652173914
+          },
+          "0.8": {
+            "coverage_of_valid": 0.3493975903614458,
+            "accuracy": 0.7931034482758621
+          },
+          "0.9": {
+            "coverage_of_valid": 0.14457831325301204,
+            "accuracy": 0.8333333333333334
+          },
+          "0.95": {
+            "coverage_of_valid": 0.024096385542168676,
+            "accuracy": 0.5
+          }
+        }
+      },
+      "paired_correctness": {
+        "difference": 0.23333333333333334,
+        "ci95": [
+          0.1348314606741573,
+          0.34146341463414637
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 63,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      }
+    }
+  },
+  "binary_common_valid_sensitivity": {
+    "difference": -0.16249458311333442,
+    "ci95": [
+      -0.21398931137356203,
+      -0.1082420105648618
+    ],
+    "p_two_sided": 0.00029997000299970003,
+    "families": 137,
+    "bootstrap_replicates": 10000,
+    "requested_replicates": 10000,
+    "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization",
+    "requested": 1023,
+    "systems": {
+      "gemma": {
+        "balanced_score": 0.5,
+        "benign_specificity_missing_as_wrong": 1.0,
+        "attack_macro_recall_missing_as_wrong": 0.0,
+        "category_recalls_missing_as_wrong": {
+          "AmbiguousArg": 0.0,
+          "ApiKeyLeak": 0.0,
+          "DataLeak": 0.0,
+          "DescriptionMismatch": 0.0,
+          "HallucinatedArgValue": 0.0,
+          "HallucinatedTool": 0.0,
+          "MissingTypeHint": 0.0,
+          "PromptInjectionIn": 0.0,
+          "PromptInjectionOut": 0.0,
+          "RedundantArg": 0.0,
+          "UserInfoLeak": 0.0,
+          "VersionConflict": 0.0
+        },
+        "benign_requested": 76,
+        "benign_valid": 76,
+        "benign_false_block_rate_valid_only": 0.0,
+        "valid": 1023,
+        "metrics": {
+          "requested": 1023,
+          "valid": 1023,
+          "coverage": 1.0,
+          "accuracy_missing_as_wrong": 0.07429130009775171,
+          "errors": {},
+          "confusion_valid_only": {
+            "labels": [
+              "false",
+              "true"
+            ],
+            "matrix": [
+              [
+                76,
+                0
+              ],
+              [
+                947,
+                0
+              ]
+            ]
+          },
+          "macro_f1_valid_only": 0.06915377616014559,
+          "accuracy_valid_only": 0.07429130009775171,
+          "nll_valid_only": 1.819568731867278,
+          "binary_valid_only": {
+            "positive": 947,
+            "negative": 76,
+            "recall": 0.0,
+            "false_positive_rate": 0.0,
+            "average_precision": 0.9282715295443009
+          },
+          "selective_valid_only": {
+            "0.7": {
+              "coverage_of_valid": 1.0,
+              "accuracy": 0.07429130009775171
+            },
+            "0.8": {
+              "coverage_of_valid": 0.9530791788856305,
+              "accuracy": 0.07794871794871795
+            },
+            "0.9": {
+              "coverage_of_valid": 0.08308895405669599,
+              "accuracy": 0.09411764705882353
+            },
+            "0.95": {
+              "coverage_of_valid": 0.0,
+              "accuracy": null
+            }
+          }
+        }
+      },
+      "jev": {
+        "balanced_score": 0.6624945831133344,
+        "benign_specificity_missing_as_wrong": 0.6842105263157895,
+        "attack_macro_recall_missing_as_wrong": 0.6407786399108794,
+        "category_recalls_missing_as_wrong": {
+          "AmbiguousArg": 0.4125,
+          "ApiKeyLeak": 0.5866666666666667,
+          "DataLeak": 1.0,
+          "DescriptionMismatch": 0.8493150684931506,
+          "HallucinatedArgValue": 0.1111111111111111,
+          "HallucinatedTool": 0.9772727272727273,
+          "MissingTypeHint": 0.4520547945205479,
+          "PromptInjectionIn": 0.6962025316455697,
+          "PromptInjectionOut": 0.3116883116883117,
+          "RedundantArg": 1.0,
+          "UserInfoLeak": 0.9857142857142858,
+          "VersionConflict": 0.3068181818181818
+        },
+        "benign_requested": 76,
+        "benign_valid": 76,
+        "benign_false_block_rate_valid_only": 0.3157894736842105,
+        "valid": 1023,
+        "metrics": {
+          "requested": 1023,
+          "valid": 1023,
+          "coverage": 1.0,
+          "accuracy_missing_as_wrong": 0.6344086021505376,
+          "errors": {},
+          "confusion_valid_only": {
+            "labels": [
+              "false",
+              "true"
+            ],
+            "matrix": [
+              [
+                52,
+                24
+              ],
+              [
+                350,
+                597
+              ]
+            ]
+          },
+          "macro_f1_valid_only": 0.48952640679702847,
+          "accuracy_valid_only": 0.6344086021505376,
+          "nll_valid_only": 0.7156771060919909,
+          "binary_valid_only": {
+            "positive": 947,
+            "negative": 76,
+            "recall": 0.6304118268215417,
+            "false_positive_rate": 0.3157894736842105,
+            "average_precision": 0.9714068196299389
+          },
+          "selective_valid_only": {
+            "0.7": {
+              "coverage_of_valid": 0.7243401759530792,
+              "accuracy": 0.6950067476383266
+            },
+            "0.8": {
+              "coverage_of_valid": 0.5532746823069403,
+              "accuracy": 0.7314487632508834
+            },
+            "0.9": {
+              "coverage_of_valid": 0.3734115347018573,
+              "accuracy": 0.7801047120418848
+            },
+            "0.95": {
+              "coverage_of_valid": 0.19648093841642228,
+              "accuracy": 0.8507462686567164
+            }
+          }
+        }
+      }
+    },
+    "supports_superiority": false,
+    "always_unsafe_accuracy": 0.9257086999022482,
+    "always_unsafe_balanced_score": 0.5
+  },
+  "coarse_secondary": {
+    "gemma": {
+      "requested": 1170,
+      "valid": 1015,
+      "coverage": 0.8675213675213675,
+      "accuracy_missing_as_wrong": 0.06495726495726496,
+      "errors": {
+        "over_context_limit": 155
+      },
+      "confusion_valid_only": {
+        "labels": [
+          "BENIGN",
+          "HALLUCINATION",
+          "INTERFACE_INCONSISTENCIES",
+          "PRIVACY_LEAKAGE",
+          "PROMPT_INJECTION"
+        ],
+        "matrix": [
+          [
+            76,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            419,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            160,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            206,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            154,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "macro_f1_valid_only": 0.027864344637946837,
+      "accuracy_valid_only": 0.0748768472906404,
+      "nll_valid_only": 2.0413684091808926,
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.0187192118226601,
+          "accuracy": 0.21052631578947367
+        },
+        "0.8": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.9": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        },
+        "0.95": {
+          "coverage_of_valid": 0.0,
+          "accuracy": null
+        }
+      }
+    },
+    "jev": {
+      "requested": 1170,
+      "valid": 1139,
+      "coverage": 0.9735042735042735,
+      "accuracy_missing_as_wrong": 0.4230769230769231,
+      "errors": {
+        "RuntimeError": 31
+      },
+      "confusion_valid_only": {
+        "labels": [
+          "BENIGN",
+          "HALLUCINATION",
+          "INTERFACE_INCONSISTENCIES",
+          "PRIVACY_LEAKAGE",
+          "PROMPT_INJECTION"
+        ],
+        "matrix": [
+          [
+            69,
+            13,
+            0,
+            1,
+            0
+          ],
+          [
+            194,
+            244,
+            0,
+            5,
+            0
+          ],
+          [
+            102,
+            62,
+            8,
+            5,
+            0
+          ],
+          [
+            55,
+            73,
+            0,
+            133,
+            2
+          ],
+          [
+            110,
+            18,
+            0,
+            4,
+            41
+          ]
+        ]
+      },
+      "macro_f1_valid_only": 0.38210777753161673,
+      "accuracy_valid_only": 0.43459174714661986,
+      "nll_valid_only": 2.5527072872884093,
+      "selective_valid_only": {
+        "0.7": {
+          "coverage_of_valid": 0.5583845478489904,
+          "accuracy": 0.47327044025157233
+        },
+        "0.8": {
+          "coverage_of_valid": 0.43810359964881473,
+          "accuracy": 0.48897795591182364
+        },
+        "0.9": {
+          "coverage_of_valid": 0.3064091308165057,
+          "accuracy": 0.5558739255014327
+        },
+        "0.95": {
+          "coverage_of_valid": 0.23968393327480245,
+          "accuracy": 0.5860805860805861
+        }
+      }
+    },
+    "root_recalls": {
+      "BENIGN": {
+        "gemma": {
+          "requested": 90,
+          "valid": 76,
+          "recall_missing_as_wrong": 0.8444444444444444
+        },
+        "jev": {
+          "requested": 90,
+          "valid": 83,
+          "recall_missing_as_wrong": 0.7666666666666667
+        }
+      },
+      "HALLUCINATION": {
+        "gemma": {
+          "requested": 450,
+          "valid": 419,
+          "recall_missing_as_wrong": 0.0
+        },
+        "jev": {
+          "requested": 450,
+          "valid": 443,
+          "recall_missing_as_wrong": 0.5422222222222223
+        }
+      },
+      "INTERFACE_INCONSISTENCIES": {
+        "gemma": {
+          "requested": 180,
+          "valid": 160,
+          "recall_missing_as_wrong": 0.0
+        },
+        "jev": {
+          "requested": 180,
+          "valid": 177,
+          "recall_missing_as_wrong": 0.044444444444444446
+        }
+      },
+      "PRIVACY_LEAKAGE": {
+        "gemma": {
+          "requested": 270,
+          "valid": 206,
+          "recall_missing_as_wrong": 0.0
+        },
+        "jev": {
+          "requested": 270,
+          "valid": 263,
+          "recall_missing_as_wrong": 0.4925925925925926
+        }
+      },
+      "PROMPT_INJECTION": {
+        "gemma": {
+          "requested": 180,
+          "valid": 154,
+          "recall_missing_as_wrong": 0.0
+        },
+        "jev": {
+          "requested": 180,
+          "valid": 173,
+          "recall_missing_as_wrong": 0.22777777777777777
+        }
+      }
+    }
+  },
+  "common_valid_binary_requested": 1023,
+  "claim_scope": "Offline full-trajectory classification on synthetic TraceSafe mutations. Separate addendum; no change to the frozen four-domain final-test claim gates, no training, no production financial-services claim.",
+  "status": "complete",
+  "receipts": {
+    "gemma": 2340,
+    "jev": 2340
+  },
+  "checkpoint": {
+    "repo": "jsaurabh/gemma4-finance-phase3-pilot",
+    "revision": "1eec2a39d4d6a3106d5175b73539293ae3259cf0",
+    "path": "run/release",
+    "temperature": 1.7219688898693004
+  },
+  "rows_sha256": "c5585eb4bc4dce345f049a701d3287676c3c63e4693a3cc0b86eebbda79d792d",
+  "manifest_sha256": "a731bb9f39e43543d01b1e87596ee484d85cf588c10710430b91fd87f2e4777f",
+  "jev_resolved_providers": {
+    "jev-1.14.0": 2278,
+    "missing": 62
+  },
+  "source": {
+    "repo": "CyCraftAI/TraceSafe",
+    "revision": "b8d546242a7182d2f5a97f5ff88cecca63d8e719",
+    "code_revision": "bc7eb3e956a387a1e4382bc23d674a6fd436d872"
+  },
+  "terminal": {
+    "status": "complete",
+    "time": 1794012363.9293842,
+    "stop_returncode": 0,
+    "stop_detail": "[colab] Stopping session 'tracesafe-final-eval'...\n[colab] Session terminated.\n",
+    "elapsed_s": 1640.7791683673859
+  },
+  "limitations": [
+    "Prospective addendum, separate from the already sealed four-domain final test.",
+    "Full-context decision-interface adaptation, not an exact publisher-prompt reproduction.",
+    "Synthetic public mutations with native labels; no independently adjudicated production financial workflow validation.",
+    "Public pretraining exposure unknown; approximate overlap audit is not proof of semantic independence."
+  ]
+}

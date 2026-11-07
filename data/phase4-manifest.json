@@ -1,0 +1,1533 @@
+{
+  "status": "sealed_before_training",
+  "seed": 20261107,
+  "splits": {
+    "train": {
+      "rows": 33474,
+      "families": 15718,
+      "domains": {
+        "legal": 9000,
+        "financial": 11000,
+        "model_routing": 8674,
+        "tool_safety": 4800
+      },
+      "tasks": {
+        "legal_topic": 5000,
+        "banking_intent": 6000,
+        "financial_verification": 5000,
+        "routing_costaware": 4337,
+        "tool_action_safety": 1600,
+        "prompt_injection": 1600,
+        "legal_maud": 4000,
+        "malicious_request": 1600,
+        "routing_quality": 4337
+      },
+      "sha256": "29d9aee72b77b6fd18f55f01552fb7cd6b292254f97b0dd8c5376c1902669b1d",
+      "class_counts": {
+        "financial_verification": {
+          "false": 2500,
+          "true": 2500
+        },
+        "banking_intent": {
+          "lost_or_stolen_card": 64,
+          "card_delivery_estimate": 81,
+          "transaction_charged_twice": 81,
+          "disposable_card_limits": 81,
+          "request_refund": 81,
+          "pending_transfer": 81,
+          "atm_support": 67,
+          "automatic_top_up": 81,
+          "card_about_to_expire": 81,
+          "card_linking": 81,
+          "verify_source_of_funds": 81,
+          "verify_my_identity": 81,
+          "pending_card_payment": 81,
+          "pending_top_up": 81,
+          "supported_cards_and_currencies": 81,
+          "exchange_rate": 81,
+          "card_payment_fee_charged": 81,
+          "get_physical_card": 81,
+          "top_up_reverted": 81,
+          "order_physical_card": 81,
+          "top_up_by_card_charge": 81,
+          "cancel_transfer": 81,
+          "transfer_into_account": 81,
+          "age_limit": 81,
+          "transfer_timing": 81,
+          "receiving_money": 79,
+          "passcode_forgotten": 81,
+          "transfer_not_received_by_recipient": 81,
+          "getting_virtual_card": 73,
+          "direct_debit_payment_not_recognised": 81,
+          "activate_my_card": 81,
+          "reverted_card_payment?": 81,
+          "balance_not_updated_after_bank_transfer": 81,
+          "pin_blocked": 81,
+          "edit_personal_details": 81,
+          "verify_top_up": 80,
+          "balance_not_updated_after_cheque_or_cash_deposit": 81,
+          "terminate_account": 81,
+          "fiat_currency_support": 81,
+          "card_payment_not_recognised": 81,
+          "unable_to_verify_identity": 81,
+          "declined_card_payment": 81,
+          "card_acceptance": 44,
+          "declined_cash_withdrawal": 81,
+          "transfer_fee_charged": 81,
+          "country_support": 81,
+          "wrong_exchange_rate_for_cash_withdrawal": 80,
+          "cash_withdrawal_not_recognised": 81,
+          "cash_withdrawal_charge": 81,
+          "declined_transfer": 81,
+          "exchange_via_app": 81,
+          "top_up_by_cash_or_cheque": 81,
+          "beneficiary_not_allowed": 81,
+          "Refund_not_showing_up": 81,
+          "getting_spare_card": 81,
+          "top_up_by_bank_transfer_charge": 80,
+          "card_arrival": 81,
+          "get_disposable_virtual_card": 79,
+          "card_payment_wrong_exchange_rate": 81,
+          "card_swallowed": 47,
+          "exchange_charge": 81,
+          "failed_transfer": 81,
+          "contactless_not_working": 31,
+          "visa_or_mastercard": 80,
+          "extra_charge_on_statement": 81,
+          "apple_pay_or_google_pay": 81,
+          "card_not_working": 81,
+          "why_verify_identity": 80,
+          "change_pin": 81,
+          "topping_up_by_card": 81,
+          "top_up_failed": 81,
+          "wrong_amount_of_cash_received": 80,
+          "lost_or_stolen_phone": 81,
+          "top_up_limits": 80,
+          "virtual_card_not_working": 31,
+          "compromised_card": 65,
+          "pending_cash_withdrawal": 81
+        },
+        "legal_maud": {
+          "No": 959,
+          "Yes": 1376,
+          "answer_1": 695,
+          "answer_3": 135,
+          "answer_0": 634,
+          "answer_2": 201
+        },
+        "legal_topic": {
+          "Insurances": 51,
+          "Interpretations": 50,
+          "Governing Laws": 51,
+          "Records": 50,
+          "Indemnifications": 51,
+          "Waivers": 50,
+          "Binding Effects": 51,
+          "Defined Terms": 51,
+          "Jurisdictions": 50,
+          "Terminations": 50,
+          "Enforceability": 51,
+          "Titles": 50,
+          "Interests": 50,
+          "Approvals": 51,
+          "Notices": 50,
+          "Litigations": 50,
+          "Terms": 50,
+          "Benefits": 51,
+          "Submission To Jurisdiction": 50,
+          "Compliance With Laws": 51,
+          "Participations": 50,
+          "Change In Control": 51,
+          "Agreements": 51,
+          "Warranties": 50,
+          "Death": 51,
+          "Expenses": 51,
+          "Solvency": 50,
+          "Use Of Proceeds": 50,
+          "Duties": 51,
+          "Definitions": 51,
+          "Costs": 51,
+          "General": 51,
+          "Authorizations": 51,
+          "Organizations": 50,
+          "Cooperation": 51,
+          "Entire Agreements": 51,
+          "Enforcements": 51,
+          "Disclosures": 51,
+          "No Waivers": 50,
+          "Erisa": 51,
+          "Vacations": 50,
+          "Anti-Corruption Laws": 51,
+          "Financial Statements": 51,
+          "Fees": 51,
+          "Remedies": 50,
+          "Amendments": 51,
+          "Tax Withholdings": 50,
+          "Assignments": 51,
+          "Further Assurances": 51,
+          "Authority": 51,
+          "Closings": 51,
+          "Intellectual Property": 50,
+          "Specific Performance": 50,
+          "Vesting": 50,
+          "Liens": 50,
+          "Positions": 50,
+          "Venues": 50,
+          "Indemnity": 51,
+          "Modifications": 50,
+          "Waiver Of Jury Trials": 50,
+          "Consents": 51,
+          "Sanctions": 50,
+          "Powers": 50,
+          "No Defaults": 50,
+          "Withholdings": 50,
+          "Subsidiaries": 50,
+          "Taxes": 50,
+          "Effective Dates": 51,
+          "Adjustments": 51,
+          "Effectiveness": 51,
+          "Applicable Laws": 51,
+          "Sales": 50,
+          "Forfeitures": 51,
+          "Existence": 51,
+          "Arbitration": 51,
+          "Qualifications": 46,
+          "Assigns": 31,
+          "Survival": 50,
+          "Counterparts": 51,
+          "Integration": 50,
+          "Construction": 51,
+          "Base Salary": 51,
+          "Releases": 50,
+          "Confidentiality": 51,
+          "No Conflicts": 50,
+          "Payments": 50,
+          "Successors": 50,
+          "Consent To Jurisdiction": 51,
+          "Brokers": 51,
+          "Disability": 51,
+          "Books": 23,
+          "Representations": 50,
+          "Employment": 51,
+          "Non-Disparagement": 50,
+          "Severability": 50,
+          "Capitalization": 51,
+          "Miscellaneous": 50,
+          "Transactions With Affiliates": 50,
+          "Publicity": 50,
+          "Headings": 51
+        },
+        "tool_action_safety": {
+          "safe": 533,
+          "unsafe": 533,
+          "controversial": 534
+        },
+        "prompt_injection": {
+          "true": 747,
+          "false": 853
+        },
+        "malicious_request": {
+          "false": 828,
+          "true": 772
+        },
+        "routing_quality": {
+          "claude-instant-v1": 1183,
+          "WizardLM/WizardLM-13B-V1.2": 2168,
+          "claude-v1": 365,
+          "claude-v2": 188,
+          "meta/llama-2-70b-chat": 18,
+          "gpt-3.5-turbo-1106": 147,
+          "mistralai/mixtral-8x7b-chat": 26,
+          "gpt-4-1106-preview": 168,
+          "mistralai/mistral-7b-chat": 33,
+          "zero-one-ai/Yi-34B-Chat": 21,
+          "meta/code-llama-instruct-34b-chat": 20
+        },
+        "routing_costaware": {
+          "mistralai/mistral-7b-chat": 1769,
+          "mistralai/mixtral-8x7b-chat": 603,
+          "zero-one-ai/Yi-34B-Chat": 453,
+          "gpt-4-1106-preview": 74,
+          "WizardLM/WizardLM-13B-V1.2": 910,
+          "claude-instant-v1": 159,
+          "claude-v1": 68,
+          "meta/code-llama-instruct-34b-chat": 81,
+          "gpt-3.5-turbo-1106": 91,
+          "meta/llama-2-70b-chat": 79,
+          "claude-v2": 50
+        }
+      }
+    },
+    "validation": {
+      "rows": 2646,
+      "families": 1037,
+      "domains": {
+        "tool_safety": 600,
+        "model_routing": 596,
+        "legal": 750,
+        "financial": 700
+      },
+      "tasks": {
+        "tool_action_safety": 200,
+        "routing_costaware": 298,
+        "legal_topic": 250,
+        "legal_maud": 500,
+        "routing_quality": 298,
+        "financial_verification": 400,
+        "malicious_request": 200,
+        "banking_intent": 300,
+        "prompt_injection": 200
+      },
+      "sha256": "31bf0ce6535e367ee7e6c81864ef27bd9a0b6027870f3272168b9b13b59b816d",
+      "class_counts": {
+        "financial_verification": {
+          "true": 200,
+          "false": 200
+        },
+        "banking_intent": {
+          "cash_withdrawal_not_recognised": 3,
+          "wrong_exchange_rate_for_cash_withdrawal": 8,
+          "Refund_not_showing_up": 6,
+          "getting_spare_card": 6,
+          "card_payment_wrong_exchange_rate": 7,
+          "transfer_not_received_by_recipient": 2,
+          "edit_personal_details": 9,
+          "age_limit": 4,
+          "cancel_transfer": 4,
+          "card_linking": 3,
+          "card_swallowed": 3,
+          "verify_top_up": 3,
+          "virtual_card_not_working": 3,
+          "direct_debit_payment_not_recognised": 8,
+          "top_up_by_cash_or_cheque": 4,
+          "declined_transfer": 9,
+          "top_up_reverted": 2,
+          "request_refund": 7,
+          "pending_top_up": 6,
+          "top_up_failed": 4,
+          "exchange_via_app": 6,
+          "exchange_charge": 4,
+          "extra_charge_on_statement": 6,
+          "card_delivery_estimate": 6,
+          "card_arrival": 8,
+          "card_payment_fee_charged": 8,
+          "beneficiary_not_allowed": 5,
+          "card_not_working": 1,
+          "exchange_rate": 3,
+          "pending_cash_withdrawal": 4,
+          "apple_pay_or_google_pay": 5,
+          "country_support": 6,
+          "compromised_card": 2,
+          "visa_or_mastercard": 5,
+          "failed_transfer": 2,
+          "declined_card_payment": 5,
+          "transfer_timing": 3,
+          "wrong_amount_of_cash_received": 6,
+          "fiat_currency_support": 6,
+          "supported_cards_and_currencies": 2,
+          "transfer_fee_charged": 7,
+          "terminate_account": 5,
+          "order_physical_card": 3,
+          "balance_not_updated_after_bank_transfer": 3,
+          "transaction_charged_twice": 5,
+          "card_about_to_expire": 4,
+          "pending_transfer": 7,
+          "get_disposable_virtual_card": 4,
+          "receiving_money": 3,
+          "passcode_forgotten": 2,
+          "lost_or_stolen_card": 4,
+          "getting_virtual_card": 5,
+          "lost_or_stolen_phone": 6,
+          "top_up_by_bank_transfer_charge": 4,
+          "activate_my_card": 5,
+          "cash_withdrawal_charge": 4,
+          "card_acceptance": 1,
+          "unable_to_verify_identity": 2,
+          "reverted_card_payment?": 5,
+          "top_up_by_card_charge": 4,
+          "pending_card_payment": 2,
+          "automatic_top_up": 2,
+          "topping_up_by_card": 2,
+          "transfer_into_account": 1,
+          "disposable_card_limits": 2,
+          "get_physical_card": 1,
+          "declined_cash_withdrawal": 3,
+          "atm_support": 1,
+          "top_up_limits": 2,
+          "verify_source_of_funds": 2,
+          "pin_blocked": 2,
+          "balance_not_updated_after_cheque_or_cash_deposit": 1,
+          "why_verify_identity": 1,
+          "verify_my_identity": 1
+        },
+        "legal_maud": {
+          "answer_0": 97,
+          "Yes": 175,
+          "No": 96,
+          "answer_1": 102,
+          "answer_2": 24,
+          "answer_3": 6
+        },
+        "legal_topic": {
+          "Consents": 2,
+          "Notices": 9,
+          "Warranties": 2,
+          "Compliance With Laws": 3,
+          "Organizations": 5,
+          "Financial Statements": 5,
+          "General": 5,
+          "Successors": 2,
+          "Insurances": 3,
+          "Entire Agreements": 11,
+          "Indemnity": 4,
+          "Governing Laws": 13,
+          "Representations": 3,
+          "Waiver Of Jury Trials": 4,
+          "Terms": 2,
+          "Terminations": 8,
+          "Binding Effects": 5,
+          "Counterparts": 10,
+          "Survival": 5,
+          "Amendments": 10,
+          "Severability": 3,
+          "Sales": 1,
+          "No Waivers": 4,
+          "Titles": 2,
+          "Solvency": 4,
+          "Further Assurances": 4,
+          "Base Salary": 2,
+          "Arbitration": 4,
+          "Positions": 2,
+          "No Conflicts": 1,
+          "Construction": 2,
+          "Taxes": 6,
+          "Effective Dates": 5,
+          "Agreements": 1,
+          "Subsidiaries": 3,
+          "Enforcements": 1,
+          "Withholdings": 1,
+          "Approvals": 2,
+          "Waivers": 3,
+          "Definitions": 2,
+          "Death": 1,
+          "Litigations": 4,
+          "Liens": 2,
+          "Interpretations": 3,
+          "Non-Disparagement": 1,
+          "Enforceability": 2,
+          "Benefits": 3,
+          "Authorizations": 2,
+          "Capitalization": 2,
+          "Remedies": 2,
+          "Effectiveness": 2,
+          "Erisa": 3,
+          "Vesting": 1,
+          "Integration": 1,
+          "Applicable Laws": 2,
+          "Assignments": 5,
+          "Participations": 1,
+          "Authority": 1,
+          "Disclosures": 3,
+          "Headings": 2,
+          "Tax Withholdings": 1,
+          "Payments": 5,
+          "Submission To Jurisdiction": 1,
+          "Adjustments": 2,
+          "Releases": 5,
+          "Consent To Jurisdiction": 3,
+          "Use Of Proceeds": 1,
+          "Publicity": 1,
+          "Change In Control": 1,
+          "Brokers": 1,
+          "Expenses": 3,
+          "Indemnifications": 1,
+          "Miscellaneous": 3,
+          "Employment": 1,
+          "Fees": 5,
+          "Cooperation": 2,
+          "No Defaults": 1,
+          "Vacations": 1,
+          "Duties": 1,
+          "Intellectual Property": 1,
+          "Closings": 1,
+          "Records": 1,
+          "Specific Performance": 1
+        },
+        "tool_action_safety": {
+          "safe": 64,
+          "controversial": 65,
+          "unsafe": 71
+        },
+        "prompt_injection": {
+          "false": 153,
+          "true": 47
+        },
+        "malicious_request": {
+          "true": 128,
+          "false": 72
+        },
+        "routing_quality": {
+          "WizardLM/WizardLM-13B-V1.2": 160,
+          "claude-v1": 21,
+          "claude-instant-v1": 81,
+          "claude-v2": 9,
+          "zero-one-ai/Yi-34B-Chat": 2,
+          "mistralai/mistral-7b-chat": 2,
+          "gpt-3.5-turbo-1106": 11,
+          "meta/llama-2-70b-chat": 3,
+          "gpt-4-1106-preview": 8,
+          "meta/code-llama-instruct-34b-chat": 1
+        },
+        "routing_costaware": {
+          "gpt-3.5-turbo-1106": 3,
+          "WizardLM/WizardLM-13B-V1.2": 71,
+          "mistralai/mixtral-8x7b-chat": 48,
+          "mistralai/mistral-7b-chat": 114,
+          "meta/code-llama-instruct-34b-chat": 8,
+          "zero-one-ai/Yi-34B-Chat": 32,
+          "meta/llama-2-70b-chat": 8,
+          "claude-instant-v1": 8,
+          "claude-v1": 2,
+          "claude-v2": 1,
+          "gpt-4-1106-preview": 3
+        }
+      }
+    },
+    "calibration": {
+      "rows": 1421,
+      "families": 513,
+      "domains": {
+        "model_routing": 396,
+        "legal": 375,
+        "financial": 350,
+        "tool_safety": 300
+      },
+      "tasks": {
+        "routing_quality": 198,
+        "legal_maud": 250,
+        "routing_costaware": 198,
+        "financial_verification": 200,
+        "malicious_request": 100,
+        "banking_intent": 150,
+        "tool_action_safety": 100,
+        "legal_topic": 125,
+        "prompt_injection": 100
+      },
+      "sha256": "d9a094e023963e8723188159423e3fbfc1ed68533f02bd370a8d83b57293cc2d",
+      "class_counts": {
+        "financial_verification": {
+          "false": 100,
+          "true": 100
+        },
+        "banking_intent": {
+          "card_arrival": 2,
+          "top_up_by_bank_transfer_charge": 2,
+          "extra_charge_on_statement": 5,
+          "supported_cards_and_currencies": 2,
+          "country_support": 5,
+          "exchange_charge": 4,
+          "reverted_card_payment?": 1,
+          "transfer_timing": 1,
+          "Refund_not_showing_up": 1,
+          "terminate_account": 1,
+          "apple_pay_or_google_pay": 1,
+          "get_physical_card": 1,
+          "verify_source_of_funds": 2,
+          "receiving_money": 2,
+          "beneficiary_not_allowed": 4,
+          "card_about_to_expire": 1,
+          "transaction_charged_twice": 3,
+          "card_payment_not_recognised": 4,
+          "topping_up_by_card": 2,
+          "exchange_via_app": 2,
+          "unable_to_verify_identity": 1,
+          "verify_my_identity": 4,
+          "declined_card_payment": 3,
+          "declined_cash_withdrawal": 3,
+          "transfer_into_account": 2,
+          "order_physical_card": 2,
+          "visa_or_mastercard": 2,
+          "pending_top_up": 5,
+          "atm_support": 5,
+          "lost_or_stolen_card": 2,
+          "card_delivery_estimate": 2,
+          "cash_withdrawal_not_recognised": 4,
+          "activate_my_card": 4,
+          "card_payment_fee_charged": 1,
+          "disposable_card_limits": 1,
+          "wrong_amount_of_cash_received": 3,
+          "getting_virtual_card": 1,
+          "virtual_card_not_working": 1,
+          "pending_transfer": 3,
+          "lost_or_stolen_phone": 1,
+          "card_not_working": 1,
+          "compromised_card": 2,
+          "top_up_limits": 1,
+          "top_up_reverted": 3,
+          "edit_personal_details": 3,
+          "cancel_transfer": 2,
+          "pending_card_payment": 5,
+          "card_linking": 4,
+          "automatic_top_up": 2,
+          "top_up_by_cash_or_cheque": 2,
+          "top_up_failed": 2,
+          "pin_blocked": 2,
+          "change_pin": 1,
+          "exchange_rate": 2,
+          "pending_cash_withdrawal": 1,
+          "failed_transfer": 3,
+          "fiat_currency_support": 3,
+          "card_swallowed": 1,
+          "transfer_fee_charged": 3,
+          "transfer_not_received_by_recipient": 2,
+          "why_verify_identity": 5,
+          "age_limit": 2,
+          "verify_top_up": 2
+        },
+        "legal_maud": {
+          "Yes": 83,
+          "answer_2": 13,
+          "answer_0": 50,
+          "answer_1": 43,
+          "No": 55,
+          "answer_3": 6
+        },
+        "legal_topic": {
+          "Indemnifications": 3,
+          "Participations": 2,
+          "Submission To Jurisdiction": 1,
+          "Terms": 4,
+          "Specific Performance": 2,
+          "Governing Laws": 7,
+          "Waivers": 4,
+          "Notices": 5,
+          "Litigations": 2,
+          "Warranties": 2,
+          "Taxes": 4,
+          "Survival": 5,
+          "Counterparts": 3,
+          "Titles": 1,
+          "Use Of Proceeds": 2,
+          "Payments": 3,
+          "Insurances": 2,
+          "Records": 1,
+          "Definitions": 1,
+          "Fees": 3,
+          "Miscellaneous": 1,
+          "Publicity": 3,
+          "General": 1,
+          "Expenses": 2,
+          "Construction": 3,
+          "Applicable Laws": 3,
+          "Amendments": 2,
+          "Entire Agreements": 5,
+          "Withholdings": 1,
+          "Remedies": 2,
+          "Confidentiality": 4,
+          "Consents": 1,
+          "Transactions With Affiliates": 1,
+          "Assignments": 3,
+          "Effectiveness": 1,
+          "Further Assurances": 3,
+          "No Waivers": 1,
+          "Vesting": 1,
+          "Enforceability": 1,
+          "Binding Effects": 2,
+          "Headings": 3,
+          "Closings": 1,
+          "Tax Withholdings": 1,
+          "Indemnity": 1,
+          "Compliance With Laws": 1,
+          "Benefits": 1,
+          "Disability": 2,
+          "Intellectual Property": 1,
+          "Erisa": 2,
+          "Costs": 1,
+          "Severability": 3,
+          "Subsidiaries": 1,
+          "Enforcements": 1,
+          "Duties": 1,
+          "Base Salary": 1,
+          "Authorizations": 1,
+          "Interests": 1,
+          "Solvency": 1,
+          "No Defaults": 1,
+          "Interpretations": 1,
+          "Brokers": 1
+        },
+        "tool_action_safety": {
+          "unsafe": 33,
+          "safe": 41,
+          "controversial": 26
+        },
+        "prompt_injection": {
+          "false": 73,
+          "true": 27
+        },
+        "malicious_request": {
+          "false": 50,
+          "true": 50
+        },
+        "routing_quality": {
+          "WizardLM/WizardLM-13B-V1.2": 100,
+          "claude-v1": 12,
+          "claude-instant-v1": 52,
+          "claude-v2": 12,
+          "meta/code-llama-instruct-34b-chat": 2,
+          "meta/llama-2-70b-chat": 3,
+          "zero-one-ai/Yi-34B-Chat": 1,
+          "gpt-4-1106-preview": 7,
+          "gpt-3.5-turbo-1106": 8,
+          "mistralai/mistral-7b-chat": 1
+        },
+        "routing_costaware": {
+          "WizardLM/WizardLM-13B-V1.2": 45,
+          "mistralai/mistral-7b-chat": 74,
+          "meta/llama-2-70b-chat": 8,
+          "zero-one-ai/Yi-34B-Chat": 19,
+          "gpt-4-1106-preview": 3,
+          "gpt-3.5-turbo-1106": 8,
+          "claude-v1": 2,
+          "mistralai/mixtral-8x7b-chat": 23,
+          "claude-instant-v1": 8,
+          "claude-v2": 3,
+          "meta/code-llama-instruct-34b-chat": 5
+        }
+      }
+    },
+    "core_test": {
+      "rows": 3960,
+      "families": 1372,
+      "domains": {
+        "tool_safety": 930,
+        "model_routing": 880,
+        "financial": 1100,
+        "legal": 1050
+      },
+      "tasks": {
+        "tool_action_safety": 310,
+        "prompt_injection": 310,
+        "routing_costaware": 440,
+        "routing_quality": 440,
+        "financial_verification": 600,
+        "legal_maud": 700,
+        "banking_intent": 500,
+        "legal_topic": 350,
+        "malicious_request": 310
+      },
+      "sha256": "5941cb77686358bc6e06e7c594311ce2fecb9ce5b406616d879b29d58cbddc79",
+      "class_counts": {
+        "financial_verification": {
+          "true": 300,
+          "false": 300
+        },
+        "banking_intent": {
+          "transfer_timing": 7,
+          "pending_top_up": 2,
+          "card_acceptance": 6,
+          "verify_my_identity": 11,
+          "declined_transfer": 9,
+          "order_physical_card": 8,
+          "top_up_limits": 8,
+          "atm_support": 7,
+          "why_verify_identity": 7,
+          "exchange_rate": 2,
+          "pending_card_payment": 6,
+          "verify_top_up": 7,
+          "top_up_by_card_charge": 7,
+          "cash_withdrawal_not_recognised": 6,
+          "pin_blocked": 9,
+          "card_swallowed": 6,
+          "card_arrival": 15,
+          "contactless_not_working": 6,
+          "terminate_account": 4,
+          "topping_up_by_card": 4,
+          "pending_cash_withdrawal": 7,
+          "apple_pay_or_google_pay": 13,
+          "card_about_to_expire": 10,
+          "exchange_charge": 5,
+          "top_up_failed": 7,
+          "declined_card_payment": 6,
+          "extra_charge_on_statement": 8,
+          "lost_or_stolen_phone": 5,
+          "visa_or_mastercard": 8,
+          "passcode_forgotten": 4,
+          "card_linking": 5,
+          "unable_to_verify_identity": 10,
+          "compromised_card": 4,
+          "transfer_fee_charged": 7,
+          "card_payment_not_recognised": 6,
+          "cash_withdrawal_charge": 6,
+          "get_disposable_virtual_card": 6,
+          "wrong_exchange_rate_for_cash_withdrawal": 6,
+          "request_refund": 9,
+          "pending_transfer": 8,
+          "top_up_by_cash_or_cheque": 4,
+          "declined_cash_withdrawal": 5,
+          "Refund_not_showing_up": 8,
+          "card_payment_fee_charged": 6,
+          "verify_source_of_funds": 6,
+          "virtual_card_not_working": 9,
+          "card_delivery_estimate": 7,
+          "top_up_by_bank_transfer_charge": 8,
+          "change_pin": 3,
+          "exchange_via_app": 4,
+          "balance_not_updated_after_cheque_or_cash_deposit": 10,
+          "card_not_working": 5,
+          "receiving_money": 9,
+          "transaction_charged_twice": 6,
+          "card_payment_wrong_exchange_rate": 11,
+          "supported_cards_and_currencies": 4,
+          "getting_spare_card": 5,
+          "transfer_not_received_by_recipient": 6,
+          "edit_personal_details": 6,
+          "automatic_top_up": 7,
+          "country_support": 5,
+          "lost_or_stolen_card": 8,
+          "wrong_amount_of_cash_received": 6,
+          "balance_not_updated_after_bank_transfer": 5,
+          "disposable_card_limits": 8,
+          "beneficiary_not_allowed": 3,
+          "getting_virtual_card": 6,
+          "direct_debit_payment_not_recognised": 10,
+          "fiat_currency_support": 5,
+          "get_physical_card": 3,
+          "age_limit": 5,
+          "transfer_into_account": 7,
+          "cancel_transfer": 6,
+          "reverted_card_payment?": 6,
+          "activate_my_card": 6,
+          "top_up_reverted": 2,
+          "failed_transfer": 3
+        },
+        "legal_maud": {
+          "answer_2": 39,
+          "answer_0": 120,
+          "answer_1": 164,
+          "No": 118,
+          "Yes": 244,
+          "answer_3": 15
+        },
+        "legal_topic": {
+          "Entire Agreements": 12,
+          "Governing Laws": 21,
+          "Headings": 3,
+          "Severability": 20,
+          "Amendments": 6,
+          "Further Assurances": 4,
+          "Base Salary": 2,
+          "Solvency": 2,
+          "No Conflicts": 10,
+          "Terms": 3,
+          "Definitions": 3,
+          "Modifications": 1,
+          "Defined Terms": 3,
+          "Assigns": 1,
+          "Survival": 8,
+          "Use Of Proceeds": 4,
+          "Interests": 1,
+          "Financial Statements": 5,
+          "Terminations": 9,
+          "Construction": 5,
+          "Fees": 3,
+          "Disclosures": 8,
+          "Insurances": 5,
+          "Capitalization": 4,
+          "Waiver Of Jury Trials": 10,
+          "Miscellaneous": 6,
+          "Payments": 2,
+          "Tax Withholdings": 3,
+          "Erisa": 4,
+          "Existence": 1,
+          "Employment": 2,
+          "Interpretations": 5,
+          "No Waivers": 3,
+          "Expenses": 5,
+          "Vacations": 2,
+          "Transactions With Affiliates": 4,
+          "Representations": 1,
+          "Releases": 5,
+          "Notices": 7,
+          "General": 5,
+          "Counterparts": 14,
+          "Intellectual Property": 2,
+          "Subsidiaries": 2,
+          "Participations": 5,
+          "Duties": 2,
+          "Benefits": 2,
+          "Warranties": 1,
+          "Successors": 4,
+          "Waivers": 5,
+          "Confidentiality": 8,
+          "Indemnifications": 6,
+          "Brokers": 5,
+          "Authority": 2,
+          "Publicity": 3,
+          "Taxes": 10,
+          "Remedies": 4,
+          "Organizations": 3,
+          "Authorizations": 1,
+          "Effective Dates": 1,
+          "Assignments": 7,
+          "Withholdings": 2,
+          "Compliance With Laws": 6,
+          "Enforcements": 2,
+          "Litigations": 4,
+          "Sales": 3,
+          "Submission To Jurisdiction": 2,
+          "Arbitration": 3,
+          "Death": 1,
+          "Qualifications": 1,
+          "Non-Disparagement": 2,
+          "Liens": 2,
+          "Positions": 2,
+          "Vesting": 1,
+          "Jurisdictions": 1,
+          "Change In Control": 1,
+          "Cooperation": 2,
+          "Records": 1,
+          "Closings": 3,
+          "Powers": 1,
+          "Enforceability": 1,
+          "Adjustments": 2,
+          "Applicable Laws": 1,
+          "Approvals": 1,
+          "Forfeitures": 1,
+          "Consent To Jurisdiction": 1,
+          "Consents": 1,
+          "Binding Effects": 1,
+          "No Defaults": 2,
+          "Integration": 2,
+          "Agreements": 1,
+          "Anti-Corruption Laws": 1
+        },
+        "tool_action_safety": {
+          "controversial": 89,
+          "safe": 130,
+          "unsafe": 91
+        },
+        "prompt_injection": {
+          "true": 111,
+          "false": 199
+        },
+        "malicious_request": {
+          "true": 120,
+          "false": 190
+        },
+        "routing_quality": {
+          "WizardLM/WizardLM-13B-V1.2": 214,
+          "claude-instant-v1": 112,
+          "claude-v2": 18,
+          "gpt-4-1106-preview": 20,
+          "claude-v1": 40,
+          "mistralai/mistral-7b-chat": 3,
+          "meta/code-llama-instruct-34b-chat": 3,
+          "gpt-3.5-turbo-1106": 21,
+          "mistralai/mixtral-8x7b-chat": 4,
+          "zero-one-ai/Yi-34B-Chat": 2,
+          "meta/llama-2-70b-chat": 3
+        },
+        "routing_costaware": {
+          "mistralai/mistral-7b-chat": 165,
+          "claude-v1": 12,
+          "WizardLM/WizardLM-13B-V1.2": 113,
+          "mistralai/mixtral-8x7b-chat": 58,
+          "zero-one-ai/Yi-34B-Chat": 42,
+          "gpt-4-1106-preview": 8,
+          "gpt-3.5-turbo-1106": 13,
+          "meta/code-llama-instruct-34b-chat": 12,
+          "claude-v2": 1,
+          "claude-instant-v1": 10,
+          "meta/llama-2-70b-chat": 6
+        }
+      }
+    }
+  },
+  "exclusions": {
+    "TATQA:not_arithmetic": 9600,
+    "TATQA:unsupported_or_inconsistent_derivation": 764,
+    "MAUD:unsupported_subquestion_or_insufficient_class_families": 24656,
+    "RouterBench:invalid_outcomes": 28,
+    "duplicate_decision:financial_verification": 3,
+    "cross_split_duplicate_context:legal_maud": 461,
+    "duplicate_decision:legal_maud": 44,
+    "conflicting_identical_inputs": 30
+  },
+  "native_counts": {
+    "next-tat/TAT-QA/tatqa_dataset_train.json": 2207,
+    "next-tat/TAT-QA/tatqa_dataset_dev.json": 274,
+    "next-tat/TAT-QA/tatqa_dataset_test_gold.json": 277,
+    "PolyAI/banking77:None:train": 10003,
+    "PolyAI/banking77:None:test": 3080,
+    "coastalcph/lex_glue:ledgar:train": 60000,
+    "coastalcph/lex_glue:ledgar:test": 10000,
+    "coastalcph/lex_glue:ledgar:validation": 10000,
+    "theatticusproject/maud/MAUD_v1/MAUD_train.csv": 25827,
+    "theatticusproject/maud/MAUD_v1/MAUD_dev.csv": 6753,
+    "theatticusproject/maud/MAUD_v1/MAUD_test.csv": 6651,
+    "TSBench:train:train.jsonl": 2194,
+    "TSBench:validation:validation.jsonl": 789
+  },
+  "source_notes": {
+    "MAUD": {
+      "policy": "Native row folds overlap contracts; whole-contract hash split70/15/5/10 replaces them. Only unambiguous native <NONE> subquestion rows; complete task ontology2..11 classes, at least4 contract families per class before splitting. Conflicting identical decisions are excluded mechanically.",
+      "eligible_tasks": [
+        "\"Ability to consummate\" concept is subject to MAE carveouts",
+        "\"Financial point of view\" is the sole consideration",
+        "Accuracy of Fundamental Target R&Ws: Bringdown Standard",
+        "Accuracy of Target \"General\" R&W: Bringdown Timing Answer",
+        "Accuracy of Target Capitalization R&W (outstanding shares): Bringdown Standard Answer",
+        "Acquisition Proposal required to be publicly disclosed-Answer (Y/N)",
+        "Acquisition Proposal required to be still pending-Answer (Y/N)",
+        "Action prohibited/omission required by the agreement-Answer",
+        "Actions required under transaction agreement-Answer (Y/N)",
+        "Actions taken by Buyer-Answer (Y/N)",
+        "Actions taken with consent or approval of Buyer-Answer (Y/N)",
+        "Announcement, pendency or consummation of deal (Y/N)",
+        "Application of Buyer consent requirement (negative interim covenant)-Answer",
+        "Buyer consent requirement (negative interim covenant)-Answer",
+        "Buyer consent requirement (ordinary course)-Answer",
+        "COR permitted in response to Intervening Event",
+        "COR permitted with board fiduciary determination only",
+        "Change in Target's industry: subject to \"disproportionate impact\" modifier",
+        "Change in law:  subject to \"disproportionate impact\" modifier",
+        "Changes in GAAP or other accounting principles (Y/N)",
+        "Changes in GAAP or other accounting principles:  subject to \"disproportionate impact\" modifier",
+        "Changes in Target's industry (Y/N)",
+        "Changes in market price/trading volume of Target's securities or credit rating (Y/N)",
+        "Definition contains a materiality standard (Y/N)",
+        "Definition contains knowledge requirement - answer",
+        "Definition includes asset deals-Answer",
+        "Definition includes stock deals-Answer",
+        "Failure to meet projections (Y/N)",
+        "Failure to meet projections: subject to \"disproportionate impact\" modifier",
+        "Fiduciary exception: Board determination trigger (no shop)-Answer",
+        "General Antitrust Efforts Standard-Answer",
+        "General economic and financial conditions (Y/N)",
+        "General economic and financial conditions: subject to \"disproportionate impact\" modifier",
+        "General political and/or social conditions (Y/N)",
+        "General political and/or social conditions:  subject to \"disproportionate impact\" modifier",
+        "Includes \"consistent with past practice\"",
+        "Intervening Event - Required to Occur After Signing - answer",
+        "Knowledge Definition limited to one or more identified persons-Answer (Y/",
+        "Knowledge Definition-Answer",
+        "Knowledge persons include Target management (intervening event)",
+        "Liability for breaches of no-shop by Target Representatives (Y/N)",
+        "Liability standard for no-shop breach by Target Non-D&O Representatives",
+        "MAE Forward looking standard (Y/N)",
+        "MAE applies to Target and subsidiaries (MAE)-Answer",
+        "MAE definition includes adverse impact on Target's ability to consummate (Y/N)",
+        "Matters listed on disclosure schedules-Answer (Y/N)",
+        "Negative Interim Covenant includes carveout for pandemic responses-Answer (Y/N)",
+        "Number of additional matching rights periods for modifications (COR)",
+        "Number of additional matching rights periods for modifications (FTR)",
+        "Ordinary Course Covenant includes carve-out for Pandemic responses-Answer (Y/N)",
+        "Ordinary course efforts standard-Answer",
+        "Pandemic or other public health event-Answer (Y/N)",
+        "Pandemic or other public health event:  subject to \"disproportionate impact\" modifier",
+        "Pandemic or other public health event: Specific reference to COVID-19",
+        "Pandemic or other public health event: specific reference to pandemic-related governmental responses or measures",
+        "Relational language (MAE carveout)-Answer (Y/N)",
+        "Relational language (MAE) applies to",
+        "Specific Performance-Answer",
+        "Target stockholder proceedings-Answer (Y/N)",
+        "Target's securities or credit rating: subject to \"disproportionate impact\" modifier",
+        "Type of Consideration-Answer"
+      ],
+      "native_tasks": 82
+    },
+    "TSBench": "Repartition native supervised train+validation by whole exact/near request family70/15/5/10. Native trajectory-eval files lack injection/malicious labels and are not relabeled or substituted into these core tasks.",
+    "routing": "Fixed11-model pool; both shot regimes and both objectives. Query families shared across views/objectives. Profiles fitted only from the FINAL retained training rows after duplicate/role resolution; no task names, gold answers or per-input future outcomes enter model inputs."
+  },
+  "overlap_audit": {
+    "near_edges": 8709,
+    "normalized_contexts": 101417,
+    "policy": "Native whole-family roles with test > calibration > validation > train; MAUD explicitly repartitioned by contract; near/exact context duplicates removed across folds. Near retrieval64-permutation MinHash, exact three-word Jaccard>=.85; approximate audit cannot prove semantic independence."
+  },
+  "same_capabilities_in_all_core_splits": true,
+  "max_choices": 128,
+  "data_selection": "Metadata/labels for one-time stratification and support audit only; no model predictions used.",
+  "historical_exposure": "Some native benchmark core-test examples were evaluated by earlier models. They are excluded from this cycle training/selection, but are not claimed never inspected by the project.",
+  "transfer_status": "Separately constructed evaluation-only source/task transfer suite; never pooled into core scores.",
+  "source_pins": {},
+  "limitations": [
+    "TATQA/LEDGAR do not release original-report/document identifiers for all contexts; group on released context/request IDs plus exact/near content.",
+    "BANKING77/LEDGAR use full native77/100 labels; MAUD uses declared eligible native review questions with complete task-specific ontologies.",
+    "MAUD source folds overlap contracts; explicit document repartition replaces them.",
+    "Native/public labels and programmatically checked counterfactuals are not independent production financial-workflow adjudication.",
+    "Routing is historical released11-model outcomes, not current production routing."
+  ],
+  "model_specs": {
+    "gemma": {
+      "repo": "google/gemma-4-E2B-it",
+      "revision": "4adf15748de9e1a0097b6274cee9c15836c41c37"
+    },
+    "qwen": {
+      "repo": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+    }
+  },
+  "max_tokens": 8192,
+  "source_file_sha256": {
+    "theatticusproject/maud/MAUD_v1/MAUD_train.csv": "bac9f2d034ad487d5398ee2ac1c876679afea509ba8e7f1092112955c6180ff9",
+    "theatticusproject/maud/MAUD_v1/MAUD_dev.csv": "e977f99abcfd43f785272c23bcf08f8208579a6458d9088d2d5ba64c67e4cc1f",
+    "theatticusproject/maud/MAUD_v1/MAUD_test.csv": "afcbc88a4f14e8c14056469446e79f610a6eaf3a1425e61729637bd69251e697",
+    "next-tat/TAT-QA/tatqa_dataset_test_gold.json": "15763f73a9839009d148d35ab3371f78fc6dc67bbdd95547bcd3ecb550f52a08",
+    "coastalcph/lex_glue/ledgar/train-00000-of-00001.parquet": "e2901d9e019f5652dadda839d488155c681e50b90bd33f00574949418827867d",
+    "coastalcph/lex_glue/ledgar/validation-00000-of-00001.parquet": "55ef0deada1ed75bbf13c68fdd1c1a1ebfa5b09176d5e68b92499234f51d6c9f",
+    "coastalcph/lex_glue/ledgar/test-00000-of-00001.parquet": "af9ed0ec09545d39449ffddca3996a1a7774e2bd0a9d6fc09d4e9dd067892a7a",
+    "coastalcph/lex_glue/unfair_tos/train-00000-of-00001.parquet": "09d6d53aa05a1338d399da97f36cae171ca0a85990402318d134a8c668c86182",
+    "coastalcph/lex_glue/unfair_tos/validation-00000-of-00001.parquet": "6429ccec1085241b05083880fb73548361bc8fd05a6764152f9b8e43e4c177e6",
+    "coastalcph/lex_glue/unfair_tos/test-00000-of-00001.parquet": "cf3a30be32f5635bc269b12685290a27b144ad837391e776a2070ff0c3a521c4",
+    "PolyAI/banking77/data/train-00000-of-00001.parquet": "8dc89b87a188509c42cce5a086e8f7c1ff4a225bdd9ae3f23e6cdfa5806e363a",
+    "PolyAI/banking77/data/test-00000-of-00001.parquet": "1f40f777c33f0edfa6c530ff84fe2878db6490838c12d22d036f626948905341",
+    "MurrayTom/TS-Bench/data/train/train.jsonl": "84b0df5862c4d618dc318e6fe8148b822c7d5649c2535e8ea58f6478d7759cf7",
+    "MurrayTom/TS-Bench/data/train/validation.jsonl": "0ec0ce293acf86c1fb26a8a708deb6175b0117c6f3734a048a0a556518db1299",
+    "next-tat/TAT-QA/tatqa_dataset_train.json": "c7bf8eb0c757e57ef3db6c6146dd7e487100dac1e37e66a349813ddc4187cd65",
+    "next-tat/TAT-QA/tatqa_dataset_dev.json": "7ccea93f242ba6af13a302edafa0f910df50c36834a3ca255c77a8732c57eec3",
+    "withmartian/routerbench/routerbench_0shot.pkl": "ba4f77f19517610a707c374e99322d7750c30fc4ae7ff5527888595a1e65d36d",
+    "withmartian/routerbench/routerbench_5shot.pkl": "fbd7d3d16fba2759a18fa0ad44409d3e0e92ba80d03d90827eed1a6d084c9ffe"
+  },
+  "context_support": {
+    "train": {
+      "gemma": {
+        "financial_verification": {
+          "requested": 5000,
+          "supported_8192": 5000
+        },
+        "banking_intent": {
+          "requested": 6000,
+          "supported_8192": 6000
+        },
+        "legal_maud": {
+          "requested": 4000,
+          "supported_8192": 4000
+        },
+        "legal_topic": {
+          "requested": 5000,
+          "supported_8192": 5000
+        },
+        "tool_action_safety": {
+          "requested": 1600,
+          "supported_8192": 1600
+        },
+        "prompt_injection": {
+          "requested": 1600,
+          "supported_8192": 1600
+        },
+        "malicious_request": {
+          "requested": 1600,
+          "supported_8192": 1600
+        },
+        "routing_quality": {
+          "requested": 4337,
+          "supported_8192": 4337
+        },
+        "routing_costaware": {
+          "requested": 4337,
+          "supported_8192": 4337
+        }
+      },
+      "qwen": {
+        "financial_verification": {
+          "requested": 5000,
+          "supported_8192": 5000
+        },
+        "banking_intent": {
+          "requested": 6000,
+          "supported_8192": 6000
+        },
+        "legal_maud": {
+          "requested": 4000,
+          "supported_8192": 4000
+        },
+        "legal_topic": {
+          "requested": 5000,
+          "supported_8192": 5000
+        },
+        "tool_action_safety": {
+          "requested": 1600,
+          "supported_8192": 1600
+        },
+        "prompt_injection": {
+          "requested": 1600,
+          "supported_8192": 1600
+        },
+        "malicious_request": {
+          "requested": 1600,
+          "supported_8192": 1600
+        },
+        "routing_quality": {
+          "requested": 4337,
+          "supported_8192": 4337
+        },
+        "routing_costaware": {
+          "requested": 4337,
+          "supported_8192": 4337
+        }
+      }
+    },
+    "validation": {
+      "gemma": {
+        "financial_verification": {
+          "requested": 400,
+          "supported_8192": 400
+        },
+        "banking_intent": {
+          "requested": 300,
+          "supported_8192": 300
+        },
+        "legal_maud": {
+          "requested": 500,
+          "supported_8192": 500
+        },
+        "legal_topic": {
+          "requested": 250,
+          "supported_8192": 250
+        },
+        "tool_action_safety": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "prompt_injection": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "malicious_request": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "routing_quality": {
+          "requested": 298,
+          "supported_8192": 298
+        },
+        "routing_costaware": {
+          "requested": 298,
+          "supported_8192": 298
+        }
+      },
+      "qwen": {
+        "financial_verification": {
+          "requested": 400,
+          "supported_8192": 400
+        },
+        "banking_intent": {
+          "requested": 300,
+          "supported_8192": 300
+        },
+        "legal_maud": {
+          "requested": 500,
+          "supported_8192": 500
+        },
+        "legal_topic": {
+          "requested": 250,
+          "supported_8192": 250
+        },
+        "tool_action_safety": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "prompt_injection": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "malicious_request": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "routing_quality": {
+          "requested": 298,
+          "supported_8192": 298
+        },
+        "routing_costaware": {
+          "requested": 298,
+          "supported_8192": 298
+        }
+      }
+    },
+    "calibration": {
+      "gemma": {
+        "financial_verification": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "banking_intent": {
+          "requested": 150,
+          "supported_8192": 150
+        },
+        "legal_maud": {
+          "requested": 250,
+          "supported_8192": 250
+        },
+        "legal_topic": {
+          "requested": 125,
+          "supported_8192": 125
+        },
+        "tool_action_safety": {
+          "requested": 100,
+          "supported_8192": 100
+        },
+        "prompt_injection": {
+          "requested": 100,
+          "supported_8192": 100
+        },
+        "malicious_request": {
+          "requested": 100,
+          "supported_8192": 100
+        },
+        "routing_quality": {
+          "requested": 198,
+          "supported_8192": 198
+        },
+        "routing_costaware": {
+          "requested": 198,
+          "supported_8192": 198
+        }
+      },
+      "qwen": {
+        "financial_verification": {
+          "requested": 200,
+          "supported_8192": 200
+        },
+        "banking_intent": {
+          "requested": 150,
+          "supported_8192": 150
+        },
+        "legal_maud": {
+          "requested": 250,
+          "supported_8192": 250
+        },
+        "legal_topic": {
+          "requested": 125,
+          "supported_8192": 125
+        },
+        "tool_action_safety": {
+          "requested": 100,
+          "supported_8192": 100
+        },
+        "prompt_injection": {
+          "requested": 100,
+          "supported_8192": 100
+        },
+        "malicious_request": {
+          "requested": 100,
+          "supported_8192": 100
+        },
+        "routing_quality": {
+          "requested": 198,
+          "supported_8192": 198
+        },
+        "routing_costaware": {
+          "requested": 198,
+          "supported_8192": 198
+        }
+      }
+    },
+    "core_test": {
+      "gemma": {
+        "financial_verification": {
+          "requested": 600,
+          "supported_8192": 600
+        },
+        "banking_intent": {
+          "requested": 500,
+          "supported_8192": 500
+        },
+        "legal_maud": {
+          "requested": 700,
+          "supported_8192": 700
+        },
+        "legal_topic": {
+          "requested": 350,
+          "supported_8192": 350
+        },
+        "tool_action_safety": {
+          "requested": 310,
+          "supported_8192": 310
+        },
+        "prompt_injection": {
+          "requested": 310,
+          "supported_8192": 310
+        },
+        "malicious_request": {
+          "requested": 310,
+          "supported_8192": 310
+        },
+        "routing_quality": {
+          "requested": 440,
+          "supported_8192": 440
+        },
+        "routing_costaware": {
+          "requested": 440,
+          "supported_8192": 440
+        }
+      },
+      "qwen": {
+        "financial_verification": {
+          "requested": 600,
+          "supported_8192": 600
+        },
+        "banking_intent": {
+          "requested": 500,
+          "supported_8192": 500
+        },
+        "legal_maud": {
+          "requested": 700,
+          "supported_8192": 700
+        },
+        "legal_topic": {
+          "requested": 350,
+          "supported_8192": 350
+        },
+        "tool_action_safety": {
+          "requested": 310,
+          "supported_8192": 310
+        },
+        "prompt_injection": {
+          "requested": 310,
+          "supported_8192": 310
+        },
+        "malicious_request": {
+          "requested": 310,
+          "supported_8192": 310
+        },
+        "routing_quality": {
+          "requested": 440,
+          "supported_8192": 440
+        },
+        "routing_costaware": {
+          "requested": 440,
+          "supported_8192": 440
+        }
+      }
+    }
+  },
+  "training_context_exclusion": {
+    "families": 0,
+    "rows": 0,
+    "by_task": {},
+    "policy": "Same training rows for both models; exclude whole source families if any selected training view exceeds either tokenizer envelope. All validation/calibration/test inputs remain requested, without truncation."
+  },
+  "selection_validation": {
+    "rows": 640,
+    "sha256": "d3342bef166747a06c312c199e60d63389554e21ebca9f0801e1a985cc63bb8d",
+    "parent_split": "validation"
+  },
+  "source_code_sha256": {
+    "phase4_data.py": "e05e2af1feef7ff9c5ba048be2a61938b277503c3b033a226dbc17f8b534165f",
+    "phase4_numeric.py": "5a4689ae7d263aa46e6f46a4ce80ba08020225dbff8eb8a56edc41fc6020ae3c",
+    "phase4_preflight.py": "fbb412c3d9a5979e8525b44a9f53742d8a4b1b7f872e515039d15e8a2decd290",
+    "code_model.py": "fe5d35c445d3705ba98064876c33aa2c766f98215b931aee72f1feecedafcfd3",
+    "phase4_transfer.py": "3e6f34dd0e3258d0a3cf0c25bb9358dcd957e206e42e19bf8b59d4fb4ff6bf6b",
+    "phase4_train.py": "63a7192f4a8cbbe280e482c3c6b8c66cab2cd1b54db3e881ecc5f6e7961d72c7",
+    "phase4_eval.py": "271f219c12134f6e9a3421e01c4ae6b3dc3a21a04ac6063b656a33a24f8fbdae",
+    "phase4_report.py": "d3fe43d415cc00d93321338e7a10a51509222a71b7854e538a0fdc39934ea6f1",
+    "phase4_metrics.py": "44344c40a63ee2bb44549356dae4de319008bc31c7d6e497c11dbc3bd7587419"
+  },
+  "transfer_test": {
+    "rows": 1614,
+    "families": 617,
+    "sha256": "46e7e9aebf2da71f7c1e927286c2c60856e59f7eedf03ae5fdabc3c68d86cd42",
+    "domains": {
+      "financial": 360,
+      "legal": 498,
+      "model_routing": 236,
+      "tool_safety": 520
+    },
+    "tasks": {
+      "transfer/finqa_verification": 360,
+      "transfer/insurance_policy_interpretation": 100,
+      "transfer/cuad_cap_on_liability": 100,
+      "transfer/cuad_audit_rights": 98,
+      "transfer/cuad_anti-assignment": 100,
+      "transfer/cuad_termination_for_convenience": 100,
+      "transfer/routerarena_quality": 118,
+      "transfer/routerarena_costaware": 118,
+      "transfer/tracesafe/binary/AmbiguousArg": 20,
+      "transfer/tracesafe/coarse/AmbiguousArg": 20,
+      "transfer/tracesafe/binary/ApiKeyLeak": 20,
+      "transfer/tracesafe/coarse/ApiKeyLeak": 20,
+      "transfer/tracesafe/binary/DataLeak": 20,
+      "transfer/tracesafe/coarse/DataLeak": 20,
+      "transfer/tracesafe/binary/DescriptionMismatch": 20,
+      "transfer/tracesafe/coarse/DescriptionMismatch": 20,
+      "transfer/tracesafe/binary/HallucinatedArgValue": 20,
+      "transfer/tracesafe/coarse/HallucinatedArgValue": 20,
+      "transfer/tracesafe/binary/HallucinatedTool": 20,
+      "transfer/tracesafe/coarse/HallucinatedTool": 20,
+      "transfer/tracesafe/binary/MissingTypeHint": 20,
+      "transfer/tracesafe/coarse/MissingTypeHint": 20,
+      "transfer/tracesafe/binary/PromptInjectionIn": 20,
+      "transfer/tracesafe/coarse/PromptInjectionIn": 20,
+      "transfer/tracesafe/binary/PromptInjectionOut": 20,
+      "transfer/tracesafe/coarse/PromptInjectionOut": 20,
+      "transfer/tracesafe/binary/RedundantArg": 20,
+      "transfer/tracesafe/coarse/RedundantArg": 20,
+      "transfer/tracesafe/binary/UserInfoLeak": 20,
+      "transfer/tracesafe/coarse/UserInfoLeak": 20,
+      "transfer/tracesafe/binary/VersionConflict": 20,
+      "transfer/tracesafe/coarse/VersionConflict": 20,
+      "transfer/tracesafe/binary/benign": 20,
+      "transfer/tracesafe/coarse/benign": 20
+    },
+    "overlap_audit": {
+      "known_rows": 41501,
+      "unique_known_cores": 25710,
+      "near_edges": 687,
+      "long_containment_hits": 19,
+      "overlap_exclusions_by_suite": {
+        "transfer/finqa_verification": 40,
+        "transfer/cuad_audit_rights": 2,
+        "transfer/routerarena_quality": 2,
+        "transfer/routerarena_costaware": 2
+      },
+      "pre_overlap_rows": {
+        "transfer/finqa_verification": 400,
+        "transfer/insurance_policy_interpretation": 100,
+        "transfer/cuad_cap_on_liability": 100,
+        "transfer/cuad_audit_rights": 100,
+        "transfer/cuad_anti-assignment": 100,
+        "transfer/cuad_termination_for_convenience": 100,
+        "transfer/routerarena_quality": 120,
+        "transfer/routerarena_costaware": 120,
+        "transfer/tracesafe/binary/AmbiguousArg": 20,
+        "transfer/tracesafe/coarse/AmbiguousArg": 20,
+        "transfer/tracesafe/binary/ApiKeyLeak": 20,
+        "transfer/tracesafe/coarse/ApiKeyLeak": 20,
+        "transfer/tracesafe/binary/DataLeak": 20,
+        "transfer/tracesafe/coarse/DataLeak": 20,
+        "transfer/tracesafe/binary/DescriptionMismatch": 20,
+        "transfer/tracesafe/coarse/DescriptionMismatch": 20,
+        "transfer/tracesafe/binary/HallucinatedArgValue": 20,
+        "transfer/tracesafe/coarse/HallucinatedArgValue": 20,
+        "transfer/tracesafe/binary/HallucinatedTool": 20,
+        "transfer/tracesafe/coarse/HallucinatedTool": 20,
+        "transfer/tracesafe/binary/MissingTypeHint": 20,
+        "transfer/tracesafe/coarse/MissingTypeHint": 20,
+        "transfer/tracesafe/binary/PromptInjectionIn": 20,
+        "transfer/tracesafe/coarse/PromptInjectionIn": 20,
+        "transfer/tracesafe/binary/PromptInjectionOut": 20,
+        "transfer/tracesafe/coarse/PromptInjectionOut": 20,
+        "transfer/tracesafe/binary/RedundantArg": 20,
+        "transfer/tracesafe/coarse/RedundantArg": 20,
+        "transfer/tracesafe/binary/UserInfoLeak": 20,
+        "transfer/tracesafe/coarse/UserInfoLeak": 20,
+        "transfer/tracesafe/binary/VersionConflict": 20,
+        "transfer/tracesafe/coarse/VersionConflict": 20,
+        "transfer/tracesafe/binary/benign": 20,
+        "transfer/tracesafe/coarse/benign": 20
+      },
+      "method": "exact normalized + 64-permutation MinHash retrieval at .75 / exact three-word Jaccard >= .85; bidirectional exact word-boundary containment >=8 words and40 chars; source-family propagation",
+      "limit": "Approximate retrieval is not exhaustive semantic deduplication; public pretraining exposure unknown."
+    },
+    "policy": "Separate source/task-transfer reporting. Exclude source families touching any core split by exact/near/long containment audit. No transfer cases are used in training, checkpoint selection or calibration.",
+    "historical_exposure": "These published transfer sources/cases were evaluated by earlier models; they are evaluation-only for phase4, not claimed never inspected during the project.",
+    "context_support": {
+      "gemma": 1549,
+      "qwen": 1555
+    }
+  },
+  "protocol_sha256": "9360fb52a1eaee6ce1b9f145a1bc5cad115495e5b98d4e09d91d314f778d528c",
+  "answer_code_vocabulary_sha256": "35299e61e1373cbc702ff6baf2c62d13c2f0235bb9738e9b1f3265c8e60e8ebd",
+  "model_capacity_note": "128 answer-code capacity; actual core tasks use2..100 candidates, including full native77/100-way BANKING77/LEDGAR."
+}

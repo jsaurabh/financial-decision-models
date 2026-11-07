@@ -1,0 +1,75 @@
+{
+  "repo": "jsaurabh/financial-decision-public-eval",
+  "repo_type": "dataset",
+  "revision": "ab845938f9d54c9f5a31af51b69043ff35e2b0c4",
+  "private": true,
+  "models": {
+    "causal": {
+      "config": {
+        "model": "causal",
+        "repo": "jsaurabh/gemma4-finance-phase2-causal",
+        "revision": "6b4188a4790bba0beaef19bb48e4b9b18232138d",
+        "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+        "max_tokens": 8192,
+        "max_choices": 11,
+        "weights": "bfloat16 with published float32 adapters/readout",
+        "attention_backend": "strict math SDPA; native Qwen recurrence unchanged",
+        "temperature": "published checkpoint; not refitted",
+        "context_note": "Inference-only extension beyond Gemma release 2048-token / 8-candidate validation envelope.",
+        "inference_code_sha256": "5747aafd4b981b14fb28e3d979968bba969a9819c4a80c7d005d1d68f9a95281",
+        "torch": "2.11.0+cu130",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+        "temperature_value": 2.2241357193519393
+      },
+      "predictions_sha256": "e2fb7e2916e5a2b2c1eed0adf6e685b50a99f90cf6e9b7fedc1c9271a782235d"
+    },
+    "joint": {
+      "config": {
+        "model": "joint",
+        "repo": "jsaurabh/gemma4-finance-phase2-joint",
+        "revision": "99b0773bf266fbc4b19189fe451f5f4088021f48",
+        "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+        "max_tokens": 8192,
+        "max_choices": 11,
+        "weights": "bfloat16 with published float32 adapters/readout",
+        "attention_backend": "strict math SDPA; native Qwen recurrence unchanged",
+        "temperature": "published checkpoint; not refitted",
+        "context_note": "Inference-only extension beyond Gemma release 2048-token / 8-candidate validation envelope.",
+        "inference_code_sha256": "5747aafd4b981b14fb28e3d979968bba969a9819c4a80c7d005d1d68f9a95281",
+        "torch": "2.11.0+cu130",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+        "temperature_value": 2.1483036767454076
+      },
+      "predictions_sha256": "3a15481583b82419778c1c8b06fd64078f6dfe4327add006db185d0d6ca57637"
+    },
+    "qwen": {
+      "config": {
+        "model": "qwen",
+        "repo": "jsaurabh/qwen-decision-27b-noncausal-lora",
+        "revision": "b2eefb929a883136b3bd56ce70999fdac656ee8a",
+        "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+        "max_tokens": 8192,
+        "max_choices": 11,
+        "weights": "bfloat16 with published float32 adapters/readout",
+        "attention_backend": "strict math SDPA; native Qwen recurrence unchanged",
+        "temperature": "published checkpoint; not refitted",
+        "context_note": "Inference-only extension beyond Gemma release 2048-token / 8-candidate validation envelope.",
+        "inference_code_sha256": "5747aafd4b981b14fb28e3d979968bba969a9819c4a80c7d005d1d68f9a95281",
+        "torch": "2.14.0+cu130",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+        "temperature_value": 1.0862525693910237
+      },
+      "predictions_sha256": "7efc235367564bf46c7e92257bfe7a03b211c0261a29e07706b804a846de72e5"
+    },
+    "jev": {
+      "config": {
+        "model": "jev-latest",
+        "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+        "max_choices": 11,
+        "request": "state/question only; reference and outcome metadata never sent",
+        "temperature": "native provider output"
+      },
+      "predictions_sha256": "855bd45ced2beb23694a874d35ba53cf7a0bbe798f6eb0f3c642f2841f26214b"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "architecture": "packed-independent-candidate-readout",
+  "base_model": "google/gemma-4-E2B-it",
+  "base_revision": "4adf15748de9e1a0097b6274cee9c15836c41c37",
+  "max_length": 1536,
+  "max_choices": 8,
+  "encoder": false,
+  "temperature": 1.7367021753552925,
+  "merged": true,
+  "confidence_note": "temperature-scaled conditional probabilities; review threshold requires in-domain validation",
+  "candidate_attention": "prefix + own causal block",
+  "candidate_position_reset": true,
+  "readout": "shared scalar"
+}

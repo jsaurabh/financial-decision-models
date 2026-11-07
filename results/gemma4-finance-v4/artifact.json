@@ -1,0 +1,12 @@
+{
+  "repo": "jsaurabh/gemma4-e2b-finance-decisions-v4",
+  "revision": "4ab4f493211d0e7e41ca6d6dbf0f5db208f15e03",
+  "private": true,
+  "weight_files": [
+    {
+      "name": "backbone/model.safetensors",
+      "bytes": 9257198294,
+      "sha256": "b1cba2f1e9be678ab3bc6d4ee1ede22df28993794e8e3bbfa72d0657af0fbbc1"
+    }
+  ]
+}

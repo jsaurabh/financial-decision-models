@@ -1,0 +1,24 @@
+{
+  "test": {
+    "rows": 1712,
+    "families": 948,
+    "unique_normalized_states": 1712
+  },
+  "calibration": {
+    "rows": 1472,
+    "families": 708,
+    "unique_normalized_states": 1471
+  },
+  "train": {
+    "rows": 13513,
+    "families": 9297,
+    "unique_normalized_states": 13498
+  },
+  "contrastive_vs_legacy_family_overlap": 0,
+  "public_fresh": {
+    "rows": 1419,
+    "unique_states": 1419,
+    "prior_state_overlap": 0
+  },
+  "status": "passed"
+}

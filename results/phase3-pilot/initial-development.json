@@ -1,0 +1,61 @@
+{
+  "domains": {
+    "contract_entailment": {
+      "n": 100,
+      "accuracy": 0.44,
+      "macro_f1": 0.4022426499335366,
+      "nll": 1.0866673776961149,
+      "normalized_nll": 0.9891272734747251
+    },
+    "evidence_grounding": {
+      "n": 100,
+      "accuracy": 0.52,
+      "macro_f1": 0.4725274725274725,
+      "nll": 0.7121108909775156,
+      "normalized_nll": 1.0273588509762832,
+      "positive_recall": 0.82,
+      "false_positive_rate": 0.78
+    },
+    "prompt_injection": {
+      "n": 100,
+      "accuracy": 0.51,
+      "macro_f1": 0.39884676726781987,
+      "nll": 0.6781217208067816,
+      "normalized_nll": 0.9783228437270339,
+      "positive_recall": 0.94,
+      "false_positive_rate": 0.92
+    },
+    "banking_intent": {
+      "n": 100,
+      "accuracy": 0.15,
+      "macro_f1": 0.0905284043441938,
+      "nll": 2.1490972652188134,
+      "normalized_nll": 1.0334973223064055
+    },
+    "malicious_request": {
+      "n": 100,
+      "accuracy": 0.48,
+      "macro_f1": 0.47916666666666663,
+      "nll": 0.6960034852420659,
+      "normalized_nll": 1.0041207766001634,
+      "positive_recall": 0.52,
+      "false_positive_rate": 0.56
+    },
+    "tool_action_safety": {
+      "n": 100,
+      "accuracy": 0.34,
+      "macro_f1": 0.21564072783584978,
+      "nll": 1.1212165271773462,
+      "normalized_nll": 1.0205752645791357
+    },
+    "tool_response_preference": {
+      "n": 100,
+      "accuracy": 0.51,
+      "macro_f1": 0.4650070968446337,
+      "nll": 0.6880583233412608,
+      "normalized_nll": 0.9926583309268114
+    }
+  },
+  "selection_score": 1.0065229517986511,
+  "selection": "Equal-domain mean NLL/log(candidate count); development only, research mixture not deployment weights."
+}

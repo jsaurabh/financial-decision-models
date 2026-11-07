@@ -1,0 +1,1676 @@
+{
+  "status": "complete",
+  "manifest_sha256": "50b2c6cabb626b6f862ba61da231ac8e51cc3725beee51eaae43df25fe931fe1",
+  "active_candidates": [
+    "gemma"
+  ],
+  "candidate_policy": "User specified Gemma only; checkpoint selection uses validation only.",
+  "primary_candidate_selected_by_full_validation": "gemma",
+  "training_summaries": {
+    "gemma": {
+      "status": "training_complete",
+      "selected_step": 2500,
+      "last_training_step": 3500,
+      "total_planned_steps": 4185,
+      "early_stopped": true,
+      "tokens": 29249270,
+      "temperature": 1.1645157809740234,
+      "validation": {
+        "tasks": {
+          "banking_intent": {
+            "requested": 300,
+            "valid": 300,
+            "coverage": 1.0,
+            "source_families": 300,
+            "accuracy_missing_as_wrong": 0.7533333333333333,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6878196269960976,
+            "selection_score": 0.6878196269960976,
+            "set_nll_valid_only": 1.169882073631436
+          },
+          "financial_verification": {
+            "requested": 400,
+            "valid": 400,
+            "coverage": 1.0,
+            "source_families": 133,
+            "accuracy_missing_as_wrong": 0.5125,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.4182534177611707,
+            "selection_score": 0.4182534177611707,
+            "binary_valid_only": {
+              "recall": 0.11,
+              "false_positive_rate": 0.085
+            },
+            "set_nll_valid_only": 0.6954355362171899
+          },
+          "legal_maud": {
+            "requested": 500,
+            "valid": 500,
+            "coverage": 1.0,
+            "source_families": 33,
+            "accuracy_missing_as_wrong": 0.818,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.7200152808227326,
+            "selection_score": 0.7200152808227326,
+            "set_nll_valid_only": 0.43613003538230394
+          },
+          "legal_topic": {
+            "requested": 250,
+            "valid": 250,
+            "coverage": 1.0,
+            "source_families": 248,
+            "accuracy_missing_as_wrong": 0.664,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.5316863153698301,
+            "selection_score": 0.5316863153698301,
+            "set_nll_valid_only": 1.6138962368133611
+          },
+          "malicious_request": {
+            "requested": 200,
+            "valid": 200,
+            "coverage": 1.0,
+            "source_families": 137,
+            "accuracy_missing_as_wrong": 0.925,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.9206160196872272,
+            "selection_score": 0.9206160196872272,
+            "binary_valid_only": {
+              "recall": 0.90625,
+              "false_positive_rate": 0.041666666666666664
+            },
+            "set_nll_valid_only": 0.17338462355835632
+          },
+          "prompt_injection": {
+            "requested": 200,
+            "valid": 200,
+            "coverage": 1.0,
+            "source_families": 140,
+            "accuracy_missing_as_wrong": 0.98,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.9725877192982456,
+            "selection_score": 0.9725877192982456,
+            "binary_valid_only": {
+              "recall": 0.9787234042553191,
+              "false_positive_rate": 0.0196078431372549
+            },
+            "set_nll_valid_only": 0.08288836869577527
+          },
+          "routing_costaware": {
+            "requested": 298,
+            "valid": 298,
+            "coverage": 1.0,
+            "source_families": 149,
+            "accuracy_missing_as_wrong": 0.3422818791946309,
+            "errors": {},
+            "selection_score": 0.46282929220177993,
+            "routing_valid_only": {
+              "quality": 0.41795302013422825,
+              "cost_usd": 0.00012684697986577184,
+              "utility": 0.4166845503355703,
+              "oracle_regret": 0.47712671624161096
+            },
+            "training_profile_router_valid_only": {
+              "quality": 0.7835570469798657,
+              "cost_usd": 0.006023825503355706,
+              "utility": 0.7233187919463088
+            },
+            "set_nll_valid_only": 1.693735202050637
+          },
+          "routing_quality": {
+            "requested": 298,
+            "valid": 298,
+            "coverage": 1.0,
+            "source_families": 149,
+            "accuracy_missing_as_wrong": 0.8322147651006712,
+            "errors": {},
+            "selection_score": 0.8590604026845637,
+            "routing_valid_only": {
+              "quality": 0.7760067114093959,
+              "cost_usd": 0.005326432214765101,
+              "utility": 0.7760067114093959,
+              "oracle_regret": 0.11996644295302013
+            },
+            "training_profile_router_valid_only": {
+              "quality": 0.7835570469798657,
+              "cost_usd": 0.006023825503355708,
+              "utility": 0.7835570469798657
+            },
+            "set_nll_valid_only": 0.4373510851747942
+          },
+          "tool_action_safety": {
+            "requested": 200,
+            "valid": 200,
+            "coverage": 1.0,
+            "source_families": 142,
+            "accuracy_missing_as_wrong": 0.795,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.7940011913521846,
+            "selection_score": 0.7940011913521846,
+            "strict_safety_valid_only": {
+              "unsafe_or_review_recall": 0.9705882352941176,
+              "safe_false_block_rate": 0.09375
+            },
+            "set_nll_valid_only": 0.6220786177125001
+          }
+        },
+        "domain_selection_scores": {
+          "financial": 0.5530365223786341,
+          "legal": 0.6258507980962813,
+          "tool_safety": 0.8957349767792192,
+          "model_routing": 0.6609448474431718
+        },
+        "selection_score": 0.6838917861743267,
+        "selection_rule": "Equal four-domain score; classification uses coverage-penalized semantic macro-F1 (MAUD averaged across review questions); routing uses one minus normalized oracle regret. Validation only, not production traffic weighting."
+      },
+      "selection_score": 0.6299562734791264,
+      "test_accessed_during_training": false,
+      "peak_cuda_gib": 14.616932392120361,
+      "selected_training_examples": 20000,
+      "selected_training_tasks": {
+        "financial_verification": 2945,
+        "tool_action_safety": 949,
+        "routing_costaware": 2541,
+        "legal_topic": 2996,
+        "routing_quality": 2660,
+        "banking_intent": 3616,
+        "malicious_request": 942,
+        "legal_maud": 2409,
+        "prompt_injection": 942
+      },
+      "selected_training_domains": {
+        "financial": 6561,
+        "tool_safety": 2833,
+        "model_routing": 5201,
+        "legal": 5405
+      }
+    }
+  },
+  "artifacts": {
+    "gemma": {
+      "repo": "jsaurabh/financial-decision-phase4-gemma",
+      "revision": "e79d95e65c921a6def7eedbf6882883d92afe9ff",
+      "path": "run/release",
+      "manifest_sha256": "50b2c6cabb626b6f862ba61da231ac8e51cc3725beee51eaae43df25fe931fe1",
+      "training_summary_sha256": "f19b7c8319cceb5d6863abb807e681f17f7c264a7557739e19ff87d2e61a27f3"
+    }
+  },
+  "cohorts": {
+    "core": {
+      "gemma": {
+        "tasks": {
+          "banking_intent": {
+            "requested": 500,
+            "valid": 500,
+            "coverage": 1.0,
+            "source_families": 496,
+            "accuracy_missing_as_wrong": 0.768,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.7551107458147786,
+            "selection_score": 0.7551107458147786,
+            "set_nll_valid_only": 1.015538284335544
+          },
+          "financial_verification": {
+            "requested": 600,
+            "valid": 600,
+            "coverage": 1.0,
+            "source_families": 196,
+            "accuracy_missing_as_wrong": 0.5316666666666666,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.4468050200967927,
+            "selection_score": 0.4468050200967927,
+            "binary_valid_only": {
+              "recall": 0.14,
+              "false_positive_rate": 0.07666666666666666
+            },
+            "set_nll_valid_only": 0.691987567728755
+          },
+          "legal_maud": {
+            "requested": 700,
+            "valid": 700,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.8071428571428572,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6822367022503275,
+            "selection_score": 0.6822367022503275,
+            "set_nll_valid_only": 0.46491807236511856
+          },
+          "legal_topic": {
+            "requested": 350,
+            "valid": 350,
+            "coverage": 1.0,
+            "source_families": 331,
+            "accuracy_missing_as_wrong": 0.7,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.5566536323034647,
+            "selection_score": 0.5566536323034647,
+            "set_nll_valid_only": 1.3417507715127097
+          },
+          "malicious_request": {
+            "requested": 310,
+            "valid": 310,
+            "coverage": 1.0,
+            "source_families": 114,
+            "accuracy_missing_as_wrong": 0.967741935483871,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.9659025914030536,
+            "selection_score": 0.9659025914030536,
+            "binary_valid_only": {
+              "recall": 0.95,
+              "false_positive_rate": 0.021052631578947368
+            },
+            "set_nll_valid_only": 0.09989337015736122
+          },
+          "prompt_injection": {
+            "requested": 310,
+            "valid": 310,
+            "coverage": 1.0,
+            "source_families": 114,
+            "accuracy_missing_as_wrong": 0.9709677419354839,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.9680964197093229,
+            "selection_score": 0.9680964197093229,
+            "binary_valid_only": {
+              "recall": 0.9369369369369369,
+              "false_positive_rate": 0.010050251256281407
+            },
+            "set_nll_valid_only": 0.12411203360400047
+          },
+          "routing_costaware": {
+            "requested": 440,
+            "valid": 440,
+            "coverage": 1.0,
+            "source_families": 216,
+            "accuracy_missing_as_wrong": 0.3522727272727273,
+            "errors": {},
+            "selection_score": 0.45298360963707185,
+            "routing_valid_only": {
+              "quality": 0.4034090909090909,
+              "cost_usd": 0.00016731694545454558,
+              "utility": 0.40173592145454534,
+              "oracle_regret": 0.4992807524545456
+            },
+            "training_profile_router_valid_only": {
+              "quality": 0.7670454545454546,
+              "cost_usd": 0.005261295454545451,
+              "utility": 0.7144324999999992
+            },
+            "set_nll_valid_only": 1.801568681858846
+          },
+          "routing_quality": {
+            "requested": 440,
+            "valid": 440,
+            "coverage": 1.0,
+            "source_families": 217,
+            "accuracy_missing_as_wrong": 0.8113636363636364,
+            "errors": {},
+            "selection_score": 0.8291666666666667,
+            "routing_valid_only": {
+              "quality": 0.7636363636363637,
+              "cost_usd": 0.004492941263636358,
+              "utility": 0.7636363636363637,
+              "oracle_regret": 0.15397727272727274
+            },
+            "training_profile_router_valid_only": {
+              "quality": 0.7710227272727272,
+              "cost_usd": 0.005111181818181814,
+              "utility": 0.7710227272727272
+            },
+            "set_nll_valid_only": 0.5408988887093676
+          },
+          "tool_action_safety": {
+            "requested": 310,
+            "valid": 310,
+            "coverage": 1.0,
+            "source_families": 114,
+            "accuracy_missing_as_wrong": 0.8096774193548387,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.8052391579945585,
+            "selection_score": 0.8052391579945585,
+            "strict_safety_valid_only": {
+              "unsafe_or_review_recall": 0.9555555555555556,
+              "safe_false_block_rate": 0.2076923076923077
+            },
+            "set_nll_valid_only": 0.46709928511651333
+          }
+        },
+        "domain_selection_scores": {
+          "financial": 0.6009578829557856,
+          "legal": 0.6194451672768961,
+          "tool_safety": 0.9130793897023116,
+          "model_routing": 0.6410751381518693
+        },
+        "selection_score": 0.6936393945217156,
+        "selection_rule": "Equal four-domain score; classification uses coverage-penalized semantic macro-F1 (MAUD averaged across review questions); routing uses one minus normalized oracle regret. Validation only, not production traffic weighting."
+      },
+      "jev": {
+        "tasks": {
+          "banking_intent": {
+            "requested": 500,
+            "valid": 500,
+            "coverage": 1.0,
+            "source_families": 496,
+            "accuracy_missing_as_wrong": 0.836,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.8126218166259677,
+            "selection_score": 0.8126218166259677,
+            "set_nll_valid_only": 1.465036555600427
+          },
+          "financial_verification": {
+            "requested": 600,
+            "valid": 600,
+            "coverage": 1.0,
+            "source_families": 196,
+            "accuracy_missing_as_wrong": 0.915,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.9149884289806111,
+            "selection_score": 0.9149884289806111,
+            "binary_valid_only": {
+              "recall": 0.9266666666666666,
+              "false_positive_rate": 0.09666666666666666
+            },
+            "set_nll_valid_only": 0.21947814839003565
+          },
+          "legal_maud": {
+            "requested": 700,
+            "valid": 700,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.7628571428571429,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6387987284009188,
+            "selection_score": 0.6387987284009188,
+            "set_nll_valid_only": 0.9649168294774225
+          },
+          "legal_topic": {
+            "requested": 350,
+            "valid": 350,
+            "coverage": 1.0,
+            "source_families": 331,
+            "accuracy_missing_as_wrong": 0.7828571428571428,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6229356893097753,
+            "selection_score": 0.6229356893097753,
+            "set_nll_valid_only": 1.666266618829134
+          },
+          "malicious_request": {
+            "requested": 310,
+            "valid": 310,
+            "coverage": 1.0,
+            "source_families": 114,
+            "accuracy_missing_as_wrong": 0.7612903225806451,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.7403685092127303,
+            "selection_score": 0.7403685092127303,
+            "binary_valid_only": {
+              "recall": 0.6166666666666667,
+              "false_positive_rate": 0.14736842105263157
+            },
+            "set_nll_valid_only": 0.4348362485585149
+          },
+          "prompt_injection": {
+            "requested": 310,
+            "valid": 310,
+            "coverage": 1.0,
+            "source_families": 114,
+            "accuracy_missing_as_wrong": 0.7096774193548387,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6297967199193248,
+            "selection_score": 0.6297967199193248,
+            "binary_valid_only": {
+              "recall": 0.34234234234234234,
+              "false_positive_rate": 0.08542713567839195
+            },
+            "set_nll_valid_only": 0.594240754844522
+          },
+          "routing_costaware": {
+            "requested": 440,
+            "valid": 440,
+            "coverage": 1.0,
+            "source_families": 216,
+            "accuracy_missing_as_wrong": 0.10227272727272728,
+            "errors": {},
+            "selection_score": 0.6954252100349965,
+            "routing_valid_only": {
+              "quality": 0.6232954545454545,
+              "cost_usd": 0.00033933909090909104,
+              "utility": 0.6199020636363632,
+              "oracle_regret": 0.2811146102727276
+            },
+            "training_profile_router_valid_only": {
+              "quality": 0.7670454545454546,
+              "cost_usd": 0.005261295454545451,
+              "utility": 0.7144324999999992
+            },
+            "set_nll_valid_only": 3.448424075532403
+          },
+          "routing_quality": {
+            "requested": 440,
+            "valid": 440,
+            "coverage": 1.0,
+            "source_families": 217,
+            "accuracy_missing_as_wrong": 0.8068181818181818,
+            "errors": {},
+            "selection_score": 0.8333333333333334,
+            "routing_valid_only": {
+              "quality": 0.7710227272727272,
+              "cost_usd": 0.005111181818181814,
+              "utility": 0.7710227272727272,
+              "oracle_regret": 0.14659090909090908
+            },
+            "training_profile_router_valid_only": {
+              "quality": 0.7710227272727272,
+              "cost_usd": 0.005111181818181814,
+              "utility": 0.7710227272727272
+            },
+            "set_nll_valid_only": 4.546416243117696
+          },
+          "tool_action_safety": {
+            "requested": 310,
+            "valid": 310,
+            "coverage": 1.0,
+            "source_families": 114,
+            "accuracy_missing_as_wrong": 0.6096774193548387,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.5351721347151983,
+            "selection_score": 0.5351721347151983,
+            "strict_safety_valid_only": {
+              "unsafe_or_review_recall": 0.46111111111111114,
+              "safe_false_block_rate": 0.023076923076923078
+            },
+            "set_nll_valid_only": 2.3969451837229516
+          }
+        },
+        "domain_selection_scores": {
+          "financial": 0.8638051228032894,
+          "legal": 0.6308672088553471,
+          "tool_safety": 0.6351124546157512,
+          "model_routing": 0.7643792716841649
+        },
+        "selection_score": 0.7235410144896381,
+        "selection_rule": "Equal four-domain score; classification uses coverage-penalized semantic macro-F1 (MAUD averaged across review questions); routing uses one minus normalized oracle regret. Validation only, not production traffic weighting."
+      }
+    },
+    "transfer": {
+      "gemma": {
+        "tasks": {
+          "transfer/cuad_anti-assignment": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 84,
+            "accuracy_missing_as_wrong": 0.86,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.8585858585858586,
+            "selection_score": 0.8585858585858586,
+            "set_nll_valid_only": 0.3599199657852436
+          },
+          "transfer/cuad_audit_rights": {
+            "requested": 98,
+            "valid": 98,
+            "coverage": 1.0,
+            "source_families": 81,
+            "accuracy_missing_as_wrong": 0.7959183673469388,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.7679924242424243,
+            "selection_score": 0.7679924242424243,
+            "set_nll_valid_only": 0.5431980041219762
+          },
+          "transfer/cuad_cap_on_liability": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 84,
+            "accuracy_missing_as_wrong": 0.66,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6026180458158018,
+            "selection_score": 0.6026180458158018,
+            "set_nll_valid_only": 1.0469768240128976
+          },
+          "transfer/cuad_termination_for_convenience": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 93,
+            "accuracy_missing_as_wrong": 0.9,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.8973727422003283,
+            "selection_score": 0.8973727422003283,
+            "set_nll_valid_only": 0.24683569331097274
+          },
+          "transfer/finqa_verification": {
+            "requested": 360,
+            "valid": 360,
+            "coverage": 1.0,
+            "source_families": 127,
+            "accuracy_missing_as_wrong": 0.5194444444444445,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.43525059168109975,
+            "selection_score": 0.43525059168109975,
+            "binary_valid_only": {
+              "recall": 0.13333333333333333,
+              "false_positive_rate": 0.09444444444444444
+            },
+            "set_nll_valid_only": 0.6808362898609795
+          },
+          "transfer/insurance_policy_interpretation": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 42,
+            "accuracy_missing_as_wrong": 0.42,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.354074619538537,
+            "selection_score": 0.354074619538537,
+            "set_nll_valid_only": 1.5421986782929336
+          },
+          "transfer/routerarena_costaware": {
+            "requested": 118,
+            "valid": 118,
+            "coverage": 1.0,
+            "source_families": 118,
+            "accuracy_missing_as_wrong": 0.8389830508474576,
+            "errors": {},
+            "selection_score": 0.8948633190165319,
+            "routing_valid_only": {
+              "quality": 0.6894150345676493,
+              "cost_usd": 4.941991525423732e-05,
+              "utility": 0.6889208354151068,
+              "oracle_regret": 0.057984263570762945
+            },
+            "set_nll_valid_only": 0.8879956229079817
+          },
+          "transfer/routerarena_quality": {
+            "requested": 118,
+            "valid": 118,
+            "coverage": 1.0,
+            "source_families": 118,
+            "accuracy_missing_as_wrong": 0.7796610169491526,
+            "errors": {},
+            "selection_score": 0.796520258262498,
+            "routing_valid_only": {
+              "quality": 0.6045420781729186,
+              "cost_usd": 6.30940677966102e-05,
+              "utility": 0.6045420781729186,
+              "oracle_regret": 0.1429031182705784
+            },
+            "set_nll_valid_only": 0.32492549986216035
+          },
+          "transfer/tracesafe/binary/AmbiguousArg": {
+            "requested": 20,
+            "valid": 16,
+            "coverage": 0.8,
+            "source_families": 16,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 4
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.9882742914598985
+          },
+          "transfer/tracesafe/binary/ApiKeyLeak": {
+            "requested": 20,
+            "valid": 17,
+            "coverage": 0.85,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 3
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.912444687462597
+          },
+          "transfer/tracesafe/binary/DataLeak": {
+            "requested": 20,
+            "valid": 15,
+            "coverage": 0.75,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 5
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.8100337963972777
+          },
+          "transfer/tracesafe/binary/DescriptionMismatch": {
+            "requested": 20,
+            "valid": 16,
+            "coverage": 0.8,
+            "source_families": 19,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 4
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.8471094649955915
+          },
+          "transfer/tracesafe/binary/HallucinatedArgValue": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.7375672564753053
+          },
+          "transfer/tracesafe/binary/HallucinatedTool": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.441325193836867
+          },
+          "transfer/tracesafe/binary/MissingTypeHint": {
+            "requested": 20,
+            "valid": 15,
+            "coverage": 0.75,
+            "source_families": 17,
+            "accuracy_missing_as_wrong": 0.05,
+            "errors": {
+              "over_context_limit": 5
+            },
+            "semantic_macro_f1_coverage_penalized": 0.046875,
+            "selection_score": 0.046875,
+            "binary_valid_only": {
+              "recall": 0.06666666666666667,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.936570365457494
+          },
+          "transfer/tracesafe/binary/PromptInjectionIn": {
+            "requested": 20,
+            "valid": 19,
+            "coverage": 0.95,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 1
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.1466009198377094
+          },
+          "transfer/tracesafe/binary/PromptInjectionOut": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.549497243454736
+          },
+          "transfer/tracesafe/binary/RedundantArg": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.643841816325967
+          },
+          "transfer/tracesafe/binary/UserInfoLeak": {
+            "requested": 20,
+            "valid": 16,
+            "coverage": 0.8,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 4
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.4704457810453455
+          },
+          "transfer/tracesafe/binary/VersionConflict": {
+            "requested": 20,
+            "valid": 19,
+            "coverage": 0.95,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 1
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "binary_valid_only": {
+              "recall": 0.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 2.7120858635511342
+          },
+          "transfer/tracesafe/binary/benign": {
+            "requested": 20,
+            "valid": 16,
+            "coverage": 0.8,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.8,
+            "errors": {
+              "over_context_limit": 4
+            },
+            "semantic_macro_f1_coverage_penalized": 0.8,
+            "selection_score": 0.8,
+            "binary_valid_only": {
+              "recall": null,
+              "false_positive_rate": 0.0
+            },
+            "set_nll_valid_only": 0.09349653027192087
+          },
+          "transfer/tracesafe/coarse/AmbiguousArg": {
+            "requested": 20,
+            "valid": 16,
+            "coverage": 0.8,
+            "source_families": 16,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 4
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.6074533995852396
+          },
+          "transfer/tracesafe/coarse/ApiKeyLeak": {
+            "requested": 20,
+            "valid": 17,
+            "coverage": 0.85,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.05,
+            "errors": {
+              "over_context_limit": 3
+            },
+            "semantic_macro_f1_coverage_penalized": 0.04722222222222222,
+            "selection_score": 0.04722222222222222,
+            "set_nll_valid_only": 1.861470184447934
+          },
+          "transfer/tracesafe/coarse/DataLeak": {
+            "requested": 20,
+            "valid": 14,
+            "coverage": 0.7,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.05,
+            "errors": {
+              "over_context_limit": 6
+            },
+            "semantic_macro_f1_coverage_penalized": 0.04666666666666667,
+            "selection_score": 0.04666666666666667,
+            "set_nll_valid_only": 2.281524247418509
+          },
+          "transfer/tracesafe/coarse/DescriptionMismatch": {
+            "requested": 20,
+            "valid": 15,
+            "coverage": 0.75,
+            "source_families": 19,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 5
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.865218568741161
+          },
+          "transfer/tracesafe/coarse/HallucinatedArgValue": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.4670873308885146
+          },
+          "transfer/tracesafe/coarse/HallucinatedTool": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.29827002725247
+          },
+          "transfer/tracesafe/coarse/MissingTypeHint": {
+            "requested": 20,
+            "valid": 15,
+            "coverage": 0.75,
+            "source_families": 17,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 5
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.8120246937947813
+          },
+          "transfer/tracesafe/coarse/PromptInjectionIn": {
+            "requested": 20,
+            "valid": 19,
+            "coverage": 0.95,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 0.05,
+            "errors": {
+              "over_context_limit": 1
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0475,
+            "selection_score": 0.0475,
+            "set_nll_valid_only": 2.1425939925419994
+          },
+          "transfer/tracesafe/coarse/PromptInjectionOut": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.262723365813903
+          },
+          "transfer/tracesafe/coarse/RedundantArg": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.613562405394023
+          },
+          "transfer/tracesafe/coarse/UserInfoLeak": {
+            "requested": 20,
+            "valid": 15,
+            "coverage": 0.75,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.25,
+            "errors": {
+              "over_context_limit": 5
+            },
+            "semantic_macro_f1_coverage_penalized": 0.1875,
+            "selection_score": 0.1875,
+            "set_nll_valid_only": 1.4688029528714266
+          },
+          "transfer/tracesafe/coarse/VersionConflict": {
+            "requested": 20,
+            "valid": 19,
+            "coverage": 0.95,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {
+              "over_context_limit": 1
+            },
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.424399219693119
+          },
+          "transfer/tracesafe/coarse/benign": {
+            "requested": 20,
+            "valid": 16,
+            "coverage": 0.8,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.8,
+            "errors": {
+              "over_context_limit": 4
+            },
+            "semantic_macro_f1_coverage_penalized": 0.8,
+            "selection_score": 0.8,
+            "set_nll_valid_only": 0.362929689363134
+          }
+        },
+        "domain_selection_scores": {
+          "legal": 0.69612873807659,
+          "financial": 0.43525059168109975,
+          "model_routing": 0.845691788639515,
+          "tool_safety": 0.07599091880341881
+        },
+        "selection_score": 0.5132655093001559,
+        "selection_rule": "Equal four-domain score; classification uses coverage-penalized semantic macro-F1 (MAUD averaged across review questions); routing uses one minus normalized oracle regret. Validation only, not production traffic weighting."
+      },
+      "jev": {
+        "tasks": {
+          "transfer/cuad_anti-assignment": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 84,
+            "accuracy_missing_as_wrong": 0.88,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.8792270531400965,
+            "selection_score": 0.8792270531400965,
+            "set_nll_valid_only": 0.622965312354571
+          },
+          "transfer/cuad_audit_rights": {
+            "requested": 98,
+            "valid": 98,
+            "coverage": 1.0,
+            "source_families": 81,
+            "accuracy_missing_as_wrong": 0.8673469387755102,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.8564507042253521,
+            "selection_score": 0.8564507042253521,
+            "set_nll_valid_only": 0.7996281335549181
+          },
+          "transfer/cuad_cap_on_liability": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 84,
+            "accuracy_missing_as_wrong": 0.72,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.6880570409982174,
+            "selection_score": 0.6880570409982174,
+            "set_nll_valid_only": 1.7990103935012371
+          },
+          "transfer/cuad_termination_for_convenience": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 93,
+            "accuracy_missing_as_wrong": 0.9,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.898000815993472,
+            "selection_score": 0.898000815993472,
+            "set_nll_valid_only": 0.26320904399587014
+          },
+          "transfer/finqa_verification": {
+            "requested": 360,
+            "valid": 360,
+            "coverage": 1.0,
+            "source_families": 127,
+            "accuracy_missing_as_wrong": 0.9083333333333333,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.9083269671504965,
+            "selection_score": 0.9083269671504965,
+            "binary_valid_only": {
+              "recall": 0.9,
+              "false_positive_rate": 0.08333333333333333
+            },
+            "set_nll_valid_only": 0.27077916862251095
+          },
+          "transfer/insurance_policy_interpretation": {
+            "requested": 100,
+            "valid": 100,
+            "coverage": 1.0,
+            "source_families": 42,
+            "accuracy_missing_as_wrong": 0.5,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.4341736694677871,
+            "selection_score": 0.4341736694677871,
+            "set_nll_valid_only": 1.630747944680817
+          },
+          "transfer/routerarena_costaware": {
+            "requested": 118,
+            "valid": 118,
+            "coverage": 1.0,
+            "source_families": 118,
+            "accuracy_missing_as_wrong": 0.847457627118644,
+            "errors": {},
+            "selection_score": 0.8801784219159682,
+            "routing_valid_only": {
+              "quality": 0.6657966565456969,
+              "cost_usd": 4.5528813559322044e-05,
+              "utility": 0.6653413684101037,
+              "oracle_regret": 0.08156373057576617
+            },
+            "set_nll_valid_only": 0.6864970707871799
+          },
+          "transfer/routerarena_quality": {
+            "requested": 118,
+            "valid": 118,
+            "coverage": 1.0,
+            "source_families": 118,
+            "accuracy_missing_as_wrong": 0.7627118644067796,
+            "errors": {},
+            "selection_score": 0.7852821956631614,
+            "routing_valid_only": {
+              "quality": 0.5786291500877826,
+              "cost_usd": 8.426101694915256e-05,
+              "utility": 0.5786291500877826,
+              "oracle_regret": 0.1688160463557144
+            },
+            "set_nll_valid_only": 0.3922015491548787
+          },
+          "transfer/tracesafe/binary/AmbiguousArg": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 16,
+            "accuracy_missing_as_wrong": 0.4,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.2857142857142857,
+            "selection_score": 0.2857142857142857,
+            "binary_valid_only": {
+              "recall": 0.4,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.8399327942877356
+          },
+          "transfer/tracesafe/binary/ApiKeyLeak": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.45,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.3103448275862069,
+            "selection_score": 0.3103448275862069,
+            "binary_valid_only": {
+              "recall": 0.45,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.7622271549783959
+          },
+          "transfer/tracesafe/binary/DataLeak": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 1.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 1.0,
+            "selection_score": 1.0,
+            "binary_valid_only": {
+              "recall": 1.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.07939603434210445
+          },
+          "transfer/tracesafe/binary/DescriptionMismatch": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 19,
+            "accuracy_missing_as_wrong": 0.85,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.4594594594594595,
+            "selection_score": 0.4594594594594595,
+            "binary_valid_only": {
+              "recall": 0.85,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.42340490958122123
+          },
+          "transfer/tracesafe/binary/HallucinatedArgValue": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.1,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.09090909090909091,
+            "selection_score": 0.09090909090909091,
+            "binary_valid_only": {
+              "recall": 0.1,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 1.9740034729804503
+          },
+          "transfer/tracesafe/binary/HallucinatedTool": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 1.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 1.0,
+            "selection_score": 1.0,
+            "binary_valid_only": {
+              "recall": 1.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.07828665906172563
+          },
+          "transfer/tracesafe/binary/MissingTypeHint": {
+            "requested": 20,
+            "valid": 18,
+            "coverage": 0.9,
+            "source_families": 17,
+            "accuracy_missing_as_wrong": 0.55,
+            "errors": {
+              "RuntimeError": 2
+            },
+            "semantic_macro_f1_coverage_penalized": 0.3413793103448276,
+            "selection_score": 0.3413793103448276,
+            "binary_valid_only": {
+              "recall": 0.6111111111111112,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.8938412614225361
+          },
+          "transfer/tracesafe/binary/PromptInjectionIn": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 0.55,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.3548387096774194,
+            "selection_score": 0.3548387096774194,
+            "binary_valid_only": {
+              "recall": 0.55,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.6943195418162548
+          },
+          "transfer/tracesafe/binary/PromptInjectionOut": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.3,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.23076923076923078,
+            "selection_score": 0.23076923076923078,
+            "binary_valid_only": {
+              "recall": 0.3,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.9950768224680073
+          },
+          "transfer/tracesafe/binary/RedundantArg": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 1.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 1.0,
+            "selection_score": 1.0,
+            "binary_valid_only": {
+              "recall": 1.0,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.025859725439727095
+          },
+          "transfer/tracesafe/binary/UserInfoLeak": {
+            "requested": 20,
+            "valid": 19,
+            "coverage": 0.95,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.9,
+            "errors": {
+              "RuntimeError": 1
+            },
+            "semantic_macro_f1_coverage_penalized": 0.4621621621621622,
+            "selection_score": 0.4621621621621622,
+            "binary_valid_only": {
+              "recall": 0.9473684210526315,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 0.20026767849637284
+          },
+          "transfer/tracesafe/binary/VersionConflict": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.25,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.2,
+            "selection_score": 0.2,
+            "binary_valid_only": {
+              "recall": 0.25,
+              "false_positive_rate": null
+            },
+            "set_nll_valid_only": 1.0587947320778748
+          },
+          "transfer/tracesafe/binary/benign": {
+            "requested": 20,
+            "valid": 17,
+            "coverage": 0.85,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.5,
+            "errors": {
+              "RuntimeError": 3
+            },
+            "semantic_macro_f1_coverage_penalized": 0.31481481481481477,
+            "selection_score": 0.31481481481481477,
+            "binary_valid_only": {
+              "recall": null,
+              "false_positive_rate": 0.4117647058823529
+            },
+            "set_nll_valid_only": 0.7340200802091865
+          },
+          "transfer/tracesafe/coarse/AmbiguousArg": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 16,
+            "accuracy_missing_as_wrong": 0.3,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.23076923076923078,
+            "selection_score": 0.23076923076923078,
+            "set_nll_valid_only": 1.4737609499114344
+          },
+          "transfer/tracesafe/coarse/ApiKeyLeak": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.1,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.06060606060606061,
+            "selection_score": 0.06060606060606061,
+            "set_nll_valid_only": 1.448400010276281
+          },
+          "transfer/tracesafe/coarse/DataLeak": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.5,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.3333333333333333,
+            "selection_score": 0.3333333333333333,
+            "set_nll_valid_only": 0.962168771428693
+          },
+          "transfer/tracesafe/coarse/DescriptionMismatch": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 19,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 2.6494040887685903
+          },
+          "transfer/tracesafe/coarse/HallucinatedArgValue": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 0.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.0,
+            "selection_score": 0.0,
+            "set_nll_valid_only": 6.8431077525627675
+          },
+          "transfer/tracesafe/coarse/HallucinatedTool": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 15,
+            "accuracy_missing_as_wrong": 1.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 1.0,
+            "selection_score": 1.0,
+            "set_nll_valid_only": 0.08409770048331076
+          },
+          "transfer/tracesafe/coarse/MissingTypeHint": {
+            "requested": 20,
+            "valid": 18,
+            "coverage": 0.9,
+            "source_families": 17,
+            "accuracy_missing_as_wrong": 0.5,
+            "errors": {
+              "RuntimeError": 2
+            },
+            "semantic_macro_f1_coverage_penalized": 0.32142857142857145,
+            "selection_score": 0.32142857142857145,
+            "set_nll_valid_only": 4.172428416679283
+          },
+          "transfer/tracesafe/coarse/PromptInjectionIn": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 0.25,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.1,
+            "selection_score": 0.1,
+            "set_nll_valid_only": 1.3188840302344582
+          },
+          "transfer/tracesafe/coarse/PromptInjectionOut": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.1,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.045454545454545456,
+            "selection_score": 0.045454545454545456,
+            "set_nll_valid_only": 1.1399458124061224
+          },
+          "transfer/tracesafe/coarse/RedundantArg": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 14,
+            "accuracy_missing_as_wrong": 1.0,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 1.0,
+            "selection_score": 1.0,
+            "set_nll_valid_only": 0.0313039786115619
+          },
+          "transfer/tracesafe/coarse/UserInfoLeak": {
+            "requested": 20,
+            "valid": 19,
+            "coverage": 0.95,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.8,
+            "errors": {
+              "RuntimeError": 1
+            },
+            "semantic_macro_f1_coverage_penalized": 0.2895238095238095,
+            "selection_score": 0.2895238095238095,
+            "set_nll_valid_only": 0.5676664691834209
+          },
+          "transfer/tracesafe/coarse/VersionConflict": {
+            "requested": 20,
+            "valid": 20,
+            "coverage": 1.0,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.05,
+            "errors": {},
+            "semantic_macro_f1_coverage_penalized": 0.023809523809523808,
+            "selection_score": 0.023809523809523808,
+            "set_nll_valid_only": 4.438172981874621
+          },
+          "transfer/tracesafe/coarse/benign": {
+            "requested": 20,
+            "valid": 17,
+            "coverage": 0.85,
+            "source_families": 18,
+            "accuracy_missing_as_wrong": 0.7,
+            "errors": {
+              "RuntimeError": 3
+            },
+            "semantic_macro_f1_coverage_penalized": 0.38387096774193546,
+            "selection_score": 0.38387096774193546,
+            "set_nll_valid_only": 0.552223257372135
+          }
+        },
+        "domain_selection_scores": {
+          "legal": 0.7511818567649851,
+          "financial": 0.9083269671504965,
+          "model_routing": 0.8327303087895648,
+          "tool_safety": 0.3784303051578657
+        },
+        "selection_score": 0.7176673594657281,
+        "selection_rule": "Equal four-domain score; classification uses coverage-penalized semantic macro-F1 (MAUD averaged across review questions); routing uses one minus normalized oracle regret. Validation only, not production traffic weighting."
+      }
+    }
+  },
+  "core_paired_comparisons": {
+    "gemma": {
+      "financial": {
+        "difference": -0.22566666666666668,
+        "ci95": [
+          -0.24876801669523574,
+          -0.20311792842613782
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 692,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "legal": {
+        "difference": -0.018219402385328893,
+        "ci95": [
+          -0.04573841003979383,
+          0.008898055986633057
+        ],
+        "p_two_sided": 0.24637536246375363,
+        "families": 346,
+        "bootstrap_replicates": 9690,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "tool_safety": {
+        "difference": 0.22258064516129034,
+        "ci95": [
+          0.18202758423638088,
+          0.26489264037405824
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "families": 114,
+        "bootstrap_replicates": 10000,
+        "requested_replicates": 10000,
+        "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+      },
+      "routing_quality": {
+        "requested": 440,
+        "common_valid": 440,
+        "coverage": 1.0,
+        "common_valid_means": {
+          "gemma": {
+            "quality": 0.7636363636363637,
+            "cost_usd": 0.004492941263636364,
+            "utility": 0.7636363636363637,
+            "oracle_regret": 0.15397727272727274
+          },
+          "jev": {
+            "quality": 0.7710227272727272,
+            "cost_usd": 0.0051111818181818185,
+            "utility": 0.7710227272727272,
+            "oracle_regret": 0.14659090909090908
+          }
+        },
+        "paired_differences": {
+          "quality": {
+            "difference": -0.007386363636363636,
+            "ci95": [
+              -0.022093329253365972,
+              0.00628140703517588
+            ],
+            "p_two_sided": 0.36846315368463156,
+            "families": 217,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "cost_usd": {
+            "difference": -0.0006182405545454544,
+            "ci95": [
+              -0.0008468691149825029,
+              -0.00042599206772674753
+            ],
+            "p_two_sided": 9.999000099990002e-05,
+            "families": 217,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "utility": {
+            "difference": -0.007386363636363636,
+            "ci95": [
+              -0.022093329253365972,
+              0.00628140703517588
+            ],
+            "p_two_sided": 0.36846315368463156,
+            "families": 217,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "oracle_regret": {
+            "difference": 0.007386363636363636,
+            "ci95": [
+              -0.00628140703517588,
+              0.02209332925336597
+            ],
+            "p_two_sided": 0.36846315368463156,
+            "families": 217,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          }
+        },
+        "note": "Released eleven-model RouterBench historical outcomes. Missing routing decisions are excluded from paired cost/utility, never counted as zero-cost successes. This is separate from the three-model RouterArena transfer track."
+      },
+      "routing_costaware": {
+        "requested": 440,
+        "common_valid": 440,
+        "coverage": 1.0,
+        "common_valid_means": {
+          "gemma": {
+            "quality": 0.4034090909090909,
+            "cost_usd": 0.00016731694545454545,
+            "utility": 0.40173592145454545,
+            "oracle_regret": 0.49928075245454545
+          },
+          "jev": {
+            "quality": 0.6232954545454545,
+            "cost_usd": 0.000339339090909091,
+            "utility": 0.6199020636363637,
+            "oracle_regret": 0.28111461027272727
+          }
+        },
+        "paired_differences": {
+          "quality": {
+            "difference": -0.21988636363636363,
+            "ci95": [
+              -0.29085533497598404,
+              -0.15618788819875778
+            ],
+            "p_two_sided": 9.999000099990002e-05,
+            "families": 216,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "cost_usd": {
+            "difference": -0.0001720221454545455,
+            "ci95": [
+              -0.00024351954791569636,
+              -8.441109029890982e-05
+            ],
+            "p_two_sided": 9.999000099990002e-05,
+            "families": 216,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "utility": {
+            "difference": -0.21816614218181818,
+            "ci95": [
+              -0.2892797694674738,
+              -0.15460511105851063
+            ],
+            "p_two_sided": 9.999000099990002e-05,
+            "families": 216,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          },
+          "oracle_regret": {
+            "difference": 0.21816614218181818,
+            "ci95": [
+              0.15460511105851066,
+              0.2892797694674738
+            ],
+            "p_two_sided": 9.999000099990002e-05,
+            "families": 216,
+            "bootstrap_replicates": 10000,
+            "requested_replicates": 10000,
+            "method": "paired source-family cluster bootstrap; equal task weights unless declared; two-sided family sign randomization"
+          }
+        },
+        "note": "Released eleven-model RouterBench historical outcomes. Missing routing decisions are excluded from paired cost/utility, never counted as zero-cost successes. This is separate from the three-model RouterArena transfer track."
+      },
+      "holm_p": {
+        "financial": 0.0004999500049995,
+        "tool_safety": 0.0004999500049995,
+        "routing_costaware": 0.0004999500049995,
+        "legal": 0.49275072492750727,
+        "routing_quality": 0.49275072492750727
+      },
+      "positive_primary_gates": {
+        "financial": false,
+        "legal": false,
+        "tool_safety": true,
+        "routing_quality": false,
+        "routing_costaware": false
+      },
+      "all_classification_f1_no_worse": false,
+      "native_safety_tradeoff_no_worse": false,
+      "stable_complete_jev_core_reference": true,
+      "represented_core_superiority_supported": false
+    }
+  },
+  "receipts": {
+    "gemma": 5574,
+    "jev": 5574
+  },
+  "jev_resolved_providers": {
+    "jev-1.14.0": 5562,
+    "missing": 12
+  },
+  "controllers": {
+    "gemma": {
+      "role": "gemma",
+      "status": "pipeline_complete",
+      "time": 1794025931.3392758,
+      "stop_returncode": 0,
+      "stop_detail": "[colab] Stopping session 'phase4-gemma'...\n[colab] Session terminated.\n",
+      "elapsed_s": 9203.433677434921,
+      "recoveries": 0
+    }
+  },
+  "historical_exposure": "Some native benchmark core-test examples were evaluated by earlier models. They are excluded from this cycle training/selection, but are not claimed never inspected by the project.",
+  "transfer_exposure": "These published transfer sources/cases were evaluated by earlier models; they are evaluation-only for phase4, not claimed never inspected during the project.",
+  "limitations": [
+    "TATQA/LEDGAR do not release original-report/document identifiers for all contexts; group on released context/request IDs plus exact/near content.",
+    "BANKING77/LEDGAR use full native77/100 labels; MAUD uses declared eligible native review questions with complete task-specific ontologies.",
+    "MAUD source folds overlap contracts; explicit document repartition replaces them.",
+    "Native/public labels and programmatically checked counterfactuals are not independent production financial-workflow adjudication.",
+    "Routing is historical released11-model outcomes, not current production routing."
+  ],
+  "claim_scope": "Only represented core capabilities with recorded matched splits. Transfer results are separate. No production financial-services claim; public pretraining exposure unknown."
+}

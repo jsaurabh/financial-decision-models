@@ -1,0 +1,77 @@
+{
+  "status": "specified_before_fitting",
+  "scope": "Gemma4 E2B only; bounded training-recipe diagnosis, no final-test evaluation",
+  "base": "google/gemma-4-E2B-it@4adf15748de9e1a0097b6274cee9c15836c41c37",
+  "seed": 20261107,
+  "memorization": {
+    "rows": 64,
+    "financial_pairs": 16,
+    "other_tasks": "Four examples for each of eight other core tasks",
+    "arms": [
+      "mem_code_lr2e-5",
+      "mem_code_lr1e-4",
+      "mem_sft_lr1e-4"
+    ],
+    "max_updates_per_arm": 192,
+    "evaluate_every": 32,
+    "learning_rate_schedule": "constant after eight warmup steps",
+    "success": "At least97% training-set tie-aware accuracy, at least90% financial pairs both correct; native SFT additionally at least95% unconstrained top-one answer tokens in the supplied candidate codes",
+    "pilot_gate": "Proceed if either higher-LR code or native SFT arm passes. Otherwise finish with blocked_memorization, preserve all results and stop GPU."
+  },
+  "pilot": {
+    "training_rows": 3072,
+    "development_rows": 768,
+    "controls": "144 candidate permutations,144 anonymous candidate mappings,16 financial predicate reversals; evaluation only",
+    "arms": [
+      "pilot_code_logk_lr2e-5",
+      "pilot_code_plain_lr2e-5",
+      "pilot_code_logk_lr1e-4",
+      "pilot_code_plain_lr1e-4",
+      "pilot_native_sft_lr2e-5",
+      "pilot_native_sft_lr1e-4"
+    ],
+    "max_updates_per_arm": 384,
+    "evaluate_every": 128,
+    "learning_rate_schedule": "32-step warmup then cosine decay to10% of peak",
+    "training_order": "Identical fixed shuffled example order, effective batch8, deterministic choice-order permutations with correctly preserved semantic references",
+    "evaluation": "Initial and scheduled development metrics, financial AUC/pair discrimination, routing utility versus training-only fixed router, native safety misses/false blocks; selected-checkpoint label-binding controls",
+    "checkpoint_selection": "Keep highest development aggregate for each arm for controlled reporting, but do not declare a deployable winner by aggregate alone",
+    "acceptance_diagnostics": {
+      "financial_auc_min": 0.7,
+      "financial_pair_both_correct_min": 0.5,
+      "routing_costaware_beats_training_fixed_router": true,
+      "safety": "Report false blocks and unsafe recall separately; no acceptance from accuracy alone"
+    },
+    "calibration": "None; temperature1 throughout"
+  },
+  "shared_training": {
+    "initialization": "Fresh pinned base for every arm; no phase4 checkpoint continuation; reset LoRA initialization RNG immediately before attaching adapters",
+    "precision": "BF16 frozen base, FP32 LoRA; code head FP32 as in phase4; native SFT retains native BF16 frozen LM head",
+    "lora": {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "targets": "Language attention/MLP projections only"
+    },
+    "micro_batch": 1,
+    "effective_batch": 8,
+    "gradient_clip": 1.0,
+    "weight_decay": 0.01,
+    "code_head_learning_rate": "2.5 times backbone rate, preserving phase4 ratio",
+    "native_sft": "Native full-vocabulary next-token loss for the single answer-code completion; native LM head frozen as in standard LoRA. Set-aware extension accepts all native routing ties. No reasoning tokens or EOS are supervised in this classification baseline.",
+    "candidate_loss": "logsumexp over allowed codes minus logsumexp accepted codes; logk variant additionally divides by log(candidate count)",
+    "native_sft_loss": "logsumexp over full native vocabulary minus logsumexp accepted answer-code tokens; equivalent to one-token completion-only causal LM CE for singleton references",
+    "task_weights": "Pilot only: equal domains and equal tasks per domain using inverse training-count weights, identical across arms",
+    "memorization_weights": "No domain/task weights or logk normalization; fixed candidate order",
+    "max_input_tokens": 8192,
+    "truncation": false,
+    "attention": "Native causal SDPA; TF32 disabled; cuDNN SDPA disabled"
+  },
+  "persistence": "Private HF checkpoints, optimizer/RNG and per-case development records; GitHub code/manifests/aggregates. Raw contexts transferred directly to owned Colab, not published.",
+  "resources": {
+    "colab_gpu": "G4",
+    "max_gpu_hours": 4,
+    "max_recoveries_after_confirmed_runtime_deletion": 1
+  },
+  "claim_scope": "These are training and development diagnostics. Phase4 core/transfer test cases are not loaded. A future superiority claim needs a separately sealed disjoint test after recipe selection."
+}

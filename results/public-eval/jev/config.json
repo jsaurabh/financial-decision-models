@@ -1,0 +1,7 @@
+{
+  "model": "jev-latest",
+  "manifest_sha256": "20f55a9d8389835e6307194e48194b5a384c5e1484ff1af9ec2b20bc27a2faea",
+  "max_choices": 11,
+  "request": "state/question only; reference and outcome metadata never sent",
+  "temperature": "native provider output"
+}
