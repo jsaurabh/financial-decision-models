@@ -108,3 +108,23 @@ def test_peft_training_can_learn_state_and_survive_save_load(tmp_path, monkeypat
                    if 'lora_B' in n)
     finally:
         torch.set_num_threads(previous_threads)
+
+
+def test_one_token_native_completion_loss_matches_teacher_forced_causal_lm():
+    from finance_decisions.recipe_audit_train import accepted_loss
+    native, _ = tiny_conditional()
+    native.eval()
+    prefix = torch.tensor([[3, 7, 8]])
+    completion = torch.tensor([[2]])
+    combined = torch.cat([prefix, completion], dim=1)
+    supervised = torch.full_like(combined, -100)
+    supervised[:, -1] = completion[:, 0]
+    with torch.inference_mode():
+        reference = native(input_ids=combined, attention_mask=torch.ones_like(combined),
+                           labels=supervised, use_cache=False).loss
+        next_token = native(input_ids=prefix, attention_mask=torch.ones_like(prefix),
+                            logits_to_keep=1, use_cache=False).logits[:, -1]
+        actual = accepted_loss(next_token, [2])
+    assert torch.allclose(actual, reference, atol=1e-6)
+    tied = accepted_loss(next_token, [1, 2])
+    assert tied <= actual
