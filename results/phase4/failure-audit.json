@@ -1,0 +1,222 @@
+{
+  "status": "posthoc_failure_diagnostics",
+  "manifest_sha256": "50b2c6cabb626b6f862ba61da231ac8e51cc3725beee51eaae43df25fe931fe1",
+  "comparison_sha256": "6dd8c9af4db6903dee70eae3310dab31b45da8411446eec119edae3e4c5e0416",
+  "artifact": {
+    "repo": "jsaurabh/financial-decision-phase4-gemma",
+    "revision": "e79d95e65c921a6def7eedbf6882883d92afe9ff",
+    "path": "run/release",
+    "manifest_sha256": "50b2c6cabb626b6f862ba61da231ac8e51cc3725beee51eaae43df25fe931fe1",
+    "training_summary_sha256": "f19b7c8319cceb5d6863abb807e681f17f7c264a7557739e19ff87d2e61a27f3"
+  },
+  "exposure_policy": "These completed benchmark results now inform development. Preserve original receipts; subsequent scores on these cases are regression evidence, not a new untouched confirmation.",
+  "financial": {
+    "financial_verification": {
+      "gemma": {
+        "requested_pairs": 300,
+        "valid_pairs": 300,
+        "same_prediction_pairs": 257,
+        "both_correct_pairs": 31,
+        "both_wrong_pairs": 12,
+        "predicted_labels": {
+          "false": 535,
+          "true": 65
+        },
+        "positive_fraction_valid": 0.5,
+        "roc_auc_valid": 0.5374555555555556,
+        "average_precision_valid": 0.5542188497078818,
+        "thresholds_selected_on_these_cases": false
+      },
+      "jev": {
+        "requested_pairs": 300,
+        "valid_pairs": 300,
+        "same_prediction_pairs": 47,
+        "both_correct_pairs": 251,
+        "both_wrong_pairs": 2,
+        "predicted_labels": {
+          "true": 307,
+          "false": 293
+        },
+        "positive_fraction_valid": 0.5,
+        "roc_auc_valid": 0.9709833333333334,
+        "average_precision_valid": 0.977462602115119,
+        "thresholds_selected_on_these_cases": false
+      }
+    },
+    "transfer/finqa_verification": {
+      "gemma": {
+        "requested_pairs": 180,
+        "valid_pairs": 180,
+        "same_prediction_pairs": 159,
+        "both_correct_pairs": 14,
+        "both_wrong_pairs": 7,
+        "predicted_labels": {
+          "false": 319,
+          "true": 41
+        },
+        "positive_fraction_valid": 0.5,
+        "roc_auc_valid": 0.5140277777777779,
+        "average_precision_valid": 0.5537209294751777,
+        "thresholds_selected_on_these_cases": false
+      },
+      "jev": {
+        "requested_pairs": 180,
+        "valid_pairs": 180,
+        "same_prediction_pairs": 33,
+        "both_correct_pairs": 147,
+        "both_wrong_pairs": 0,
+        "predicted_labels": {
+          "true": 177,
+          "false": 183
+        },
+        "positive_fraction_valid": 0.5,
+        "roc_auc_valid": 0.9539969135802471,
+        "average_precision_valid": 0.9625896864258581,
+        "thresholds_selected_on_these_cases": false
+      }
+    }
+  },
+  "financial_training_labels": {
+    "false": 2500,
+    "true": 2500
+  },
+  "tracesafe_binary": {
+    "gemma": {
+      "requested": 260,
+      "valid": 229,
+      "predicted_labels": {
+        "false": 228,
+        "true": 1
+      },
+      "valid_risky_cases": 213,
+      "risky_cases_detected": 1,
+      "gemma_token_length_bins": {
+        "2049-4096": {
+          "requested": 39,
+          "valid": 39,
+          "correct": 3
+        },
+        "4097-8192": {
+          "requested": 190,
+          "valid": 190,
+          "correct": 14
+        },
+        "8193-above": {
+          "requested": 31,
+          "valid": 0,
+          "correct": 0
+        }
+      }
+    },
+    "jev": {
+      "requested": 260,
+      "valid": 254,
+      "predicted_labels": {
+        "true": 154,
+        "false": 100
+      },
+      "valid_risky_cases": 237,
+      "risky_cases_detected": 147,
+      "gemma_token_length_bins": {
+        "2049-4096": {
+          "requested": 39,
+          "valid": 39,
+          "correct": 22
+        },
+        "4097-8192": {
+          "requested": 190,
+          "valid": 190,
+          "correct": 113
+        },
+        "8193-above": {
+          "requested": 31,
+          "valid": 25,
+          "correct": 22
+        }
+      }
+    }
+  },
+  "routing": {
+    "routing_quality": {
+      "gemma": {
+        "quality": 0.7636363636363637,
+        "cost_usd": 0.004492941263636358,
+        "utility": 0.7636363636363637,
+        "oracle_regret": 0.15397727272727274
+      },
+      "jev": {
+        "quality": 0.7710227272727272,
+        "cost_usd": 0.005111181818181814,
+        "utility": 0.7710227272727272,
+        "oracle_regret": 0.14659090909090908
+      },
+      "fixed_model_chosen_from_training": {
+        "quality": 0.7710227272727272,
+        "cost_usd": 0.005111181818181814,
+        "utility": 0.7710227272727272
+      },
+      "prediction_counts": {
+        "gemma": {
+          "gpt-4-1106-preview": 357,
+          "claude-v1": 70,
+          "claude-v2": 8,
+          "mistralai/mixtral-8x7b-chat": 1,
+          "meta/code-llama-instruct-34b-chat": 1,
+          "zero-one-ai/Yi-34B-Chat": 1,
+          "mistralai/mistral-7b-chat": 1,
+          "WizardLM/WizardLM-13B-V1.2": 1
+        },
+        "jev": {
+          "gpt-4-1106-preview": 440
+        }
+      }
+    },
+    "routing_costaware": {
+      "gemma": {
+        "quality": 0.4034090909090909,
+        "cost_usd": 0.00016731694545454558,
+        "utility": 0.40173592145454534,
+        "oracle_regret": 0.4992807524545456
+      },
+      "jev": {
+        "quality": 0.6232954545454545,
+        "cost_usd": 0.00033933909090909104,
+        "utility": 0.6199020636363632,
+        "oracle_regret": 0.2811146102727276
+      },
+      "fixed_model_chosen_from_training": {
+        "quality": 0.7670454545454546,
+        "cost_usd": 0.005261295454545451,
+        "utility": 0.7144324999999992
+      },
+      "prediction_counts": {
+        "gemma": {
+          "mistralai/mistral-7b-chat": 304,
+          "meta/llama-2-70b-chat": 2,
+          "WizardLM/WizardLM-13B-V1.2": 120,
+          "mistralai/mixtral-8x7b-chat": 5,
+          "claude-v1": 3,
+          "claude-v2": 2,
+          "claude-instant-v1": 2,
+          "zero-one-ai/Yi-34B-Chat": 1,
+          "meta/code-llama-instruct-34b-chat": 1
+        },
+        "jev": {
+          "zero-one-ai/Yi-34B-Chat": 435,
+          "mistralai/mistral-7b-chat": 5
+        }
+      }
+    }
+  },
+  "safety_tradeoffs": {
+    "gemma": {
+      "unsafe_or_review_recall": 0.9555555555555556,
+      "safe_false_block_rate": 0.2076923076923077
+    },
+    "jev": {
+      "unsafe_or_review_recall": 0.46111111111111114,
+      "safe_false_block_rate": 0.023076923076923078
+    }
+  },
+  "causal_conclusion": "Observed prediction collapse and capability gaps. This audit alone does not distinguish backbone limits, answer-code binding, training objectives, multi-task interference, or dataset adaptation errors."
+}
