@@ -71,6 +71,9 @@ class DecisionModel(nn.Module):
     def load(cls, path, device='cpu', dtype=torch.bfloat16):
         path = Path(path)
         cfg = json.loads((path / 'decision_config.json').read_text())
+        if cfg.get('architecture') == 'native-chat-code-readout':
+            from .code_model import CodeDecisionModel
+            return CodeDecisionModel.load(path, device=device, dtype=dtype)
         if cfg['encoder']:
             backbone = AutoModel.from_pretrained(path / 'backbone', dtype=dtype)
         elif cfg['merged']:

@@ -61,7 +61,7 @@ def system_metrics(rows,predictions):
     result['selective_valid_only']={str(t):{'coverage_of_valid':float((confidence>=t).mean()),'accuracy':float(correct[confidence>=t].mean()) if (confidence>=t).any() else None} for t in [.7,.8,.9,.95]}
     return result
 
-def routing(rows,g,j,reps=10000):
+def routing(rows,g,j,reps=10000,seed=SEED):
     pairs=[r for r in rows if g.get(r['id'],{}).get('status')==j.get(r['id'],{}).get('status')=='ok']
     result={'requested':len(rows),'common_valid':len(pairs),'coverage':len(pairs)/len(rows)}
     if not pairs:return result
@@ -73,7 +73,7 @@ def routing(rows,g,j,reps=10000):
             o=outcomes[pred[row['id']]['prediction']];utility=o['quality']-penalty*o['cost_usd']
             for key,value in [('quality',o['quality']),('cost_usd',o['cost_usd']),('utility',utility),('oracle_regret',max(0,oracle-utility))]:values[name][key].append(value)
     result['common_valid_means']={name:{key:float(np.mean(v)) for key,v in metrics.items()} for name,metrics in values.items()}
-    result['paired_differences']={key:paired_cluster(pairs,np.array(values['gemma'][key])-values['jev'][key],reps=reps) for key in values['gemma']}
+    result['paired_differences']={key:paired_cluster(pairs,np.array(values['gemma'][key])-values['jev'][key],reps=reps,seed=seed) for key in values['gemma']}
     result['note']='Restricted three-model historical cached replay. Missing routing decisions are excluded from cost/utility, never counted as zero-cost successes.'
     return result
 

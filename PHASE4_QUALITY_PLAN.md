@@ -1,6 +1,6 @@
 # Quality recovery after independent evaluation
 
-Status: evidence-backed design, not a launched training run. CPU optimization remains deferred. The completed pre-TraceSafe independent cohort and the prospectively sealed TraceSafe addendum remain unchanged. Finish both existing evaluators and preserve their full outputs, including failures.
+Status: the user subsequently authorized aligned train/validation/test slices and a separately reported transfer suite. Execution now follows [PHASE4_TRAINING_PROTOCOL.md](PHASE4_TRAINING_PROTOCOL.md), which supersedes the earlier source-reservation and diagnostic-only execution scope below. CPU optimization remains deferred. Preserve the completed earlier evaluations and their full outputs, including failures.
 
 ## What the evidence says
 

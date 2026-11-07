@@ -1,0 +1,4 @@
+-r requirements-gemma-eval.txt
+flash-linear-attention==0.5.2
+datasketch==1.6.5
+pyahocorasick==2.1.0
